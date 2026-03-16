@@ -1,0 +1,508 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><link rel="icon" href="/favicon.ico"></head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Decarb Green Systems Architecture  Version: Z</title>
+<link href="css/ea.css" rel="stylesheet" type="text/css" />
+<script language="JavaScript" src="#JS#" type="text/javascript"></script>
+
+<script>
+  (function() {
+      var links = document.getElementsByTagName('link');
+      var rootPath = "";
+      for (var i = 0; i < links.length; i++) {
+          if (links[i].href.indexOf('ea.css') > -1) {
+              var cssPath = links[i].getAttribute('href');
+              rootPath = cssPath.substring(0, cssPath.lastIndexOf('css/'));
+              break;
+          }
+      }
+      var script = document.createElement('script');
+      script.src = rootPath + "js/search_index.js"; 
+      script.onerror = function() { console.warn("Index missing. Run build_search.ps1"); };
+      document.head.appendChild(script);
+  })();
+</script>
+
+<script>
+    // ----------------------------------------------------------------
+    // 1. STANDARD EA FUNCTIONS
+    // ----------------------------------------------------------------
+    function switchProjectProperties() {
+        var ids = ["proj00", "proj01", "proj02", "proj03", "proj04", "proj05"];
+        var display = document.getElementById("proj00").style.display == "none" ? "revert" : "none";
+        ids.forEach(function(id) {
+            var el = document.getElementById(id);
+            if (el) el.style.display = display;
+        });
+    }
+
+    function switchAdvancedProperties() {
+        var ids = ["adv00", "adv01"];
+        var display = document.getElementById("adv00").style.display == "none" ? "revert" : "none";
+        ids.forEach(function(id) {
+            var el = document.getElementById(id);
+            if (el) el.style.display = display;
+        });
+    }
+
+    function initPage() {
+        var divs = document.getElementsByClassName("ObjectDetailsNotes");
+        for (var j = 0; j < divs.length; j++) {
+            var tmpStr = divs[j].innerHTML;
+            tmpStr = tmpStr.replace(/#gt;/g, "&gt;");
+            tmpStr = tmpStr.replace(/#lt;/g, "&lt;");
+            tmpStr = tmpStr.replace(/&gt;/g, ">");
+            tmpStr = tmpStr.replace(/&lt;/g, "<");
+            divs[j].innerHTML = tmpStr;
+        }
+        if (document.getElementById('TableGroup') != null) {
+            toggleItem(document.getElementById('TableGroup').getElementsByTagName('li')[0].id.replace("Title", ""));
+        }
+    }
+
+    // ----------------------------------------------------------------
+    // 2. ZOOM LOGIC
+    // ----------------------------------------------------------------
+    function resizeMapCoordinates() {
+        const img = document.querySelector('.diagram_image img');
+        const mapAreas = document.querySelectorAll('area');
+        if (!img || mapAreas.length === 0) return;
+        if (img.naturalWidth === 0) { setTimeout(resizeMapCoordinates, 100); return; }
+
+        if (!img.hasAttribute('data-original-width')) {
+            img.setAttribute('data-original-width', img.naturalWidth);
+            img.setAttribute('data-original-height', img.naturalHeight);
+            mapAreas.forEach(area => {
+                area.setAttribute('data-original-coords', area.getAttribute('coords'));
+            });
+        }
+
+        const scale = img.clientWidth / parseFloat(img.getAttribute('data-original-width'));
+
+        mapAreas.forEach(area => {
+            const originalCoords = area.getAttribute('data-original-coords').split(',').map(Number);
+            const scaledCoords = originalCoords.map(coord => Math.round(coord * scale));
+            area.setAttribute('coords', scaledCoords.join(','));
+        });
+    }
+
+    var currentZoom = 100; 
+
+function zoomDiagram(direction) {
+    const img = document.querySelector('.diagram_image img');
+    if (!img) return;
+    
+    if (direction === 'in') currentZoom += 10;
+    if (direction === 'out') currentZoom = Math.max(10, currentZoom - 10);
+    if (direction === 'reset') currentZoom = 100;
+    
+    const newWidthPx = img.naturalWidth * (currentZoom / 100);
+    img.style.setProperty('width', newWidthPx + 'px', 'important');
+    img.style.setProperty('height', 'auto', 'important');
+    img.style.setProperty('max-width', 'none', 'important');
+    
+    // 1. Update the image map areas first
+    resizeMapCoordinates();
+
+    // 2. Clear the old highlight immediately so it doesn't "ghost" while zooming
+    const oldBox = document.getElementById('ea-highlight-box');
+    if (oldBox) oldBox.remove();
+
+    // 3. Wait for the browser to finish the resize animation/layout (150ms)
+    // then re-draw and re-center the scroll
+    setTimeout(() => {
+        applyHighlight();
+    }, 150); 
+}
+
+
+    // ----------------------------------------------------------------
+    // 3. INTERCEPT DIAGRAM CLICKS (Smart Redirect + Tooltip)
+    // ----------------------------------------------------------------
+    function interceptDiagramClicks() {
+        const areas = document.querySelectorAll('area');
+        if (areas.length === 0) return;
+
+        // Setup Tooltip
+        var tooltip = document.getElementById('custom-tooltip');
+        if (!tooltip) {
+            tooltip = document.createElement('div');
+            tooltip.id = 'custom-tooltip';
+            document.body.appendChild(tooltip);
+        }
+
+        // Calculate Root Path
+        var links = document.getElementsByTagName('link');
+        var rootPath = "";
+        for (var i = 0; i < links.length; i++) {
+            if (links[i].href.indexOf('ea.css') > -1) {
+                rootPath = links[i].getAttribute('href').replace('css/ea.css', '');
+                break;
+            }
+        }
+
+        // Helper: Get Target Info
+function getTargetInfo(areaElement) {
+    var targetName = "";
+    var isRedirect = false;
+    var finalLink = areaElement.href;
+
+    var filename = areaElement.href.substring(areaElement.href.lastIndexOf('/') + 1);
+
+    if (typeof diagramLookup !== 'undefined') {
+        if (diagramLookup[filename]) targetName = diagramLookup[filename];
+    }
+    if (!targetName) {
+        var title = areaElement.getAttribute('data-original-title') || areaElement.getAttribute('title') || "";
+        if (title.includes(':')) targetName = title.split(':')[0].trim();
+        else targetName = title;
+    }
+    if (!targetName && typeof globalSearchData !== 'undefined') {
+        var filenameNoExt = filename.replace('.htm', '').toLowerCase();
+        var fallbackMatch = globalSearchData.find(item => {
+            var itemFile = item.link.substring(item.link.lastIndexOf('/') + 1).replace('.htm', '').toLowerCase();
+            return itemFile === filenameNoExt;
+        });
+        if (fallbackMatch) targetName = fallbackMatch.name;
+    }
+
+    if (targetName && typeof diagramLookup !== 'undefined') {
+        for (var diagramFile in diagramLookup) {
+            if (diagramLookup[diagramFile] === targetName) {
+                isRedirect = true;
+                if (typeof globalSearchData !== 'undefined') {
+                    var redirectMatch = globalSearchData.find(item => item.name === targetName);
+                    if (redirectMatch) finalLink = rootPath + redirectMatch.link;
+                }
+                break;
+            }
+        }
+    }
+
+    return { name: targetName, isRedirect: isRedirect, link: finalLink };
+}
+
+        areas.forEach(area => {
+            // Backup native title
+            var nativeTitle = area.getAttribute('title');
+            if (nativeTitle) {
+                area.setAttribute('data-original-title', nativeTitle);
+                area.removeAttribute('title');
+            }
+
+            // A. MOUSE ENTER: Show Tooltip Once
+          area.addEventListener('mouseenter', function(e) {
+    var info = getTargetInfo(this);
+    if (!info.name) return;
+
+    if (info.isRedirect) {
+        tooltip.innerHTML = '<strong>' + info.name + '</strong><br>' + 
+                          '<span class="tooltip-hint">Click: Specification &bull; Ctrl+Click: Diagram</span>';
+    } else {
+        tooltip.innerHTML = '<strong>' + info.name + '</strong><br>' + 
+                          '<span class="tooltip-hint">Click: Specification</span>';
+    }
+
+                tooltip.style.left = (e.pageX + 15) + 'px';
+                tooltip.style.top = (e.pageY + 15) + 'px';
+                tooltip.style.display = 'block';
+            });
+
+            // B. MOUSE LEAVE: Hide Tooltip
+            area.addEventListener('mouseleave', function() {
+                tooltip.style.display = 'none';
+            });
+
+            // C. CLICK: Navigation Logic
+            area.addEventListener('click', function(e) {
+                if (!this.href.includes('.htm')) return;
+
+                // Ctrl+Click = Force Diagram (Current Tab)
+                if (e.ctrlKey || e.metaKey) { 
+                    e.preventDefault();
+                    window.location.href = this.href; 
+                    return;
+                }
+
+                // Normal Click = Try Redirect
+                var info = getTargetInfo(this);
+                if (info.isRedirect) {
+                    e.preventDefault();
+                    window.location.href = info.link;
+                }
+            });
+        });
+    }
+
+    // ----------------------------------------------------------------
+    // 4. CLEANUP (Sort + Filter Prefixes + Hide Archives)
+    // ----------------------------------------------------------------
+    function sortTreeview() {
+        const treeList = document.querySelector('.indexcell ul');
+        if (!treeList) return;
+        const listItems = Array.from(treeList.children);
+        listItems.sort((a, b) => {
+            const isFolder = (li) => {
+                const img = li.querySelector('img');
+                return img && img.getAttribute('alt') === 'Package';
+            };
+            const aIsFolder = isFolder(a);
+            const bIsFolder = isFolder(b);
+            if (aIsFolder && !bIsFolder) return -1; 
+            if (!aIsFolder && bIsFolder) return 1;
+            const aLink = a.querySelector('a');
+            const bLink = b.querySelector('a');
+            if (!aLink || !bLink) return 0;
+            return aLink.innerText.toLowerCase().localeCompare(bLink.innerText.toLowerCase());
+        });
+        listItems.forEach(item => treeList.appendChild(item));
+    }
+
+    function cleanTreeview() {
+        // A. Filter Sidebar Prefixes
+        const treeList = document.querySelector('.indexcell ul');
+        if (treeList) {
+            const listItems = treeList.querySelectorAll('li');
+            const prefixesToHide = ["Program:", "System:", "Project:", "Subsystem:", "Function:"];
+            listItems.forEach(li => {
+                const text = li.innerText.trim();
+                const shouldHide = prefixesToHide.some(prefix => text.startsWith(prefix));
+                if (shouldHide) li.style.display = 'none';
+            });
+        }
+
+        // B. Hide Archive (Appears In)
+        const appearsInRow = document.getElementById('adv01');
+        if (appearsInRow) {
+            const valueCell = appearsInRow.getElementsByTagName('td')[1]; 
+            if (valueCell) {
+                const items = valueCell.innerHTML.split(/,\s*/);
+                const linkedItemsOnly = items.filter(item => item.toLowerCase().includes('<a href'));
+                if (linkedItemsOnly.length === 0) {
+                    appearsInRow.style.display = 'none';
+                } else {
+                    valueCell.innerHTML = linkedItemsOnly.join(', ');
+                }
+            }
+        }
+
+        // C. Hide Archive (Relationships)
+        const linkDiv = document.querySelector('#LinksTable') || 
+                        document.querySelector('#TableGroup .ItemBody:last-child table');
+        if (linkDiv) {
+            const rows = linkDiv.querySelectorAll('tr');
+            rows.forEach(row => {
+                if (row.querySelector('th')) return;
+                const firstCell = row.cells[0];
+                if (firstCell && !firstCell.innerHTML.toLowerCase().includes('<a href')) {
+                    row.style.display = 'none';
+                }
+            });
+        }
+    }
+
+    // ----------------------------------------------------------------
+    // 5. GLOBAL SEARCH FUNCTION
+    // ----------------------------------------------------------------
+    function performGlobalSearch() {
+        const input = document.getElementById('sidebarSearch');
+        const query = input.value.toLowerCase().trim();
+        const resultsContainer = document.getElementById('searchResults');
+        const originalTree = document.getElementById('originalTree');
+
+        if (!query) {
+            resultsContainer.style.display = 'none';
+            originalTree.style.display = 'block';
+            return;
+        }
+
+        originalTree.style.display = 'none';
+        resultsContainer.style.display = 'block';
+        resultsContainer.innerHTML = '';
+
+        if (typeof globalSearchData === 'undefined') {
+            resultsContainer.innerHTML = '<div style="padding:10px; color:red; font-size:12px;">Index missing.<br>Run build_search.ps1</div>';
+            return;
+        }
+
+        const cssLink = document.querySelector('link[href*="ea.css"]');
+        let rootPath = "";
+        if (cssLink) {
+             const cssPath = cssLink.getAttribute('href');
+             rootPath = cssPath.substring(0, cssPath.lastIndexOf('css/'));
+        }
+
+        const matches = globalSearchData.filter(item => item.name.toLowerCase().includes(query));
+
+        if (matches.length === 0) {
+            resultsContainer.innerHTML = '<div style="padding:10px; color:#666; font-size:12px;">No results found.</div>';
+            return;
+        }
+
+        const limit = matches.slice(0, 50);
+
+        limit.forEach(item => {
+            const div = document.createElement('div');
+            div.className = "search-result-item";
+            const link = document.createElement('a');
+            link.href = rootPath + item.link;
+            link.innerText = item.name;
+            link.onclick = function(e) {
+                 e.preventDefault();
+                 window.location.href = this.href;
+            };
+            div.appendChild(link);
+            resultsContainer.appendChild(div);
+        });
+    }
+
+    // ----------------------------------------------------------------
+    // 6. INITIALIZATION
+    // ----------------------------------------------------------------
+    function simplifyHeaderTitle() {
+        const h1 = document.querySelector('.header_frame h1');
+        if (!h1) return;
+        let text = h1.textContent.trim();
+        if (text.includes('::')) text = text.split('::').pop().trim();
+        text = text.replace(/\s*:\s*Public\s*(?:<<.*?>>\s*)?.*$/i, '').trim();
+        h1.textContent = text;
+    }
+function offsetContentForHeader() {
+    const header = document.querySelector('.header_frame');
+    const content = document.querySelector('.section.group');
+
+    if (!header || !content) return;
+
+    const headerHeight = header.offsetHeight;
+    content.style.paddingTop = headerHeight + 'px';
+}
+
+window.addEventListener('load', offsetContentForHeader);
+window.addEventListener('resize', offsetContentForHeader);
+    window.addEventListener('load', () => {
+        initPage();
+        resizeMapCoordinates();
+        window.addEventListener('resize', resizeMapCoordinates);
+        sortTreeview();
+        cleanTreeview(); // Prefixes & Archives
+        interceptDiagramClicks();
+
+        simplifyHeaderTitle(); // <-- cleans header text
+
+        // Netlify Navigation Fix
+        const navLinks = document.querySelectorAll(
+            'a[href^="./"], a[href^="../"], a[href$=".htm"], a[href$=".html"]'
+        );
+        navLinks.forEach(link => {
+            const targetUrl = link.getAttribute('href');
+            if (targetUrl && !targetUrl.includes('//') && targetUrl.indexOf('javascript:') === -1) {
+                link.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    window.location.href = targetUrl;
+                });
+            }
+        });
+
+        // Breadcrumb Home Fix
+        const breadcrumbRoot = document.querySelector('.breadcrumb_frame p a');
+        const cssLink = document.querySelector('link[href*="ea.css"]');
+        if (breadcrumbRoot && cssLink) {
+            const cssPath = cssLink.getAttribute('href');
+            const rootPath = cssPath.substring(0, cssPath.lastIndexOf('css/'));
+            const targetIndex = rootPath + "index.htm";
+            breadcrumbRoot.href = targetIndex; 
+            breadcrumbRoot.target = "_top"; 
+            breadcrumbRoot.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.top.location.href = targetIndex;
+            });
+        }
+// ----------------------------------------------------------------
+// LEGEND SWITCHING (SBS Special Case)
+// ----------------------------------------------------------------
+(function() {
+    const legendImg = document.getElementById('legend-image');
+    const legendBox = document.getElementById('legend-sidebar');
+    if (!legendImg || !legendBox) return;
+
+    const header = document.querySelector('.header_frame h1');
+    if (!header) return;
+
+    const pageTitle = header.textContent.trim().toLowerCase();
+
+    if (pageTitle.includes('system breakdown structure')) {
+        legendImg.src = legendImg.src.replace('legend.svg', 'legendsbs.svg');
+        legendBox.style.width = '260px';   // Smaller width for SBS
+    } else {
+        legendBox.style.width = '280px';   // Default width
+    }
+})();
+        // ----------------------------------------------------------------
+        // 8. SHORTCUTS (Keyboard & Mouse Zoom)
+        // ----------------------------------------------------------------
+        (function() {
+            // Keyboard shortcuts
+            document.addEventListener('keydown', function(e) {
+                if (e.ctrlKey) {
+                    if (e.key === '+' || e.key === '=' || e.code === 'NumpadAdd') {
+                        e.preventDefault(); zoomDiagram('in');
+                    } else if (e.key === '-' || e.code === 'NumpadSubtract') {
+                        e.preventDefault(); zoomDiagram('out');
+                    } else if (e.key === '0' || e.code === 'Numpad0') {
+                        e.preventDefault(); zoomDiagram('reset');
+                    }
+                }
+            });
+
+            // Mouse wheel zoom
+            document.addEventListener('wheel', function(e) {
+                if (e.ctrlKey) {
+                    e.preventDefault(); 
+                    if (e.deltaY < 0) zoomDiagram('in');
+                    else zoomDiagram('out');
+                }
+            }, { passive: false });
+        })();
+    });
+</script>
+
+
+</head>
+<body onload=""> 
+<div class="section group" >
+
+		<div class="col span_2_of_2 header_frame">
+			<h1> Decarb Green Systems Architecture  Version: Z </h1>
+			<img class="header_image" src="#HEADER_IMAGE#" align="right" alt="Header Image" />
+		</div>
+		<div class="col span_2_of_2 breadcrumb_frame">
+			<p>#BREAD_CRUMB#</p>
+		</div>
+			
+		<table class="contentmaintable">
+			<tbody>
+				<tr>
+					<td class="indexcell">
+						<div class="projectBrowserTitle"></div>
+                        
+                        <div class="sidebar-search-container">
+                            <input type="text" id="sidebarSearch" onkeyup="performGlobalSearch()" placeholder="Search model...">
+                        </div>
+
+                        <div id="searchResults"></div>
+
+                        <div id="originalTree">
+						    #INDEX#
+                        </div>
+					</td>
+					<td class="contentcell">
+                         
+                    </td>
+				</tr>
+			</tbody>
+		</table>
+		
+</div>
+</body>
+</html>

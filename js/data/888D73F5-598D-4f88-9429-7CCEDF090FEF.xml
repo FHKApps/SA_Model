@@ -1,0 +1,15 @@
+tocTab[tocTab.length] = new Array("0.3.4:1", "", "Asset Health", "EARoot/EA3/EA4/EA557.htm", "6.png", "E1455", "0", "", "Actor0","{CEA6C921-2FF7-48bf-8B6D-3F038E4C8CC7}");
+tocTab[tocTab.length] = new Array("0.3.4:2", "", "Decarbonisation Delivery", "EARoot/EA3/EA4/EA558.htm", "6.png", "E1533", "0", "", "Actor0","{395317AE-B1D6-4e33-AABE-E8E1D46124FC}");
+tocTab[tocTab.length] = new Array("0.3.4:3", "", "Decarbonisation Site Infrastructure Projects", "EARoot/EA3/EA4/EA559.htm", "6.png", "E1534", "0", "", "Actor0","{B59D529A-03E1-44c3-BAAA-CA015500D9CC}");
+tocTab[tocTab.length] = new Array("0.3.4:4", "", "Energy Operations (HIVE)", "EARoot/EA3/EA4/EA560.htm", "6.png", "E1441", "0", "", "Actor0","{965C86F1-8980-4706-98BE-9B2792B073B4}");
+tocTab[tocTab.length] = new Array("0.3.4:5", "", "ESO", "EARoot/EA3/EA4/EA561.htm", "6.png", "E1509", "0", "", "Actor0","{D259A973-2B3E-4a07-8A0B-0C1BC2C2215F}");
+tocTab[tocTab.length] = new Array("0.3.4:6", "", "HIVE", "EARoot/EA3/EA4/EA562.htm", "6.png", "E1445", "0", "", "Actor0","{14878544-C650-48fb-B6E2-167B6D2AB14E}");
+tocTab[tocTab.length] = new Array("0.3.4:7", "", "Integrated Planning", "EARoot/EA3/EA4/EA563.htm", "6.png", "E1462", "0", "", "Actor0","{4FD2EF59-7926-49cf-BFA0-B94B2D7D42CB}");
+tocTab[tocTab.length] = new Array("0.3.4:8", "", "Mine Services", "EARoot/EA3/EA4/EA564.htm", "6.png", "E1434", "0", "", "Actor0","{A9E792F6-2F50-4893-BE74-F00506958A51}");
+tocTab[tocTab.length] = new Array("0.3.4:9", "", "Mine Services Process Control", "EARoot/EA3/EA4/EA565.htm", "6.png", "E1424", "0", "", "Actor0","{43416206-8E46-4a94-9DF2-3CDB169EDBCE}");
+tocTab[tocTab.length] = new Array("0.3.4:10", "", "Mining Operations", "EARoot/EA3/EA4/EA566.htm", "6.png", "E1443", "0", "", "Actor0","{8C6075DC-FD99-4695-AA67-4DF7D1FB95AB}");
+tocTab[tocTab.length] = new Array("0.3.4:11", "", "Non-Process Infrastructure (NPI) Maintenance Controller", "EARoot/EA3/EA4/EA567.htm", "6.png", "E1513", "0", "", "Actor0","{CC328732-2E25-42f2-82F6-9F26F9B68D92}");
+tocTab[tocTab.length] = new Array("0.3.4:12", "", "Operations Planning", "EARoot/EA3/EA4/EA568.htm", "6.png", "E1454", "0", "", "Actor0","{9E5982BB-8B54-4f66-B04F-1195D9C57749}");
+tocTab[tocTab.length] = new Array("0.3.4:13", "", "Power Projects", "EARoot/EA3/EA4/EA569.htm", "6.png", "E1459", "0", "", "Actor0","{C3957D4F-6A76-4ebf-9D7B-3F925FCB00C1}");
+tocTab[tocTab.length] = new Array("0.3.4:14", "", "Technical Services", "EARoot/EA3/EA4/EA570.htm", "6.png", "E1474", "0", "", "Actor0","{0624D6A6-8B29-4e84-A42E-7E059A84FF53}");
+tocTab[tocTab.length] = new Array("0.3.4:15", "", ": Mine Services Process Control", "EARoot/EA3/EA4/EA571.htm", "118.png", "E1450", "E1434", "", "Part0","{78754DC2-4F19-435c-A5B7-AAF432A3CD3B}");
