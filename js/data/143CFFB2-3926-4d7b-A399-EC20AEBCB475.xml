@@ -1,6 +1,6 @@
-tocTab[tocTab.length] = new Array("0:1", "", "855DC-1541-DEL Delphi", "EARoot/EA1.htm", "175.png", "265", "0", "", "Logical diagram0","{2E552C2C-00B1-4ef0-9FF2-7E84922D783F}");
-tocTab[tocTab.length] = new Array("0:2", "", "855DC-1541-ECL Eclipse", "EARoot/EA3.htm", "175.png", "263", "0", "", "Logical diagram0","{3E5EE230-8331-45a2-A024-9FAD4BB63DBB}");
-tocTab[tocTab.length] = new Array("0:3", "", "855DC-1541-LIV LiveWire", "EARoot/EA5.htm", "175.png", "264", "0", "", "Logical diagram0","{010BD70F-CF66-4f59-B114-F8BA5022E4D5}");
+tocTab[tocTab.length] = new Array("0:1", "", "855DC-1541-ECL Eclipse", "EARoot/EA1.htm", "175.png", "263", "0", "", "Logical diagram0","{3E5EE230-8331-45a2-A024-9FAD4BB63DBB}");
+tocTab[tocTab.length] = new Array("0:2", "", "855DC-1541-LIV LiveWire", "EARoot/EA3.htm", "175.png", "264", "0", "", "Logical diagram0","{010BD70F-CF66-4f59-B114-F8BA5022E4D5}");
+tocTab[tocTab.length] = new Array("0:3", "", "855DC-1541-DEL Delphi", "EARoot/EA5.htm", "175.png", "265", "0", "", "Logical diagram0","{2E552C2C-00B1-4ef0-9FF2-7E84922D783F}");
 tocTab[tocTab.length] = new Array("0:4", "", "855DC-1542-008 Mine Electrification SCADA", "EARoot/EA7.htm", "175.png", "210", "0", "", "Logical diagram0","{AC57A308-8B69-4165-8EA6-4650B317A83C}");
 tocTab[tocTab.length] = new Array("0:5", "", "855DC-1542-CSM Charge Station Management System (CSMS)", "EARoot/EA9.htm", "175.png", "268", "0", "", "Logical diagram0","{27AE0011-DFC1-49b5-A4A0-1C2A98870E7E}");
 tocTab[tocTab.length] = new Array("0:6", "", "855DC-1542-LMS Load Management System (LMS)", "EARoot/EA11.htm", "175.png", "267", "0", "", "Logical diagram0","{A5C57B11-EAA1-47fc-B0B0-13E9C0D28CC0}");

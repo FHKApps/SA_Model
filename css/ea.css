@@ -69,7 +69,7 @@ H1 {
     font-size: 200%;
     font-weight: normal;
     margin: 0em 0em 0em -20px; 
-    padding-left: 60px;
+    padding-left: 90px;
     padding-top: 16px; 
     color: white;
 }
@@ -570,7 +570,11 @@ UL {
     display: block; 
     margin-top: 0 !important;
     margin-bottom: 0 !important;
-    background-color: #001D44;
+	background-image: url("../images/fhk.png");
+    background-repeat: no-repeat;
+    background-position: 12px center;
+    background-size: auto 50px;
+    background-color: #182E4F;
     box-shadow: 0 3px 10px 0 rgb(0 0 0 / 6%);
     width: 100% !important;
 	z-index: 1000;
@@ -716,11 +720,11 @@ IMG {
     max-width: 800px; 
 }
 .header_image {
-    height: 60px !important;
+    height: 50px !important;
     width: auto !important; 
     position: absolute !important;
-    top: 0 !important; 
-    right: 0 !important; 
+    top: 5px !important; 
+    right: 5px !important; 
     z-index: 10; 
     float: none !important; 
     vertical-align: auto !important; 
@@ -817,7 +821,4 @@ IMG {
     padding-left: 22px;     /* space for icon */
     text-indent: -22px;     /* pull first line back */
     line-height: 1.4;
-}
-.h1-subtitle {
-    white-space: pre-wrap;
 }
