@@ -444,10 +444,11 @@ if (cssLinkDownload) {
     if (pageTitle.includes('system breakdown structure')) {
         legendImg.src = legendImg.src.replace('legend.svg', 'legendsbs.svg');
         legendPanel.style.width = '260px';
-	} else if (pageTitle.includes('requirements')) {
-    legendImg.src = legendImg.src.replace('EARoot/images/legend.svg', 'images/legendreq.svg');
+		} else if (pageTitle.includes('requirements')) {
+    const base = legendImg.src.substring(0, legendImg.src.lastIndexOf('/') + 1);
+    legendImg.src = base + 'legendreq.svg';
     legendPanel.style.width = '280px';
-	} else {
+		} else {
         legendPanel.style.width = '280px';
     }
 })();
