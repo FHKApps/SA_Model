@@ -418,26 +418,40 @@ window.addEventListener('resize', offsetContentForHeader);
                 window.top.location.href = targetIndex;
             });
         }
+		// ----------------------------------------------------------------
+// DOWNLOAD LINK FIX (Interface Register)
+// ----------------------------------------------------------------
+const cssLinkDownload = document.querySelector('link[href*="ea.css"]');
+if (cssLinkDownload) {
+    const cssPathDownload = cssLinkDownload.getAttribute('href');
+    const rootPathDownload = cssPathDownload.substring(0, cssPathDownload.lastIndexOf('css/'));
+
+    const downloadLink = document.querySelector('.download-box a');
+    if (downloadLink) {
+        downloadLink.href = rootPathDownload + "files/Fortescue_Interface-Register_Z.xlsm";
+    }
+}
 // ----------------------------------------------------------------
 // LEGEND SWITCHING (SBS Special Case)
 // ----------------------------------------------------------------
 (function() {
-    const legendImg = document.getElementById('legend-image');
-    const legendBox = document.getElementById('legend-sidebar');
-    if (!legendImg || !legendBox) return;
-
+    const legendImg = document.querySelector('#legend-panel img');
+    const legendPanel = document.getElementById('legend-panel');
+    if (!legendImg || !legendPanel) return;
     const header = document.querySelector('.header_frame h1');
     if (!header) return;
-
     const pageTitle = header.textContent.trim().toLowerCase();
-
     if (pageTitle.includes('system breakdown structure')) {
         legendImg.src = legendImg.src.replace('legend.svg', 'legendsbs.svg');
-        legendBox.style.width = '260px';   // Smaller width for SBS
-    } else {
-        legendBox.style.width = '280px';   // Default width
+        legendPanel.style.width = '260px';
+	} else if (pageTitle.includes('requirements')) {
+    legendImg.src = legendImg.src.replace('EARoot/images/legend.svg', 'images/legendreq.svg');
+    legendPanel.style.width = '280px';
+	} else {
+        legendPanel.style.width = '280px';
     }
 })();
+
         // ----------------------------------------------------------------
         // 8. SHORTCUTS (Keyboard & Mouse Zoom)
         // ----------------------------------------------------------------
@@ -485,6 +499,13 @@ window.addEventListener('resize', offsetContentForHeader);
 				<tr>
 					<td class="indexcell">
 						<div class="projectBrowserTitle"></div>
+						<div class="download-box">
+						<div class="download-box">
+							<a href="files/Fortescue_Interface-Register_Z.xlsm" target="_blank">
+							Interface Register
+							</a>
+						</div>
+						</div>
                         
                         <div class="sidebar-search-container">
                             <input type="text" id="sidebarSearch" onkeyup="performGlobalSearch()" placeholder="Search model...">

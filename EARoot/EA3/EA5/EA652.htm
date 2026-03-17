@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head><link rel="icon" href="/favicon.ico"></head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Interfaces::DGS-I_0080</title>
+<title>DGS-I_0010</title>
 <link href="../../../css/ea.css" rel="stylesheet" type="text/css" />
 <script language="JavaScript" src="../../../js/displayToc.js" type="text/javascript"></script>
 
@@ -418,26 +418,40 @@ window.addEventListener('resize', offsetContentForHeader);
                 window.top.location.href = targetIndex;
             });
         }
+		// ----------------------------------------------------------------
+// DOWNLOAD LINK FIX (Interface Register)
+// ----------------------------------------------------------------
+const cssLinkDownload = document.querySelector('link[href*="ea.css"]');
+if (cssLinkDownload) {
+    const cssPathDownload = cssLinkDownload.getAttribute('href');
+    const rootPathDownload = cssPathDownload.substring(0, cssPathDownload.lastIndexOf('css/'));
+
+    const downloadLink = document.querySelector('.download-box a');
+    if (downloadLink) {
+        downloadLink.href = rootPathDownload + "files/Fortescue_Interface-Register_Z.xlsm";
+    }
+}
 // ----------------------------------------------------------------
 // LEGEND SWITCHING (SBS Special Case)
 // ----------------------------------------------------------------
 (function() {
-    const legendImg = document.getElementById('legend-image');
-    const legendBox = document.getElementById('legend-sidebar');
-    if (!legendImg || !legendBox) return;
-
+    const legendImg = document.querySelector('#legend-panel img');
+    const legendPanel = document.getElementById('legend-panel');
+    if (!legendImg || !legendPanel) return;
     const header = document.querySelector('.header_frame h1');
     if (!header) return;
-
     const pageTitle = header.textContent.trim().toLowerCase();
-
     if (pageTitle.includes('system breakdown structure')) {
         legendImg.src = legendImg.src.replace('legend.svg', 'legendsbs.svg');
-        legendBox.style.width = '260px';   // Smaller width for SBS
-    } else {
-        legendBox.style.width = '280px';   // Default width
+        legendPanel.style.width = '260px';
+	} else if (pageTitle.includes('requirements')) {
+    legendImg.src = legendImg.src.replace('EARoot/images/legend.svg', 'images/legendreq.svg');
+    legendPanel.style.width = '280px';
+	} else {
+        legendPanel.style.width = '280px';
     }
 })();
+
         // ----------------------------------------------------------------
         // 8. SHORTCUTS (Keyboard & Mouse Zoom)
         // ----------------------------------------------------------------
@@ -473,11 +487,11 @@ window.addEventListener('resize', offsetContentForHeader);
 <div class="section group" >
 
 		<div class="col span_2_of_2 header_frame">
-			<h1> Interfaces::DGS-I_0080 </h1>
+			<h1> DGS-I_0010 </h1>
 			<img class="header_image" src="../../../images/Logo.png" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
-			<p><a href="../../EA19.htm">Decarb Green Systems Architecture  Version: Z</a> / <a href="../EA410.htm">System Definition Elements</a> / <a href="EA572.htm">Interfaces</a> / <a href="EA652.htm">DGS-I_0080</a></p>
+			<p><a href="../../EA19.htm">Decarb Green Systems Architecture  Version: Z</a> / <a href="../EA480.htm">System Definition Elements</a> / <a href="EA642.htm">Interfaces</a> / <a href="EA652.htm">DGS-I_0010</a></p>
 		</div>
 			
 		<table class="contentmaintable">
@@ -485,6 +499,13 @@ window.addEventListener('resize', offsetContentForHeader);
 				<tr>
 					<td class="indexcell">
 						<div class="projectBrowserTitle"></div>
+						<div class="download-box">
+						<div class="download-box">
+							<a href="files/Fortescue_Interface-Register_Z.xlsm" target="_blank">
+							Interface Register
+							</a>
+						</div>
+						</div>
                         
                         <div class="sidebar-search-container">
                             <input type="text" id="sidebarSearch" onkeyup="performGlobalSearch()" placeholder="Search model...">
@@ -494,7 +515,7 @@ window.addEventListener('resize', offsetContentForHeader);
 
                         <div id="originalTree">
 						    <ul>
-<a href="EA572.htm">Interfaces</a></ul>
+<a href="EA642.htm">Interfaces</a></ul>
 
                         </div>
 					</td>
@@ -625,7 +646,7 @@ window.addEventListener('resize', offsetContentForHeader);
 
 <div class="PageBody" style="position: relative !important; height: auto !important; overflow: visible !important; padding-bottom: 10px;">
     <span class="ObjectTitle">
-        DGS-I_0080 : &lt;&lt;InterfaceBlock&gt;&gt;
+        DGS-I_0010 : &lt;&lt;InterfaceBlock&gt;&gt;
     </span>
 
     <table border="0" class="ObjectDetails" style="width: 100%; margin-bottom: 10px;">
@@ -633,15 +654,16 @@ window.addEventListener('resize', offsetContentForHeader);
             <col width="70px" />
             <col width="*" />
         </colgroup>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Status:</td><td class="ObjectDetailsValue">Proposed</td></tr>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Created:</td><td class="ObjectDetailsValue">15/10/2025 15:47:48</td></tr>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Modified:</td><td class="ObjectDetailsValue">11/12/2025 01:37:21</td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Status:</td><td class="ObjectDetailsValue">Deleted</td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Created:</td><td class="ObjectDetailsValue">28/08/2025 20:21:34</td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Modified:</td><td class="ObjectDetailsValue">11/12/2025 01:37:20</td></tr>
         <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Author:</td><td class="ObjectDetailsValue">Admin</td></tr>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">UUID:</td><td class="ObjectDetailsValue">{BE25445A-33BB-48a0-BBDD-E515D42B5CDA}</td></tr>
-        <tr id="adv01"><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Appears In:</td><td class="ObjectDetailsValue"><a href="../../EA7.htm">855DC-1542-008 Mine Electrification SCADA</a>, <a href="../../EA13.htm">855DC-1543-008 Monarch</a>, <a href="../../EA15.htm">System Definition (SD)</a>, <a href="../../EA1.htm">855DC-1541-ECL Eclipse</a>, <a href="../../EA3.htm">855DC-1541-LIV LiveWire</a>, <a href="../../EA5.htm">855DC-1541-DEL Delphi</a>, <a href="../../EA11.htm">855DC-1542-LMS Load Management System (LMS)</a>, <a href="../../EA9.htm">855DC-1542-CSM Charge Station Management System (CSMS)</a></td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">UUID:</td><td class="ObjectDetailsValue">{F4FEFD09-675E-4574-8788-E53981B04E36}</td></tr>
+        <tr id="adv01"><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Appears In:</td><td class="ObjectDetailsValue"><a href="../../EA15.htm">System Definition (SD)</a>, <a href="../../EA5.htm">855DC-1541-DEL Delphi</a>, Archive - System Definition - Christmas Creek Mine, Archive - System Definition - Cloudbreak Mine, Archive - System Definition - Iron Bridge Mine, Archive - System Definition - Port Hedland, Archive - System Definition - Eliwana Mine, Archive - System Definition - Flying Fish Mine</td></tr>
         <tr>
             <td class="ObjectDetailsTopic" style="padding-left:0; width:70px; vertical-align:top; padding-top:5px;">Remarks:</td>
-            <td class="ObjectDetailsValue remarks-cell" style="vertical-align:top; padding-top:5px;"></td>
+            <td class="ObjectDetailsValue remarks-cell" style="vertical-align:top; padding-top:5px;"><div class="ObjectDetailsNotes">Interface Review 25/11/2025: Delete&lt;br/&gt;</div>
+</td>
         </tr>
     </table>
 </div>
@@ -984,7 +1006,7 @@ window.addEventListener('resize', offsetContentForHeader);
         </tr>
         			<tr>
 				<td class="TableRow" valign="top">1. Interface Name</td>
-				<td class="TableRow" valign="top">854DC-5680 Battery Energy Storage System (BESS)|854DC-1521 HV Substations</td>
+				<td class="TableRow" valign="top">005OP-0000-003 FLO|855DC-1541-DEL Delphi</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -993,7 +1015,7 @@ window.addEventListener('resize', offsetContentForHeader);
 				</td>
 			</tr>			<tr>
 				<td class="TableRow" valign="top">4. Interface Level</td>
-				<td class="TableRow" valign="top">System - System Interface</td>
+				<td class="TableRow" valign="top">Project - Project Interface</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1002,7 +1024,7 @@ window.addEventListener('resize', offsetContentForHeader);
 				</td>
 			</tr>			<tr>
 				<td class="TableRow" valign="top">Element Type</td>
-				<td class="TableRow" valign="top">System - System Interface</td>
+				<td class="TableRow" valign="top">Project - Project Interface</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1011,12 +1033,22 @@ window.addEventListener('resize', offsetContentForHeader);
 				</td>
 			</tr>			<tr>
 				<td class="TableRow" valign="top">Interface Type</td>
-				<td class="TableRow" valign="top">Physical</td>
+				<td class="TableRow" valign="top">Logical</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
 					Details:
 						&nbsp;
+				</td>
+			</tr>			<tr>
+				<td class="TableRow" valign="top">isEncapsulated</td>
+				<td class="TableRow" valign="top">&nbsp;</td>
+			</tr>	
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="2">
+					Details:
+						<div class="ObjectDetailsNotes">Values: true,false<br /></div>
+
 				</td>
 			</tr>
     </table>
@@ -1053,22 +1085,22 @@ window.addEventListener('resize', offsetContentForHeader);
         </tr>
 
 <tr class="#LINK_STEREOTYPE# Block">
-    <td width="30%" class="TableRow" valign="top"><a href="../../EA2/EA325.htm">«block» 854DC-5680 Battery Energy Storage System (BESS)</a></td>
+    <td width="30%" class="TableRow" valign="top"><a href="../../EA2/EA290.htm">«block» 855DC-1541-DEL Delphi</a></td>
     <td width="10%" class="TableRow" valign="top">Block</td>
     <td width="10%" class="TableRow" valign="top">Abstraction</td>
     <td width="10%" class="TableRow" valign="top">From</td>
     <td width="40%" class="TableRow" valign="top">
-        <div class="ObjectDetailsNotes">&lt;a href=&quot;../../EA2/EA322.htm&quot;&gt;854DC-1521 HV Substations&lt;/a&gt;&lt;br/&gt;</div>
+        <div class="ObjectDetailsNotes">[DELETED]&lt;br/&gt;</div>
 
     </td>
 </tr>
 <tr class="#LINK_STEREOTYPE# Block">
-    <td width="30%" class="TableRow" valign="top"><a href="../../EA2/EA322.htm">«block» 854DC-1521 HV Substations</a></td>
+    <td width="30%" class="TableRow" valign="top"><a href="../../EA2/EA461.htm">«block» 005OP-0000-003 FLO</a></td>
     <td width="10%" class="TableRow" valign="top">Block</td>
     <td width="10%" class="TableRow" valign="top">Abstraction</td>
     <td width="10%" class="TableRow" valign="top">From</td>
     <td width="40%" class="TableRow" valign="top">
-        <div class="ObjectDetailsNotes">&lt;a href=&quot;../../EA2/EA325.htm&quot;&gt;854DC-5680 Battery Energy Storage System (BESS)&lt;/a&gt;&lt;br/&gt;</div>
+        <div class="ObjectDetailsNotes">[DELETED]&lt;br/&gt;</div>
 
     </td>
 </tr>

@@ -418,26 +418,40 @@ window.addEventListener('resize', offsetContentForHeader);
                 window.top.location.href = targetIndex;
             });
         }
+		// ----------------------------------------------------------------
+// DOWNLOAD LINK FIX (Interface Register)
+// ----------------------------------------------------------------
+const cssLinkDownload = document.querySelector('link[href*="ea.css"]');
+if (cssLinkDownload) {
+    const cssPathDownload = cssLinkDownload.getAttribute('href');
+    const rootPathDownload = cssPathDownload.substring(0, cssPathDownload.lastIndexOf('css/'));
+
+    const downloadLink = document.querySelector('.download-box a');
+    if (downloadLink) {
+        downloadLink.href = rootPathDownload + "files/Fortescue_Interface-Register_Z.xlsm";
+    }
+}
 // ----------------------------------------------------------------
 // LEGEND SWITCHING (SBS Special Case)
 // ----------------------------------------------------------------
 (function() {
-    const legendImg = document.getElementById('legend-image');
-    const legendBox = document.getElementById('legend-sidebar');
-    if (!legendImg || !legendBox) return;
-
+    const legendImg = document.querySelector('#legend-panel img');
+    const legendPanel = document.getElementById('legend-panel');
+    if (!legendImg || !legendPanel) return;
     const header = document.querySelector('.header_frame h1');
     if (!header) return;
-
     const pageTitle = header.textContent.trim().toLowerCase();
-
     if (pageTitle.includes('system breakdown structure')) {
         legendImg.src = legendImg.src.replace('legend.svg', 'legendsbs.svg');
-        legendBox.style.width = '260px';   // Smaller width for SBS
-    } else {
-        legendBox.style.width = '280px';   // Default width
+        legendPanel.style.width = '260px';
+	} else if (pageTitle.includes('requirements')) {
+    legendImg.src = legendImg.src.replace('EARoot/images/legend.svg', 'images/legendreq.svg');
+    legendPanel.style.width = '280px';
+	} else {
+        legendPanel.style.width = '280px';
     }
 })();
+
         // ----------------------------------------------------------------
         // 8. SHORTCUTS (Keyboard & Mouse Zoom)
         // ----------------------------------------------------------------
@@ -485,6 +499,13 @@ window.addEventListener('resize', offsetContentForHeader);
 				<tr>
 					<td class="indexcell">
 						<div class="projectBrowserTitle"></div>
+						<div class="download-box">
+						<div class="download-box">
+							<a href="files/Fortescue_Interface-Register_Z.xlsm" target="_blank">
+							Interface Register
+							</a>
+						</div>
+						</div>
                         
                         <div class="sidebar-search-container">
                             <input type="text" id="sidebarSearch" onkeyup="performGlobalSearch()" placeholder="Search model...">
@@ -494,9 +515,9 @@ window.addEventListener('resize', offsetContentForHeader);
 
                         <div id="originalTree">
 						    <ul>
-<li><img src="../images/4.png" alt="Package"/> <a href="./EA1/EA88.htm">Requirements</a></li>
-<li><img src="../images/4.png" alt="Package"/> <a href="./EA2/EA89.htm">System Breakdown Structure Elements</a></li>
-<li><img src="../images/4.png" alt="Package"/> <a href="./EA3/EA410.htm">System Definition Elements</a></li>
+<li><img src="../images/4.png" alt="Package"/> <a href="./EA1/EA90.htm">Requirements</a></li>
+<li><img src="../images/4.png" alt="Package"/> <a href="./EA2/EA159.htm">System Breakdown Structure Elements</a></li>
+<li><img src="../images/4.png" alt="Package"/> <a href="./EA3/EA480.htm">System Definition Elements</a></li>
 <li><img src="../images/175.png" alt="Diagram"/> <a href="EA1.htm">855DC-1541-ECL Eclipse</a></li>
 <li><img src="../images/175.png" alt="Diagram"/> <a href="EA3.htm">855DC-1541-LIV LiveWire</a></li>
 <li><img src="../images/175.png" alt="Diagram"/> <a href="EA5.htm">855DC-1541-DEL Delphi</a></li>
@@ -512,192 +533,189 @@ window.addEventListener('resize', offsetContentForHeader);
 					</td>
 					<td class="contentcell">
                         <div class="PageBody">
-<div style="position: absolute; top: 10px; right: 25px; z-index: 100; background: white; padding: 5px; border: 1px solid #ccc; border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
-        <button onclick="zoomDiagram('in')" style="width: 30px; height: 30px; font-weight: bold; cursor: pointer;" title="Zoom In">+</button>
-        <button onclick="zoomDiagram('out')" style="width: 30px; height: 30px; font-weight: bold; cursor: pointer;" title="Zoom Out">-</button>
-        <button onclick="zoomDiagram('reset')" style="width: auto; height: 30px; padding: 0 5px; cursor: pointer;" title="Reset Zoom to 100%">Reset</button>
-        <button id="clear-highlight-btn" onclick="clearHighlight()" style="width: auto; height: 30px; padding: 0 5px; cursor: pointer; display: none;" title="Clear Highlight">Clear</button>
+<div style="position: absolute; top: 10px; right: 25px; z-index: 100;">
+    <div style="display: inline-flex; flex-direction: column; align-items: flex-start; background: white; border: 1px solid #ccc; border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.2); min-width: 160px;">
+        <div style="display: flex; width: 100%;">
+            <button onclick="zoomDiagram('in')" style="width: 30px; height: 30px; font-weight: bold; cursor: pointer; border: none; border-right: 1px solid #ccc; background: transparent; border-radius: 4px 0 0 0;" title="Zoom In">+</button>
+            <button onclick="zoomDiagram('out')" style="width: 30px; height: 30px; font-weight: bold; cursor: pointer; border: none; border-right: 1px solid #ccc; background: transparent;" title="Zoom Out">-</button>
+            <button onclick="zoomDiagram('reset')" style="height: 30px; padding: 0 8px; cursor: pointer; border: none; border-right: 1px solid #ccc; background: transparent; border-radius: 0 4px 0 0; flex: 1;" title="Reset Zoom to 100%">Reset</button>
+            <button id="clear-highlight-btn" onclick="clearHighlight()" style="height: 30px; padding: 0 8px; cursor: pointer; border: none; background: transparent; border-radius: 0 4px 0 0; flex: 1; display: none;" title="Clear Highlight">Clear</button>
+        </div>
+        <div style="border-top: 1px solid #ccc; width: 100%;">
+            <button id="legend-toggle-btn" onclick="toggleLegend()" style="width: 100%; height: 28px; cursor: pointer; border: none; background: transparent; border-radius: 0 0 4px 4px; display: none;">Show Diagram Key</button>
+        </div>
+        <div id="legend-panel" style="display: none; border-top: 1px solid #ccc; padding: 6px; width: 280px; border-radius: 0 0 4px 4px;">
+            <img src="../images/legend.svg" style="width: 100%;" />
+        </div>
     </div>
-<div id="legend-sidebar" style="
-        position: fixed;
-		bottom: 10px;
-		left: 10px;
-        width: 280px;
-        background: white;
-        border: none;
-        z-index: 10000;
-        padding: 10px;
-        display: none;
-    ">
-        <img id="legend-image" src="../images/legend.svg" style="width:100%;" />
-    </div>
-	<div class="diagram_image"> 
+</div>
+<div class="diagram_image"> 
 <img src="EA6.png" usemap="#EA6" width="5139" height="3279" border="0" />
 
 <MAP NAME="EA6">
-<area shape="rect" coords="3812,890,3891,948" href="./EA3/EA5/EA906.htm" target="_self">
-<area shape="rect" coords="351,627,431,686" href="./EA3/EA5/EA582.htm" target="_self">
-<area shape="rect" coords="71,588,284,687" href="./EA2/EA391.htm" target="_self">
-<area shape="rect" coords="108,890,188,948" href="./EA3/EA5/EA918.htm" target="_self">
-<area shape="rect" coords="3507,906,3587,965" href="./EA3/EA5/EA687.htm" target="_self">
-<area shape="rect" coords="3536,1229,3759,1355" href="./EA2/EA111.htm" target="_self">
-<area shape="rect" coords="3605,890,3684,948" href="./EA3/EA5/EA768.htm" target="_self">
-<area shape="rect" coords="4794,1544,4874,1602" href="./EA3/EA5/EA739.htm" target="_self">
-<area shape="rect" coords="4929,1928,5009,1986" href="./EA3/EA5/EA721.htm" target="_self">
-<area shape="rect" coords="4862,1853,4941,1911" href="./EA3/EA5/EA720.htm" target="_self">
-<area shape="rect" coords="4712,1454,4791,1512" href="./EA3/EA5/EA719.htm" target="_self">
-<area shape="rect" coords="4737,890,4817,948" href="./EA3/EA5/EA684.htm" target="_self">
-<area shape="rect" coords="4686,1160,5036,1245" href="./EA2/EA93.htm" target="_self">
-<area shape="rect" coords="4686,1212,5036,1298" href="./EA2/EA94.htm" target="_self">
-<area shape="rect" coords="4857,890,4937,948" href="./EA3/EA5/EA594.htm" target="_self">
+<area shape="rect" coords="3812,890,3891,948" href="./EA3/EA5/EA976.htm" target="_self">
+<area shape="rect" coords="351,627,431,686" href="./EA3/EA5/EA652.htm" target="_self">
+<area shape="rect" coords="71,588,284,687" href="./EA2/EA461.htm" target="_self">
+<area shape="rect" coords="108,890,188,948" href="./EA3/EA5/EA988.htm" target="_self">
+<area shape="rect" coords="3507,906,3587,965" href="./EA3/EA5/EA757.htm" target="_self">
+<area shape="rect" coords="3536,1229,3759,1355" href="./EA2/EA181.htm" target="_self">
+<area shape="rect" coords="3605,890,3684,948" href="./EA3/EA5/EA838.htm" target="_self">
+<area shape="rect" coords="4794,1544,4874,1602" href="./EA3/EA5/EA809.htm" target="_self">
+<area shape="rect" coords="4929,1928,5009,1986" href="./EA3/EA5/EA791.htm" target="_self">
+<area shape="rect" coords="4862,1853,4941,1911" href="./EA3/EA5/EA790.htm" target="_self">
+<area shape="rect" coords="4712,1454,4791,1512" href="./EA3/EA5/EA789.htm" target="_self">
+<area shape="rect" coords="4737,890,4817,948" href="./EA3/EA5/EA754.htm" target="_self">
+<area shape="rect" coords="4686,1160,5036,1245" href="./EA2/EA163.htm" target="_self">
+<area shape="rect" coords="4686,1212,5036,1298" href="./EA2/EA164.htm" target="_self">
+<area shape="rect" coords="4857,890,4937,948" href="./EA3/EA5/EA664.htm" target="_self">
 <area shape="rect" coords="4661,993,5069,1410" href="EA9.htm" target="_self">
-<area shape="rect" coords="209,890,288,948" href="./EA3/EA5/EA593.htm" target="_self">
-<area shape="rect" coords="348,890,428,948" href="./EA3/EA5/EA760.htm" target="_self">
-<area shape="rect" coords="78,1158,444,1296" href="./EA2/EA264.htm" target="_self">
-<area shape="rect" coords="51,993,486,1410" href="./EA2/EA392.htm" target="_self">
-<area shape="rect" coords="2771,2562,2850,2621" href="./EA3/EA5/EA644.htm" target="_self">
-<area shape="rect" coords="2678,2562,2757,2621" href="./EA3/EA5/EA643.htm" target="_self">
-<area shape="rect" coords="753,2562,833,2621" href="./EA3/EA5/EA642.htm" target="_self">
-<area shape="rect" coords="1586,2562,1665,2621" href="./EA3/EA5/EA641.htm" target="_self">
-<area shape="rect" coords="3750,2562,3830,2621" href="./EA3/EA5/EA640.htm" target="_self">
-<area shape="rect" coords="4149,2562,4229,2621" href="./EA3/EA5/EA639.htm" target="_self">
-<area shape="rect" coords="1305,2928,1385,2987" href="./EA3/EA5/EA634.htm" target="_self">
-<area shape="rect" coords="912,2928,992,2987" href="./EA3/EA5/EA633.htm" target="_self">
-<area shape="rect" coords="323,2928,402,2987" href="./EA3/EA5/EA632.htm" target="_self">
-<area shape="rect" coords="126,2928,206,2987" href="./EA3/EA5/EA631.htm" target="_self">
-<area shape="rect" coords="519,2928,599,2987" href="./EA3/EA5/EA630.htm" target="_self">
-<area shape="rect" coords="716,2928,795,2987" href="./EA3/EA5/EA629.htm" target="_self">
-<area shape="rect" coords="1109,2928,1188,2987" href="./EA3/EA5/EA628.htm" target="_self">
-<area shape="rect" coords="1502,2928,1581,2987" href="./EA3/EA5/EA627.htm" target="_self">
-<area shape="rect" coords="653,2216,732,2274" href="./EA3/EA5/EA623.htm" target="_self">
-<area shape="rect" coords="2430,2562,2510,2621" href="./EA3/EA5/EA622.htm" target="_self">
-<area shape="rect" coords="2534,2562,2613,2621" href="./EA3/EA5/EA613.htm" target="_self">
-<area shape="rect" coords="92,2660,171,2718" href="./EA3/EA5/EA612.htm" target="_self">
-<area shape="rect" coords="915,3150,995,3209" href="./EA3/EA5/EA670.htm" target="_self">
-<area shape="rect" coords="857,3023,1046,3147" href="./EA2/EA189.htm" target="_self">
-<area shape="rect" coords="1053,3023,1242,3147" href="./EA2/EA188.htm" target="_self">
-<area shape="rect" coords="660,3023,849,3147" href="./EA2/EA187.htm" target="_self">
-<area shape="rect" coords="71,3023,260,3147" href="./EA2/EA186.htm" target="_self">
-<area shape="rect" coords="267,3023,456,3147" href="./EA2/EA185.htm" target="_self">
-<area shape="rect" coords="1250,3023,1439,3147" href="./EA2/EA184.htm" target="_self">
-<area shape="rect" coords="1446,3023,1635,3147" href="./EA2/EA175.htm" target="_self">
-<area shape="rect" coords="464,3023,653,3147" href="./EA2/EA174.htm" target="_self">
-<area shape="rect" coords="92,2756,1700,2892" href="./EA2/EA250.htm" target="_self">
-<area shape="rect" coords="4514,993,4650,1410" href="./EA2/EA223.htm" target="_self">
-<area shape="rect" coords="4542,890,4622,948" href="./EA3/EA5/EA928.htm" target="_self">
-<area shape="rect" coords="3909,890,3989,948" href="./EA3/EA5/EA693.htm" target="_self">
-<area shape="rect" coords="2906,890,2985,948" href="./EA3/EA5/EA595.htm" target="_self">
-<area shape="rect" coords="4608,2585,4688,2643" href="./EA3/EA5/EA698.htm" target="_self">
-<area shape="rect" coords="4401,890,4481,948" href="./EA3/EA5/EA927.htm" target="_self">
-<area shape="rect" coords="4368,993,4505,1410" href="./EA2/EA261.htm" target="_self">
-<area shape="rect" coords="3750,1496,3830,1554" href="./EA3/EA5/EA690.htm" target="_self">
-<area shape="rect" coords="150,1674,230,1733" href="./EA3/EA5/EA636.htm" target="_self">
-<area shape="rect" coords="993,1674,1073,1733" href="./EA3/EA5/EA618.htm" target="_self">
-<area shape="rect" coords="647,1674,726,1733" href="./EA3/EA5/EA635.htm" target="_self">
-<area shape="rect" coords="393,1674,473,1733" href="./EA3/EA5/EA608.htm" target="_self">
-<area shape="rect" coords="2234,1674,2313,1733" href="./EA3/EA5/EA611.htm" target="_self">
-<area shape="rect" coords="1355,1925,1721,2063" href="./EA2/EA407.htm" target="_self">
-<area shape="rect" coords="1311,1764,1755,2106" href="./EA2/EA326.htm" target="_self">
-<area shape="rect" coords="1479,1674,1559,1733" href="./EA3/EA5/EA776.htm" target="_self">
-<area shape="rect" coords="1935,1674,2015,1733" href="./EA3/EA5/EA777.htm" target="_self">
-<area shape="rect" coords="1784,1928,2150,2066" href="./EA2/EA334.htm" target="_self">
+<area shape="rect" coords="209,890,288,948" href="./EA3/EA5/EA663.htm" target="_self">
+<area shape="rect" coords="348,890,428,948" href="./EA3/EA5/EA830.htm" target="_self">
+<area shape="rect" coords="78,1158,444,1296" href="./EA2/EA334.htm" target="_self">
+<area shape="rect" coords="51,993,486,1410" href="./EA2/EA462.htm" target="_self">
+<area shape="rect" coords="2771,2562,2850,2621" href="./EA3/EA5/EA714.htm" target="_self">
+<area shape="rect" coords="2678,2562,2757,2621" href="./EA3/EA5/EA713.htm" target="_self">
+<area shape="rect" coords="753,2562,833,2621" href="./EA3/EA5/EA712.htm" target="_self">
+<area shape="rect" coords="1586,2562,1665,2621" href="./EA3/EA5/EA711.htm" target="_self">
+<area shape="rect" coords="3750,2562,3830,2621" href="./EA3/EA5/EA710.htm" target="_self">
+<area shape="rect" coords="4149,2562,4229,2621" href="./EA3/EA5/EA709.htm" target="_self">
+<area shape="rect" coords="1305,2928,1385,2987" href="./EA3/EA5/EA704.htm" target="_self">
+<area shape="rect" coords="912,2928,992,2987" href="./EA3/EA5/EA703.htm" target="_self">
+<area shape="rect" coords="323,2928,402,2987" href="./EA3/EA5/EA702.htm" target="_self">
+<area shape="rect" coords="126,2928,206,2987" href="./EA3/EA5/EA701.htm" target="_self">
+<area shape="rect" coords="519,2928,599,2987" href="./EA3/EA5/EA700.htm" target="_self">
+<area shape="rect" coords="716,2928,795,2987" href="./EA3/EA5/EA699.htm" target="_self">
+<area shape="rect" coords="1109,2928,1188,2987" href="./EA3/EA5/EA698.htm" target="_self">
+<area shape="rect" coords="1502,2928,1581,2987" href="./EA3/EA5/EA697.htm" target="_self">
+<area shape="rect" coords="653,2216,732,2274" href="./EA3/EA5/EA693.htm" target="_self">
+<area shape="rect" coords="2430,2562,2510,2621" href="./EA3/EA5/EA692.htm" target="_self">
+<area shape="rect" coords="2534,2562,2613,2621" href="./EA3/EA5/EA683.htm" target="_self">
+<area shape="rect" coords="92,2660,171,2718" href="./EA3/EA5/EA682.htm" target="_self">
+<area shape="rect" coords="915,3150,995,3209" href="./EA3/EA5/EA740.htm" target="_self">
+<area shape="rect" coords="857,3023,1046,3147" href="./EA2/EA259.htm" target="_self">
+<area shape="rect" coords="1053,3023,1242,3147" href="./EA2/EA258.htm" target="_self">
+<area shape="rect" coords="660,3023,849,3147" href="./EA2/EA257.htm" target="_self">
+<area shape="rect" coords="71,3023,260,3147" href="./EA2/EA256.htm" target="_self">
+<area shape="rect" coords="267,3023,456,3147" href="./EA2/EA255.htm" target="_self">
+<area shape="rect" coords="1250,3023,1439,3147" href="./EA2/EA254.htm" target="_self">
+<area shape="rect" coords="1446,3023,1635,3147" href="./EA2/EA245.htm" target="_self">
+<area shape="rect" coords="464,3023,653,3147" href="./EA2/EA244.htm" target="_self">
+<area shape="rect" coords="92,2756,1700,2892" href="./EA2/EA320.htm" target="_self">
+<area shape="rect" coords="4514,993,4650,1410" href="./EA2/EA293.htm" target="_self">
+<area shape="rect" coords="4542,890,4622,948" href="./EA3/EA5/EA998.htm" target="_self">
+<area shape="rect" coords="3909,890,3989,948" href="./EA3/EA5/EA763.htm" target="_self">
+<area shape="rect" coords="2906,890,2985,948" href="./EA3/EA5/EA665.htm" target="_self">
+<area shape="rect" coords="4608,2585,4688,2643" href="./EA3/EA5/EA768.htm" target="_self">
+<area shape="rect" coords="4401,890,4481,948" href="./EA3/EA5/EA997.htm" target="_self">
+<area shape="rect" coords="4368,993,4505,1410" href="./EA2/EA331.htm" target="_self">
+<area shape="rect" coords="3750,1496,3830,1554" href="./EA3/EA5/EA760.htm" target="_self">
+<area shape="rect" coords="150,1674,230,1733" href="./EA3/EA5/EA706.htm" target="_self">
+<area shape="rect" coords="993,1674,1073,1733" href="./EA3/EA5/EA688.htm" target="_self">
+<area shape="rect" coords="647,1674,726,1733" href="./EA3/EA5/EA705.htm" target="_self">
+<area shape="rect" coords="393,1674,473,1733" href="./EA3/EA5/EA678.htm" target="_self">
+<area shape="rect" coords="2234,1674,2313,1733" href="./EA3/EA5/EA681.htm" target="_self">
+<area shape="rect" coords="1355,1925,1721,2063" href="./EA2/EA477.htm" target="_self">
+<area shape="rect" coords="1311,1764,1755,2106" href="./EA2/EA396.htm" target="_self">
+<area shape="rect" coords="1479,1674,1559,1733" href="./EA3/EA5/EA846.htm" target="_self">
+<area shape="rect" coords="1935,1674,2015,1733" href="./EA3/EA5/EA847.htm" target="_self">
+<area shape="rect" coords="1784,1928,2150,2066" href="./EA2/EA404.htm" target="_self">
 <area shape="rect" coords="179,1433,2292,1647" href="EA13.htm" target="_self">
-<area shape="rect" coords="3351,890,3431,948" href="./EA3/EA5/EA689.htm" target="_self">
-<area shape="rect" coords="4011,1470,4091,1529" href="./EA3/EA5/EA688.htm" target="_self">
-<area shape="rect" coords="3774,1229,4043,1355" href="./EA2/EA112.htm" target="_self">
+<area shape="rect" coords="3351,890,3431,948" href="./EA3/EA5/EA759.htm" target="_self">
+<area shape="rect" coords="4011,1470,4091,1529" href="./EA3/EA5/EA758.htm" target="_self">
+<area shape="rect" coords="3774,1229,4043,1355" href="./EA2/EA182.htm" target="_self">
 <area shape="rect" coords="3510,993,4074,1410" href="EA1.htm" target="_self">
-<area shape="rect" coords="4080,993,4217,1410" href="./EA2/EA260.htm" target="_self">
-<area shape="rect" coords="1305,1245,1461,1370" href="./EA2/EA343.htm" target="_self">
-<area shape="rect" coords="1469,1245,1613,1370" href="./EA2/EA344.htm" target="_self">
-<area shape="rect" coords="1620,1245,1764,1370" href="./EA2/EA345.htm" target="_self">
-<area shape="rect" coords="1772,1245,1934,1370" href="./EA2/EA346.htm" target="_self">
-<area shape="rect" coords="1142,1245,1298,1370" href="./EA2/EA342.htm" target="_self">
-<area shape="rect" coords="1122,993,1952,1410" href="./EA2/EA393.htm" target="_self">
-<area shape="rect" coords="2318,890,2397,948" href="./EA3/EA5/EA915.htm" target="_self">
-<area shape="rect" coords="71,711,284,810" href="./EA2/EA394.htm" target="_self">
-<area shape="rect" coords="348,732,428,791" href="./EA3/EA5/EA916.htm" target="_self">
-<area shape="rect" coords="2298,1475,2378,1533" href="./EA3/EA5/EA728.htm" target="_self">
-<area shape="rect" coords="2496,1475,2576,1533" href="./EA3/EA5/EA726.htm" target="_self">
-<area shape="rect" coords="2424,1245,2579,1358" href="./EA2/EA136.htm" target="_self">
-<area shape="rect" coords="2391,1509,2471,1568" href="./EA3/EA5/EA725.htm" target="_self">
-<area shape="rect" coords="2130,1245,2409,1358" href="./EA2/EA135.htm" target="_self">
-<area shape="rect" coords="2112,993,2603,1410" href="./EA2/EA404.htm" target="_self">
-<area shape="rect" coords="4259,890,4338,948" href="./EA3/EA5/EA914.htm" target="_self">
-<area shape="rect" coords="4223,993,4359,1410" href="./EA2/EA400.htm" target="_self">
-<area shape="rect" coords="4113,890,4193,948" href="./EA3/EA5/EA904.htm" target="_self">
-<area shape="rect" coords="968,890,1047,948" href="./EA3/EA5/EA903.htm" target="_self">
-<area shape="rect" coords="1187,890,1266,948" href="./EA3/EA5/EA902.htm" target="_self">
-<area shape="rect" coords="776,890,855,948" href="./EA3/EA5/EA901.htm" target="_self">
-<area shape="rect" coords="1817,890,1896,948" href="./EA3/EA5/EA900.htm" target="_self">
-<area shape="rect" coords="1659,890,1739,948" href="./EA3/EA5/EA899.htm" target="_self">
-<area shape="rect" coords="1502,890,1581,948" href="./EA3/EA5/EA898.htm" target="_self">
-<area shape="rect" coords="584,890,663,948" href="./EA3/EA5/EA897.htm" target="_self">
-<area shape="rect" coords="1344,890,1424,948" href="./EA3/EA5/EA896.htm" target="_self">
-<area shape="rect" coords="915,1245,1098,1346" href="./EA3/EA3/EA546.htm" target="_self">
-<area shape="rect" coords="723,1245,906,1346" href="./EA3/EA3/EA547.htm" target="_self">
-<area shape="rect" coords="531,1245,714,1346" href="./EA3/EA3/EA545.htm" target="_self">
-<area shape="rect" coords="3513,566,3924,812" href="./EA2/EA98.htm" target="_self">
+<area shape="rect" coords="4080,993,4217,1410" href="./EA2/EA330.htm" target="_self">
+<area shape="rect" coords="1305,1245,1461,1370" href="./EA2/EA413.htm" target="_self">
+<area shape="rect" coords="1469,1245,1613,1370" href="./EA2/EA414.htm" target="_self">
+<area shape="rect" coords="1620,1245,1764,1370" href="./EA2/EA415.htm" target="_self">
+<area shape="rect" coords="1772,1245,1934,1370" href="./EA2/EA416.htm" target="_self">
+<area shape="rect" coords="1142,1245,1298,1370" href="./EA2/EA412.htm" target="_self">
+<area shape="rect" coords="1122,993,1952,1410" href="./EA2/EA463.htm" target="_self">
+<area shape="rect" coords="2318,890,2397,948" href="./EA3/EA5/EA985.htm" target="_self">
+<area shape="rect" coords="71,711,284,810" href="./EA2/EA464.htm" target="_self">
+<area shape="rect" coords="348,732,428,791" href="./EA3/EA5/EA986.htm" target="_self">
+<area shape="rect" coords="2298,1475,2378,1533" href="./EA3/EA5/EA798.htm" target="_self">
+<area shape="rect" coords="2496,1475,2576,1533" href="./EA3/EA5/EA796.htm" target="_self">
+<area shape="rect" coords="2424,1245,2579,1358" href="./EA2/EA206.htm" target="_self">
+<area shape="rect" coords="2391,1509,2471,1568" href="./EA3/EA5/EA795.htm" target="_self">
+<area shape="rect" coords="2130,1245,2409,1358" href="./EA2/EA205.htm" target="_self">
+<area shape="rect" coords="2112,993,2603,1410" href="./EA2/EA474.htm" target="_self">
+<area shape="rect" coords="4259,890,4338,948" href="./EA3/EA5/EA984.htm" target="_self">
+<area shape="rect" coords="4223,993,4359,1410" href="./EA2/EA470.htm" target="_self">
+<area shape="rect" coords="4113,890,4193,948" href="./EA3/EA5/EA974.htm" target="_self">
+<area shape="rect" coords="968,890,1047,948" href="./EA3/EA5/EA973.htm" target="_self">
+<area shape="rect" coords="1187,890,1266,948" href="./EA3/EA5/EA972.htm" target="_self">
+<area shape="rect" coords="776,890,855,948" href="./EA3/EA5/EA971.htm" target="_self">
+<area shape="rect" coords="1817,890,1896,948" href="./EA3/EA5/EA970.htm" target="_self">
+<area shape="rect" coords="1659,890,1739,948" href="./EA3/EA5/EA969.htm" target="_self">
+<area shape="rect" coords="1502,890,1581,948" href="./EA3/EA5/EA968.htm" target="_self">
+<area shape="rect" coords="584,890,663,948" href="./EA3/EA5/EA967.htm" target="_self">
+<area shape="rect" coords="1344,890,1424,948" href="./EA3/EA5/EA966.htm" target="_self">
+<area shape="rect" coords="915,1245,1098,1346" href="./EA3/EA3/EA616.htm" target="_self">
+<area shape="rect" coords="723,1245,906,1346" href="./EA3/EA3/EA617.htm" target="_self">
+<area shape="rect" coords="531,1245,714,1346" href="./EA3/EA3/EA615.htm" target="_self">
+<area shape="rect" coords="3513,566,3924,812" href="./EA2/EA168.htm" target="_self">
 <area shape="rect" coords="605,411,5069,861" href="EA5.htm" target="_self">
-<area shape="rect" coords="2337,2178,2417,2237" href="./EA3/EA5/EA620.htm" target="_self">
-<area shape="rect" coords="1506,2364,1586,2423" href="./EA3/EA5/EA654.htm" target="_self">
-<area shape="rect" coords="2834,2045,2913,2103" href="./EA3/EA5/EA626.htm" target="_self">
-<area shape="rect" coords="3494,2024,3573,2082" href="./EA3/EA5/EA625.htm" target="_self">
-<area shape="rect" coords="3213,2061,3293,2120" href="./EA3/EA5/EA624.htm" target="_self">
-<area shape="rect" coords="843,2153,978,2264" href="./EA2/EA370.htm" target="_self">
-<area shape="rect" coords="1499,2145,1578,2204" href="./EA3/EA5/EA710.htm" target="_self">
-<area shape="rect" coords="2036,2157,2115,2216" href="./EA3/EA5/EA653.htm" target="_self">
-<area shape="rect" coords="1055,2157,1134,2216" href="./EA3/EA5/EA652.htm" target="_self">
-<area shape="rect" coords="566,2157,645,2216" href="./EA3/EA5/EA659.htm" target="_self">
-<area shape="rect" coords="384,2157,464,2216" href="./EA3/EA5/EA657.htm" target="_self">
-<area shape="rect" coords="149,2157,228,2216" href="./EA3/EA5/EA651.htm" target="_self">
-<area shape="rect" coords="731,2157,810,2216" href="./EA3/EA5/EA658.htm" target="_self">
-<area shape="rect" coords="78,1764,300,2106" href="./EA2/EA323.htm" target="_self">
-<area shape="rect" coords="1763,1764,2162,2106" href="./EA2/EA324.htm" target="_self">
-<area shape="rect" coords="867,1764,1302,2106" href="./EA2/EA325.htm" target="_self">
-<area shape="rect" coords="542,1764,858,2106" href="./EA2/EA368.htm" target="_self">
-<area shape="rect" coords="309,1764,531,2106" href="./EA2/EA369.htm" target="_self">
-<area shape="rect" coords="2171,1764,2483,2106" href="./EA2/EA322.htm" target="_self">
-<area shape="rect" coords="3864,2393,3944,2451" href="./EA3/EA5/EA663.htm" target="_self">
-<area shape="rect" coords="2709,2364,2789,2423" href="./EA3/EA5/EA656.htm" target="_self">
-<area shape="rect" coords="3636,2178,3716,2237" href="./EA3/EA5/EA621.htm" target="_self">
-<area shape="rect" coords="1980,2546,2060,2604" href="./EA3/EA5/EA655.htm" target="_self">
-<area shape="rect" coords="2850,2291,3315,2496" href="./EA2/EA200.htm" target="_self">
-<area shape="rect" coords="350,2363,429,2421" href="./EA3/EA5/EA662.htm" target="_self">
-<area shape="rect" coords="50,2325,300,2462" href="./EA2/EA360.htm" target="_self">
-<area shape="rect" coords="4097,2370,4307,2475" href="./EA2/EA359.htm" target="_self">
-<area shape="rect" coords="1841,2291,2430,2496" href="./EA2/EA197.htm" target="_self">
-<area shape="rect" coords="591,2291,1314,2496" href="./EA2/EA198.htm" target="_self">
-<area shape="rect" coords="3446,1511,3525,1569" href="./EA3/EA5/EA697.htm" target="_self">
-<area shape="rect" coords="3624,1853,4265,2076" href="./EA2/EA193.htm" target="_self">
-<area shape="rect" coords="4461,1853,4644,2076" href="./EA2/EA195.htm" target="_self">
-<area shape="rect" coords="4272,1853,4455,2076" href="./EA2/EA194.htm" target="_self">
-<area shape="rect" coords="3599,1646,4653,2117" href="./EA2/EA196.htm" target="_self">
-<area shape="rect" coords="1959,993,2103,1410" href="./EA2/EA399.htm" target="_self">
-<area shape="rect" coords="1991,890,2070,948" href="./EA3/EA5/EA576.htm" target="_self">
-<area shape="rect" coords="507,993,1115,1410" href="./EA3/EA3/EA541.htm" target="_self">
-<area shape="rect" coords="2598,1509,2678,1568" href="./EA3/EA5/EA756.htm" target="_self">
-<area shape="rect" coords="3362,1509,3441,1568" href="./EA3/EA5/EA755.htm" target="_self">
-<area shape="rect" coords="2807,1509,2886,1568" href="./EA3/EA5/EA754.htm" target="_self">
-<area shape="rect" coords="3065,1509,3144,1568" href="./EA3/EA5/EA753.htm" target="_self">
-<area shape="rect" coords="2721,1509,2801,1568" href="./EA3/EA5/EA751.htm" target="_self">
-<area shape="rect" coords="2891,1509,2970,1568" href="./EA3/EA5/EA750.htm" target="_self">
-<area shape="rect" coords="3191,1509,3270,1568" href="./EA3/EA5/EA749.htm" target="_self">
-<area shape="rect" coords="3275,1509,3354,1568" href="./EA3/EA5/EA709.htm" target="_self">
-<area shape="rect" coords="3093,1229,3275,1353" href="./EA2/EA132.htm" target="_self">
-<area shape="rect" coords="2862,1229,3086,1353" href="./EA2/EA130.htm" target="_self">
-<area shape="rect" coords="2631,1229,2855,1353" href="./EA2/EA131.htm" target="_self">
-<area shape="rect" coords="3285,1229,3495,1353" href="./EA2/EA129.htm" target="_self">
-<area shape="rect" coords="2717,1646,3032,2016" href="./EA2/EA232.htm" target="_self">
-<area shape="rect" coords="3045,1646,3584,2016" href="./EA2/EA233.htm" target="_self">
-<area shape="rect" coords="2525,1646,2702,2016" href="./EA2/EA170.htm" target="_self">
-<area shape="rect" coords="2610,993,3504,1410" href="./EA2/EA409.htm" target="_self">
-<area shape="rect" coords="2649,221,2729,279" href="./EA3/EA5/EA785.htm" target="_self">
-<area shape="rect" coords="2657,51,2724,186" href="./EA3/EA4/EA560.htm" target="_self">
-<area shape="rect" coords="53,65,378,578" href="./EA3/EA414.htm" target="_self">
+<area shape="rect" coords="2337,2178,2417,2237" href="./EA3/EA5/EA690.htm" target="_self">
+<area shape="rect" coords="1506,2364,1586,2423" href="./EA3/EA5/EA724.htm" target="_self">
+<area shape="rect" coords="2834,2045,2913,2103" href="./EA3/EA5/EA696.htm" target="_self">
+<area shape="rect" coords="3494,2024,3573,2082" href="./EA3/EA5/EA695.htm" target="_self">
+<area shape="rect" coords="3213,2061,3293,2120" href="./EA3/EA5/EA694.htm" target="_self">
+<area shape="rect" coords="843,2153,978,2264" href="./EA2/EA440.htm" target="_self">
+<area shape="rect" coords="1499,2145,1578,2204" href="./EA3/EA5/EA780.htm" target="_self">
+<area shape="rect" coords="2036,2157,2115,2216" href="./EA3/EA5/EA723.htm" target="_self">
+<area shape="rect" coords="1055,2157,1134,2216" href="./EA3/EA5/EA722.htm" target="_self">
+<area shape="rect" coords="566,2157,645,2216" href="./EA3/EA5/EA729.htm" target="_self">
+<area shape="rect" coords="384,2157,464,2216" href="./EA3/EA5/EA727.htm" target="_self">
+<area shape="rect" coords="149,2157,228,2216" href="./EA3/EA5/EA721.htm" target="_self">
+<area shape="rect" coords="731,2157,810,2216" href="./EA3/EA5/EA728.htm" target="_self">
+<area shape="rect" coords="78,1764,300,2106" href="./EA2/EA393.htm" target="_self">
+<area shape="rect" coords="1763,1764,2162,2106" href="./EA2/EA394.htm" target="_self">
+<area shape="rect" coords="867,1764,1302,2106" href="./EA2/EA395.htm" target="_self">
+<area shape="rect" coords="542,1764,858,2106" href="./EA2/EA438.htm" target="_self">
+<area shape="rect" coords="309,1764,531,2106" href="./EA2/EA439.htm" target="_self">
+<area shape="rect" coords="2171,1764,2483,2106" href="./EA2/EA392.htm" target="_self">
+<area shape="rect" coords="3864,2393,3944,2451" href="./EA3/EA5/EA733.htm" target="_self">
+<area shape="rect" coords="2709,2364,2789,2423" href="./EA3/EA5/EA726.htm" target="_self">
+<area shape="rect" coords="3636,2178,3716,2237" href="./EA3/EA5/EA691.htm" target="_self">
+<area shape="rect" coords="1980,2546,2060,2604" href="./EA3/EA5/EA725.htm" target="_self">
+<area shape="rect" coords="2850,2291,3315,2496" href="./EA2/EA270.htm" target="_self">
+<area shape="rect" coords="350,2363,429,2421" href="./EA3/EA5/EA732.htm" target="_self">
+<area shape="rect" coords="50,2325,300,2462" href="./EA2/EA430.htm" target="_self">
+<area shape="rect" coords="4097,2370,4307,2475" href="./EA2/EA429.htm" target="_self">
+<area shape="rect" coords="1841,2291,2430,2496" href="./EA2/EA267.htm" target="_self">
+<area shape="rect" coords="591,2291,1314,2496" href="./EA2/EA268.htm" target="_self">
+<area shape="rect" coords="3446,1511,3525,1569" href="./EA3/EA5/EA767.htm" target="_self">
+<area shape="rect" coords="3624,1853,4265,2076" href="./EA2/EA263.htm" target="_self">
+<area shape="rect" coords="4461,1853,4644,2076" href="./EA2/EA265.htm" target="_self">
+<area shape="rect" coords="4272,1853,4455,2076" href="./EA2/EA264.htm" target="_self">
+<area shape="rect" coords="3599,1646,4653,2117" href="./EA2/EA266.htm" target="_self">
+<area shape="rect" coords="1959,993,2103,1410" href="./EA2/EA469.htm" target="_self">
+<area shape="rect" coords="1991,890,2070,948" href="./EA3/EA5/EA646.htm" target="_self">
+<area shape="rect" coords="507,993,1115,1410" href="./EA3/EA3/EA611.htm" target="_self">
+<area shape="rect" coords="2598,1509,2678,1568" href="./EA3/EA5/EA826.htm" target="_self">
+<area shape="rect" coords="3362,1509,3441,1568" href="./EA3/EA5/EA825.htm" target="_self">
+<area shape="rect" coords="2807,1509,2886,1568" href="./EA3/EA5/EA824.htm" target="_self">
+<area shape="rect" coords="3065,1509,3144,1568" href="./EA3/EA5/EA823.htm" target="_self">
+<area shape="rect" coords="2721,1509,2801,1568" href="./EA3/EA5/EA821.htm" target="_self">
+<area shape="rect" coords="2891,1509,2970,1568" href="./EA3/EA5/EA820.htm" target="_self">
+<area shape="rect" coords="3191,1509,3270,1568" href="./EA3/EA5/EA819.htm" target="_self">
+<area shape="rect" coords="3275,1509,3354,1568" href="./EA3/EA5/EA779.htm" target="_self">
+<area shape="rect" coords="3093,1229,3275,1353" href="./EA2/EA202.htm" target="_self">
+<area shape="rect" coords="2862,1229,3086,1353" href="./EA2/EA200.htm" target="_self">
+<area shape="rect" coords="2631,1229,2855,1353" href="./EA2/EA201.htm" target="_self">
+<area shape="rect" coords="3285,1229,3495,1353" href="./EA2/EA199.htm" target="_self">
+<area shape="rect" coords="2717,1646,3032,2016" href="./EA2/EA302.htm" target="_self">
+<area shape="rect" coords="3045,1646,3584,2016" href="./EA2/EA303.htm" target="_self">
+<area shape="rect" coords="2525,1646,2702,2016" href="./EA2/EA240.htm" target="_self">
+<area shape="rect" coords="2610,993,3504,1410" href="./EA2/EA479.htm" target="_self">
+<area shape="rect" coords="2649,221,2729,279" href="./EA3/EA5/EA855.htm" target="_self">
+<area shape="rect" coords="2657,51,2724,186" href="./EA3/EA4/EA630.htm" target="_self">
+<area shape="rect" coords="53,65,378,578" href="./EA3/EA484.htm" target="_self">
 <area shape="rect" coords="15,15,5124,3264" href="EA1.htm" target="_self">
 </MAP>
  </div>
-		
+
 </div>
 
 <script>
@@ -1041,29 +1059,36 @@ window.addEventListener('load', function() {
         }
     }, 500);
 });
-/**
- * PRESS 'k' TO TOGGLE LEGEND
- */
-document.addEventListener('keydown', function(event) {
 
-    // Prevent repeat firing when holding key
-    if (event.repeat) return;
+function toggleLegend() {
+    const panel = document.getElementById('legend-panel');
+    const btn = document.getElementById('legend-toggle-btn');
+    const isVisible = panel.style.display !== 'none';
+    panel.style.display = isVisible ? 'none' : 'block';
+    btn.textContent = isVisible ? 'Show Diagram Key' : 'Hide Diagram Key';
+}
 
-    // Ignore typing inside inputs/textareas
-    const tag = document.activeElement.tagName.toLowerCase();
-    if (tag === 'input' || tag === 'textarea') return;
+function initLegendButtonVisibility() {
+    const diagramEl = document.querySelector('.diagram_image');
+    const btn = document.getElementById('legend-toggle-btn');
+    if (!diagramEl || !btn) return;
 
-    if (event.key.toLowerCase() === 'k') {
-        const legend = document.getElementById('legend-sidebar');
-        if (!legend) return;
-
-        if (legend.style.display === 'none' || legend.style.display === '') {
-            legend.style.display = 'block';
-        } else {
-            legend.style.display = 'none';
-        }
+    function showLegendBtn() {
+        btn.style.display = 'block';
     }
-});
+
+    // Show on scroll/pan
+    diagramEl.addEventListener('scroll', showLegendBtn, { once: true });
+
+    // Show on zoom
+    const origZoom = window.zoomDiagram;
+    window.zoomDiagram = function(direction) {
+        showLegendBtn();
+        origZoom(direction);
+    };
+}
+
+initLegendButtonVisibility();
 </script> 
                     </td>
 				</tr>

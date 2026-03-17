@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head><link rel="icon" href="/favicon.ico"></head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>System Breakdown Structure Elements::Decarbonisation Portfolio::850DC Decarb Infrastructure::850DC-1510 Chargers::850DC-1512-0001 HME Chargers - Gen1::850DC-1512-0001-005 PC3 (DC Switchgear)</title>
+<title>Decarbonisation Portfolio</title>
 <link href="../../css/ea.css" rel="stylesheet" type="text/css" />
 <script language="JavaScript" src="../../js/displayToc.js" type="text/javascript"></script>
 
@@ -418,26 +418,40 @@ window.addEventListener('resize', offsetContentForHeader);
                 window.top.location.href = targetIndex;
             });
         }
+		// ----------------------------------------------------------------
+// DOWNLOAD LINK FIX (Interface Register)
+// ----------------------------------------------------------------
+const cssLinkDownload = document.querySelector('link[href*="ea.css"]');
+if (cssLinkDownload) {
+    const cssPathDownload = cssLinkDownload.getAttribute('href');
+    const rootPathDownload = cssPathDownload.substring(0, cssPathDownload.lastIndexOf('css/'));
+
+    const downloadLink = document.querySelector('.download-box a');
+    if (downloadLink) {
+        downloadLink.href = rootPathDownload + "files/Fortescue_Interface-Register_Z.xlsm";
+    }
+}
 // ----------------------------------------------------------------
 // LEGEND SWITCHING (SBS Special Case)
 // ----------------------------------------------------------------
 (function() {
-    const legendImg = document.getElementById('legend-image');
-    const legendBox = document.getElementById('legend-sidebar');
-    if (!legendImg || !legendBox) return;
-
+    const legendImg = document.querySelector('#legend-panel img');
+    const legendPanel = document.getElementById('legend-panel');
+    if (!legendImg || !legendPanel) return;
     const header = document.querySelector('.header_frame h1');
     if (!header) return;
-
     const pageTitle = header.textContent.trim().toLowerCase();
-
     if (pageTitle.includes('system breakdown structure')) {
         legendImg.src = legendImg.src.replace('legend.svg', 'legendsbs.svg');
-        legendBox.style.width = '260px';   // Smaller width for SBS
-    } else {
-        legendBox.style.width = '280px';   // Default width
+        legendPanel.style.width = '260px';
+	} else if (pageTitle.includes('requirements')) {
+    legendImg.src = legendImg.src.replace('EARoot/images/legend.svg', 'images/legendreq.svg');
+    legendPanel.style.width = '280px';
+	} else {
+        legendPanel.style.width = '280px';
     }
 })();
+
         // ----------------------------------------------------------------
         // 8. SHORTCUTS (Keyboard & Mouse Zoom)
         // ----------------------------------------------------------------
@@ -473,11 +487,11 @@ window.addEventListener('resize', offsetContentForHeader);
 <div class="section group" >
 
 		<div class="col span_2_of_2 header_frame">
-			<h1> System Breakdown Structure Elements::Decarbonisation Portfolio::850DC Decarb Infrastructure::850DC-1510 Chargers::850DC-1512-0001 HME Chargers - Gen1::850DC-1512-0001-005 PC3 (DC Switchgear) </h1>
+			<h1> Decarbonisation Portfolio </h1>
 			<img class="header_image" src="../../images/Logo.png" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
-			<p><a href="../EA19.htm">Decarb Green Systems Architecture  Version: Z</a> / <a href="EA89.htm">System Breakdown Structure Elements</a> / <a href="EA90.htm">Decarbonisation Portfolio</a> / <a href="EA231.htm">850DC Decarb Infrastructure</a> / <a href="EA196.htm">850DC-1510 Chargers</a> / <a href="EA193.htm">850DC-1512-0001 HME Chargers - Gen1</a> / <a href="EA160.htm">850DC-1512-0001-005 PC3 (DC Switchgear)</a></p>
+			<p><a href="../EA19.htm">Decarb Green Systems Architecture  Version: Z</a> / <a href="EA159.htm">System Breakdown Structure Elements</a> / <a href="EA160.htm">Decarbonisation Portfolio</a></p>
 		</div>
 			
 		<table class="contentmaintable">
@@ -485,6 +499,13 @@ window.addEventListener('resize', offsetContentForHeader);
 				<tr>
 					<td class="indexcell">
 						<div class="projectBrowserTitle"></div>
+						<div class="download-box">
+						<div class="download-box">
+							<a href="files/Fortescue_Interface-Register_Z.xlsm" target="_blank">
+							Interface Register
+							</a>
+						</div>
+						</div>
                         
                         <div class="sidebar-search-container">
                             <input type="text" id="sidebarSearch" onkeyup="performGlobalSearch()" placeholder="Search model...">
@@ -494,7 +515,25 @@ window.addEventListener('resize', offsetContentForHeader);
 
                         <div id="originalTree">
 						    <ul>
-<a href="EA193.htm">850DC-1512-0001 HME Chargers - Gen1</a></ul>
+<li><img src="../../images/5.png" alt="Class"/> <a href="EA301.htm">850DC Decarb Infrastructure</a></li>
+<li><img src="../../images/5.png" alt="Class"/> <a href="EA302.htm">851DC Heavy Mobile Equipment (HME)</a></li>
+<li><img src="../../images/5.png" alt="Class"/> <a href="EA303.htm">852DC Light Mobile Equipment (LME) & Support Mobile Equipment (SME)</a></li>
+<li><img src="../../images/5.png" alt="Class"/> <a href="EA304.htm">853DC Decarb Ancillary</a></li>
+<li><img src="../../images/5.png" alt="Class"/> <a href="EA305.htm">854DC Green Power</a></li>
+<li><img src="../../images/5.png" alt="Class"/> <a href="EA306.htm">855DC Decarb Green Systems</a></li>
+<li><img src="../../images/5.png" alt="Class"/> <a href="EA307.htm">856DC Green Rail</a></li>
+<li><img src="../../images/5.png" alt="Class"/> <a href="EA308.htm">857DC Green Marine</a></li>
+<li><img src="../../images/5.png" alt="Class"/> <a href="EA309.htm">859DC HaulX</a></li>
+<li><img src="../../images/118.png" alt="Part"/> <a href="EA300.htm">Program: 859DC HaulX</a></li>
+<li><img src="../../images/118.png" alt="Part"/> <a href="EA310.htm">Program: 855DC Decarb Green Systems</a></li>
+<li><img src="../../images/118.png" alt="Part"/> <a href="EA311.htm">Program: 851DC Heavy Mobile Equipment (HME)</a></li>
+<li><img src="../../images/118.png" alt="Part"/> <a href="EA312.htm">Program: 852DC Light Mobile Equipment (LME) & Support Mobile Equipment (SME)</a></li>
+<li><img src="../../images/118.png" alt="Part"/> <a href="EA313.htm">Program: 853DC Decarb Ancillary</a></li>
+<li><img src="../../images/118.png" alt="Part"/> <a href="EA314.htm">Program: 850DC Decarb Infrastructure</a></li>
+<li><img src="../../images/118.png" alt="Part"/> <a href="EA315.htm">Program: 854DC Green Power</a></li>
+<li><img src="../../images/118.png" alt="Part"/> <a href="EA316.htm">Program: 856DC Green Rail</a></li>
+<li><img src="../../images/118.png" alt="Part"/> <a href="EA317.htm">Program: 857DC Green Marine</a></li>
+</ul>
 
                         </div>
 					</td>
@@ -625,7 +664,7 @@ window.addEventListener('resize', offsetContentForHeader);
 
 <div class="PageBody" style="position: relative !important; height: auto !important; overflow: visible !important; padding-bottom: 10px;">
     <span class="ObjectTitle">
-        850DC-1512-0001-005 PC3 (DC Switchgear) : &lt;&lt;block&gt;&gt;
+        Decarbonisation Portfolio : &lt;&lt;block&gt;&gt;
     </span>
 
     <table border="0" class="ObjectDetails" style="width: 100%; margin-bottom: 10px;">
@@ -634,10 +673,10 @@ window.addEventListener('resize', offsetContentForHeader);
             <col width="*" />
         </colgroup>
         <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Status:</td><td class="ObjectDetailsValue">Proposed</td></tr>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Created:</td><td class="ObjectDetailsValue">27/08/2025 14:41:01</td></tr>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Modified:</td><td class="ObjectDetailsValue">07/01/2026 15:03:23</td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Created:</td><td class="ObjectDetailsValue">06/10/2025 11:50:37</td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Modified:</td><td class="ObjectDetailsValue">18/02/2026 13:17:52</td></tr>
         <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Author:</td><td class="ObjectDetailsValue">Admin</td></tr>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">UUID:</td><td class="ObjectDetailsValue">{08279551-9167-464a-B31F-BA74EF894756}</td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">UUID:</td><td class="ObjectDetailsValue">{5472B521-19E5-431e-BC11-96AB6E2214CE}</td></tr>
         <tr id="adv01"><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Appears In:</td><td class="ObjectDetailsValue"><a href="../EA17.htm">System Breakdown Structure (SBS)</a></td></tr>
         <tr>
             <td class="ObjectDetailsTopic" style="padding-left:0; width:70px; vertical-align:top; padding-top:5px;">Remarks:</td>
@@ -972,12 +1011,12 @@ window.addEventListener('resize', offsetContentForHeader);
 })();
 </script>	<div class="TableGroup" id="TableGroup">
 		<ul class="ItemTitle">
-			<li onClick="parent != null ? parent.toggleItem('AssociationsTo') : toggleItem('AssociationsTo');" id="AssociationsToTitle">Associations To</li>
+			<li onClick="parent != null ? parent.toggleItem('AssociationsFrom') : toggleItem('AssociationsFrom');" id="AssociationsFromTitle">Associations From</li>
 			<li onClick="parent != null ? parent.toggleItem('TaggedVal') : toggleItem('TaggedVal');" id="TaggedValTitle">Tagged Values</li>
 			<li onClick="parent != null ? parent.toggleItem('CustomProperties') : toggleItem('CustomProperties');" id="CustomPropertiesTitle">Advanced</li>
 			<li onClick="parent != null ? parent.toggleItem('Links') : toggleItem('Links');" id="LinksTitle">Other Links</li>
 		</ul>
-		<div class="ItemBody" id="AssociationsToTable">
+		<div class="ItemBody" id="AssociationsFromTable">
 			<table class="Table ea_table">
 				<tr>
 					<td width="40%" class="TableHeading">Element</td>
@@ -986,11 +1025,11 @@ window.addEventListener('resize', offsetContentForHeader);
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="EA193.htm">«block» 850DC-1512-0001 HME Chargers - Gen1</a><br />
+						<a href="EA302.htm">«block» 851DC Heavy Mobile Equipment (HME)</a><br />
 						Block &nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> Subsystem<br />
+						<strong>Name:</strong> Program<br />
 						&nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
@@ -1000,8 +1039,238 @@ window.addEventListener('resize', offsetContentForHeader);
 				</tr>
 				<tr>
 					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink560" /></button>Details:
-							<div id="detailsDIVLink560" class="DetailsDiv" >
+						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink698" /></button>Details:
+							<div id="detailsDIVLink698" class="DetailsDiv" >
+							&nbsp;
+							</div>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td width="40%" class="TableRow" valign="top">
+						<a href="EA305.htm">«block» 854DC Green Power</a><br />
+						Block &nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> Program<br />
+						&nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> &nbsp;<br />
+						&nbsp;	
+					</td>
+				</tr>
+				<tr>
+					<td class="TableRowBottomDashed"  colspan="3">
+						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink699" /></button>Details:
+							<div id="detailsDIVLink699" class="DetailsDiv" >
+							&nbsp;
+							</div>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td width="40%" class="TableRow" valign="top">
+						<a href="EA301.htm">«block» 850DC Decarb Infrastructure</a><br />
+						Block &nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> Program<br />
+						&nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> &nbsp;<br />
+						&nbsp;	
+					</td>
+				</tr>
+				<tr>
+					<td class="TableRowBottomDashed"  colspan="3">
+						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink700" /></button>Details:
+							<div id="detailsDIVLink700" class="DetailsDiv" >
+							&nbsp;
+							</div>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td width="40%" class="TableRow" valign="top">
+						<a href="EA307.htm">«block» 856DC Green Rail</a><br />
+						Block &nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> Program<br />
+						&nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> &nbsp;<br />
+						&nbsp;	
+					</td>
+				</tr>
+				<tr>
+					<td class="TableRowBottomDashed"  colspan="3">
+						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink701" /></button>Details:
+							<div id="detailsDIVLink701" class="DetailsDiv" >
+							&nbsp;
+							</div>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td width="40%" class="TableRow" valign="top">
+						<a href="EA306.htm">«block» 855DC Decarb Green Systems</a><br />
+						Block &nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> Program<br />
+						&nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> &nbsp;<br />
+						&nbsp;	
+					</td>
+				</tr>
+				<tr>
+					<td class="TableRowBottomDashed"  colspan="3">
+						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink702" /></button>Details:
+							<div id="detailsDIVLink702" class="DetailsDiv" >
+							&nbsp;
+							</div>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td width="40%" class="TableRow" valign="top">
+						<a href="../EA3/EA1/EA499.htm">«block» Archive - 852DC Light Mobile Equipment (LME)</a><br />
+						Block &nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> Program<br />
+						&nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> &nbsp;<br />
+						&nbsp;	
+					</td>
+				</tr>
+				<tr>
+					<td class="TableRowBottomDashed"  colspan="3">
+						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink703" /></button>Details:
+							<div id="detailsDIVLink703" class="DetailsDiv" >
+							&nbsp;
+							</div>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td width="40%" class="TableRow" valign="top">
+						<a href="EA308.htm">«block» 857DC Green Marine</a><br />
+						Block &nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> Program<br />
+						&nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> &nbsp;<br />
+						&nbsp;	
+					</td>
+				</tr>
+				<tr>
+					<td class="TableRowBottomDashed"  colspan="3">
+						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink704" /></button>Details:
+							<div id="detailsDIVLink704" class="DetailsDiv" >
+							&nbsp;
+							</div>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td width="40%" class="TableRow" valign="top">
+						<a href="EA303.htm">«block» 852DC Light Mobile Equipment (LME) & Support Mobile Equipment (SME)</a><br />
+						Block &nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> Program<br />
+						&nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> &nbsp;<br />
+						&nbsp;	
+					</td>
+				</tr>
+				<tr>
+					<td class="TableRowBottomDashed"  colspan="3">
+						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink705" /></button>Details:
+							<div id="detailsDIVLink705" class="DetailsDiv" >
+							&nbsp;
+							</div>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td width="40%" class="TableRow" valign="top">
+						<a href="EA304.htm">«block» 853DC Decarb Ancillary</a><br />
+						Block &nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> Program<br />
+						&nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> &nbsp;<br />
+						&nbsp;	
+					</td>
+				</tr>
+				<tr>
+					<td class="TableRowBottomDashed"  colspan="3">
+						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink706" /></button>Details:
+							<div id="detailsDIVLink706" class="DetailsDiv" >
+							&nbsp;
+							</div>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td width="40%" class="TableRow" valign="top">
+						<a href="EA309.htm">«block» 859DC HaulX</a><br />
+						Block &nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> Program<br />
+						&nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> &nbsp;<br />
+						&nbsp;	
+					</td>
+				</tr>
+				<tr>
+					<td class="TableRowBottomDashed"  colspan="3">
+						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink707" /></button>Details:
+							<div id="detailsDIVLink707" class="DetailsDiv" >
+							&nbsp;
+							</div>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td width="40%" class="TableRow" valign="top">
+						<a href="EA304.htm">«block» 853DC Decarb Ancillary</a><br />
+						Block &nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> Program<br />
+						&nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> &nbsp;<br />
+						&nbsp;	
+					</td>
+				</tr>
+				<tr>
+					<td class="TableRowBottomDashed"  colspan="3">
+						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink708" /></button>Details:
+							<div id="detailsDIVLink708" class="DetailsDiv" >
 							&nbsp;
 							</div>
 						</div>
@@ -1018,7 +1287,7 @@ window.addEventListener('resize', offsetContentForHeader);
         </tr>
         			<tr>
 				<td class="TableRow" valign="top">Element</td>
-				<td class="TableRow" valign="top">Subsystem</td>
+				<td class="TableRow" valign="top">Portfolio</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1027,7 +1296,7 @@ window.addEventListener('resize', offsetContentForHeader);
 				</td>
 			</tr>			<tr>
 				<td class="TableRow" valign="top">Element Type</td>
-				<td class="TableRow" valign="top">Subsystem</td>
+				<td class="TableRow" valign="top">Portfolio</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1036,16 +1305,7 @@ window.addEventListener('resize', offsetContentForHeader);
 				</td>
 			</tr>			<tr>
 				<td class="TableRow" valign="top">Facility Code</td>
-				<td class="TableRow" valign="top">1512</td>
-			</tr>	
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="2">
-					Details:
-						&nbsp;
-				</td>
-			</tr>			<tr>
-				<td class="TableRow" valign="top">Location</td>
-				<td class="TableRow" valign="top">Generic Physical Asset</td>
+				<td class="TableRow" valign="top">[BLANK]</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1054,7 +1314,7 @@ window.addEventListener('resize', offsetContentForHeader);
 				</td>
 			</tr>			<tr>
 				<td class="TableRow" valign="top">Old SBS ID</td>
-				<td class="TableRow" valign="top">G.01.01.04</td>
+				<td class="TableRow" valign="top">00.Fortescue</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1080,26 +1340,8 @@ window.addEventListener('resize', offsetContentForHeader);
 						&nbsp;
 				</td>
 			</tr>			<tr>
-				<td class="TableRow" valign="top">Program</td>
-				<td class="TableRow" valign="top">850DC Decarb Infrastructure</td>
-			</tr>	
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="2">
-					Details:
-						&nbsp;
-				</td>
-			</tr>			<tr>
 				<td class="TableRow" valign="top">Program Code</td>
-				<td class="TableRow" valign="top">850DC</td>
-			</tr>	
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="2">
-					Details:
-						&nbsp;
-				</td>
-			</tr>			<tr>
-				<td class="TableRow" valign="top">Project</td>
-				<td class="TableRow" valign="top">850DC-1512-0001 HME Chargers - Gen1</td>
+				<td class="TableRow" valign="top">[BLANK]</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1108,16 +1350,7 @@ window.addEventListener('resize', offsetContentForHeader);
 				</td>
 			</tr>			<tr>
 				<td class="TableRow" valign="top">Project Code</td>
-				<td class="TableRow" valign="top">0001</td>
-			</tr>	
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="2">
-					Details:
-						&nbsp;
-				</td>
-			</tr>			<tr>
-				<td class="TableRow" valign="top">Subsystem</td>
-				<td class="TableRow" valign="top">850DC-1512-0001-005 PC3 (DC Switchgear)</td>
+				<td class="TableRow" valign="top">[BLANK]</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1126,16 +1359,7 @@ window.addEventListener('resize', offsetContentForHeader);
 				</td>
 			</tr>			<tr>
 				<td class="TableRow" valign="top">Subsystem Code</td>
-				<td class="TableRow" valign="top">005</td>
-			</tr>	
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="2">
-					Details:
-						&nbsp;
-				</td>
-			</tr>			<tr>
-				<td class="TableRow" valign="top">System</td>
-				<td class="TableRow" valign="top">850DC-1510 Chargers</td>
+				<td class="TableRow" valign="top">[BLANK]</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1144,7 +1368,7 @@ window.addEventListener('resize', offsetContentForHeader);
 				</td>
 			</tr>			<tr>
 				<td class="TableRow" valign="top">WBS Code</td>
-				<td class="TableRow" valign="top">850DC-1512-0001-005</td>
+				<td class="TableRow" valign="top">[BLANK]</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1191,10 +1415,100 @@ window.addEventListener('resize', offsetContentForHeader);
         </tr>
 
 <tr class="#LINK_STEREOTYPE# Block">
-    <td width="30%" class="TableRow" valign="top"><a href="EA193.htm">«block» 850DC-1512-0001 HME Chargers - Gen1</a></td>
+    <td width="30%" class="TableRow" valign="top"><a href="EA302.htm">«block» 851DC Heavy Mobile Equipment (HME)</a></td>
     <td width="10%" class="TableRow" valign="top">Block</td>
     <td width="10%" class="TableRow" valign="top">Strong</td>
-    <td width="10%" class="TableRow" valign="top">To</td>
+    <td width="10%" class="TableRow" valign="top">From</td>
+    <td width="40%" class="TableRow" valign="top">
+        &nbsp;
+    </td>
+</tr>
+<tr class="#LINK_STEREOTYPE# Block">
+    <td width="30%" class="TableRow" valign="top"><a href="EA305.htm">«block» 854DC Green Power</a></td>
+    <td width="10%" class="TableRow" valign="top">Block</td>
+    <td width="10%" class="TableRow" valign="top">Strong</td>
+    <td width="10%" class="TableRow" valign="top">From</td>
+    <td width="40%" class="TableRow" valign="top">
+        &nbsp;
+    </td>
+</tr>
+<tr class="#LINK_STEREOTYPE# Block">
+    <td width="30%" class="TableRow" valign="top"><a href="EA301.htm">«block» 850DC Decarb Infrastructure</a></td>
+    <td width="10%" class="TableRow" valign="top">Block</td>
+    <td width="10%" class="TableRow" valign="top">Strong</td>
+    <td width="10%" class="TableRow" valign="top">From</td>
+    <td width="40%" class="TableRow" valign="top">
+        &nbsp;
+    </td>
+</tr>
+<tr class="#LINK_STEREOTYPE# Block">
+    <td width="30%" class="TableRow" valign="top"><a href="EA307.htm">«block» 856DC Green Rail</a></td>
+    <td width="10%" class="TableRow" valign="top">Block</td>
+    <td width="10%" class="TableRow" valign="top">Strong</td>
+    <td width="10%" class="TableRow" valign="top">From</td>
+    <td width="40%" class="TableRow" valign="top">
+        &nbsp;
+    </td>
+</tr>
+<tr class="#LINK_STEREOTYPE# Block">
+    <td width="30%" class="TableRow" valign="top"><a href="EA306.htm">«block» 855DC Decarb Green Systems</a></td>
+    <td width="10%" class="TableRow" valign="top">Block</td>
+    <td width="10%" class="TableRow" valign="top">Strong</td>
+    <td width="10%" class="TableRow" valign="top">From</td>
+    <td width="40%" class="TableRow" valign="top">
+        &nbsp;
+    </td>
+</tr>
+<tr class="#LINK_STEREOTYPE# Block">
+    <td width="30%" class="TableRow" valign="top"><a href="../EA3/EA1/EA499.htm">«block» Archive - 852DC Light Mobile Equipment (LME)</a></td>
+    <td width="10%" class="TableRow" valign="top">Block</td>
+    <td width="10%" class="TableRow" valign="top">Strong</td>
+    <td width="10%" class="TableRow" valign="top">From</td>
+    <td width="40%" class="TableRow" valign="top">
+        &nbsp;
+    </td>
+</tr>
+<tr class="#LINK_STEREOTYPE# Block">
+    <td width="30%" class="TableRow" valign="top"><a href="EA308.htm">«block» 857DC Green Marine</a></td>
+    <td width="10%" class="TableRow" valign="top">Block</td>
+    <td width="10%" class="TableRow" valign="top">Strong</td>
+    <td width="10%" class="TableRow" valign="top">From</td>
+    <td width="40%" class="TableRow" valign="top">
+        &nbsp;
+    </td>
+</tr>
+<tr class="#LINK_STEREOTYPE# Block">
+    <td width="30%" class="TableRow" valign="top"><a href="EA303.htm">«block» 852DC Light Mobile Equipment (LME) & Support Mobile Equipment (SME)</a></td>
+    <td width="10%" class="TableRow" valign="top">Block</td>
+    <td width="10%" class="TableRow" valign="top">Strong</td>
+    <td width="10%" class="TableRow" valign="top">From</td>
+    <td width="40%" class="TableRow" valign="top">
+        &nbsp;
+    </td>
+</tr>
+<tr class="#LINK_STEREOTYPE# Block">
+    <td width="30%" class="TableRow" valign="top"><a href="EA304.htm">«block» 853DC Decarb Ancillary</a></td>
+    <td width="10%" class="TableRow" valign="top">Block</td>
+    <td width="10%" class="TableRow" valign="top">Strong</td>
+    <td width="10%" class="TableRow" valign="top">From</td>
+    <td width="40%" class="TableRow" valign="top">
+        &nbsp;
+    </td>
+</tr>
+<tr class="#LINK_STEREOTYPE# Block">
+    <td width="30%" class="TableRow" valign="top"><a href="EA309.htm">«block» 859DC HaulX</a></td>
+    <td width="10%" class="TableRow" valign="top">Block</td>
+    <td width="10%" class="TableRow" valign="top">Strong</td>
+    <td width="10%" class="TableRow" valign="top">From</td>
+    <td width="40%" class="TableRow" valign="top">
+        &nbsp;
+    </td>
+</tr>
+<tr class="#LINK_STEREOTYPE# Block">
+    <td width="30%" class="TableRow" valign="top"><a href="EA304.htm">«block» 853DC Decarb Ancillary</a></td>
+    <td width="10%" class="TableRow" valign="top">Block</td>
+    <td width="10%" class="TableRow" valign="top">Strong</td>
+    <td width="10%" class="TableRow" valign="top">From</td>
     <td width="40%" class="TableRow" valign="top">
         &nbsp;
     </td>

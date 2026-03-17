@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head><link rel="icon" href="/favicon.ico"></head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Requirements</title>
+<title>Requirements: 855DC-1541-DEL Delphi</title>
 <link href="../../css/ea.css" rel="stylesheet" type="text/css" />
 <script language="JavaScript" src="../../js/displayToc.js" type="text/javascript"></script>
 
@@ -418,26 +418,40 @@ window.addEventListener('resize', offsetContentForHeader);
                 window.top.location.href = targetIndex;
             });
         }
+		// ----------------------------------------------------------------
+// DOWNLOAD LINK FIX (Interface Register)
+// ----------------------------------------------------------------
+const cssLinkDownload = document.querySelector('link[href*="ea.css"]');
+if (cssLinkDownload) {
+    const cssPathDownload = cssLinkDownload.getAttribute('href');
+    const rootPathDownload = cssPathDownload.substring(0, cssPathDownload.lastIndexOf('css/'));
+
+    const downloadLink = document.querySelector('.download-box a');
+    if (downloadLink) {
+        downloadLink.href = rootPathDownload + "files/Fortescue_Interface-Register_Z.xlsm";
+    }
+}
 // ----------------------------------------------------------------
 // LEGEND SWITCHING (SBS Special Case)
 // ----------------------------------------------------------------
 (function() {
-    const legendImg = document.getElementById('legend-image');
-    const legendBox = document.getElementById('legend-sidebar');
-    if (!legendImg || !legendBox) return;
-
+    const legendImg = document.querySelector('#legend-panel img');
+    const legendPanel = document.getElementById('legend-panel');
+    if (!legendImg || !legendPanel) return;
     const header = document.querySelector('.header_frame h1');
     if (!header) return;
-
     const pageTitle = header.textContent.trim().toLowerCase();
-
     if (pageTitle.includes('system breakdown structure')) {
         legendImg.src = legendImg.src.replace('legend.svg', 'legendsbs.svg');
-        legendBox.style.width = '260px';   // Smaller width for SBS
-    } else {
-        legendBox.style.width = '280px';   // Default width
+        legendPanel.style.width = '260px';
+	} else if (pageTitle.includes('requirements')) {
+    legendImg.src = legendImg.src.replace('EARoot/images/legend.svg', 'images/legendreq.svg');
+    legendPanel.style.width = '280px';
+	} else {
+        legendPanel.style.width = '280px';
     }
 })();
+
         // ----------------------------------------------------------------
         // 8. SHORTCUTS (Keyboard & Mouse Zoom)
         // ----------------------------------------------------------------
@@ -473,11 +487,11 @@ window.addEventListener('resize', offsetContentForHeader);
 <div class="section group" >
 
 		<div class="col span_2_of_2 header_frame">
-			<h1> Requirements </h1>
+			<h1> Requirements: 855DC-1541-DEL Delphi </h1>
 			<img class="header_image" src="../../images/Logo.png" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
-			<p><a href="../EA19.htm">Decarb Green Systems Architecture  Version: Z</a> / <a href="EA88.htm">Requirements</a></p>
+			<p><a href="../EA19.htm">Decarb Green Systems Architecture  Version: Z</a> / <a href="EA90.htm">Requirements</a> / <a href="EA88.htm">Requirements: 855DC-1541-DEL Delphi</a></p>
 		</div>
 			
 		<table class="contentmaintable">
@@ -485,6 +499,13 @@ window.addEventListener('resize', offsetContentForHeader);
 				<tr>
 					<td class="indexcell">
 						<div class="projectBrowserTitle"></div>
+						<div class="download-box">
+						<div class="download-box">
+							<a href="files/Fortescue_Interface-Register_Z.xlsm" target="_blank">
+							Interface Register
+							</a>
+						</div>
+						</div>
                         
                         <div class="sidebar-search-container">
                             <input type="text" id="sidebarSearch" onkeyup="performGlobalSearch()" placeholder="Search model...">
@@ -494,484 +515,509 @@ window.addEventListener('resize', offsetContentForHeader);
 
                         <div id="originalTree">
 						    <ul>
-<a href="../EA19.htm">Decarb Green Systems Architecture  Version: Z</a></ul>
+<li><img src="../../images/4.png" alt="Package"/> <a href="./EA1/EA92.htm">Requirements Elements</a></li>
+<li><img src="../../images/188.png" alt="Diagram"/> <a href="EA88.htm">Requirements: 855DC-1541-DEL Delphi</a></li>
+</ul>
 
                         </div>
 					</td>
 					<td class="contentcell">
-                        <div class="pageHeader"></div>
-<style>
-/* ==========================================================
-   1. Fix Remarks: Remove grey box and padding
-   ========================================================== */
-.remarks-cell .ObjectDetailsNotes {
-    background-color: transparent !important;
-    border: none !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    overflow: visible !important;
-}
+                        <div class="PageBody">
+<div style="position: absolute; top: 10px; right: 25px; z-index: 100;">
+    <div style="display: inline-flex; flex-direction: column; align-items: flex-start; background: white; border: 1px solid #ccc; border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.2); min-width: 160px;">
+        <div style="display: flex; width: 100%;">
+            <button onclick="zoomDiagram('in')" style="width: 30px; height: 30px; font-weight: bold; cursor: pointer; border: none; border-right: 1px solid #ccc; background: transparent; border-radius: 4px 0 0 0;" title="Zoom In">+</button>
+            <button onclick="zoomDiagram('out')" style="width: 30px; height: 30px; font-weight: bold; cursor: pointer; border: none; border-right: 1px solid #ccc; background: transparent;" title="Zoom Out">-</button>
+            <button onclick="zoomDiagram('reset')" style="height: 30px; padding: 0 8px; cursor: pointer; border: none; border-right: 1px solid #ccc; background: transparent; border-radius: 0 4px 0 0; flex: 1;" title="Reset Zoom to 100%">Reset</button>
+            <button id="clear-highlight-btn" onclick="clearHighlight()" style="height: 30px; padding: 0 8px; cursor: pointer; border: none; background: transparent; border-radius: 0 4px 0 0; flex: 1; display: none;" title="Clear Highlight">Clear</button>
+        </div>
+        <div style="border-top: 1px solid #ccc; width: 100%;">
+            <button id="legend-toggle-btn" onclick="toggleLegend()" style="width: 100%; height: 28px; cursor: pointer; border: none; background: transparent; border-radius: 0 0 4px 4px; display: none;">Show Diagram Key</button>
+        </div>
+        <div id="legend-panel" style="display: none; border-top: 1px solid #ccc; padding: 6px; width: 280px; border-radius: 0 0 4px 4px;">
+            <img src="../images/legend.svg" style="width: 100%;" />
+        </div>
+    </div>
+</div>
+<div class="diagram_image"> 
+<img src="EA89.png" usemap="#EA89" width="3729" height="10704" border="0" />
 
-/* ==========================================================
-   2. Fix Bottom Table Alignment
-   ========================================================== */
-.TableGroup, 
-.ItemTitle, 
-.ItemBody, 
-.ItemBody table {
-    margin-left: 12px !important; 
-    padding-left: 0px !important;
-}
+<MAP NAME="EA89">
+<area shape="rect" coords="45,92,339,348" href="./EA1/EA94.htm" target="_self">
+<area shape="rect" coords="2495,10443,2562,10578" href="../EA3/EA4/EA630.htm" target="_self">
+<area shape="rect" coords="2312,9752,2867,9872" href="../EA2/EA470.htm" target="_self">
+<area shape="rect" coords="2312,9168,2867,9288" href="../EA2/EA168.htm" target="_self">
+<area shape="rect" coords="2312,8481,2867,8601" href="../EA2/EA469.htm" target="_self">
+<area shape="rect" coords="2312,7802,2867,7907" href="../EA3/EA3/EA616.htm" target="_self">
+<area shape="rect" coords="2312,7130,2867,7235" href="../EA3/EA3/EA617.htm" target="_self">
+<area shape="rect" coords="2312,6507,2867,6612" href="../EA3/EA3/EA615.htm" target="_self">
+<area shape="rect" coords="2312,5675,2867,5795" href="../EA2/EA416.htm" target="_self">
+<area shape="rect" coords="2312,5045,2867,5165" href="../EA2/EA415.htm" target="_self">
+<area shape="rect" coords="2312,4472,2867,4592" href="../EA2/EA414.htm" target="_self">
+<area shape="rect" coords="2312,3842,2867,3962" href="../EA2/EA413.htm" target="_self">
+<area shape="rect" coords="2312,3147,2867,3267" href="../EA2/EA330.htm" target="_self">
+<area shape="rect" coords="2312,2456,2867,2576" href="../EA2/EA412.htm" target="_self">
+<area shape="rect" coords="2312,1770,2867,1941" href="../EA2/EA474.htm" target="_self">
+<area shape="rect" coords="2312,1166,2867,1304" href="../EA2/EA464.htm" target="_self">
+<area shape="rect" coords="2312,462,2867,672" href="../EA2/EA479.htm" target="_self">
+<area shape="rect" coords="3104,161,3659,546" href="../EA5.htm" target="_self">
+<area shape="rect" coords="1616,252,2178,626" href="../EA3/EA5/EA665.htm" target="_self">
+<area shape="rect" coords="1616,791,2178,1340" href="../EA3/EA5/EA986.htm" target="_self">
+<area shape="rect" coords="1616,1437,2178,1967" href="../EA3/EA5/EA985.htm" target="_self">
+<area shape="rect" coords="1608,9479,2171,9950" href="../EA3/EA5/EA984.htm" target="_self">
+<area shape="rect" coords="1616,2864,2178,3276" href="../EA3/EA5/EA974.htm" target="_self">
+<area shape="rect" coords="1616,2183,2178,2576" href="../EA3/EA5/EA972.htm" target="_self">
+<area shape="rect" coords="1608,6861,2171,7254" href="../EA3/EA5/EA971.htm" target="_self">
+<area shape="rect" coords="1608,5433,2171,5826" href="../EA3/EA5/EA970.htm" target="_self">
+<area shape="rect" coords="1608,4788,2171,5181" href="../EA3/EA5/EA969.htm" target="_self">
+<area shape="rect" coords="1616,4199,2178,4592" href="../EA3/EA5/EA968.htm" target="_self">
+<area shape="rect" coords="1608,6203,2171,6635" href="../EA3/EA5/EA967.htm" target="_self">
+<area shape="rect" coords="1616,3569,2178,3962" href="../EA3/EA5/EA966.htm" target="_self">
+<area shape="rect" coords="1608,10100,2171,10629" href="../EA3/EA5/EA855.htm" target="_self">
+<area shape="rect" coords="1608,9000,2171,9257" href="../EA3/EA5/EA647.htm" target="_self">
+<area shape="rect" coords="1608,8211,2171,8702" href="../EA3/EA5/EA646.htm" target="_self">
+<area shape="rect" coords="1608,7497,2171,7929" href="../EA3/EA5/EA973.htm" target="_self">
+<area shape="rect" coords="948,10383,1511,10620" href="./EA1/EA157.htm" target="_self">
+<area shape="rect" coords="948,10079,1511,10335" href="./EA1/EA156.htm" target="_self">
+<area shape="rect" coords="360,10383,923,10620" href="./EA1/EA155.htm" target="_self">
+<area shape="rect" coords="360,10079,923,10335" href="./EA1/EA154.htm" target="_self">
+<area shape="rect" coords="948,9746,1511,9983" href="./EA1/EA153.htm" target="_self">
+<area shape="rect" coords="948,9479,1511,9696" href="./EA1/EA152.htm" target="_self">
+<area shape="rect" coords="360,9746,923,9983" href="./EA1/EA151.htm" target="_self">
+<area shape="rect" coords="360,9479,923,9696" href="./EA1/EA150.htm" target="_self">
+<area shape="rect" coords="948,8867,1511,9104" href="./EA1/EA149.htm" target="_self">
+<area shape="rect" coords="360,9158,923,9375" href="./EA1/EA148.htm" target="_self">
+<area shape="rect" coords="360,8867,923,9104" href="./EA1/EA147.htm" target="_self">
+<area shape="rect" coords="948,8477,1511,8772" href="./EA1/EA146.htm" target="_self">
+<area shape="rect" coords="948,8138,1511,8433" href="./EA1/EA145.htm" target="_self">
+<area shape="rect" coords="360,8138,923,8433" href="./EA1/EA143.htm" target="_self">
+<area shape="rect" coords="948,7731,1511,8027" href="./EA1/EA142.htm" target="_self">
+<area shape="rect" coords="948,7446,1511,7683" href="./EA1/EA141.htm" target="_self">
+<area shape="rect" coords="360,7731,923,8027" href="./EA1/EA140.htm" target="_self">
+<area shape="rect" coords="360,7446,923,7683" href="./EA1/EA139.htm" target="_self">
+<area shape="rect" coords="948,7082,1511,7338" href="./EA1/EA138.htm" target="_self">
+<area shape="rect" coords="948,6791,1511,7028" href="./EA1/EA137.htm" target="_self">
+<area shape="rect" coords="360,7082,923,7338" href="./EA1/EA136.htm" target="_self">
+<area shape="rect" coords="360,6791,923,7028" href="./EA1/EA135.htm" target="_self">
+<area shape="rect" coords="948,6446,1511,6702" href="./EA1/EA134.htm" target="_self">
+<area shape="rect" coords="948,6146,1511,6402" href="./EA1/EA133.htm" target="_self">
+<area shape="rect" coords="360,6446,923,6702" href="./EA1/EA132.htm" target="_self">
+<area shape="rect" coords="360,6146,923,6402" href="./EA1/EA131.htm" target="_self">
+<area shape="rect" coords="948,5646,1511,6078" href="./EA1/EA130.htm" target="_self">
+<area shape="rect" coords="948,5355,1511,5612" href="./EA1/EA129.htm" target="_self">
+<area shape="rect" coords="360,5646,923,6078" href="./EA1/EA128.htm" target="_self">
+<area shape="rect" coords="360,5355,923,5612" href="./EA1/EA127.htm" target="_self">
+<area shape="rect" coords="948,5006,1511,5243" href="./EA1/EA126.htm" target="_self">
+<area shape="rect" coords="948,4731,1511,4968" href="./EA1/EA125.htm" target="_self">
+<area shape="rect" coords="360,5006,923,5243" href="./EA1/EA124.htm" target="_self">
+<area shape="rect" coords="360,4731,923,4968" href="./EA1/EA123.htm" target="_self">
+<area shape="rect" coords="948,4413,1511,4650" href="./EA1/EA122.htm" target="_self">
+<area shape="rect" coords="948,4137,1511,4374" href="./EA1/EA121.htm" target="_self">
+<area shape="rect" coords="360,4413,923,4650" href="./EA1/EA120.htm" target="_self">
+<area shape="rect" coords="360,4137,923,4374" href="./EA1/EA119.htm" target="_self">
+<area shape="rect" coords="948,3797,1511,4034" href="./EA1/EA118.htm" target="_self">
+<area shape="rect" coords="948,3471,1511,3728" href="./EA1/EA117.htm" target="_self">
+<area shape="rect" coords="360,3797,923,4034" href="./EA1/EA116.htm" target="_self">
+<area shape="rect" coords="360,3471,923,3728" href="./EA1/EA115.htm" target="_self">
+<area shape="rect" coords="948,3089,1511,3326" href="./EA1/EA114.htm" target="_self">
+<area shape="rect" coords="948,2778,1511,3035" href="./EA1/EA113.htm" target="_self">
+<area shape="rect" coords="360,3089,923,3326" href="./EA1/EA112.htm" target="_self">
+<area shape="rect" coords="360,2778,923,3035" href="./EA1/EA111.htm" target="_self">
+<area shape="rect" coords="948,2408,1511,2625" href="./EA1/EA110.htm" target="_self">
+<area shape="rect" coords="948,2087,1511,2343" href="./EA1/EA109.htm" target="_self">
+<area shape="rect" coords="360,2408,923,2625" href="./EA1/EA108.htm" target="_self">
+<area shape="rect" coords="360,2087,923,2343" href="./EA1/EA107.htm" target="_self">
+<area shape="rect" coords="948,1737,1511,1974" href="./EA1/EA106.htm" target="_self">
+<area shape="rect" coords="948,1443,1511,1661" href="./EA1/EA105.htm" target="_self">
+<area shape="rect" coords="360,1737,923,1974" href="./EA1/EA104.htm" target="_self">
+<area shape="rect" coords="360,1443,923,1661" href="./EA1/EA103.htm" target="_self">
+<area shape="rect" coords="948,1091,1511,1347" href="./EA1/EA102.htm" target="_self">
+<area shape="rect" coords="948,791,1511,1028" href="./EA1/EA101.htm" target="_self">
+<area shape="rect" coords="360,1091,923,1347" href="./EA1/EA100.htm" target="_self">
+<area shape="rect" coords="360,791,923,1028" href="./EA1/EA99.htm" target="_self">
+<area shape="rect" coords="948,462,1511,699" href="./EA1/EA98.htm" target="_self">
+<area shape="rect" coords="948,128,1511,404" href="./EA1/EA97.htm" target="_self">
+<area shape="rect" coords="360,462,923,699" href="./EA1/EA96.htm" target="_self">
+<area shape="rect" coords="360,128,923,404" href="./EA1/EA95.htm" target="_self">
+<area shape="rect" coords="360,8477,923,8772" href="./EA1/EA144.htm" target="_self">
+<area shape="rect" coords="15,15,3714,10689" href="EA88.htm" target="_self">
+</MAP>
+ </div>
 
-/* ==========================================================
-   3. Ensure Bottom Tables Fill Width
-   ========================================================== */
-.ItemBody table {
-    width: 100% !important;
-    table-layout: fixed !important;
-}
-
-/* ==========================================================
-   Remove EA-generated "Details" fields
-   ========================================================== */
-.DetailsDivParent,
-.DetailsDiv {
-    display: none !important;
-}
-
-/* Tagged Values dashed spacer rows */
-#TaggedValTable .TableRowBottomDashed {
-    display: none !important;
-}
-
-/* Remove blank association rows */
-#AssociationsToTable tr:has(.DetailsDivParent),
-#AssociationsFromTable tr:has(.DetailsDivParent) {
-    display: none !important;
-}
-
-/* ==========================================================
-   TAGGED VALUES – FIX LABEL COLUMN WIDTH (PX)
-   ========================================================== */
-#TaggedValTable table {
-    width: 100% !important;
-    table-layout: fixed !important;
-}
-
-/* First column: fixed width (both header and data) */
-#TaggedValTable td:first-child,
-#TaggedValTable .TableHeading:first-child,
-#TaggedValTable td:first-child * {
-    width: 150px !important;
-    min-width: 0 !important;
-    vertical-align: top;
-    word-break: break-word;
-    overflow-wrap: break-word;
-    box-sizing: border-box !important;
-}
-
-/* Second column: fill remaining space (both header and data) */
-#TaggedValTable td:nth-child(2),
-#TaggedValTable .TableHeading:nth-child(2),
-#TaggedValTable td:nth-child(2) * {
-    width: calc(100% - 120px) !important;
-    min-width: 0 !important;
-    max-width: 500px !important;
-    vertical-align: top;
-    word-break: break-word !important;
-    overflow-wrap: break-word !important;
-    white-space: normal !important;
-    box-sizing: border-box !important;
-}
-
-
-/* ==========================================================
-   CONNECTIONS TABLE – FORCE CONSISTENT COLUMN WIDTHS
-   ========================================================== */
-#LinksTable table {
-    width: 100% !important;
-    table-layout: fixed !important;
-}
-#LinksTable table tr td:nth-child(1) { width: 250px !important; vertical-align: top; word-break: break-word; }
-#LinksTable table tr td:nth-child(2) { width: 120px !important; vertical-align: top; word-break: break-word; }
-#LinksTable table tr td:nth-child(3) { display: none !important; } /* Connection column */
-#LinksTable table tr td:nth-child(4) { width: 350px !important; vertical-align: top; word-break: break-word; }
-#LinksTable table tr td:nth-child(5) { width: 350px !important; vertical-align: top; word-break: break-word; }
-
-/* Normalize Notes cell */
-#LinksTable td .ObjectDetailsNotes {
-    background: none !important;
-    border: none !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    font-size: inherit !important;
-    line-height: inherit !important;
-}
-#LinksTable td:nth-child(5) { vertical-align: top; word-break: break-word; }
-
-/* ==========================================================
-   REQUIREMENTS TABLE – SAME AS CONNECTIONS
-   ========================================================== */
-#RequirementsTable table {
-    width: 100% !important;
-    table-layout: fixed !important;
-}
-#RequirementsTable table tr td:nth-child(1) { width: 250px !important; vertical-align: top; word-break: break-word; }
-#RequirementsTable table tr td:nth-child(2) { width: 120px !important; vertical-align: top; word-break: break-word; }
-#RequirementsTable table tr td:nth-child(3) { display: none !important; }
-#RequirementsTable table tr td:nth-child(4) { width: 350px !important; vertical-align: top; word-break: break-word; }
-#RequirementsTable table tr td:nth-child(5) { width: 350px !important; vertical-align: top; word-break: break-word; }
-</style>
-
-<div class="PageBody" style="position: relative !important; height: auto !important; overflow: visible !important; padding-bottom: 10px;">
-    <span class="ObjectTitle">
-        Requirements : 
-    </span>
-
-    <table border="0" class="ObjectDetails" style="width: 100%; margin-bottom: 10px;">
-        <colgroup>
-            <col width="70px" />
-            <col width="*" />
-        </colgroup>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Status:</td><td class="ObjectDetailsValue">Proposed</td></tr>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Created:</td><td class="ObjectDetailsValue">13/11/2025 17:36:31</td></tr>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Modified:</td><td class="ObjectDetailsValue">28/01/2026 21:46:32</td></tr>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Author:</td><td class="ObjectDetailsValue">Admin</td></tr>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">UUID:</td><td class="ObjectDetailsValue">{EB5E35AD-2E5B-4c7b-BADF-B836F757DC28}</td></tr>
-        <tr id="adv01"><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Appears In:</td><td class="ObjectDetailsValue"></td></tr>
-        <tr>
-            <td class="ObjectDetailsTopic" style="padding-left:0; width:70px; vertical-align:top; padding-top:5px;">Remarks:</td>
-            <td class="ObjectDetailsValue remarks-cell" style="vertical-align:top; padding-top:5px;"></td>
-        </tr>
-    </table>
 </div>
 
 <script>
-(function() {
-    function init() {
-        // =====================
-        // 1. FILTER / RENAME TABS & ADD REQUIREMENTS TAB
-        // =====================
-        const allowedTabs = { 
-            "Tagged Values": "Tagged Values", 
-            "Other Links": "Connections" 
-        };
+/**
+ * 0. REMOVE CATCH-ALL LINK & ENABLE PANNING
+ */
+function removeCatchAllLink() {
+    var diagramContainer = document.querySelector('.diagram_image');
+    if (!diagramContainer) return;
+    
+    var map = diagramContainer.querySelector('map');
+    if (!map) return;
+    
+    var areas = map.querySelectorAll('area');
+    
+    if (areas.length > 0) {
+        var lastArea = areas[areas.length - 1];
+        var coords = lastArea.getAttribute('coords');
+        var href = lastArea.getAttribute('href') || '';
         
-        document.querySelectorAll(".TableGroup").forEach(group => {
-            const tabs = Array.from(group.querySelectorAll(".ItemTitle li"));
-            const bodies = Array.from(group.querySelectorAll(".ItemBody"));
-            let firstAllowed = null;
-            
-            // Check if we have requirements to show
-            const linksBody = document.getElementById('LinksTable');
-            const hasRequirements = linksBody && Array.from(linksBody.querySelectorAll('tr')).some(row => {
-                const typeCell = row.querySelector('td:nth-child(2)');
-                if(!typeCell) return false;
-                const type = typeCell.textContent.trim();
-                return type === 'Requirement' || type === 'InterfaceRequirement';
-            });
-            
-            bodies.forEach(b => b.style.display = "none");
-            tabs.forEach((tab, idx) => {
-                const title = tab.textContent.trim();
-                if (allowedTabs[title]) {
-                    tab.textContent = allowedTabs[title];
-                    if(firstAllowed===null) firstAllowed=idx;
-                } else {
-                    tab.style.display="none";
-                }
-            });
-            
-            // Add Requirements tab if needed
-            if(hasRequirements) {
-                const reqTab = document.createElement('li');
-                reqTab.textContent = 'Requirements';
-                reqTab.id = 'RequirementsTitle';
-                reqTab.style.cssText = 'background: rgb(221, 221, 221); color: rgb(102, 102, 102); cursor: pointer;';
-                reqTab.onclick = function() {
-                    if(typeof toggleItem === 'function') toggleItem('Requirements');
-                };
-                
-                const reqBody = document.createElement('div');
-                reqBody.className = 'ItemBody';
-                reqBody.id = 'RequirementsTable';
-                reqBody.style.display = 'none';
-                
-                const tabList = group.querySelector('.ItemTitle');
-                tabList.appendChild(reqTab);
-                group.appendChild(reqBody);
-            }
-            
-            if(firstAllowed!==null) {
-                bodies[firstAllowed].style.display="";
-                if(typeof toggleItem==="function") toggleItem(tabs[firstAllowed].id.replace("Title",""));
+        if ((coords && coords.split(',').length > 10) || href.toUpperCase().startsWith('EA')) {
+            lastArea.remove();
+            console.log("EA Catch-All Hyperlink Removed (last area).");
+            return;
+        }
+        
+        areas.forEach(area => {
+            if (area.getAttribute('shape') === 'default') {
+                area.remove();
+                console.log("EA Catch-All Hyperlink Removed (shape=default).");
             }
         });
+    }
+}
 
-        // =====================
-        // 2. UPDATE APPEARS IN LINKS
-        // =====================
-        const path = window.location.pathname;
-        const pageName = path.substring(path.lastIndexOf('/')+1).replace(/\.(htm|html)$/,"");
-        const appearsInRow = document.getElementById("adv01");
-        if(appearsInRow && pageName.toLowerCase().indexOf("ea")!==-1){
-            appearsInRow.querySelectorAll("a").forEach(link=>{
-                const href=link.getAttribute("href");
-                if(href && !href.includes("#")) link.setAttribute("href", href+"#"+pageName);
-            });
-        }
+// Run catch-all removal and panning setup
+var diagramScroller = document.querySelector('.diagram_image');
+if (diagramScroller) {
+    removeCatchAllLink();
+    if (typeof enablePanning === 'function') {
+        enablePanning(diagramScroller);
+    }
+}
 
-        // =====================
-        // 2b. ADD INTERFACE NAME TO HEADING FOR INTERFACE BLOCKS
-        // =====================
-        const objectTitle = document.querySelector('.ObjectTitle');
-        if(objectTitle && objectTitle.textContent.includes('InterfaceBlock')) {
-            // Find the "1. Interface Name" tag value in Tagged Values table
-            const taggedValTable = document.getElementById('TaggedValTable');
-            if(taggedValTable) {
-                const rows = taggedValTable.querySelectorAll('tr');
-                rows.forEach(row => {
-                    const cells = row.querySelectorAll('td');
-                    if(cells.length >= 2) {
-                        const tagName = cells[0].textContent.trim();
-                        if(tagName === '1. Interface Name') {
-                            const interfaceName = cells[1].textContent.trim();
-                            if(interfaceName && interfaceName !== '\u00A0') {
-                                objectTitle.textContent = objectTitle.textContent + ' : ' + interfaceName;
-                            }
-                        }
-                    }
-                });
-            }
-        }
+// Initialize currentZoom if not already set
+if (typeof currentZoom === 'undefined') {
+    var currentZoom = 100;
+}
 
-        // =====================
-        // 3. SPLIT CONNECTIONS & REQUIREMENTS TABLES
-        // =====================
-        const linksTable = document.getElementById('LinksTable');
-        if(!linksTable) return;
-        const originalTable = linksTable.querySelector('table');
-        if(!originalTable) return;
-        const rows = Array.from(originalTable.querySelectorAll('tr'));
-        if(rows.length===0) return;
-        const headerRow = rows[0];
-        const interfaceRows = [];
-        const sbsRows = [];
-        const requirementRows = [];
+/**
+ * Clear highlight only
+ */
+function clearHighlight() {
+    const box = document.getElementById('ea-highlight-box');
+    if (box) box.remove();
+    
+    // Clear the hash
+    if (window.location.hash) {
+        history.replaceState(null, null, window.location.pathname);
+    }
+    
+    // Hide the clear button
+    updateClearButtonVisibility();
+}
 
-        const pageTypeElem = document.querySelector('.ObjectTitle');
-        const pageTypeText = pageTypeElem ? pageTypeElem.textContent : '';
-        const isInterfaceBlockPage = pageTypeText.includes('InterfaceBlock');
-        const isRequirementPage = pageTypeText.toLowerCase().includes('requirement');
+/**
+ * Show/hide clear button based on highlight existence
+ */
+function updateClearButtonVisibility() {
+    const clearBtn = document.getElementById('clear-highlight-btn');
+    const highlight = document.getElementById('ea-highlight-box');
+    
+    if (clearBtn) {
+        clearBtn.style.display = highlight ? 'inline-block' : 'none';
+    }
+}
 
-        function normaliseDirectionToRelationship(cell){
-            if(!cell) return;
-            const text = cell.textContent.trim().toLowerCase();
-            if(text==='to') cell.textContent='Parent';
-            else if(text==='from') cell.textContent='Child';
-        }
+/**
+ * Auto-zoom to fit highlighted block in viewport
+ */
+function autoZoomToFit(coords) {
+    const img = document.querySelector('.diagram_image img');
+    const scrollContainer = document.querySelector('.diagram_image');
+    if (!img || !scrollContainer) return;
+    
+    // Get the block dimensions at 100% zoom
+    const blockWidth = coords[2] - coords[0];
+    const blockHeight = coords[3] - coords[1];
+    
+    // Get viewport dimensions (with some padding)
+    const viewportWidth = scrollContainer.clientWidth * 0.8;
+    const viewportHeight = scrollContainer.clientHeight * 0.8;
+    
+    // Calculate zoom levels needed to fit width and height
+    const zoomForWidth = (viewportWidth / blockWidth) * 100;
+    const zoomForHeight = (viewportHeight / blockHeight) * 100;
+    
+    // Use the smaller zoom to ensure both dimensions fit
+    const optimalZoom = Math.min(zoomForWidth, zoomForHeight);
+    
+    // Clamp zoom between 10% and 100% (never zoom in beyond actual size)
+    currentZoom = Math.max(10, Math.min(100, Math.round(optimalZoom)));
+    
+    // Apply the zoom
+    const newWidthPx = img.naturalWidth * (currentZoom / 100);
+    img.style.setProperty('width', newWidthPx + 'px', 'important');
+    img.style.setProperty('height', 'auto', 'important');
+    
+    if (typeof resizeMapCoordinates === 'function') {
+        resizeMapCoordinates();
+    }
+}
 
-        rows.slice(1).forEach(row=>{
-            const typeCell = row.querySelector('td:nth-child(2)');
-            const connectionCell=row.querySelector('td:nth-child(3)');
-            const notesCell=row.querySelector('td:nth-child(5)');
-            
-            if(notesCell && notesCell.textContent.includes('[DELETED]')) return;
-            
-            if(typeCell) {
-                const type = typeCell.textContent.trim();
-                
-                // Check if it's a requirement type
-                if(type === 'Requirement' || type === 'InterfaceRequirement') {
-                    requirementRows.push(row);
-                    return;
-                }
-            }
-            
-            if(connectionCell){
-                const connectionType=connectionCell.textContent.trim();
-                if(connectionType==='Abstraction') interfaceRows.push(row);
-                else sbsRows.push(row);
-            } else sbsRows.push(row);
+/**
+ * 1. HIGHLIGHT LOGIC (Case-Insensitive & Zoom-Aware)
+ * NOW WITH DIAGRAM REDIRECT SUPPORT VIA REVERSE diagramLookup
+ */
+function applyHighlight(scrollToHighlight) {
+    if (typeof scrollToHighlight === 'undefined') scrollToHighlight = true;
+    const hash = window.location.hash.replace("#", "").trim();
+    if (!hash) return;
+
+    let searchId = hash.toLowerCase();
+    const areas = document.querySelectorAll('area');
+    const container = document.querySelector('.diagram_image');
+    if (!container) return;
+
+    const scale = (typeof currentZoom !== 'undefined') ? currentZoom / 100 : 1;
+    
+    // STEP 1: Try to find the diagram page for this hash ID
+    // First, get the element name from globalSearchData
+    let elementName = null;
+    if (typeof globalSearchData !== 'undefined') {
+        const match = globalSearchData.find(item => {
+            const itemFilename = item.link.substring(item.link.lastIndexOf('/') + 1).replace('.htm', '').toLowerCase();
+            return itemFilename === searchId;
         });
-
-        const sortByFirstColumn=(a,b)=>{
-            const aText=a.querySelector('td:first-child')?.textContent.trim().toLowerCase()||'';
-            const bText=b.querySelector('td:first-child')?.textContent.trim().toLowerCase()||'';
-            return aText.localeCompare(bText);
-        };
-        interfaceRows.sort(sortByFirstColumn);
-        sbsRows.sort(sortByFirstColumn);
-        requirementRows.sort(sortByFirstColumn);
-
-        linksTable.innerHTML='';
-
-        // ==== Interface Table ====
-        if(interfaceRows.length>0){
-            // Only show heading if NOT a requirement page
-            if(!isRequirementPage) {
-                const h3=document.createElement('h3');
-                h3.textContent='Interface Connections';
-                h3.style.marginTop='10px';
-                h3.style.marginBottom='5px';
-                h3.style.fontSize='11px';
-                h3.style.fontWeight='bold';
-                linksTable.appendChild(h3);
-            }
-
-            const table=originalTable.cloneNode(false);
-            const headerClone=headerRow.cloneNode(true);
-            const headerCells=headerClone.querySelectorAll('td');
-            if(headerCells[3]) headerCells[3].style.display='none';
-            if(isInterfaceBlockPage && headerCells[4]) headerCells[4].style.display='none';
-            
-            // Change 5th column header to "Name" on requirement pages
-            if(isRequirementPage && headerCells[4]) {
-                headerCells[4].textContent = 'Name';
-            }
-            
-            table.appendChild(headerClone);
-
-            interfaceRows.forEach(row=>{
-                const rowCopy=row.cloneNode(true);
-                const cells=rowCopy.querySelectorAll('td');
-                if(cells[3]) cells[3].style.display='none';
-                if(isInterfaceBlockPage && cells[4]) cells[4].style.display='none';
-                
-                // On requirement pages, truncate 5th column at first semicolon
-                if(isRequirementPage && cells[4]) {
-                    const notesDiv = cells[4].querySelector('.ObjectDetailsNotes');
-                    if(notesDiv) {
-                        const fullText = notesDiv.textContent.trim();
-                        const beforeSemicolon = fullText.split(';')[0].trim();
-                        notesDiv.textContent = beforeSemicolon;
-                    }
-                }
-                
-                table.appendChild(rowCopy);
-            });
-            linksTable.appendChild(table);
+        
+        if (match) {
+            elementName = match.name;
+            console.log("Found element name: " + elementName);
         }
-
-        // ==== Structural Table ====
-        if(sbsRows.length>0){
-            const h3=document.createElement('h3');
-            h3.textContent='Structural (Parent–Child) Relationships';
-            h3.style.marginTop='20px';
-            h3.style.marginBottom='5px';
-            h3.style.fontSize='11px';
-            h3.style.fontWeight='bold';
-            linksTable.appendChild(h3);
-
-            const table=originalTable.cloneNode(false);
-            const headerClone=headerRow.cloneNode(true);
-            const headerCells=headerClone.querySelectorAll('td');
-            if(headerCells[4]) headerCells[4].style.display='none';
-            table.appendChild(headerClone);
-
-            sbsRows.forEach(row=>{
-                const rowCopy=row.cloneNode(true);
-                const cells=rowCopy.querySelectorAll('td');
-                normaliseDirectionToRelationship(cells[3]);
-                if(cells[4]) cells[4].style.display='none';
-                table.appendChild(rowCopy);
-            });
-            linksTable.appendChild(table);
-        }
-
-        // ==== Requirements Table ====
-        if(requirementRows.length>0){
-            const reqTable = document.getElementById('RequirementsTable');
-            if(reqTable) {
-                // Parse requirement information to extract unique tag names
-                const tagNames = new Set();
-                requirementRows.forEach(row => {
-                    const notesCell = row.querySelector('td:nth-child(5)');
-                    if(notesCell) {
-                        const text = notesCell.textContent.trim();
-                        const pieces = text.split(';').map(p => p.trim());
-                        pieces.forEach(piece => {
-                            if(piece.includes('=')) {
-                                const tagName = piece.split('=')[0].trim();
-                                tagNames.add(tagName);
-                            }
-                        });
-                    }
-                });
-                
-                const tagNamesArray = Array.from(tagNames).sort();
-                
-                // Create table with new structure
-                const table = originalTable.cloneNode(false);
-                
-                // Build header row
-                const newHeaderRow = document.createElement('tr');
-                const headers = ['Object', 'Type'];
-                headers.forEach(h => {
-                    const th = document.createElement('td');
-                    th.className = 'TableHeading';
-                    th.textContent = h;
-                    newHeaderRow.appendChild(th);
-                });
-                // Add tag name headers
-                tagNamesArray.forEach(tagName => {
-                    const th = document.createElement('td');
-                    th.className = 'TableHeading';
-                    th.textContent = tagName;
-                    newHeaderRow.appendChild(th);
-                });
-                table.appendChild(newHeaderRow);
-
-                // Build data rows
-                requirementRows.forEach(row => {
-                    const newRow = document.createElement('tr');
-                    newRow.className = row.className;
-                    
-                    // Copy Object and Type cells
-                    const objectCell = row.querySelector('td:nth-child(1)').cloneNode(true);
-                    const typeCell = row.querySelector('td:nth-child(2)').cloneNode(true);
-                    newRow.appendChild(objectCell);
-                    newRow.appendChild(typeCell);
-                    
-                    // Parse notes into tag map
-                    const notesCell = row.querySelector('td:nth-child(5)');
-                    const tagMap = {};
-                    if(notesCell) {
-                        const text = notesCell.textContent.trim();
-                        const pieces = text.split(';').map(p => p.trim());
-                        pieces.forEach(piece => {
-                            if(piece.includes('=')) {
-                                const [tagName, value] = piece.split('=').map(s => s.trim());
-                                tagMap[tagName] = value;
-                            }
-                        });
-                    }
-                    
-                    // Add cells for each tag
-                    tagNamesArray.forEach(tagName => {
-                        const cell = document.createElement('td');
-                        cell.className = 'TableRow';
-                        cell.setAttribute('valign', 'top');
-                        cell.textContent = tagMap[tagName] || '\u00A0'; // nbsp if empty
-                        newRow.appendChild(cell);
-                    });
-                    
-                    table.appendChild(newRow);
-                });
-                
-                reqTable.appendChild(table);
+    }
+    
+    // STEP 2: If we found the element name, check if it has a diagram page
+    let searchFilename = searchId + '.htm';
+    if (elementName && typeof diagramLookup !== 'undefined') {
+        for (let diagramFile in diagramLookup) {
+            if (diagramLookup[diagramFile] === elementName) {
+                searchFilename = diagramFile.toLowerCase();
+                console.log("Redirecting search from " + searchId + ".htm to diagram page " + searchFilename);
+                break;
             }
         }
     }
+    
+    // STEP 3: Search for the element in the image map
+    let targetArea = null;
+    
+    for (let area of areas) {
+        let areaHref = (area.getAttribute('href') || "").toLowerCase();
+        let areaFilename = areaHref.substring(areaHref.lastIndexOf('/') + 1);
+        
+        if (areaFilename === searchFilename) {
+            targetArea = area;
+            console.log("Matched area with href: " + areaHref);
+            break;
+        }
+    }
 
-    if(document.readyState==='loading'){
-        document.addEventListener('DOMContentLoaded', init);
+    if (targetArea) {
+        console.log("Found match for: " + searchFilename);
+        const coordAttr = targetArea.getAttribute('data-original-coords') || targetArea.getAttribute('coords');
+        const coords = coordAttr.split(',').map(Number);
+        
+        const oldHighlight = document.getElementById('ea-highlight-box');
+        if (oldHighlight) oldHighlight.remove();
+
+        if (scrollToHighlight) {
+            // Auto-zoom to fit the highlighted block
+            autoZoomToFit(coords);
+        }
+
+        // Recalculate scale after potential zoom change
+        const scale = (typeof currentZoom !== 'undefined') ? currentZoom / 100 : 1;
+
+        const highlight = document.createElement('div');
+        highlight.id = 'ea-highlight-box';
+        
+        const left = coords[0] * scale;
+        const top = coords[1] * scale;
+        const width = (coords[2] - coords[0]) * scale;
+        const height = (coords[3] - coords[1]) * scale;
+
+        highlight.style.cssText = `
+            position: absolute;
+            box-sizing: border-box;
+            border: ${Math.max(2, 6 * scale)}px solid #FF0000;
+            background-color: rgba(255, 255, 0, 0.2);
+            pointer-events: none;
+            z-index: 9999;
+            box-shadow: 0 0 ${15 * scale}px red;
+            left: ${left}px;
+            top: ${top}px;
+            width: ${width}px;
+            height: ${height}px;
+        `;
+        
+        container.style.position = 'relative'; 
+        container.appendChild(highlight);
+
+        if (scrollToHighlight) {
+            setTimeout(() => {
+                highlight.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' });
+            }, 150);
+        }
+        
+        // Show the clear button after highlight is created
+        updateClearButtonVisibility();
     } else {
-        init();
+        console.warn("Could not find area for: " + searchFilename + " (original hash: " + hash + ")");
     }
-})();
-</script> </div>
- 
+}
+
+/**
+ * 2. OPTIMIZED INITIALIZATION - WITH RETRY FOR DATA LOADING
+ */
+function initDiagramHighlight() {
+    const diagramImg = document.querySelector('.diagram_image img');
+    
+    if (diagramImg) {
+        if (diagramImg.complete) {
+            fastRebind(diagramImg);
+        } else {
+            diagramImg.addEventListener('load', () => fastRebind(diagramImg));
+        }
+    } else {
+        setTimeout(initDiagramHighlight, 50);
+    }
+}
+
+function fastRebind(img) {
+    const currentMap = img.getAttribute('usemap');
+    if (currentMap) {
+        img.setAttribute('usemap', '');
+        img.setAttribute('usemap', currentMap);
+    }
+
+    if (typeof resizeMapCoordinates === 'function') {
+        resizeMapCoordinates();
+    }
+
+    console.log("Map re-bound via Attribute Toggle");
+
+    if (window.location.hash) {
+        // Try to highlight, but if data isn't loaded yet, retry
+        applyHighlight();
+        
+        // If globalSearchData or diagramLookup aren't available, retry after delay
+        if (typeof globalSearchData === 'undefined' || typeof diagramLookup === 'undefined') {
+            console.log("Search data not yet loaded, will retry in 500ms...");
+            setTimeout(applyHighlight, 500);
+        }
+    }
+}
+
+// Start the sequence
+initDiagramHighlight();
+
+/**
+ * 3. ZOOM INTEGRATION (Center-anchored)
+ */
+function zoomDiagram(direction) {
+    const img = document.querySelector('.diagram_image img');
+    if (!img) return;
+
+    const scrollContainer = document.querySelector('.diagram_image');
+
+    // 1. Find the anchor point - use highlight center if it exists, otherwise screen center
+    let centerX, centerY;
+    const highlight = document.getElementById('ea-highlight-box');
+    if (highlight) {
+        // Anchor on the center of the highlighted block
+        centerX = parseFloat(highlight.style.left) + parseFloat(highlight.style.width) / 2;
+        centerY = parseFloat(highlight.style.top) + parseFloat(highlight.style.height) / 2;
+    } else {
+        // Anchor on the center of the visible area
+        centerX = scrollContainer.scrollLeft + scrollContainer.clientWidth / 2;
+        centerY = scrollContainer.scrollTop + scrollContainer.clientHeight / 2;
+    }
+
+    // 2. Express that as a ratio of the current image size
+    const ratioX = centerX / img.clientWidth;
+    const ratioY = centerY / img.clientHeight;
+
+    if (direction === 'reset') {
+        currentZoom = 100;
+        // Don't clear highlight or hash anymore - that's what Clear button does
+    }
+    
+    if (direction === 'in') currentZoom += 10;
+    if (direction === 'out') currentZoom = Math.max(10, currentZoom - 10);
+    
+    const newWidthPx = img.naturalWidth * (currentZoom / 100);
+    img.style.setProperty('width', newWidthPx + 'px', 'important');
+    img.style.setProperty('height', 'auto', 'important');
+    
+    resizeMapCoordinates();
+
+    // 4. Scroll so the same point is back at the center
+    scrollContainer.scrollLeft = (ratioX * img.clientWidth) - scrollContainer.clientWidth / 2;
+    scrollContainer.scrollTop = (ratioY * img.clientHeight) - scrollContainer.clientHeight / 2;
+
+    // Remove old highlight box and reapply at new scale (for all zoom operations)
+    const oldBox = document.getElementById('ea-highlight-box');
+    if (oldBox) oldBox.remove();
+
+    // Reapply highlight at the new zoom level if we have a hash
+    if (window.location.hash) {
+        setTimeout(() => {
+            applyHighlight(false);
+            updateClearButtonVisibility();
+        }, 150); 
+    } else {
+        updateClearButtonVisibility();
+    }
+}
+
+/**
+ * 4. NETLIFY IMAGE MAP RE-BINDING (from original template)
+ */
+window.addEventListener('load', function() {
+    setTimeout(function() {
+        var diagramImg = document.querySelector('.diagram_image img');
+        
+        if (diagramImg && diagramImg.hasAttribute('usemap')) {
+            var currentSrc = diagramImg.src;
+            diagramImg.src = ''; 
+            diagramImg.src = currentSrc;
+            console.log("EA Image Map Re-bound for Netlify.");
+        }
+    }, 500);
+});
+
+function toggleLegend() {
+    const panel = document.getElementById('legend-panel');
+    const btn = document.getElementById('legend-toggle-btn');
+    const isVisible = panel.style.display !== 'none';
+    panel.style.display = isVisible ? 'none' : 'block';
+    btn.textContent = isVisible ? 'Show Diagram Key' : 'Hide Diagram Key';
+}
+
+function initLegendButtonVisibility() {
+    const diagramEl = document.querySelector('.diagram_image');
+    const btn = document.getElementById('legend-toggle-btn');
+    if (!diagramEl || !btn) return;
+
+    function showLegendBtn() {
+        btn.style.display = 'block';
+    }
+
+    // Show on scroll/pan
+    diagramEl.addEventListener('scroll', showLegendBtn, { once: true });
+
+    // Show on zoom
+    const origZoom = window.zoomDiagram;
+    window.zoomDiagram = function(direction) {
+        showLegendBtn();
+        origZoom(direction);
+    };
+}
+
+initLegendButtonVisibility();
+</script> 
                     </td>
 				</tr>
 			</tbody>

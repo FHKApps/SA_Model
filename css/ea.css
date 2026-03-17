@@ -788,6 +788,20 @@ IMG {
     overflow-y: auto;
     background: white;
 }
+.download-box a {
+    display:block;
+    padding:8px 10px;
+    margin:10px;
+    background:#182E4F;
+    color:white;
+    text-decoration:none;
+    border-radius:4px;
+    font-size:13px;
+}
+
+.download-box a:hover {
+    background:#1f4f84;
+}
 
 /* --- NEW STYLES: CUSTOM TOOLTIP --- */
 #custom-tooltip {

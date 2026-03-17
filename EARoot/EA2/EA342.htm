@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head><link rel="icon" href="/favicon.ico"></head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>System Breakdown Structure Elements::Fortescue Operations Portfolio::005OP IT/OT Systems::005OP-0000-005 Weather Forecasting::005OP-0000-005-002 Snowflake (Wind)</title>
+<title>855DC-1544-023 Superblock</title>
 <link href="../../css/ea.css" rel="stylesheet" type="text/css" />
 <script language="JavaScript" src="../../js/displayToc.js" type="text/javascript"></script>
 
@@ -418,26 +418,40 @@ window.addEventListener('resize', offsetContentForHeader);
                 window.top.location.href = targetIndex;
             });
         }
+		// ----------------------------------------------------------------
+// DOWNLOAD LINK FIX (Interface Register)
+// ----------------------------------------------------------------
+const cssLinkDownload = document.querySelector('link[href*="ea.css"]');
+if (cssLinkDownload) {
+    const cssPathDownload = cssLinkDownload.getAttribute('href');
+    const rootPathDownload = cssPathDownload.substring(0, cssPathDownload.lastIndexOf('css/'));
+
+    const downloadLink = document.querySelector('.download-box a');
+    if (downloadLink) {
+        downloadLink.href = rootPathDownload + "files/Fortescue_Interface-Register_Z.xlsm";
+    }
+}
 // ----------------------------------------------------------------
 // LEGEND SWITCHING (SBS Special Case)
 // ----------------------------------------------------------------
 (function() {
-    const legendImg = document.getElementById('legend-image');
-    const legendBox = document.getElementById('legend-sidebar');
-    if (!legendImg || !legendBox) return;
-
+    const legendImg = document.querySelector('#legend-panel img');
+    const legendPanel = document.getElementById('legend-panel');
+    if (!legendImg || !legendPanel) return;
     const header = document.querySelector('.header_frame h1');
     if (!header) return;
-
     const pageTitle = header.textContent.trim().toLowerCase();
-
     if (pageTitle.includes('system breakdown structure')) {
         legendImg.src = legendImg.src.replace('legend.svg', 'legendsbs.svg');
-        legendBox.style.width = '260px';   // Smaller width for SBS
-    } else {
-        legendBox.style.width = '280px';   // Default width
+        legendPanel.style.width = '260px';
+	} else if (pageTitle.includes('requirements')) {
+    legendImg.src = legendImg.src.replace('EARoot/images/legend.svg', 'images/legendreq.svg');
+    legendPanel.style.width = '280px';
+	} else {
+        legendPanel.style.width = '280px';
     }
 })();
+
         // ----------------------------------------------------------------
         // 8. SHORTCUTS (Keyboard & Mouse Zoom)
         // ----------------------------------------------------------------
@@ -473,11 +487,11 @@ window.addEventListener('resize', offsetContentForHeader);
 <div class="section group" >
 
 		<div class="col span_2_of_2 header_frame">
-			<h1> System Breakdown Structure Elements::Fortescue Operations Portfolio::005OP IT/OT Systems::005OP-0000-005 Weather Forecasting::005OP-0000-005-002 Snowflake (Wind) </h1>
+			<h1> 855DC-1544-023 Superblock </h1>
 			<img class="header_image" src="../../images/Logo.png" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
-			<p><a href="../EA19.htm">Decarb Green Systems Architecture  Version: Z</a> / <a href="EA89.htm">System Breakdown Structure Elements</a> / <a href="EA91.htm">Fortescue Operations Portfolio</a> / <a href="EA351.htm">005OP IT/OT Systems</a> / <a href="EA393.htm">005OP-0000-005 Weather Forecasting</a> / <a href="EA342.htm">005OP-0000-005-002 Snowflake (Wind)</a></p>
+			<p><a href="../EA19.htm">Decarb Green Systems Architecture  Version: Z</a> / <a href="EA159.htm">System Breakdown Structure Elements</a> / <a href="EA160.htm">Decarbonisation Portfolio</a> / <a href="EA306.htm">855DC Decarb Green Systems</a> / <a href="EA176.htm">855DC-1544 Unassigned / TBC</a> / <a href="EA342.htm">855DC-1544-023 Superblock</a></p>
 		</div>
 			
 		<table class="contentmaintable">
@@ -485,6 +499,13 @@ window.addEventListener('resize', offsetContentForHeader);
 				<tr>
 					<td class="indexcell">
 						<div class="projectBrowserTitle"></div>
+						<div class="download-box">
+						<div class="download-box">
+							<a href="files/Fortescue_Interface-Register_Z.xlsm" target="_blank">
+							Interface Register
+							</a>
+						</div>
+						</div>
                         
                         <div class="sidebar-search-container">
                             <input type="text" id="sidebarSearch" onkeyup="performGlobalSearch()" placeholder="Search model...">
@@ -494,7 +515,7 @@ window.addEventListener('resize', offsetContentForHeader);
 
                         <div id="originalTree">
 						    <ul>
-<a href="EA393.htm">005OP-0000-005 Weather Forecasting</a></ul>
+<a href="EA176.htm">855DC-1544 Unassigned / TBC</a></ul>
 
                         </div>
 					</td>
@@ -625,7 +646,7 @@ window.addEventListener('resize', offsetContentForHeader);
 
 <div class="PageBody" style="position: relative !important; height: auto !important; overflow: visible !important; padding-bottom: 10px;">
     <span class="ObjectTitle">
-        005OP-0000-005-002 Snowflake (Wind) : &lt;&lt;block&gt;&gt;
+        855DC-1544-023 Superblock : &lt;&lt;block&gt;&gt;
     </span>
 
     <table border="0" class="ObjectDetails" style="width: 100%; margin-bottom: 10px;">
@@ -634,14 +655,15 @@ window.addEventListener('resize', offsetContentForHeader);
             <col width="*" />
         </colgroup>
         <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Status:</td><td class="ObjectDetailsValue">Proposed</td></tr>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Created:</td><td class="ObjectDetailsValue">26/11/2025 22:45:39</td></tr>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Modified:</td><td class="ObjectDetailsValue">29/01/2026 01:45:42</td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Created:</td><td class="ObjectDetailsValue">18/02/2026 13:15:20</td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Modified:</td><td class="ObjectDetailsValue">18/02/2026 22:49:56</td></tr>
         <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Author:</td><td class="ObjectDetailsValue">Admin</td></tr>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">UUID:</td><td class="ObjectDetailsValue">{06B25C2E-3738-42cb-95F0-A10FD0A99A19}</td></tr>
-        <tr id="adv01"><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Appears In:</td><td class="ObjectDetailsValue"><a href="../EA15.htm">System Definition (SD)</a>, <a href="../EA5.htm">855DC-1541-DEL Delphi</a>, <a href="../EA17.htm">System Breakdown Structure (SBS)</a></td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">UUID:</td><td class="ObjectDetailsValue">{3EA9F6DF-0186-42ba-8E6D-221EF81A49DD}</td></tr>
+        <tr id="adv01"><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Appears In:</td><td class="ObjectDetailsValue"><a href="../EA17.htm">System Breakdown Structure (SBS)</a></td></tr>
         <tr>
             <td class="ObjectDetailsTopic" style="padding-left:0; width:70px; vertical-align:top; padding-top:5px;">Remarks:</td>
-            <td class="ObjectDetailsValue remarks-cell" style="vertical-align:top; padding-top:5px;"></td>
+            <td class="ObjectDetailsValue remarks-cell" style="vertical-align:top; padding-top:5px;"><div class="ObjectDetailsNotes">DocStack-SAComparison_Delphi 18/02/2026: Separate Atlas, FLO, Superblock - 855DC-1544-023 Superblock created&lt;br/&gt;</div>
+</td>
         </tr>
     </table>
 </div>
@@ -986,11 +1008,11 @@ window.addEventListener('resize', offsetContentForHeader);
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="EA393.htm">«block» 005OP-0000-005 Weather Forecasting</a><br />
+						<a href="EA176.htm">«block» 855DC-1544 Unassigned / TBC</a><br />
 						Block &nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> Subsystem<br />
+						<strong>Name:</strong> Project<br />
 						&nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
@@ -1000,8 +1022,8 @@ window.addEventListener('resize', offsetContentForHeader);
 				</tr>
 				<tr>
 					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink2008" /></button>Details:
-							<div id="detailsDIVLink2008" class="DetailsDiv" >
+						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink2149" /></button>Details:
+							<div id="detailsDIVLink2149" class="DetailsDiv" >
 							&nbsp;
 							</div>
 						</div>
@@ -1080,6 +1102,24 @@ window.addEventListener('resize', offsetContentForHeader);
 						&nbsp;
 				</td>
 			</tr>			<tr>
+				<td class="TableRow" valign="top">8. Interface Flow</td>
+				<td class="TableRow" valign="top">&nbsp;</td>
+			</tr>	
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="2">
+					Details:
+						&nbsp;
+				</td>
+			</tr>			<tr>
+				<td class="TableRow" valign="top">9. Interface Criticality Justification</td>
+				<td class="TableRow" valign="top">&nbsp;</td>
+			</tr>	
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="2">
+					Details:
+						&nbsp;
+				</td>
+			</tr>			<tr>
 				<td class="TableRow" valign="top">Allocation</td>
 				<td class="TableRow" valign="top">&nbsp;</td>
 			</tr>	
@@ -1090,7 +1130,7 @@ window.addEventListener('resize', offsetContentForHeader);
 				</td>
 			</tr>			<tr>
 				<td class="TableRow" valign="top">Element</td>
-				<td class="TableRow" valign="top">Subsystem</td>
+				<td class="TableRow" valign="top">Project</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1099,7 +1139,7 @@ window.addEventListener('resize', offsetContentForHeader);
 				</td>
 			</tr>			<tr>
 				<td class="TableRow" valign="top">Element Type</td>
-				<td class="TableRow" valign="top">Subsystem</td>
+				<td class="TableRow" valign="top">Project</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1108,7 +1148,7 @@ window.addEventListener('resize', offsetContentForHeader);
 				</td>
 			</tr>			<tr>
 				<td class="TableRow" valign="top">Facility Code</td>
-				<td class="TableRow" valign="top">0000</td>
+				<td class="TableRow" valign="top">1544</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1126,7 +1166,7 @@ window.addEventListener('resize', offsetContentForHeader);
 				</td>
 			</tr>			<tr>
 				<td class="TableRow" valign="top">Old SBS ID</td>
-				<td class="TableRow" valign="top">A.04.17.01</td>
+				<td class="TableRow" valign="top">A.04.11</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1144,7 +1184,7 @@ window.addEventListener('resize', offsetContentForHeader);
 				</td>
 			</tr>			<tr>
 				<td class="TableRow" valign="top">Portfolio</td>
-				<td class="TableRow" valign="top">Fortescue Operations Portfolio</td>
+				<td class="TableRow" valign="top">Decarbonisation Portfolio</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1153,7 +1193,7 @@ window.addEventListener('resize', offsetContentForHeader);
 				</td>
 			</tr>			<tr>
 				<td class="TableRow" valign="top">Portfolio Code</td>
-				<td class="TableRow" valign="top">OP</td>
+				<td class="TableRow" valign="top">DC</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1162,7 +1202,7 @@ window.addEventListener('resize', offsetContentForHeader);
 				</td>
 			</tr>			<tr>
 				<td class="TableRow" valign="top">Program</td>
-				<td class="TableRow" valign="top">005OP IT/OT Systems</td>
+				<td class="TableRow" valign="top">855DC Decarb Green Systems</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1171,7 +1211,7 @@ window.addEventListener('resize', offsetContentForHeader);
 				</td>
 			</tr>			<tr>
 				<td class="TableRow" valign="top">Program Code</td>
-				<td class="TableRow" valign="top">005OP</td>
+				<td class="TableRow" valign="top">855DC</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1180,7 +1220,7 @@ window.addEventListener('resize', offsetContentForHeader);
 				</td>
 			</tr>			<tr>
 				<td class="TableRow" valign="top">Project</td>
-				<td class="TableRow" valign="top">005OP-0000-005 Weather Forecasting</td>
+				<td class="TableRow" valign="top">855DC-1544-023 Superblock</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1189,7 +1229,7 @@ window.addEventListener('resize', offsetContentForHeader);
 				</td>
 			</tr>			<tr>
 				<td class="TableRow" valign="top">Project Code</td>
-				<td class="TableRow" valign="top">005</td>
+				<td class="TableRow" valign="top">022</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1207,7 +1247,7 @@ window.addEventListener('resize', offsetContentForHeader);
 				</td>
 			</tr>			<tr>
 				<td class="TableRow" valign="top">Subsystem</td>
-				<td class="TableRow" valign="top">005OP-0000-005-002 Snowflake (Wind)</td>
+				<td class="TableRow" valign="top">&nbsp;</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1216,7 +1256,16 @@ window.addEventListener('resize', offsetContentForHeader);
 				</td>
 			</tr>			<tr>
 				<td class="TableRow" valign="top">Subsystem Code</td>
-				<td class="TableRow" valign="top">002</td>
+				<td class="TableRow" valign="top">[BLANK]</td>
+			</tr>	
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="2">
+					Details:
+						&nbsp;
+				</td>
+			</tr>			<tr>
+				<td class="TableRow" valign="top">System</td>
+				<td class="TableRow" valign="top">855DC-1544 Unassigned / TBC</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1225,7 +1274,7 @@ window.addEventListener('resize', offsetContentForHeader);
 				</td>
 			</tr>			<tr>
 				<td class="TableRow" valign="top">WBS Code</td>
-				<td class="TableRow" valign="top">005OP-0000-005-002</td>
+				<td class="TableRow" valign="top">855DC-1544-022</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1271,18 +1320,8 @@ window.addEventListener('resize', offsetContentForHeader);
             <td class="TableHeading">Interfaces with</td>
         </tr>
 
-<tr class="#LINK_STEREOTYPE# InterfaceBlock">
-    <td width="30%" class="TableRow" valign="top"><a href="../EA3/EA5/EA902.htm">«InterfaceBlock» DGS-I_0331</a></td>
-    <td width="10%" class="TableRow" valign="top">InterfaceBlock</td>
-    <td width="10%" class="TableRow" valign="top">Abstraction</td>
-    <td width="10%" class="TableRow" valign="top">To</td>
-    <td width="40%" class="TableRow" valign="top">
-        <div class="ObjectDetailsNotes">&lt;a href=&quot;EA220.htm&quot;&gt;855DC-1541-DEL Delphi&lt;/a&gt;&lt;br/&gt;</div>
-
-    </td>
-</tr>
 <tr class="#LINK_STEREOTYPE# Block">
-    <td width="30%" class="TableRow" valign="top"><a href="EA393.htm">«block» 005OP-0000-005 Weather Forecasting</a></td>
+    <td width="30%" class="TableRow" valign="top"><a href="EA176.htm">«block» 855DC-1544 Unassigned / TBC</a></td>
     <td width="10%" class="TableRow" valign="top">Block</td>
     <td width="10%" class="TableRow" valign="top">Strong</td>
     <td width="10%" class="TableRow" valign="top">To</td>

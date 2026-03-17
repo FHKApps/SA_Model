@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head><link rel="icon" href="/favicon.ico"></head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>System Breakdown Structure Elements::Fortescue Operations Portfolio::005OP IT/OT Systems::005OP-0000-013 Cimplicity</title>
+<title>857DC-1569 Towage</title>
 <link href="../../css/ea.css" rel="stylesheet" type="text/css" />
 <script language="JavaScript" src="../../js/displayToc.js" type="text/javascript"></script>
 
@@ -418,26 +418,40 @@ window.addEventListener('resize', offsetContentForHeader);
                 window.top.location.href = targetIndex;
             });
         }
+		// ----------------------------------------------------------------
+// DOWNLOAD LINK FIX (Interface Register)
+// ----------------------------------------------------------------
+const cssLinkDownload = document.querySelector('link[href*="ea.css"]');
+if (cssLinkDownload) {
+    const cssPathDownload = cssLinkDownload.getAttribute('href');
+    const rootPathDownload = cssPathDownload.substring(0, cssPathDownload.lastIndexOf('css/'));
+
+    const downloadLink = document.querySelector('.download-box a');
+    if (downloadLink) {
+        downloadLink.href = rootPathDownload + "files/Fortescue_Interface-Register_Z.xlsm";
+    }
+}
 // ----------------------------------------------------------------
 // LEGEND SWITCHING (SBS Special Case)
 // ----------------------------------------------------------------
 (function() {
-    const legendImg = document.getElementById('legend-image');
-    const legendBox = document.getElementById('legend-sidebar');
-    if (!legendImg || !legendBox) return;
-
+    const legendImg = document.querySelector('#legend-panel img');
+    const legendPanel = document.getElementById('legend-panel');
+    if (!legendImg || !legendPanel) return;
     const header = document.querySelector('.header_frame h1');
     if (!header) return;
-
     const pageTitle = header.textContent.trim().toLowerCase();
-
     if (pageTitle.includes('system breakdown structure')) {
         legendImg.src = legendImg.src.replace('legend.svg', 'legendsbs.svg');
-        legendBox.style.width = '260px';   // Smaller width for SBS
-    } else {
-        legendBox.style.width = '280px';   // Default width
+        legendPanel.style.width = '260px';
+	} else if (pageTitle.includes('requirements')) {
+    legendImg.src = legendImg.src.replace('EARoot/images/legend.svg', 'images/legendreq.svg');
+    legendPanel.style.width = '280px';
+	} else {
+        legendPanel.style.width = '280px';
     }
 })();
+
         // ----------------------------------------------------------------
         // 8. SHORTCUTS (Keyboard & Mouse Zoom)
         // ----------------------------------------------------------------
@@ -473,11 +487,11 @@ window.addEventListener('resize', offsetContentForHeader);
 <div class="section group" >
 
 		<div class="col span_2_of_2 header_frame">
-			<h1> System Breakdown Structure Elements::Fortescue Operations Portfolio::005OP IT/OT Systems::005OP-0000-013 Cimplicity </h1>
+			<h1> 857DC-1569 Towage </h1>
 			<img class="header_image" src="../../images/Logo.png" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
-			<p><a href="../EA19.htm">Decarb Green Systems Architecture  Version: Z</a> / <a href="EA89.htm">System Breakdown Structure Elements</a> / <a href="EA91.htm">Fortescue Operations Portfolio</a> / <a href="EA351.htm">005OP IT/OT Systems</a> / <a href="EA400.htm">005OP-0000-013 Cimplicity</a></p>
+			<p><a href="../EA19.htm">Decarb Green Systems Architecture  Version: Z</a> / <a href="EA159.htm">System Breakdown Structure Elements</a> / <a href="EA160.htm">Decarbonisation Portfolio</a> / <a href="EA308.htm">857DC Green Marine</a> / <a href="EA400.htm">857DC-1569 Towage</a></p>
 		</div>
 			
 		<table class="contentmaintable">
@@ -485,6 +499,13 @@ window.addEventListener('resize', offsetContentForHeader);
 				<tr>
 					<td class="indexcell">
 						<div class="projectBrowserTitle"></div>
+						<div class="download-box">
+						<div class="download-box">
+							<a href="files/Fortescue_Interface-Register_Z.xlsm" target="_blank">
+							Interface Register
+							</a>
+						</div>
+						</div>
                         
                         <div class="sidebar-search-container">
                             <input type="text" id="sidebarSearch" onkeyup="performGlobalSearch()" placeholder="Search model...">
@@ -494,7 +515,7 @@ window.addEventListener('resize', offsetContentForHeader);
 
                         <div id="originalTree">
 						    <ul>
-<a href="EA351.htm">005OP IT/OT Systems</a></ul>
+<a href="EA308.htm">857DC Green Marine</a></ul>
 
                         </div>
 					</td>
@@ -625,7 +646,7 @@ window.addEventListener('resize', offsetContentForHeader);
 
 <div class="PageBody" style="position: relative !important; height: auto !important; overflow: visible !important; padding-bottom: 10px;">
     <span class="ObjectTitle">
-        005OP-0000-013 Cimplicity : &lt;&lt;block&gt;&gt;
+        857DC-1569 Towage : &lt;&lt;block&gt;&gt;
     </span>
 
     <table border="0" class="ObjectDetails" style="width: 100%; margin-bottom: 10px;">
@@ -634,11 +655,11 @@ window.addEventListener('resize', offsetContentForHeader);
             <col width="*" />
         </colgroup>
         <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Status:</td><td class="ObjectDetailsValue">Proposed</td></tr>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Created:</td><td class="ObjectDetailsValue">26/08/2025 19:03:53</td></tr>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Modified:</td><td class="ObjectDetailsValue">10/01/2026 20:56:38</td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Created:</td><td class="ObjectDetailsValue">06/10/2025 19:19:52</td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Modified:</td><td class="ObjectDetailsValue">08/01/2026 01:46:32</td></tr>
         <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Author:</td><td class="ObjectDetailsValue">Admin</td></tr>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">UUID:</td><td class="ObjectDetailsValue">{DF79300C-8F51-48e0-9D1A-3996AF731881}</td></tr>
-        <tr id="adv01"><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Appears In:</td><td class="ObjectDetailsValue"><a href="../EA15.htm">System Definition (SD)</a>, <a href="../EA1.htm">855DC-1541-ECL Eclipse</a>, <a href="../EA5.htm">855DC-1541-DEL Delphi</a>, Archive - System Definition - Christmas Creek Mine, Archive - System Definition - Cloudbreak Mine, Archive - System Definition - Iron Bridge Mine, Archive - System Definition - Port Hedland, Archive - System Definition - Eliwana Mine, Archive - System Definition - Flying Fish Mine, <a href="../EA17.htm">System Breakdown Structure (SBS)</a></td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">UUID:</td><td class="ObjectDetailsValue">{B2CE942B-AD1B-4807-B924-3C575E3C5CCE}</td></tr>
+        <tr id="adv01"><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Appears In:</td><td class="ObjectDetailsValue"><a href="../EA17.htm">System Breakdown Structure (SBS)</a></td></tr>
         <tr>
             <td class="ObjectDetailsTopic" style="padding-left:0; width:70px; vertical-align:top; padding-top:5px;">Remarks:</td>
             <td class="ObjectDetailsValue remarks-cell" style="vertical-align:top; padding-top:5px;"></td>
@@ -986,11 +1007,11 @@ window.addEventListener('resize', offsetContentForHeader);
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="EA351.htm">«block» 005OP IT/OT Systems</a><br />
+						<a href="EA308.htm">«block» 857DC Green Marine</a><br />
 						Block &nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> Project<br />
+						<strong>Name:</strong> System<br />
 						&nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
@@ -1000,8 +1021,8 @@ window.addEventListener('resize', offsetContentForHeader);
 				</tr>
 				<tr>
 					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink2567" /></button>Details:
-							<div id="detailsDIVLink2567" class="DetailsDiv" >
+						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink2645" /></button>Details:
+							<div id="detailsDIVLink2645" class="DetailsDiv" >
 							&nbsp;
 							</div>
 						</div>
@@ -1017,8 +1038,17 @@ window.addEventListener('resize', offsetContentForHeader);
             <td class="TableHeading">Value</td>
         </tr>
         			<tr>
+				<td class="TableRow" valign="top">Component Type</td>
+				<td class="TableRow" valign="top">&nbsp;</td>
+			</tr>	
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="2">
+					Details:
+						&nbsp;
+				</td>
+			</tr>			<tr>
 				<td class="TableRow" valign="top">Element</td>
-				<td class="TableRow" valign="top">Project</td>
+				<td class="TableRow" valign="top">System</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1027,7 +1057,7 @@ window.addEventListener('resize', offsetContentForHeader);
 				</td>
 			</tr>			<tr>
 				<td class="TableRow" valign="top">Element Type</td>
-				<td class="TableRow" valign="top">Project</td>
+				<td class="TableRow" valign="top">System</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1036,7 +1066,26 @@ window.addEventListener('resize', offsetContentForHeader);
 				</td>
 			</tr>			<tr>
 				<td class="TableRow" valign="top">Facility Code</td>
-				<td class="TableRow" valign="top">0000</td>
+				<td class="TableRow" valign="top">1569</td>
+			</tr>	
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="2">
+					Details:
+						&nbsp;
+				</td>
+			</tr>			<tr>
+				<td class="TableRow" valign="top">isEncapsulated</td>
+				<td class="TableRow" valign="top">&nbsp;</td>
+			</tr>	
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="2">
+					Details:
+						<div class="ObjectDetailsNotes">Values: true,false<br /></div>
+
+				</td>
+			</tr>			<tr>
+				<td class="TableRow" valign="top">Location</td>
+				<td class="TableRow" valign="top">Generic Physical Asset</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1045,7 +1094,7 @@ window.addEventListener('resize', offsetContentForHeader);
 				</td>
 			</tr>			<tr>
 				<td class="TableRow" valign="top">Old SBS ID</td>
-				<td class="TableRow" valign="top">A.04.07</td>
+				<td class="TableRow" valign="top">J.02</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1054,7 +1103,7 @@ window.addEventListener('resize', offsetContentForHeader);
 				</td>
 			</tr>			<tr>
 				<td class="TableRow" valign="top">Portfolio</td>
-				<td class="TableRow" valign="top">Fortescue Operations Portfolio</td>
+				<td class="TableRow" valign="top">Decarbonisation Portfolio</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1063,7 +1112,7 @@ window.addEventListener('resize', offsetContentForHeader);
 				</td>
 			</tr>			<tr>
 				<td class="TableRow" valign="top">Portfolio Code</td>
-				<td class="TableRow" valign="top">OP</td>
+				<td class="TableRow" valign="top">DC</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1072,7 +1121,7 @@ window.addEventListener('resize', offsetContentForHeader);
 				</td>
 			</tr>			<tr>
 				<td class="TableRow" valign="top">Program</td>
-				<td class="TableRow" valign="top">005OP IT/OT Systems</td>
+				<td class="TableRow" valign="top">857DC Green Marine</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1081,16 +1130,7 @@ window.addEventListener('resize', offsetContentForHeader);
 				</td>
 			</tr>			<tr>
 				<td class="TableRow" valign="top">Program Code</td>
-				<td class="TableRow" valign="top">005OP</td>
-			</tr>	
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="2">
-					Details:
-						&nbsp;
-				</td>
-			</tr>			<tr>
-				<td class="TableRow" valign="top">Project</td>
-				<td class="TableRow" valign="top">005OP-0000-013 Cimplicity</td>
+				<td class="TableRow" valign="top">857DC</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1099,7 +1139,7 @@ window.addEventListener('resize', offsetContentForHeader);
 				</td>
 			</tr>			<tr>
 				<td class="TableRow" valign="top">Project Code</td>
-				<td class="TableRow" valign="top">013</td>
+				<td class="TableRow" valign="top">[BLANK]</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1116,8 +1156,35 @@ window.addEventListener('resize', offsetContentForHeader);
 						&nbsp;
 				</td>
 			</tr>			<tr>
+				<td class="TableRow" valign="top">Subsystem Type</td>
+				<td class="TableRow" valign="top">&nbsp;</td>
+			</tr>	
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="2">
+					Details:
+						&nbsp;
+				</td>
+			</tr>			<tr>
+				<td class="TableRow" valign="top">System</td>
+				<td class="TableRow" valign="top">857DC-1569 Towage</td>
+			</tr>	
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="2">
+					Details:
+						&nbsp;
+				</td>
+			</tr>			<tr>
+				<td class="TableRow" valign="top">System Group</td>
+				<td class="TableRow" valign="top">&nbsp;</td>
+			</tr>	
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="2">
+					Details:
+						&nbsp;
+				</td>
+			</tr>			<tr>
 				<td class="TableRow" valign="top">WBS Code</td>
-				<td class="TableRow" valign="top">005OP-0000-013</td>
+				<td class="TableRow" valign="top">857DC-1569</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1163,43 +1230,13 @@ window.addEventListener('resize', offsetContentForHeader);
             <td class="TableHeading">Interfaces with</td>
         </tr>
 
-<tr class="#LINK_STEREOTYPE# InterfaceBlock">
-    <td width="30%" class="TableRow" valign="top"><a href="../EA3/EA5/EA592.htm">«InterfaceBlock» DGS-I_0020</a></td>
-    <td width="10%" class="TableRow" valign="top">InterfaceBlock</td>
-    <td width="10%" class="TableRow" valign="top">Abstraction</td>
-    <td width="10%" class="TableRow" valign="top">To</td>
-    <td width="40%" class="TableRow" valign="top">
-        <div class="ObjectDetailsNotes">&lt;a href=&quot;EA221.htm&quot;&gt;855DC-1541-ECL Eclipse&lt;/a&gt;&lt;br/&gt;</div>
-
-    </td>
-</tr>
-<tr class="#LINK_STEREOTYPE# InterfaceBlock">
-    <td width="30%" class="TableRow" valign="top"><a href="../EA3/EA5/EA694.htm">«InterfaceBlock» DGS-I_0122</a></td>
-    <td width="10%" class="TableRow" valign="top">InterfaceBlock</td>
-    <td width="10%" class="TableRow" valign="top">Abstraction</td>
-    <td width="10%" class="TableRow" valign="top">To</td>
-    <td width="40%" class="TableRow" valign="top">
-        <div class="ObjectDetailsNotes">&lt;a href=&quot;EA112.htm&quot;&gt;855DC-1541-ECL-002 Online Security Constrained Unit Commitment (SCUC)&lt;/a&gt;&lt;br/&gt;</div>
-
-    </td>
-</tr>
 <tr class="#LINK_STEREOTYPE# Block">
-    <td width="30%" class="TableRow" valign="top"><a href="EA351.htm">«block» 005OP IT/OT Systems</a></td>
+    <td width="30%" class="TableRow" valign="top"><a href="EA308.htm">«block» 857DC Green Marine</a></td>
     <td width="10%" class="TableRow" valign="top">Block</td>
     <td width="10%" class="TableRow" valign="top">Strong</td>
     <td width="10%" class="TableRow" valign="top">To</td>
     <td width="40%" class="TableRow" valign="top">
         &nbsp;
-    </td>
-</tr>
-<tr class="#LINK_STEREOTYPE# InterfaceBlock">
-    <td width="30%" class="TableRow" valign="top"><a href="../EA3/EA5/EA914.htm">«InterfaceBlock» DGS-I_0343</a></td>
-    <td width="10%" class="TableRow" valign="top">InterfaceBlock</td>
-    <td width="10%" class="TableRow" valign="top">Abstraction</td>
-    <td width="10%" class="TableRow" valign="top">To</td>
-    <td width="40%" class="TableRow" valign="top">
-        <div class="ObjectDetailsNotes">&lt;a href=&quot;EA220.htm&quot;&gt;855DC-1541-DEL Delphi&lt;/a&gt;&lt;br/&gt;</div>
-
     </td>
 </tr>
 
