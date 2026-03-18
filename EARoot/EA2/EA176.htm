@@ -647,7 +647,7 @@ if (cssLinkDownload) {
     box-sizing: border-box !important;
 }
 #RequirementsTable table tr td:nth-child(1) {
-    width: 120px !important;
+    width: 130px !important;
 }
 </style>
 
@@ -976,8 +976,8 @@ if (cssLinkDownload) {
                     const th = document.createElement('td');
                     th.className = 'TableHeading';
                     th.textContent = h;
-                    th.style.setProperty('width', '120px', 'important');
-                    th.style.setProperty('min-width', '120px', 'important');
+                    th.style.setProperty('width', '130px', 'important');
+                    th.style.setProperty('min-width', '130px', 'important');
                     newHeaderRow.appendChild(th);
                 });
                 // Add tag name headers
@@ -1000,8 +1000,8 @@ if (cssLinkDownload) {
                     // Copy Object cell only - Type column removed
                     const objectCell = row.querySelector('td:nth-child(1)').cloneNode(true);
                     objectCell.removeAttribute('width');
-                    objectCell.style.setProperty('width', '120px', 'important');
-                    objectCell.style.setProperty('min-width', '120px', 'important');
+                    objectCell.style.setProperty('width', '130px', 'important');
+                    objectCell.style.setProperty('min-width', '130px', 'important');
                     objectCell.style.setProperty('word-break', 'break-word', 'important');
                     objectCell.style.setProperty('white-space', 'normal', 'important');
                     newRow.appendChild(objectCell);

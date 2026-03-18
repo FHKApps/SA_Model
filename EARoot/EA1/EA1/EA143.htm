@@ -633,7 +633,7 @@ if (cssLinkDownload) {
     box-sizing: border-box !important;
 }
 #RequirementsTable table tr td:nth-child(1) {
-    width: 120px !important;
+    width: 130px !important;
 }
 </style>
 
@@ -962,8 +962,8 @@ if (cssLinkDownload) {
                     const th = document.createElement('td');
                     th.className = 'TableHeading';
                     th.textContent = h;
-                    th.style.setProperty('width', '120px', 'important');
-                    th.style.setProperty('min-width', '120px', 'important');
+                    th.style.setProperty('width', '130px', 'important');
+                    th.style.setProperty('min-width', '130px', 'important');
                     newHeaderRow.appendChild(th);
                 });
                 // Add tag name headers
@@ -986,8 +986,8 @@ if (cssLinkDownload) {
                     // Copy Object cell only - Type column removed
                     const objectCell = row.querySelector('td:nth-child(1)').cloneNode(true);
                     objectCell.removeAttribute('width');
-                    objectCell.style.setProperty('width', '120px', 'important');
-                    objectCell.style.setProperty('min-width', '120px', 'important');
+                    objectCell.style.setProperty('width', '130px', 'important');
+                    objectCell.style.setProperty('min-width', '130px', 'important');
                     objectCell.style.setProperty('word-break', 'break-word', 'important');
                     objectCell.style.setProperty('white-space', 'normal', 'important');
                     newRow.appendChild(objectCell);
@@ -1143,16 +1143,6 @@ if (cssLinkDownload) {
             <td class="TableHeading">Interfaces with</td>
         </tr>
 
-<tr class="#LINK_STEREOTYPE# InterfaceBlock">
-    <td width="30%" class="TableRow" valign="top"><a href="../../EA3/EA5/EA646.htm">«InterfaceBlock» DGS-I_0004</a></td>
-    <td width="10%" class="TableRow" valign="top">InterfaceBlock</td>
-    <td width="10%" class="TableRow" valign="top">Abstraction</td>
-    <td width="10%" class="TableRow" valign="top">To</td>
-    <td width="40%" class="TableRow" valign="top">
-        <div class="ObjectDetailsNotes">005OP-0000-012 SAP|855DC-1541-DEL Delphi; a. Requirement Text=The interface shall surface SAP work order and equipment downtime data into Snowflake for consumption by Delphi and Eclipse.; b. Artifact Type=Interface Requirement; c. Source=Green Systems Interface Register, Interface DGS-I_0004; d. Apportionment=Delphi; e. Rationale=Visibility of downtime supports better interpretation of production impacts and forecasts.; f. Requirement Status=Draft; g. Criticality Level=; h. Quality Flaw=; i. Validation Method=; j. Verification Method=; Supporting information from Interface Register=005OP-0000-012 SAP|855DC-1541-DEL Delphi&lt;br/&gt;Project - Project Interface&lt;br/&gt;Technical-Data/Software&lt;br/&gt;SAP Work Orders - Equipment Downtime & Maintenance (Snowflake Integration)&lt;br/&gt;The purpose of this interface is to surface work order data from SAP in Snowflake so Eclipse can query and understand when in-field equipment (e.g., solar arrays, sensors) is down due to planned or unplanned events. This enables better correlation between asset performance, weather conditions, and operational constraints, including generation outages, planned maintenance, and sensor cleaning.&lt;br/&gt;Intermediate Elements: Snowflake (storage and query layer for SAP work order and downtime history).&lt;br/&gt;The criticality level is HIGH because accurate visibility of equipment downtime is essential for interpreting production impacts and improving forecast accuracy. Failure risks inaccurate energy balance predictions, leading to inefficient generation control.&lt;br/&gt;</div>
-
-    </td>
-</tr>
 <tr class="#LINK_STEREOTYPE# InterfaceBlock">
     <td width="30%" class="TableRow" valign="top"><a href="../../EA3/EA5/EA646.htm">«InterfaceBlock» DGS-I_0004</a></td>
     <td width="10%" class="TableRow" valign="top">InterfaceBlock</td>
