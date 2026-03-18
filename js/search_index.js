@@ -1,5 +1,5 @@
 var globalSearchData = [
-	{ name: "/System: 853DC-1561 Drill Rig", link: "EARoot/EA3/EA2/EA3/EA604.htm" },
+	{ name: ": 853DC-1561 Drill Rig", link: "EARoot/EA3/EA2/EA3/EA604.htm" },
 	{ name: ": Mine Services Process Control", link: "EARoot/EA3/EA4/EA641.htm" },
 	{ name: "001OP Fixed Process Plant", link: "EARoot/EA2/EA417.htm" },
 	{ name: "001OP-2001 Ore Processing Facility (OPF)", link: "EARoot/EA2/EA244.htm" },
@@ -632,7 +632,7 @@ var globalSearchData = [
 	{ name: "GSP-IR-0064", link: "EARoot/EA1/EA1/EA156.htm" },
 	{ name: "GSP-IR-0065", link: "EARoot/EA1/EA1/EA157.htm" },
 	{ name: "GSP-RH-0001: Green Systems Interface Requirements", link: "EARoot/EA1/EA1/EA93.htm" },
-	{ name: "GSP-RH-0002: 855DC-1541-DEL Delphi Interface Requirements", link: "EARoot/EA1/EA1/EA158.htm" },
+	{ name: "GSP-RH-0002: Delphi Interface Requirements", link: "EARoot/EA1/EA1/EA158.htm" },
 	{ name: "HIVE", link: "EARoot/EA3/EA4/EA632.htm" },
 	{ name: "HRZ66kV", link: "EARoot/EA3/EA3/EA619.htm" },
 	{ name: "HV Transmission lines PEC # [CCK - BDN]: 854DC-5660 HV Transmission lines", link: "EARoot/EA3/EA2/EA2/EA542.htm" },

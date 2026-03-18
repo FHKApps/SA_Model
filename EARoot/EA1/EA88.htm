@@ -368,18 +368,7 @@ function getTargetInfo(areaElement) {
         text = text.replace(/\s*:\s*Public\s*(?:<<.*?>>\s*)?.*$/i, '').trim();
         h1.textContent = text;
     }
-function offsetContentForHeader() {
-    const header = document.querySelector('.header_frame');
-    const content = document.querySelector('.section.group');
 
-    if (!header || !content) return;
-
-    const headerHeight = header.offsetHeight;
-    content.style.paddingTop = headerHeight + 'px';
-}
-
-window.addEventListener('load', offsetContentForHeader);
-window.addEventListener('resize', offsetContentForHeader);
     window.addEventListener('load', () => {
         initPage();
         resizeMapCoordinates();
@@ -636,10 +625,10 @@ if (cssLinkDownload) {
 <area shape="rect" coords="948,791,1511,1028" href="./EA1/EA101.htm" target="_self">
 <area shape="rect" coords="360,1091,923,1347" href="./EA1/EA100.htm" target="_self">
 <area shape="rect" coords="360,791,923,1028" href="./EA1/EA99.htm" target="_self">
-<area shape="rect" coords="948,462,1511,699" href="./EA1/EA98.htm" target="_self">
+<area shape="rect" coords="948,462,1511,719" href="./EA1/EA98.htm" target="_self">
 <area shape="rect" coords="948,128,1511,404" href="./EA1/EA97.htm" target="_self">
 <area shape="rect" coords="360,462,923,699" href="./EA1/EA96.htm" target="_self">
-<area shape="rect" coords="360,128,923,404" href="./EA1/EA95.htm" target="_self">
+<area shape="rect" coords="360,128,923,423" href="./EA1/EA95.htm" target="_self">
 <area shape="rect" coords="360,8477,923,8772" href="./EA1/EA144.htm" target="_self">
 <area shape="rect" coords="15,15,3714,10689" href="EA88.htm" target="_self">
 </MAP>

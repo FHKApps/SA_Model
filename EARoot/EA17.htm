@@ -368,18 +368,7 @@ function getTargetInfo(areaElement) {
         text = text.replace(/\s*:\s*Public\s*(?:<<.*?>>\s*)?.*$/i, '').trim();
         h1.textContent = text;
     }
-function offsetContentForHeader() {
-    const header = document.querySelector('.header_frame');
-    const content = document.querySelector('.section.group');
 
-    if (!header || !content) return;
-
-    const headerHeight = header.offsetHeight;
-    content.style.paddingTop = headerHeight + 'px';
-}
-
-window.addEventListener('load', offsetContentForHeader);
-window.addEventListener('resize', offsetContentForHeader);
     window.addEventListener('load', () => {
         initPage();
         resizeMapCoordinates();

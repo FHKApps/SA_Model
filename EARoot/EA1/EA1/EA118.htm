@@ -368,18 +368,7 @@ function getTargetInfo(areaElement) {
         text = text.replace(/\s*:\s*Public\s*(?:<<.*?>>\s*)?.*$/i, '').trim();
         h1.textContent = text;
     }
-function offsetContentForHeader() {
-    const header = document.querySelector('.header_frame');
-    const content = document.querySelector('.section.group');
 
-    if (!header || !content) return;
-
-    const headerHeight = header.offsetHeight;
-    content.style.paddingTop = headerHeight + 'px';
-}
-
-window.addEventListener('load', offsetContentForHeader);
-window.addEventListener('resize', offsetContentForHeader);
     window.addEventListener('load', () => {
         initPage();
         resizeMapCoordinates();
@@ -492,7 +481,7 @@ if (cssLinkDownload) {
 			<img class="header_image" src="../../../images/Logo.png" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
-			<p><a href="../../EA19.htm">Decarb Green Systems Architecture  Version: Z</a> / <a href="../EA90.htm">Requirements</a> / <a href="EA92.htm">Requirements Elements</a> / <a href="EA93.htm">GSP-RH-0001: Green Systems Interface Requirements</a> / <a href="EA158.htm">GSP-RH-0002: 855DC-1541-DEL Delphi Interface Requirements</a> / <a href="EA118.htm">GSP-IR-0026</a></p>
+			<p><a href="../../EA19.htm">Decarb Green Systems Architecture  Version: Z</a> / <a href="../EA90.htm">Requirements</a> / <a href="EA92.htm">Requirements Elements</a> / <a href="EA93.htm">GSP-RH-0001: Green Systems Interface Requirements</a> / <a href="EA158.htm">GSP-RH-0002: Delphi Interface Requirements</a> / <a href="EA118.htm">GSP-IR-0026</a></p>
 		</div>
 			
 		<table class="contentmaintable">
@@ -516,7 +505,7 @@ if (cssLinkDownload) {
 
                         <div id="originalTree">
 						    <ul>
-<a href="EA158.htm">GSP-RH-0002: 855DC-1541-DEL Delphi Interface Requirements</a></ul>
+<a href="EA158.htm">GSP-RH-0002: Delphi Interface Requirements</a></ul>
 
                         </div>
 					</td>
@@ -577,7 +566,7 @@ if (cssLinkDownload) {
    ========================================================== */
 #TaggedValTable table {
     width: 100% !important;
-    table-layout: fixed !important;
+    table-layout: auto !important;
 }
 
 /* First column: fixed width (both header and data) */
@@ -585,20 +574,17 @@ if (cssLinkDownload) {
 #TaggedValTable .TableHeading:first-child,
 #TaggedValTable td:first-child * {
     width: 150px !important;
-    min-width: 0 !important;
+    min-width: 150px !important;
+    max-width: 150px !important;
     vertical-align: top;
     word-break: break-word;
     overflow-wrap: break-word;
     box-sizing: border-box !important;
 }
 
-/* Second column: fill remaining space (both header and data) */
+/* Second column: fill remaining space */
 #TaggedValTable td:nth-child(2),
-#TaggedValTable .TableHeading:nth-child(2),
-#TaggedValTable td:nth-child(2) * {
-    width: calc(100% - 120px) !important;
-    min-width: 0 !important;
-    max-width: 500px !important;
+#TaggedValTable .TableHeading:nth-child(2) {
     vertical-align: top;
     word-break: break-word !important;
     overflow-wrap: break-word !important;
@@ -632,17 +618,23 @@ if (cssLinkDownload) {
 #LinksTable td:nth-child(5) { vertical-align: top; word-break: break-word; }
 
 /* ==========================================================
-   REQUIREMENTS TABLE – SAME AS CONNECTIONS
+   REQUIREMENTS TABLE – Dynamic columns, let browser size naturally
    ========================================================== */
 #RequirementsTable table {
     width: 100% !important;
     table-layout: fixed !important;
 }
-#RequirementsTable table tr td:nth-child(1) { width: 250px !important; vertical-align: top; word-break: break-word; }
-#RequirementsTable table tr td:nth-child(2) { width: 120px !important; vertical-align: top; word-break: break-word; }
-#RequirementsTable table tr td:nth-child(3) { display: none !important; }
-#RequirementsTable table tr td:nth-child(4) { width: 350px !important; vertical-align: top; word-break: break-word; }
-#RequirementsTable table tr td:nth-child(5) { width: 350px !important; vertical-align: top; word-break: break-word; }
+#RequirementsTable table tr td {
+    vertical-align: top;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    white-space: normal !important;
+    padding: 1px 3px !important;
+    box-sizing: border-box !important;
+}
+#RequirementsTable table tr td:nth-child(1) {
+    width: 120px !important;
+}
 </style>
 
 <div class="PageBody" style="position: relative !important; height: auto !important; overflow: visible !important; padding-bottom: 10px;">
@@ -655,9 +647,9 @@ if (cssLinkDownload) {
             <col width="70px" />
             <col width="*" />
         </colgroup>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Status:</td><td class="ObjectDetailsValue">Proposed</td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Status:</td><td class="ObjectDetailsValue">Draft</td></tr>
         <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Created:</td><td class="ObjectDetailsValue">17/03/2026 19:57:32</td></tr>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Modified:</td><td class="ObjectDetailsValue">17/03/2026 19:58:16</td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Modified:</td><td class="ObjectDetailsValue">18/03/2026 13:53:41</td></tr>
         <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Author:</td><td class="ObjectDetailsValue">Admin</td></tr>
         <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">UUID:</td><td class="ObjectDetailsValue">{B82D422E-0D98-4b74-8C8E-DC4878857071}</td></tr>
         <tr id="adv01"><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Appears In:</td><td class="ObjectDetailsValue"><a href="../EA88.htm">Requirements: 855DC-1541-DEL Delphi</a></td></tr>
@@ -733,6 +725,23 @@ if (cssLinkDownload) {
         // =====================
         // 2. UPDATE APPEARS IN LINKS
         // =====================
+
+        // Fix Tagged Values header - force Value column to fill remaining width
+        const taggedValTable = document.getElementById('TaggedValTable');
+        if(taggedValTable) {
+            const valueHeader = taggedValTable.querySelector('tr:first-child td:nth-child(2)');
+            if(valueHeader) {
+                valueHeader.style.setProperty('width', '500px', 'important');
+            }
+            // Fix data cells to match
+            taggedValTable.querySelectorAll('tr td:nth-child(2)').forEach(cell => {
+                cell.style.setProperty('width', '500px', 'important');
+                cell.style.setProperty('max-width', '500px', 'important');
+                cell.style.setProperty('word-break', 'break-word', 'important');
+                cell.style.setProperty('white-space', 'normal', 'important');
+                cell.style.setProperty('box-sizing', 'border-box', 'important');
+            });
+        }
         const path = window.location.pathname;
         const pageName = path.substring(path.lastIndexOf('/')+1).replace(/\.(htm|html)$/,"");
         const appearsInRow = document.getElementById("adv01");
@@ -921,18 +930,40 @@ if (cssLinkDownload) {
                     }
                 });
                 
-                const tagNamesArray = Array.from(tagNames).sort();
+                const hiddenColumns = new Set([
+                    'Supporting information from Interface Register',
+                    'g. Criticality Level',
+                    'h. Quality Flaw',
+                    'i. Validation Method',
+                    'j. Verification Method'
+                ]);
+                const tagNamesArray = Array.from(tagNames).filter(t => !hiddenColumns.has(t)).sort();
                 
+                const colWidths = {
+                    'default':                '100px',
+                    'a. Requirement Text':    '300px',
+                    'b. Artifact Type':       '100px',
+                    'c. Source':              '150px',
+                    'd. Apportionment':       '100px',
+                    'e. Rationale':           '200px',
+                    'f. Requirement Status':  '100px'
+                };
+
                 // Create table with new structure
                 const table = originalTable.cloneNode(false);
+                table.removeAttribute('style');
+                table.removeAttribute('width');
+                table.className = 'Table';
                 
-                // Build header row
+                // Build header row - Type column removed
                 const newHeaderRow = document.createElement('tr');
-                const headers = ['Object', 'Type'];
+                const headers = ['Object'];
                 headers.forEach(h => {
                     const th = document.createElement('td');
                     th.className = 'TableHeading';
                     th.textContent = h;
+                    th.style.setProperty('width', '120px', 'important');
+                    th.style.setProperty('min-width', '120px', 'important');
                     newHeaderRow.appendChild(th);
                 });
                 // Add tag name headers
@@ -940,6 +971,9 @@ if (cssLinkDownload) {
                     const th = document.createElement('td');
                     th.className = 'TableHeading';
                     th.textContent = tagName;
+                    const w = colWidths[tagName] || colWidths['default'];
+                    th.style.setProperty('width', w, 'important');
+                    th.style.setProperty('min-width', w, 'important');
                     newHeaderRow.appendChild(th);
                 });
                 table.appendChild(newHeaderRow);
@@ -949,11 +983,14 @@ if (cssLinkDownload) {
                     const newRow = document.createElement('tr');
                     newRow.className = row.className;
                     
-                    // Copy Object and Type cells
+                    // Copy Object cell only - Type column removed
                     const objectCell = row.querySelector('td:nth-child(1)').cloneNode(true);
-                    const typeCell = row.querySelector('td:nth-child(2)').cloneNode(true);
+                    objectCell.removeAttribute('width');
+                    objectCell.style.setProperty('width', '120px', 'important');
+                    objectCell.style.setProperty('min-width', '120px', 'important');
+                    objectCell.style.setProperty('word-break', 'break-word', 'important');
+                    objectCell.style.setProperty('white-space', 'normal', 'important');
                     newRow.appendChild(objectCell);
-                    newRow.appendChild(typeCell);
                     
                     // Parse notes into tag map
                     const notesCell = row.querySelector('td:nth-child(5)');
@@ -974,7 +1011,12 @@ if (cssLinkDownload) {
                         const cell = document.createElement('td');
                         cell.className = 'TableRow';
                         cell.setAttribute('valign', 'top');
-                        cell.textContent = tagMap[tagName] || '\u00A0'; // nbsp if empty
+                        const w = colWidths[tagName] || colWidths['default'];
+                        cell.style.setProperty('width', w, 'important');
+                        cell.style.setProperty('min-width', w, 'important');
+                        cell.style.setProperty('word-break', 'break-word', 'important');
+                        cell.style.setProperty('white-space', 'normal', 'important');
+                        cell.textContent = tagMap[tagName] || '\u00A0';
                         newRow.appendChild(cell);
                     });
                     
@@ -1014,15 +1056,6 @@ if (cssLinkDownload) {
 						&nbsp;
 				</td>
 			</tr>			<tr>
-				<td class="TableRow" valign="top">Apportionment</td>
-				<td class="TableRow" valign="top">Delphi</td>
-			</tr>	
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="2">
-					Details:
-						&nbsp;
-				</td>
-			</tr>			<tr>
 				<td class="TableRow" valign="top">b. Artifact Type</td>
 				<td class="TableRow" valign="top">Interface Requirement</td>
 			</tr>	
@@ -1050,15 +1083,6 @@ if (cssLinkDownload) {
 						&nbsp;
 				</td>
 			</tr>			<tr>
-				<td class="TableRow" valign="top">d.Apportionment</td>
-				<td class="TableRow" valign="top">Delphi</td>
-			</tr>	
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="2">
-					Details:
-						&nbsp;
-				</td>
-			</tr>			<tr>
 				<td class="TableRow" valign="top">e. Rationale</td>
 				<td class="TableRow" valign="top">Users need transparency on dataset limitations to interpret model results correctly.</td>
 			</tr>	
@@ -1068,26 +1092,8 @@ if (cssLinkDownload) {
 						&nbsp;
 				</td>
 			</tr>			<tr>
-				<td class="TableRow" valign="top">j. Requirement Status</td>
-				<td class="TableRow" valign="top">Ready for Review</td>
-			</tr>	
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="2">
-					Details:
-						&nbsp;
-				</td>
-			</tr>			<tr>
-				<td class="TableRow" valign="top">Rationale</td>
-				<td class="TableRow" valign="top">The interface shall maintain metadata describing data provenance, update cadence, and any known limitations of the historical weather dataset.</td>
-			</tr>	
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="2">
-					Details:
-						&nbsp;
-				</td>
-			</tr>			<tr>
-				<td class="TableRow" valign="top">Requirement Text</td>
-				<td class="TableRow" valign="top">Users need transparency on dataset limitations to interpret model results correctly.</td>
+				<td class="TableRow" valign="top">f. Requirement Status</td>
+				<td class="TableRow" valign="top">Draft</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1096,7 +1102,7 @@ if (cssLinkDownload) {
 				</td>
 			</tr>			<tr>
 				<td class="TableRow" valign="top">Supporting information from Interface Register</td>
-				<td class="TableRow" valign="top">A.04.17.03 Weather Actuals|A.01.03 Delphi		<br />Project - Subsystem Interface		<br />Technical-Data/Software		<br />A. Decarb Green Systems|A. Decarb Green Systems		<br />A.04 Unassigned / TBC|A.01 Planning and Forecast Systems	<br />A.04.17 Weather Forecasting|A.01.03 Delphi		<br />Weather Actuals - 15-Year Historical Weather Dataset (Snowflake)<br />The purpose of this interface is to provide up to 15 years of historical weather data - including rain, wind, lightning, and other key variables - via Snowflake through the Weather Actuals system.<br />Eclipse uses this long-term dataset to train and validate forecasting models, analyse historical patterns, and support long-term operational and strategic planning.<br />The criticality level is HIGH because a deep and accurate historical weather record is essential for building reliable forecasting models. Failure compromises long-term operational and strategic planning decisions.		<br />Weather Actuals Snowflake dataset -&gt; Delphi/Eclipse Snowflake (uni-directional).</td>
+				<td class="TableRow" valign="top">005OP-0000-005-003 Snowflake (Weather)|855DC-1541-DEL Delphi<br />Project - Subsystem Interface<br />Technical-Data/Software<br />Weather Actuals - 15-Year Historical Weather Dataset (Snowflake)<br />The purpose of this interface is to provide up to 15 years of historical weather data - including rain, wind, lightning, and other key variables - via Snowflake through the Weather Actuals system. Eclipse uses this long-term dataset to train and validate forecasting models, analyse historical patterns, and support long-term operational and strategic planning.<br />The criticality level is HIGH because a deep and accurate historical weather record is essential for building reliable forecasting models. Failure compromises long-term operational and strategic planning decisions.</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1143,7 +1149,7 @@ if (cssLinkDownload) {
     <td width="10%" class="TableRow" valign="top">Abstraction</td>
     <td width="10%" class="TableRow" valign="top">To</td>
     <td width="40%" class="TableRow" valign="top">
-        <div class="ObjectDetailsNotes">005OP-0000-005-003 Snowflake (Weather)|855DC-1541-DEL Delphi; a. Requirement Text=The interface shall maintain metadata describing data provenance, update cadence, and any known limitations of the historical weather dataset.; Apportionment=Delphi; b. Artifact Type=Interface Requirement; c. Source=Green Systems Interface Register, Interface DGS-I_0325; d. Apportionment=Delphi; d.Apportionment=Delphi; e. Rationale=Users need transparency on dataset limitations to interpret model results correctly.; f. Criticality Level=; g. Quality Flaw=; h. Verification Method=; i. Validation Method=; id=; j. Requirement Status=Ready for Review; Rationale=The interface shall maintain metadata describing data provenance, update cadence, and any known limitations of the historical weather dataset.; Requirement Text=Users need transparency on dataset limitations to interpret model results correctly.; risk=; source=; Supporting information from Interface Register=A.04.17.03 Weather Actuals|A.01.03 Delphi		&lt;br/&gt;Project - Subsystem Interface		&lt;br/&gt;Technical-Data/Software		&lt;br/&gt;A. Decarb Green Systems|A. Decarb Green Systems		&lt;br/&gt;A.04 Unassigned / TBC|A.01 Planning and Forecast Systems	&lt;br/&gt;A.04.17 Weather Forecasting|A.01.03 Delphi		&lt;br/&gt;Weather Actuals - 15-Year Historical Weather Dataset (Snowflake)&lt;br/&gt;The purpose of this interface is to provide up to 15 years of historical weather data - including rain, wind, lightning, and other key variables - via Snowflake through the Weather Actuals system.&lt;br/&gt;Eclipse uses this long-term dataset to train and validate forecasting models, analyse historical patterns, and support long-term operational and strategic planning.&lt;br/&gt;The criticality level is HIGH because a deep and accurate historical weather record is essential for building reliable forecasting models. Failure compromises long-term operational and strategic planning decisions.		&lt;br/&gt;Weather Actuals Snowflake dataset -#gt; Delphi/Eclipse Snowflake (uni-directional).; text=; verifyMethod=&lt;br/&gt;</div>
+        <div class="ObjectDetailsNotes">005OP-0000-005-003 Snowflake (Weather)|855DC-1541-DEL Delphi; a. Requirement Text=The interface shall maintain metadata describing data provenance, update cadence, and any known limitations of the historical weather dataset.; b. Artifact Type=Interface Requirement; c. Source=Green Systems Interface Register, Interface DGS-I_0325; d. Apportionment=Delphi; e. Rationale=Users need transparency on dataset limitations to interpret model results correctly.; f. Requirement Status=Draft; g. Criticality Level=; h. Quality Flaw=; i. Validation Method=; j. Verification Method=; Supporting information from Interface Register=005OP-0000-005-003 Snowflake (Weather)|855DC-1541-DEL Delphi&lt;br/&gt;Project - Subsystem Interface&lt;br/&gt;Technical-Data/Software&lt;br/&gt;Weather Actuals - 15-Year Historical Weather Dataset (Snowflake)&lt;br/&gt;The purpose of this interface is to provide up to 15 years of historical weather data - including rain, wind, lightning, and other key variables - via Snowflake through the Weather Actuals system. Eclipse uses this long-term dataset to train and validate forecasting models, analyse historical patterns, and support long-term operational and strategic planning.&lt;br/&gt;The criticality level is HIGH because a deep and accurate historical weather record is essential for building reliable forecasting models. Failure compromises long-term operational and strategic planning decisions.&lt;br/&gt;</div>
 
     </td>
 </tr>

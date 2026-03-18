@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head><link rel="icon" href="/favicon.ico"></head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>DGS-I_0007</title>
+<title>Interfaces::DGS-I_0007</title>
 <link href="../../../css/ea.css" rel="stylesheet" type="text/css" />
 <script language="JavaScript" src="../../../js/displayToc.js" type="text/javascript"></script>
 
@@ -368,18 +368,7 @@ function getTargetInfo(areaElement) {
         text = text.replace(/\s*:\s*Public\s*(?:<<.*?>>\s*)?.*$/i, '').trim();
         h1.textContent = text;
     }
-function offsetContentForHeader() {
-    const header = document.querySelector('.header_frame');
-    const content = document.querySelector('.section.group');
 
-    if (!header || !content) return;
-
-    const headerHeight = header.offsetHeight;
-    content.style.paddingTop = headerHeight + 'px';
-}
-
-window.addEventListener('load', offsetContentForHeader);
-window.addEventListener('resize', offsetContentForHeader);
     window.addEventListener('load', () => {
         initPage();
         resizeMapCoordinates();
@@ -488,7 +477,7 @@ if (cssLinkDownload) {
 <div class="section group" >
 
 		<div class="col span_2_of_2 header_frame">
-			<h1> DGS-I_0007 </h1>
+			<h1> Interfaces::DGS-I_0007 </h1>
 			<img class="header_image" src="../../../images/Logo.png" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
@@ -577,7 +566,7 @@ if (cssLinkDownload) {
    ========================================================== */
 #TaggedValTable table {
     width: 100% !important;
-    table-layout: fixed !important;
+    table-layout: auto !important;
 }
 
 /* First column: fixed width (both header and data) */
@@ -585,20 +574,17 @@ if (cssLinkDownload) {
 #TaggedValTable .TableHeading:first-child,
 #TaggedValTable td:first-child * {
     width: 150px !important;
-    min-width: 0 !important;
+    min-width: 150px !important;
+    max-width: 150px !important;
     vertical-align: top;
     word-break: break-word;
     overflow-wrap: break-word;
     box-sizing: border-box !important;
 }
 
-/* Second column: fill remaining space (both header and data) */
+/* Second column: fill remaining space */
 #TaggedValTable td:nth-child(2),
-#TaggedValTable .TableHeading:nth-child(2),
-#TaggedValTable td:nth-child(2) * {
-    width: calc(100% - 120px) !important;
-    min-width: 0 !important;
-    max-width: 500px !important;
+#TaggedValTable .TableHeading:nth-child(2) {
     vertical-align: top;
     word-break: break-word !important;
     overflow-wrap: break-word !important;
@@ -632,17 +618,23 @@ if (cssLinkDownload) {
 #LinksTable td:nth-child(5) { vertical-align: top; word-break: break-word; }
 
 /* ==========================================================
-   REQUIREMENTS TABLE – SAME AS CONNECTIONS
+   REQUIREMENTS TABLE – Dynamic columns, let browser size naturally
    ========================================================== */
 #RequirementsTable table {
     width: 100% !important;
     table-layout: fixed !important;
 }
-#RequirementsTable table tr td:nth-child(1) { width: 250px !important; vertical-align: top; word-break: break-word; }
-#RequirementsTable table tr td:nth-child(2) { width: 120px !important; vertical-align: top; word-break: break-word; }
-#RequirementsTable table tr td:nth-child(3) { display: none !important; }
-#RequirementsTable table tr td:nth-child(4) { width: 350px !important; vertical-align: top; word-break: break-word; }
-#RequirementsTable table tr td:nth-child(5) { width: 350px !important; vertical-align: top; word-break: break-word; }
+#RequirementsTable table tr td {
+    vertical-align: top;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    white-space: normal !important;
+    padding: 1px 3px !important;
+    box-sizing: border-box !important;
+}
+#RequirementsTable table tr td:nth-child(1) {
+    width: 120px !important;
+}
 </style>
 
 <div class="PageBody" style="position: relative !important; height: auto !important; overflow: visible !important; padding-bottom: 10px;">
@@ -734,6 +726,23 @@ if (cssLinkDownload) {
         // =====================
         // 2. UPDATE APPEARS IN LINKS
         // =====================
+
+        // Fix Tagged Values header - force Value column to fill remaining width
+        const taggedValTable = document.getElementById('TaggedValTable');
+        if(taggedValTable) {
+            const valueHeader = taggedValTable.querySelector('tr:first-child td:nth-child(2)');
+            if(valueHeader) {
+                valueHeader.style.setProperty('width', '500px', 'important');
+            }
+            // Fix data cells to match
+            taggedValTable.querySelectorAll('tr td:nth-child(2)').forEach(cell => {
+                cell.style.setProperty('width', '500px', 'important');
+                cell.style.setProperty('max-width', '500px', 'important');
+                cell.style.setProperty('word-break', 'break-word', 'important');
+                cell.style.setProperty('white-space', 'normal', 'important');
+                cell.style.setProperty('box-sizing', 'border-box', 'important');
+            });
+        }
         const path = window.location.pathname;
         const pageName = path.substring(path.lastIndexOf('/')+1).replace(/\.(htm|html)$/,"");
         const appearsInRow = document.getElementById("adv01");
@@ -922,18 +931,40 @@ if (cssLinkDownload) {
                     }
                 });
                 
-                const tagNamesArray = Array.from(tagNames).sort();
+                const hiddenColumns = new Set([
+                    'Supporting information from Interface Register',
+                    'g. Criticality Level',
+                    'h. Quality Flaw',
+                    'i. Validation Method',
+                    'j. Verification Method'
+                ]);
+                const tagNamesArray = Array.from(tagNames).filter(t => !hiddenColumns.has(t)).sort();
                 
+                const colWidths = {
+                    'default':                '100px',
+                    'a. Requirement Text':    '300px',
+                    'b. Artifact Type':       '100px',
+                    'c. Source':              '150px',
+                    'd. Apportionment':       '100px',
+                    'e. Rationale':           '200px',
+                    'f. Requirement Status':  '100px'
+                };
+
                 // Create table with new structure
                 const table = originalTable.cloneNode(false);
+                table.removeAttribute('style');
+                table.removeAttribute('width');
+                table.className = 'Table';
                 
-                // Build header row
+                // Build header row - Type column removed
                 const newHeaderRow = document.createElement('tr');
-                const headers = ['Object', 'Type'];
+                const headers = ['Object'];
                 headers.forEach(h => {
                     const th = document.createElement('td');
                     th.className = 'TableHeading';
                     th.textContent = h;
+                    th.style.setProperty('width', '120px', 'important');
+                    th.style.setProperty('min-width', '120px', 'important');
                     newHeaderRow.appendChild(th);
                 });
                 // Add tag name headers
@@ -941,6 +972,9 @@ if (cssLinkDownload) {
                     const th = document.createElement('td');
                     th.className = 'TableHeading';
                     th.textContent = tagName;
+                    const w = colWidths[tagName] || colWidths['default'];
+                    th.style.setProperty('width', w, 'important');
+                    th.style.setProperty('min-width', w, 'important');
                     newHeaderRow.appendChild(th);
                 });
                 table.appendChild(newHeaderRow);
@@ -950,11 +984,14 @@ if (cssLinkDownload) {
                     const newRow = document.createElement('tr');
                     newRow.className = row.className;
                     
-                    // Copy Object and Type cells
+                    // Copy Object cell only - Type column removed
                     const objectCell = row.querySelector('td:nth-child(1)').cloneNode(true);
-                    const typeCell = row.querySelector('td:nth-child(2)').cloneNode(true);
+                    objectCell.removeAttribute('width');
+                    objectCell.style.setProperty('width', '120px', 'important');
+                    objectCell.style.setProperty('min-width', '120px', 'important');
+                    objectCell.style.setProperty('word-break', 'break-word', 'important');
+                    objectCell.style.setProperty('white-space', 'normal', 'important');
                     newRow.appendChild(objectCell);
-                    newRow.appendChild(typeCell);
                     
                     // Parse notes into tag map
                     const notesCell = row.querySelector('td:nth-child(5)');
@@ -975,7 +1012,12 @@ if (cssLinkDownload) {
                         const cell = document.createElement('td');
                         cell.className = 'TableRow';
                         cell.setAttribute('valign', 'top');
-                        cell.textContent = tagMap[tagName] || '\u00A0'; // nbsp if empty
+                        const w = colWidths[tagName] || colWidths['default'];
+                        cell.style.setProperty('width', w, 'important');
+                        cell.style.setProperty('min-width', w, 'important');
+                        cell.style.setProperty('word-break', 'break-word', 'important');
+                        cell.style.setProperty('white-space', 'normal', 'important');
+                        cell.textContent = tagMap[tagName] || '\u00A0';
                         newRow.appendChild(cell);
                     });
                     
