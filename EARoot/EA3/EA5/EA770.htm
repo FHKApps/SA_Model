@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head><link rel="icon" href="/favicon.ico"></head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Interfaces::DGS-I_0127</title>
+<title>Interfaces::DGS-I_0128</title>
 <link href="../../../css/ea.css" rel="stylesheet" type="text/css" />
 <script language="JavaScript" src="../../../js/displayToc.js" type="text/javascript"></script>
 
@@ -492,11 +492,11 @@ if (cssLinkDownload) {
 <div class="section group" >
 
 		<div class="col span_2_of_2 header_frame">
-			<h1> Interfaces::DGS-I_0127 </h1>
+			<h1> Interfaces::DGS-I_0128 </h1>
 			<img class="header_image" src="../../../images/Logo.png" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
-			<p><a href="../../EA19.htm">Decarb Green Systems Architecture  Version: Z</a> / <a href="../EA481.htm">System Definition Elements</a> / <a href="EA643.htm">Interfaces</a> / <a href="EA770.htm">DGS-I_0127</a></p>
+			<p><a href="../../EA19.htm">Decarb Green Systems Architecture  Version: Z</a> / <a href="../EA480.htm">System Definition Elements</a> / <a href="EA642.htm">Interfaces</a> / <a href="EA770.htm">DGS-I_0128</a></p>
 		</div>
 			
 		<table class="contentmaintable">
@@ -525,7 +525,7 @@ if (cssLinkDownload) {
 
                         <div id="originalTree">
 						    <ul>
-<a href="EA643.htm">Interfaces</a></ul>
+<a href="EA642.htm">Interfaces</a></ul>
 
                         </div>
 					</td>
@@ -659,7 +659,7 @@ if (cssLinkDownload) {
 
 <div class="PageBody" style="position: relative !important; height: auto !important; overflow: visible !important; padding-bottom: 10px;">
     <span class="ObjectTitle">
-        DGS-I_0127 : &lt;&lt;InterfaceBlock&gt;&gt;
+        DGS-I_0128 : &lt;&lt;InterfaceBlock&gt;&gt;
     </span>
 
     <table border="0" class="ObjectDetails" style="width: 100%; margin-bottom: 10px;">
@@ -668,10 +668,10 @@ if (cssLinkDownload) {
             <col width="*" />
         </colgroup>
         <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Status:</td><td class="ObjectDetailsValue">Proposed</td></tr>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Created:</td><td class="ObjectDetailsValue">23/10/2025 21:49:43</td></tr>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Modified:</td><td class="ObjectDetailsValue">24/02/2026 23:50:13</td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Created:</td><td class="ObjectDetailsValue">23/10/2025 21:49:50</td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Modified:</td><td class="ObjectDetailsValue">24/02/2026 23:50:14</td></tr>
         <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Author:</td><td class="ObjectDetailsValue">Admin</td></tr>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">UUID:</td><td class="ObjectDetailsValue">{A9FEDB76-1F95-4cb7-BEDD-20AB0D3BC5E0}</td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">UUID:</td><td class="ObjectDetailsValue">{1F8698FC-34E3-4bfd-A9FE-9E50AF3F5390}</td></tr>
         <tr id="adv01"><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Appears In:</td><td class="ObjectDetailsValue"><a href="../../EA15.htm">System Definition (SD)</a>, <a href="../../EA1.htm">855DC-1541-ECL Eclipse</a>, Archive - System Definition - Christmas Creek Mine, Archive - System Definition - Cloudbreak Mine, Archive - System Definition - Iron Bridge Mine, Archive - System Definition - Port Hedland, Archive - System Definition - Eliwana Mine, Archive - System Definition - Flying Fish Mine</td></tr>
         <tr>
             <td class="ObjectDetailsTopic" style="padding-left:0; width:70px; vertical-align:top; padding-top:5px;">Remarks:</td>
@@ -1069,7 +1069,7 @@ if (cssLinkDownload) {
         </tr>
         			<tr>
 				<td class="TableRow" valign="top">1. Interface Name</td>
-				<td class="TableRow" valign="top">Energy Operations (HIVE)|855DC-1541-ECL-002 Online Security Constrained Unit Commitment (SCUC)</td>
+				<td class="TableRow" valign="top">Energy Operations (HIVE)|855DC-1541-ECL-001 Eclipse Planning</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1114,7 +1114,7 @@ if (cssLinkDownload) {
 				</td>
 			</tr>			<tr>
 				<td class="TableRow" valign="top">8. Interface Flow</td>
-				<td class="TableRow" valign="top">Data Flow: ECL Eclipse -&gt; Energy Operations (EO) Users (optimisation outputs, dispatch schedules, load forecasts, constraint violations, scenario results, performance analytics) presented via user interface for analysis and decision-making.<br />Human-in-the-Loop Control: EO Users -&gt; Monarch (approved dispatch decisions, operational adjustments, scheduling overrides) executed through separate operational control interfaces.</td>
+				<td class="TableRow" valign="top">Data Flow: ECL Eclipse -&gt; Energy Operations (EO) Users (dispatch schedules, optimisation outputs, load forecasts, constraint alerts, scenario results, performance metrics) via user interface for review and analysis.<br />Human Decision Path: EO Users -&gt; Monarch (approved dispatch instructions, scheduling adjustments, operational directives) implemented through operational control systems.</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1123,7 +1123,7 @@ if (cssLinkDownload) {
 				</td>
 			</tr>			<tr>
 				<td class="TableRow" valign="top">9. Interface Criticality Justification</td>
-				<td class="TableRow" valign="top">This interface is rated HIGH because Energy Operations relies on accurate and timely optimisation outputs from Eclipse to make safe and economically optimal dispatch decisions. Loss of access to planning data or scenario outputs may result in suboptimal scheduling, increased operational risk, inefficient fuel or storage utilisation, and potential network instability if decisions are made using outdated information. While physical control is exercised through Monarch, the quality and safety of those decisions depend heavily on this interface.</td>
+				<td class="TableRow" valign="top">This interface is rated HIGH because Energy Operations depends on accurate optimisation outputs from Eclipse to make safe, stable, and economically efficient dispatch decisions. Loss of access may result in decisions based on outdated or incomplete information, increasing the risk of suboptimal generation scheduling, storage mismanagement, or network instability. While physical control is executed through Monarch, the integrity and quality of operational decisions rely heavily on this interface.</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1182,23 +1182,23 @@ if (cssLinkDownload) {
             <td class="TableHeading">Interfaces with</td>
         </tr>
 
-<tr class="#LINK_STEREOTYPE# Actor">
-    <td width="30%" class="TableRow" valign="top"><a href="../EA4/EA631.htm">Energy Operations (HIVE)</a></td>
-    <td width="10%" class="TableRow" valign="top">Actor</td>
-    <td width="10%" class="TableRow" valign="top">Abstraction</td>
-    <td width="10%" class="TableRow" valign="top">From</td>
-    <td width="40%" class="TableRow" valign="top">
-        <div class="ObjectDetailsNotes">&lt;a href=&quot;../../EA2/EA183.htm&quot;&gt;855DC-1541-ECL-002 Online Security Constrained Unit Commitment (SCUC)&lt;/a&gt;&lt;br/&gt;</div>
-
-    </td>
-</tr>
 <tr class="#LINK_STEREOTYPE# Block">
-    <td width="30%" class="TableRow" valign="top"><a href="../../EA2/EA183.htm">«block» 855DC-1541-ECL-002 Online Security Constrained Unit Commitment (SCUC)</a></td>
+    <td width="30%" class="TableRow" valign="top"><a href="../../EA2/EA182.htm">«block» 855DC-1541-ECL-001 Eclipse Planning</a></td>
     <td width="10%" class="TableRow" valign="top">Block</td>
     <td width="10%" class="TableRow" valign="top">Abstraction</td>
     <td width="10%" class="TableRow" valign="top">From</td>
     <td width="40%" class="TableRow" valign="top">
-        <div class="ObjectDetailsNotes">&lt;a href=&quot;../EA4/EA631.htm&quot;&gt;Energy Operations (HIVE)&lt;/a&gt;&lt;br/&gt;</div>
+        <div class="ObjectDetailsNotes">&lt;a href=&quot;../EA4/EA630.htm&quot;&gt;Energy Operations (HIVE)&lt;/a&gt;&lt;br/&gt;</div>
+
+    </td>
+</tr>
+<tr class="#LINK_STEREOTYPE# Actor">
+    <td width="30%" class="TableRow" valign="top"><a href="../EA4/EA630.htm">Energy Operations (HIVE)</a></td>
+    <td width="10%" class="TableRow" valign="top">Actor</td>
+    <td width="10%" class="TableRow" valign="top">Abstraction</td>
+    <td width="10%" class="TableRow" valign="top">From</td>
+    <td width="40%" class="TableRow" valign="top">
+        <div class="ObjectDetailsNotes">&lt;a href=&quot;../../EA2/EA182.htm&quot;&gt;855DC-1541-ECL-001 Eclipse Planning&lt;/a&gt;&lt;br/&gt;</div>
 
     </td>
 </tr>

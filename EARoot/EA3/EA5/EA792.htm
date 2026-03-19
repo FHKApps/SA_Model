@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head><link rel="icon" href="/favicon.ico"></head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Interfaces::DGS-I_0149</title>
+<title>Interfaces::DGS-I_0150</title>
 <link href="../../../css/ea.css" rel="stylesheet" type="text/css" />
 <script language="JavaScript" src="../../../js/displayToc.js" type="text/javascript"></script>
 
@@ -492,11 +492,11 @@ if (cssLinkDownload) {
 <div class="section group" >
 
 		<div class="col span_2_of_2 header_frame">
-			<h1> Interfaces::DGS-I_0149 </h1>
+			<h1> Interfaces::DGS-I_0150 </h1>
 			<img class="header_image" src="../../../images/Logo.png" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
-			<p><a href="../../EA19.htm">Decarb Green Systems Architecture  Version: Z</a> / <a href="../EA481.htm">System Definition Elements</a> / <a href="EA643.htm">Interfaces</a> / <a href="EA792.htm">DGS-I_0149</a></p>
+			<p><a href="../../EA19.htm">Decarb Green Systems Architecture  Version: Z</a> / <a href="../EA480.htm">System Definition Elements</a> / <a href="EA642.htm">Interfaces</a> / <a href="EA792.htm">DGS-I_0150</a></p>
 		</div>
 			
 		<table class="contentmaintable">
@@ -525,7 +525,7 @@ if (cssLinkDownload) {
 
                         <div id="originalTree">
 						    <ul>
-<a href="EA643.htm">Interfaces</a></ul>
+<a href="EA642.htm">Interfaces</a></ul>
 
                         </div>
 					</td>
@@ -659,7 +659,7 @@ if (cssLinkDownload) {
 
 <div class="PageBody" style="position: relative !important; height: auto !important; overflow: visible !important; padding-bottom: 10px;">
     <span class="ObjectTitle">
-        DGS-I_0149 : &lt;&lt;InterfaceBlock&gt;&gt;
+        DGS-I_0150 : &lt;&lt;InterfaceBlock&gt;&gt;
     </span>
 
     <table border="0" class="ObjectDetails" style="width: 100%; margin-bottom: 10px;">
@@ -667,15 +667,15 @@ if (cssLinkDownload) {
             <col width="70px" />
             <col width="*" />
         </colgroup>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Status:</td><td class="ObjectDetailsValue">Proposed</td></tr>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Created:</td><td class="ObjectDetailsValue">10/09/2025 15:48:05</td></tr>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Modified:</td><td class="ObjectDetailsValue">24/02/2026 23:50:14</td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Status:</td><td class="ObjectDetailsValue">Deleted</td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Created:</td><td class="ObjectDetailsValue">26/08/2025 19:59:03</td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Modified:</td><td class="ObjectDetailsValue">11/12/2025 01:37:18</td></tr>
         <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Author:</td><td class="ObjectDetailsValue">Admin</td></tr>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">UUID:</td><td class="ObjectDetailsValue">{0932DE3D-204E-4e1e-9A8D-F6A6B24CFF36}</td></tr>
-        <tr id="adv01"><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Appears In:</td><td class="ObjectDetailsValue"><a href="../../EA7.htm">855DC-1542-008 Mine Electrification SCADA</a>, <a href="../../EA15.htm">System Definition (SD)</a>, <a href="../../EA1.htm">855DC-1541-ECL Eclipse</a>, <a href="../../EA3.htm">855DC-1541-DEL Delphi</a>, <a href="../../EA11.htm">855DC-1542-LMS Load Management System (LMS)</a>, <a href="../../EA9.htm">855DC-1542-CSM Charge Station Management System (CSMS)</a></td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">UUID:</td><td class="ObjectDetailsValue">{EB620A23-5898-4712-A95A-022B17EC615A}</td></tr>
+        <tr id="adv01"><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Appears In:</td><td class="ObjectDetailsValue">Archive - System Definition - Christmas Creek Mine, Archive - System Definition - Cloudbreak Mine, Archive - System Definition - Iron Bridge Mine, Archive - System Definition - Eliwana Mine, Archive - System Definition - Flying Fish Mine</td></tr>
         <tr>
             <td class="ObjectDetailsTopic" style="padding-left:0; width:70px; vertical-align:top; padding-top:5px;">Remarks:</td>
-            <td class="ObjectDetailsValue remarks-cell" style="vertical-align:top; padding-top:5px;"><div class="ObjectDetailsNotes">CSMS Review 30/10/2025: Open Charge Point Protocol (OCPP) for all chargers if the charger supports OCPP.&lt;br/&gt;NH 20/02/2026: Fields updated: Interface Flow.&lt;br/&gt;</div>
+            <td class="ObjectDetailsValue remarks-cell" style="vertical-align:top; padding-top:5px;"><div class="ObjectDetailsNotes">CSMS Review 30/10/2025: Integration between vCharm edges and Monarch AGC is still being looked at. ICD? adjustment of setpoints. May go via GMS PLC, or may go directly from AGC to CSMS via API. Potential owner Energy Ops.&lt;br/&gt;&lt;br/&gt;Delete, CSMS integrates to LMS.&lt;br/&gt;</div>
 </td>
         </tr>
     </table>
@@ -1069,7 +1069,25 @@ if (cssLinkDownload) {
         </tr>
         			<tr>
 				<td class="TableRow" valign="top">1. Interface Name</td>
-				<td class="TableRow" valign="top">855DC-1542-CSM-001 vCharM by Vector|850DC-1514-0003 LME / SME Chargers</td>
+				<td class="TableRow" valign="top">855DC-1543-008 Monarch|855DC-1542-CSM-001 vCharM by Vector</td>
+			</tr>	
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="2">
+					Details:
+						&nbsp;
+				</td>
+			</tr>			<tr>
+				<td class="TableRow" valign="top">2. Interface Lead</td>
+				<td class="TableRow" valign="top">Energy Operations</td>
+			</tr>	
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="2">
+					Details:
+						&nbsp;
+				</td>
+			</tr>			<tr>
+				<td class="TableRow" valign="top">3. Interface Contributor(s)</td>
+				<td class="TableRow" valign="top">Sam Hedgcock</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1086,17 +1104,8 @@ if (cssLinkDownload) {
 						&nbsp;
 				</td>
 			</tr>			<tr>
-				<td class="TableRow" valign="top">5. Interface Type</td>
-				<td class="TableRow" valign="top">Technical-Data/Software</td>
-			</tr>	
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="2">
-					Details:
-						&nbsp;
-				</td>
-			</tr>			<tr>
 				<td class="TableRow" valign="top">6. Interface Description</td>
-				<td class="TableRow" valign="top">This interface links vCharM to the Light/Small Mobile Equipment (LME/SME) chargers so the system can monitor charger status, manage charging sessions, and optimise load distribution.</td>
+				<td class="TableRow" valign="top">vCharm Edge / CSMS &lt;-&gt; Monarch AGC - Setpoint & Control Integration (Under Evaluation)<br />The purpose of this interface is to allow Monarch Automatic Generation Control (AGC) to adjust EV charging setpoints dynamically - coordinating charging demand with real-time generation and system stability requirements. This integration between the Charging Station Management System (CSMS, via vCharm Edge) and Monarch AGC is under investigation, and communication may occur directly between AGC and the CSMS via API, or indirectly through the GMS PLC acting as an intermediary control layer.<br />Intermediate Elements: Monarch AGC, vCharm Edge (CSMS), possible GMS PLC, charger control interfaces, API or PLC communications, depending on final ICD design.</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1105,7 +1114,7 @@ if (cssLinkDownload) {
 				</td>
 			</tr>			<tr>
 				<td class="TableRow" valign="top">7. Interface Criticality</td>
-				<td class="TableRow" valign="top">LOW</td>
+				<td class="TableRow" valign="top">HIGH</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1114,7 +1123,7 @@ if (cssLinkDownload) {
 				</td>
 			</tr>			<tr>
 				<td class="TableRow" valign="top">8. Interface Flow</td>
-				<td class="TableRow" valign="top">Data Flow:<br />855DC-1542-CSM Charge Station Management System (CSMS) -&gt; 850DC-1514-0003 LME/SME Chargers, transmitting charging session commands, load allocation instructions, authorisation status, and scheduling information.<br />850DC-1514-0003 LME/SME Chargers -&gt; CSMS, providing charger availability, connection status, energy consumption data, session progress, and fault/alarm information for monitoring and optimisation.<br />Control Flow:<br />CSMS -&gt; LME/SME Chargers, issuing start/stop charging commands, session authorisation, configuration updates, and load management setpoints to coordinate charging operations.</td>
+				<td class="TableRow" valign="top">Option 1: Monarch AGC -&gt; API -&gt; CSMS (vCharm Edge) -&gt; Chargers.<br /><br />Option 2: Monarch AGC -&gt; GMS PLC -&gt; CSMS (vCharm Edge) -&gt; Chargers.</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1123,7 +1132,7 @@ if (cssLinkDownload) {
 				</td>
 			</tr>			<tr>
 				<td class="TableRow" valign="top">9. Interface Criticality Justification</td>
-				<td class="TableRow" valign="top">The criticality level is LOW because, although the interface enhances operational efficiency, LME/SME charging can usually be managed manually without significant impact on production or safety.</td>
+				<td class="TableRow" valign="top">The criticality level is HIGH because coordinated charging load control is essential for balancing demand with available generation, preventing overload, and enabling AGC-driven responsiveness across the power network.</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1133,6 +1142,25 @@ if (cssLinkDownload) {
 			</tr>			<tr>
 				<td class="TableRow" valign="top">Element Type</td>
 				<td class="TableRow" valign="top">Project - Subsystem Interface</td>
+			</tr>	
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="2">
+					Details:
+						&nbsp;
+				</td>
+			</tr>			<tr>
+				<td class="TableRow" valign="top">isEncapsulated</td>
+				<td class="TableRow" valign="top">&nbsp;</td>
+			</tr>	
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="2">
+					Details:
+						<div class="ObjectDetailsNotes">Values: true,false<br /></div>
+
+				</td>
+			</tr>			<tr>
+				<td class="TableRow" valign="top">Owner</td>
+				<td class="TableRow" valign="top">Energy Operations</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1174,22 +1202,22 @@ if (cssLinkDownload) {
         </tr>
 
 <tr class="#LINK_STEREOTYPE# Block">
+    <td width="30%" class="TableRow" valign="top"><a href="../../EA2/EA320.htm">«block» 855DC-1543-008 Monarch</a></td>
+    <td width="10%" class="TableRow" valign="top">Block</td>
+    <td width="10%" class="TableRow" valign="top">Abstraction</td>
+    <td width="10%" class="TableRow" valign="top">From</td>
+    <td width="40%" class="TableRow" valign="top">
+        <div class="ObjectDetailsNotes">[DELETED]&lt;br/&gt;</div>
+
+    </td>
+</tr>
+<tr class="#LINK_STEREOTYPE# Block">
     <td width="30%" class="TableRow" valign="top"><a href="../../EA2/EA164.htm">«block» 855DC-1542-CSM-001 vCharM by Vector</a></td>
     <td width="10%" class="TableRow" valign="top">Block</td>
     <td width="10%" class="TableRow" valign="top">Abstraction</td>
     <td width="10%" class="TableRow" valign="top">From</td>
     <td width="40%" class="TableRow" valign="top">
-        <div class="ObjectDetailsNotes">&lt;a href=&quot;../../EA2/EA266.htm&quot;&gt;850DC-1514-0003 LME / SME Chargers&lt;/a&gt;&lt;br/&gt;</div>
-
-    </td>
-</tr>
-<tr class="#LINK_STEREOTYPE# Block">
-    <td width="30%" class="TableRow" valign="top"><a href="../../EA2/EA266.htm">«block» 850DC-1514-0003 LME / SME Chargers</a></td>
-    <td width="10%" class="TableRow" valign="top">Block</td>
-    <td width="10%" class="TableRow" valign="top">Abstraction</td>
-    <td width="10%" class="TableRow" valign="top">From</td>
-    <td width="40%" class="TableRow" valign="top">
-        <div class="ObjectDetailsNotes">&lt;a href=&quot;../../EA2/EA164.htm&quot;&gt;855DC-1542-CSM-001 vCharM by Vector&lt;/a&gt;&lt;br/&gt;</div>
+        <div class="ObjectDetailsNotes">[DELETED]&lt;br/&gt;</div>
 
     </td>
 </tr>

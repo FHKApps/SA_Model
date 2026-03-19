@@ -9,4 +9,4 @@ tocTab[tocTab.length] = new Array("0:8", "", "System Definition (SD)", "EARoot/E
 tocTab[tocTab.length] = new Array("0:9", "", "System Breakdown Structure (SBS)", "EARoot/EA17.htm", "175.png", "353", "0", "", "Logical diagram0","{ECE42BE2-88DA-4345-B6ED-C0F828175FED}");
 tocTab[tocTab.length] = new Array("0.1", "1", "Requirements", "EARoot/EA1/EA90.htm", "4.png", "", "", "{EB5E35AD-2E5B-4c7b-BADF-B836F757DC28}", "Package");
 tocTab[tocTab.length] = new Array("0.2", "1", "System Breakdown Structure Elements", "EARoot/EA2/EA160.htm", "4.png", "", "", "{D1FCFA3E-15AD-4edd-A964-38BB43218124}", "Package");
-tocTab[tocTab.length] = new Array("0.3", "1", "System Definition Elements", "EARoot/EA3/EA481.htm", "4.png", "", "", "{5DC38BE8-F2E2-415e-BD8A-334AC0D3ED94}", "Package");
+tocTab[tocTab.length] = new Array("0.3", "1", "System Definition Elements", "EARoot/EA3/EA480.htm", "4.png", "", "", "{5DC38BE8-F2E2-415e-BD8A-334AC0D3ED94}", "Package");

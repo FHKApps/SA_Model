@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head><link rel="icon" href="/favicon.ico"></head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Interfaces::DGS-I_0208</title>
+<title>Interfaces::DGS-I_0209</title>
 <link href="../../../css/ea.css" rel="stylesheet" type="text/css" />
 <script language="JavaScript" src="../../../js/displayToc.js" type="text/javascript"></script>
 
@@ -492,11 +492,11 @@ if (cssLinkDownload) {
 <div class="section group" >
 
 		<div class="col span_2_of_2 header_frame">
-			<h1> Interfaces::DGS-I_0208 </h1>
+			<h1> Interfaces::DGS-I_0209 </h1>
 			<img class="header_image" src="../../../images/Logo.png" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
-			<p><a href="../../EA19.htm">Decarb Green Systems Architecture  Version: Z</a> / <a href="../EA481.htm">System Definition Elements</a> / <a href="EA643.htm">Interfaces</a> / <a href="EA851.htm">DGS-I_0208</a></p>
+			<p><a href="../../EA19.htm">Decarb Green Systems Architecture  Version: Z</a> / <a href="../EA480.htm">System Definition Elements</a> / <a href="EA642.htm">Interfaces</a> / <a href="EA851.htm">DGS-I_0209</a></p>
 		</div>
 			
 		<table class="contentmaintable">
@@ -525,7 +525,7 @@ if (cssLinkDownload) {
 
                         <div id="originalTree">
 						    <ul>
-<a href="EA643.htm">Interfaces</a></ul>
+<a href="EA642.htm">Interfaces</a></ul>
 
                         </div>
 					</td>
@@ -659,7 +659,7 @@ if (cssLinkDownload) {
 
 <div class="PageBody" style="position: relative !important; height: auto !important; overflow: visible !important; padding-bottom: 10px;">
     <span class="ObjectTitle">
-        DGS-I_0208 : &lt;&lt;InterfaceBlock&gt;&gt;
+        DGS-I_0209 : &lt;&lt;InterfaceBlock&gt;&gt;
     </span>
 
     <table border="0" class="ObjectDetails" style="width: 100%; margin-bottom: 10px;">
@@ -668,10 +668,10 @@ if (cssLinkDownload) {
             <col width="*" />
         </colgroup>
         <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Status:</td><td class="ObjectDetailsValue">Proposed</td></tr>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Created:</td><td class="ObjectDetailsValue">05/11/2025 14:52:50</td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Created:</td><td class="ObjectDetailsValue">05/11/2025 14:52:55</td></tr>
         <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Modified:</td><td class="ObjectDetailsValue">24/02/2026 23:50:14</td></tr>
         <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Author:</td><td class="ObjectDetailsValue">Admin</td></tr>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">UUID:</td><td class="ObjectDetailsValue">{1C2D8BF5-BC59-4bf8-9044-16806AD72F88}</td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">UUID:</td><td class="ObjectDetailsValue">{BD54AAFA-0D94-4b81-A0E6-961037362E8E}</td></tr>
         <tr id="adv01"><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Appears In:</td><td class="ObjectDetailsValue"><a href="../../EA13.htm">855DC-1543-008 Monarch</a></td></tr>
         <tr>
             <td class="ObjectDetailsTopic" style="padding-left:0; width:70px; vertical-align:top; padding-top:5px;">Remarks:</td>
@@ -1069,7 +1069,7 @@ if (cssLinkDownload) {
         </tr>
         			<tr>
 				<td class="TableRow" valign="top">1. Interface Name</td>
-				<td class="TableRow" valign="top">854DC-1521-0002 Substation (66kV)|855DC-1543-008 Monarch</td>
+				<td class="TableRow" valign="top">854DC-1521-0003 Substation (132kV)|855DC-1543-008 Monarch</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1096,7 +1096,7 @@ if (cssLinkDownload) {
 				</td>
 			</tr>			<tr>
 				<td class="TableRow" valign="top">6. Interface Description</td>
-				<td class="TableRow" valign="top">This interface provides Monarch with status and operational data from the 66kV substation, which supports major site electrical loads and distribution feeders.</td>
+				<td class="TableRow" valign="top">This interface links Monarch to the 132kV substation, a primary high-voltage distribution node that feeds major mine infrastructure.</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1114,7 +1114,7 @@ if (cssLinkDownload) {
 				</td>
 			</tr>			<tr>
 				<td class="TableRow" valign="top">8. Interface Flow</td>
-				<td class="TableRow" valign="top">Data Flow: 66 kV Substation -&gt; Monarch (breaker and isolator status, busbar configuration, transformer loading, voltage/current measurements, protection relay status, alarms, fault events, feeder loading) to provide visibility of major distribution assets and high-load feeders.<br />Control Flow: Monarch -&gt; 66 kV Substation (remote switching commands, breaker open/close operations, load transfer instructions, fault isolation commands) to support coordinated network management and restoration activities.</td>
+				<td class="TableRow" valign="top">Data Flow: 132 kV Substation -&gt; Monarch, transmitting breaker and isolator status, busbar configuration, transformer loading, voltage and current measurements, protection relay status, alarms, fault indications, and feeder power flows to provide real-time visibility of the primary backbone supply node feeding major mine infrastructure.</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1123,7 +1123,7 @@ if (cssLinkDownload) {
 				</td>
 			</tr>			<tr>
 				<td class="TableRow" valign="top">9. Interface Criticality Justification</td>
-				<td class="TableRow" valign="top">The criticality level is HIGH because the 66kV network supplies major sections of the mine, and the loss of this interface limits visibility into system health and load conditions. Missing or outdated substation data can cause delays in fault management, increase the risk of overload, or lead to unplanned outages affecting vital mining systems.</td>
+				<td class="TableRow" valign="top">The criticality level is HIGH because a failure of this interface removes essential situational awareness of the backbone power supply, increasing the risk of widespread outages. High-voltage substations require constant monitoring to maintain electrical safety and system stability; without this interface, the site cannot effectively manage grid disturbances.</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1174,7 +1174,7 @@ if (cssLinkDownload) {
         </tr>
 
 <tr class="#LINK_STEREOTYPE# Block">
-    <td width="30%" class="TableRow" valign="top"><a href="../../EA2/EA219.htm">«block» 854DC-1521-0002 Substation (66kV)</a></td>
+    <td width="30%" class="TableRow" valign="top"><a href="../../EA2/EA220.htm">«block» 854DC-1521-0003 Substation (132kV)</a></td>
     <td width="10%" class="TableRow" valign="top">Block</td>
     <td width="10%" class="TableRow" valign="top">Abstraction</td>
     <td width="10%" class="TableRow" valign="top">From</td>
@@ -1189,7 +1189,7 @@ if (cssLinkDownload) {
     <td width="10%" class="TableRow" valign="top">Abstraction</td>
     <td width="10%" class="TableRow" valign="top">From</td>
     <td width="40%" class="TableRow" valign="top">
-        <div class="ObjectDetailsNotes">&lt;a href=&quot;../../EA2/EA219.htm&quot;&gt;854DC-1521-0002 Substation (66kV)&lt;/a&gt;&lt;br/&gt;</div>
+        <div class="ObjectDetailsNotes">&lt;a href=&quot;../../EA2/EA220.htm&quot;&gt;854DC-1521-0003 Substation (132kV)&lt;/a&gt;&lt;br/&gt;</div>
 
     </td>
 </tr>
