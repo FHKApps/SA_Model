@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head><link rel="icon" href="/favicon.ico"></head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Interfaces::DGS-I_0083</title>
+<title>Interfaces::DGS-I_0082</title>
 <link href="../../../css/ea.css" rel="stylesheet" type="text/css" />
 <script language="JavaScript" src="../../../js/displayToc.js" type="text/javascript"></script>
 
@@ -379,6 +379,20 @@ function getTargetInfo(areaElement) {
 
         simplifyHeaderTitle(); // <-- cleans header text
 
+        // ----------------------------------------------------------------
+        // DELPHI RVAM BUTTON: Show only on the Delphi requirements diagram
+        // ----------------------------------------------------------------
+        (function() {
+            const h1 = document.querySelector('.header_frame h1');
+            const delphiBox = document.getElementById('delphi-rvam-box');
+            if (h1 && delphiBox) {
+                const pageTitle = h1.textContent.trim();
+                if (pageTitle.includes('855DC-1541-DEL Delphi')) {
+                    delphiBox.style.display = 'block';
+                }
+            }
+        })();
+
         // Netlify Navigation Fix
         const navLinks = document.querySelectorAll(
             'a[href^="./"], a[href^="../"], a[href$=".htm"], a[href$=".html"]'
@@ -408,17 +422,18 @@ function getTargetInfo(areaElement) {
             });
         }
 		// ----------------------------------------------------------------
-// DOWNLOAD LINK FIX (Interface Register)
+// DOWNLOAD LINK FIX (all files/ links, depth-independent)
 // ----------------------------------------------------------------
 const cssLinkDownload = document.querySelector('link[href*="ea.css"]');
 if (cssLinkDownload) {
     const cssPathDownload = cssLinkDownload.getAttribute('href');
     const rootPathDownload = cssPathDownload.substring(0, cssPathDownload.lastIndexOf('css/'));
 
-    const downloadLink = document.querySelector('.download-box a');
-    if (downloadLink) {
-        downloadLink.href = rootPathDownload + "files/Fortescue_Interface-Register_Z.xlsm";
-    }
+    document.querySelectorAll('a[href*="files/"]').forEach(link => {
+        const href = link.getAttribute('href');
+        const filename = href.substring(href.indexOf('files/'));
+        link.href = rootPathDownload + filename;
+    });
 }
 // ----------------------------------------------------------------
 // LEGEND SWITCHING (SBS Special Case)
@@ -477,11 +492,11 @@ if (cssLinkDownload) {
 <div class="section group" >
 
 		<div class="col span_2_of_2 header_frame">
-			<h1> Interfaces::DGS-I_0083 </h1>
+			<h1> Interfaces::DGS-I_0082 </h1>
 			<img class="header_image" src="../../../images/Logo.png" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
-			<p><a href="../../EA19.htm">Decarb Green Systems Architecture  Version: Z</a> / <a href="../EA480.htm">System Definition Elements</a> / <a href="EA642.htm">Interfaces</a> / <a href="EA725.htm">DGS-I_0083</a></p>
+			<p><a href="../../EA19.htm">Decarb Green Systems Architecture  Version: Z</a> / <a href="../EA481.htm">System Definition Elements</a> / <a href="EA643.htm">Interfaces</a> / <a href="EA725.htm">DGS-I_0082</a></p>
 		</div>
 			
 		<table class="contentmaintable">
@@ -492,9 +507,14 @@ if (cssLinkDownload) {
 						<div class="download-box">
 						<div class="download-box">
 							<a href="files/Fortescue_Interface-Register_Z.xlsm" target="_blank">
-							Interface Register
+							Export Interface Register
 							</a>
 						</div>
+						</div>
+						<div class="download-box" id="delphi-rvam-box" style="display:none;">
+							<a href="files/Delphi_RVAM_Z.xlsx" target="_blank">
+							Export RVAM for this system
+							</a>
 						</div>
                         
                         <div class="sidebar-search-container">
@@ -505,7 +525,7 @@ if (cssLinkDownload) {
 
                         <div id="originalTree">
 						    <ul>
-<a href="EA642.htm">Interfaces</a></ul>
+<a href="EA643.htm">Interfaces</a></ul>
 
                         </div>
 					</td>
@@ -639,7 +659,7 @@ if (cssLinkDownload) {
 
 <div class="PageBody" style="position: relative !important; height: auto !important; overflow: visible !important; padding-bottom: 10px;">
     <span class="ObjectTitle">
-        DGS-I_0083 : &lt;&lt;InterfaceBlock&gt;&gt;
+        DGS-I_0082 : &lt;&lt;InterfaceBlock&gt;&gt;
     </span>
 
     <table border="0" class="ObjectDetails" style="width: 100%; margin-bottom: 10px;">
@@ -648,11 +668,11 @@ if (cssLinkDownload) {
             <col width="*" />
         </colgroup>
         <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Status:</td><td class="ObjectDetailsValue">Proposed</td></tr>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Created:</td><td class="ObjectDetailsValue">15/10/2025 15:47:56</td></tr>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Modified:</td><td class="ObjectDetailsValue">11/12/2025 01:37:20</td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Created:</td><td class="ObjectDetailsValue">15/10/2025 15:47:55</td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Modified:</td><td class="ObjectDetailsValue">11/12/2025 01:37:17</td></tr>
         <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Author:</td><td class="ObjectDetailsValue">Admin</td></tr>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">UUID:</td><td class="ObjectDetailsValue">{3118CEBF-79B7-44c8-A6BD-6E59F8F191B7}</td></tr>
-        <tr id="adv01"><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Appears In:</td><td class="ObjectDetailsValue"><a href="../../EA7.htm">855DC-1542-008 Mine Electrification SCADA</a>, <a href="../../EA13.htm">855DC-1543-008 Monarch</a>, <a href="../../EA15.htm">System Definition (SD)</a>, <a href="../../EA1.htm">855DC-1541-ECL Eclipse</a>, <a href="../../EA3.htm">855DC-1541-LIV LiveWire</a>, <a href="../../EA5.htm">855DC-1541-DEL Delphi</a>, <a href="../../EA11.htm">855DC-1542-LMS Load Management System (LMS)</a>, <a href="../../EA9.htm">855DC-1542-CSM Charge Station Management System (CSMS)</a></td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">UUID:</td><td class="ObjectDetailsValue">{CAEB0B14-D196-4a4f-8F93-DBCED2FC377A}</td></tr>
+        <tr id="adv01"><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Appears In:</td><td class="ObjectDetailsValue"><a href="../../EA7.htm">855DC-1542-008 Mine Electrification SCADA</a>, <a href="../../EA13.htm">855DC-1543-008 Monarch</a>, <a href="../../EA15.htm">System Definition (SD)</a>, <a href="../../EA1.htm">855DC-1541-ECL Eclipse</a>, <a href="../../EA5.htm">855DC-1541-LIV LiveWire</a>, <a href="../../EA3.htm">855DC-1541-DEL Delphi</a>, <a href="../../EA11.htm">855DC-1542-LMS Load Management System (LMS)</a>, <a href="../../EA9.htm">855DC-1542-CSM Charge Station Management System (CSMS)</a></td></tr>
         <tr>
             <td class="ObjectDetailsTopic" style="padding-left:0; width:70px; vertical-align:top; padding-top:5px;">Remarks:</td>
             <td class="ObjectDetailsValue remarks-cell" style="vertical-align:top; padding-top:5px;"></td>
@@ -1048,7 +1068,7 @@ if (cssLinkDownload) {
         </tr>
         			<tr>
 				<td class="TableRow" valign="top">1. Interface Name</td>
-				<td class="TableRow" valign="top">850DC-1523 Sub Kiosks|850DC-1520 Trailing Cable</td>
+				<td class="TableRow" valign="top">850DC-1522 Field Switches|850DC-1523 Sub Kiosks</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1117,22 +1137,22 @@ if (cssLinkDownload) {
         </tr>
 
 <tr class="#LINK_STEREOTYPE# Block">
-    <td width="30%" class="TableRow" valign="top"><a href="../../EA2/EA268.htm">«block» 850DC-1523 Sub Kiosks</a></td>
+    <td width="30%" class="TableRow" valign="top"><a href="../../EA2/EA269.htm">«block» 850DC-1523 Sub Kiosks</a></td>
     <td width="10%" class="TableRow" valign="top">Block</td>
     <td width="10%" class="TableRow" valign="top">Abstraction</td>
     <td width="10%" class="TableRow" valign="top">From</td>
     <td width="40%" class="TableRow" valign="top">
-        <div class="ObjectDetailsNotes">&lt;a href=&quot;../../EA2/EA270.htm&quot;&gt;850DC-1520 Trailing Cable&lt;/a&gt;&lt;br/&gt;</div>
+        <div class="ObjectDetailsNotes">&lt;a href=&quot;../../EA2/EA268.htm&quot;&gt;850DC-1522 Field Switches&lt;/a&gt;&lt;br/&gt;</div>
 
     </td>
 </tr>
 <tr class="#LINK_STEREOTYPE# Block">
-    <td width="30%" class="TableRow" valign="top"><a href="../../EA2/EA270.htm">«block» 850DC-1520 Trailing Cable</a></td>
+    <td width="30%" class="TableRow" valign="top"><a href="../../EA2/EA268.htm">«block» 850DC-1522 Field Switches</a></td>
     <td width="10%" class="TableRow" valign="top">Block</td>
     <td width="10%" class="TableRow" valign="top">Abstraction</td>
     <td width="10%" class="TableRow" valign="top">From</td>
     <td width="40%" class="TableRow" valign="top">
-        <div class="ObjectDetailsNotes">&lt;a href=&quot;../../EA2/EA268.htm&quot;&gt;850DC-1523 Sub Kiosks&lt;/a&gt;&lt;br/&gt;</div>
+        <div class="ObjectDetailsNotes">&lt;a href=&quot;../../EA2/EA269.htm&quot;&gt;850DC-1523 Sub Kiosks&lt;/a&gt;&lt;br/&gt;</div>
 
     </td>
 </tr>

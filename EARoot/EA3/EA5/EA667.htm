@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head><link rel="icon" href="/favicon.ico"></head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Interfaces::DGS-I_0025</title>
+<title>Interfaces::DGS-I_0024</title>
 <link href="../../../css/ea.css" rel="stylesheet" type="text/css" />
 <script language="JavaScript" src="../../../js/displayToc.js" type="text/javascript"></script>
 
@@ -379,6 +379,20 @@ function getTargetInfo(areaElement) {
 
         simplifyHeaderTitle(); // <-- cleans header text
 
+        // ----------------------------------------------------------------
+        // DELPHI RVAM BUTTON: Show only on the Delphi requirements diagram
+        // ----------------------------------------------------------------
+        (function() {
+            const h1 = document.querySelector('.header_frame h1');
+            const delphiBox = document.getElementById('delphi-rvam-box');
+            if (h1 && delphiBox) {
+                const pageTitle = h1.textContent.trim();
+                if (pageTitle.includes('855DC-1541-DEL Delphi')) {
+                    delphiBox.style.display = 'block';
+                }
+            }
+        })();
+
         // Netlify Navigation Fix
         const navLinks = document.querySelectorAll(
             'a[href^="./"], a[href^="../"], a[href$=".htm"], a[href$=".html"]'
@@ -408,17 +422,18 @@ function getTargetInfo(areaElement) {
             });
         }
 		// ----------------------------------------------------------------
-// DOWNLOAD LINK FIX (Interface Register)
+// DOWNLOAD LINK FIX (all files/ links, depth-independent)
 // ----------------------------------------------------------------
 const cssLinkDownload = document.querySelector('link[href*="ea.css"]');
 if (cssLinkDownload) {
     const cssPathDownload = cssLinkDownload.getAttribute('href');
     const rootPathDownload = cssPathDownload.substring(0, cssPathDownload.lastIndexOf('css/'));
 
-    const downloadLink = document.querySelector('.download-box a');
-    if (downloadLink) {
-        downloadLink.href = rootPathDownload + "files/Fortescue_Interface-Register_Z.xlsm";
-    }
+    document.querySelectorAll('a[href*="files/"]').forEach(link => {
+        const href = link.getAttribute('href');
+        const filename = href.substring(href.indexOf('files/'));
+        link.href = rootPathDownload + filename;
+    });
 }
 // ----------------------------------------------------------------
 // LEGEND SWITCHING (SBS Special Case)
@@ -477,11 +492,11 @@ if (cssLinkDownload) {
 <div class="section group" >
 
 		<div class="col span_2_of_2 header_frame">
-			<h1> Interfaces::DGS-I_0025 </h1>
+			<h1> Interfaces::DGS-I_0024 </h1>
 			<img class="header_image" src="../../../images/Logo.png" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
-			<p><a href="../../EA19.htm">Decarb Green Systems Architecture  Version: Z</a> / <a href="../EA480.htm">System Definition Elements</a> / <a href="EA642.htm">Interfaces</a> / <a href="EA667.htm">DGS-I_0025</a></p>
+			<p><a href="../../EA19.htm">Decarb Green Systems Architecture  Version: Z</a> / <a href="../EA481.htm">System Definition Elements</a> / <a href="EA643.htm">Interfaces</a> / <a href="EA667.htm">DGS-I_0024</a></p>
 		</div>
 			
 		<table class="contentmaintable">
@@ -492,9 +507,14 @@ if (cssLinkDownload) {
 						<div class="download-box">
 						<div class="download-box">
 							<a href="files/Fortescue_Interface-Register_Z.xlsm" target="_blank">
-							Interface Register
+							Export Interface Register
 							</a>
 						</div>
+						</div>
+						<div class="download-box" id="delphi-rvam-box" style="display:none;">
+							<a href="files/Delphi_RVAM_Z.xlsx" target="_blank">
+							Export RVAM for this system
+							</a>
 						</div>
                         
                         <div class="sidebar-search-container">
@@ -505,7 +525,7 @@ if (cssLinkDownload) {
 
                         <div id="originalTree">
 						    <ul>
-<a href="EA642.htm">Interfaces</a></ul>
+<a href="EA643.htm">Interfaces</a></ul>
 
                         </div>
 					</td>
@@ -639,7 +659,7 @@ if (cssLinkDownload) {
 
 <div class="PageBody" style="position: relative !important; height: auto !important; overflow: visible !important; padding-bottom: 10px;">
     <span class="ObjectTitle">
-        DGS-I_0025 : &lt;&lt;InterfaceBlock&gt;&gt;
+        DGS-I_0024 : &lt;&lt;InterfaceBlock&gt;&gt;
     </span>
 
     <table border="0" class="ObjectDetails" style="width: 100%; margin-bottom: 10px;">
@@ -647,15 +667,16 @@ if (cssLinkDownload) {
             <col width="70px" />
             <col width="*" />
         </colgroup>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Status:</td><td class="ObjectDetailsValue">Simplified Interface</td></tr>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Created:</td><td class="ObjectDetailsValue">14/10/2025 14:56:37</td></tr>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Modified:</td><td class="ObjectDetailsValue">11/12/2025 01:37:18</td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Status:</td><td class="ObjectDetailsValue">Proposed</td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Created:</td><td class="ObjectDetailsValue">14/10/2025 14:56:35</td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Modified:</td><td class="ObjectDetailsValue">25/02/2026 19:47:43</td></tr>
         <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Author:</td><td class="ObjectDetailsValue">Admin</td></tr>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">UUID:</td><td class="ObjectDetailsValue">{F9E96971-9488-40fc-8BA8-A8588732A78B}</td></tr>
-        <tr id="adv01"><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Appears In:</td><td class="ObjectDetailsValue"></td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">UUID:</td><td class="ObjectDetailsValue">{9C490054-A628-472a-BD2A-DB879797FFF5}</td></tr>
+        <tr id="adv01"><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Appears In:</td><td class="ObjectDetailsValue"><a href="../../EA7.htm">855DC-1542-008 Mine Electrification SCADA</a>, <a href="../../EA5.htm">855DC-1541-LIV LiveWire</a></td></tr>
         <tr>
             <td class="ObjectDetailsTopic" style="padding-left:0; width:70px; vertical-align:top; padding-top:5px;">Remarks:</td>
-            <td class="ObjectDetailsValue remarks-cell" style="vertical-align:top; padding-top:5px;"></td>
+            <td class="ObjectDetailsValue remarks-cell" style="vertical-align:top; padding-top:5px;"><div class="ObjectDetailsNotes">LMS Review 30/10/2025: Potential MQTT Integration (July roll out?)&lt;br/&gt;&lt;br/&gt;Status of when a cable is live. Logic in PLC for curent breaker status and data.&lt;br/&gt;&lt;br/&gt;Interface Review 02/12/2025: Confirm if duplication. Confirmed Delete.&lt;br/&gt;&lt;br/&gt;Remark 02/12/2025: Move mine electrification SCADA to retired systems and delete associated interfaces.&lt;br/&gt;JV 13/01/2026: Mine Electrification SCADA is a live project - retain in the System Architecture and Interface Register. &lt;br/&gt;NH 25/02/2026 As Mine Electrification SCADA is separate from Ignition, it is not a duplication. This interface is reinstated.&lt;br/&gt;NH 25/02/2026: Fields updated: Interface Type, Interface Description (Interface Purpose), Interface Criticality, Interface Criticality Explanation, Interface Flow.&lt;br/&gt;</div>
+</td>
         </tr>
     </table>
 </div>
@@ -1048,25 +1069,7 @@ if (cssLinkDownload) {
         </tr>
         			<tr>
 				<td class="TableRow" valign="top">1. Interface Name</td>
-				<td class="TableRow" valign="top">855DC-1541-LIV LiveWire|005OP-0000-004 Alastri</td>
-			</tr>	
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="2">
-					Details:
-						&nbsp;
-				</td>
-			</tr>			<tr>
-				<td class="TableRow" valign="top">2. Interface Lead</td>
-				<td class="TableRow" valign="top">Abby Buters</td>
-			</tr>	
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="2">
-					Details:
-						&nbsp;
-				</td>
-			</tr>			<tr>
-				<td class="TableRow" valign="top">3. Interface Contributor(s)</td>
-				<td class="TableRow" valign="top">Shaun Batcock</td>
+				<td class="TableRow" valign="top">855DC-1541-LIV LiveWire|855DC-1542-008 Mine Electrification SCADA</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1093,7 +1096,7 @@ if (cssLinkDownload) {
 				</td>
 			</tr>			<tr>
 				<td class="TableRow" valign="top">6. Interface Description</td>
-				<td class="TableRow" valign="top">Alastri -&gt; LiveWire - Pit Elevation, Block Progression & Cable Path Integration<br />The purpose of this interface is to allow LiveWire to consume pit elevation models, digger block progression, drill patterns, and high-level cable path designs from Alastri to support operational planning and electrical network management. LiveWire uses this information to visualise equipment movement, update spatial constraints, and guide safe and efficient cable routing decisions. Elevation data is sourced from Alastri&#39;s 3D model and transferred to a predetermined location for ingestion, with most data made available via Snowflake, and the process targets DXF 3D transfer with the possibility of exposing a DXF layer as an export back to Alastri.<br />Intermediate Elements: Alastri 3D model, Snowflake datasets, controlled file transfer location, LiveWire visualisation and spatial tools, and Mine planner (staff) 2-week mine plan.</td>
+				<td class="TableRow" valign="top">The purpose of this interface is to provide LiveWire with real-time electrical connectivity and energisation status information from Mine Electrification SCADA. This includes live/dead state of cables, breakers, switches, and associated network segments, enabling LiveWire to accurately represent which assets and circuits are energised across the pit. This integration supports safe cable routing, switching coordination, and field planning by ensuring spatial visualisations reflect the true electrical state of the network.</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1102,7 +1105,7 @@ if (cssLinkDownload) {
 				</td>
 			</tr>			<tr>
 				<td class="TableRow" valign="top">7. Interface Criticality</td>
-				<td class="TableRow" valign="top">MEDIUM</td>
+				<td class="TableRow" valign="top">HIGH</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1111,7 +1114,7 @@ if (cssLinkDownload) {
 				</td>
 			</tr>			<tr>
 				<td class="TableRow" valign="top">8. Interface Flow</td>
-				<td class="TableRow" valign="top">Data Flow:<br />Alastri (3D elevation model, block progression, drill patterns, cable path designs) -&gt; File transfer / Snowflake -&gt; LiveWire (visualisation & operational layers).</td>
+				<td class="TableRow" valign="top">Mine Electrification SCADA -&gt; LiveWire</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1120,7 +1123,7 @@ if (cssLinkDownload) {
 				</td>
 			</tr>			<tr>
 				<td class="TableRow" valign="top">9. Interface Criticality Justification</td>
-				<td class="TableRow" valign="top">The criticality level is MEDIUM because accurate elevation and block progression information is essential for safe cable routing and avoiding physical conflicts. Failure may degrade planning safety and network design quality, but it does not immediately halt production.</td>
+				<td class="TableRow" valign="top">The criticality level is HIGH because this interface provides the authoritative live/dead and electrical connectivity status of cables, breakers, and network segments from Mine Electrification SCADA into LiveWire. Accurate energisation status is fundamental to safe switching, cable handling, and field operations.<br /><br />If this interface fails or provides incorrect data, LiveWire may display an incorrect electrical state, creating a credible risk of personnel exposure to energised infrastructure or unsafe switching decisions, thereby compromising a safety-critical function. In addition, loss of reliable connectivity status may require suspension of cable moves and electrical reconfiguration activities until state is manually verified, potentially constraining pit electrification operations and impacting production throughput.</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1180,22 +1183,22 @@ if (cssLinkDownload) {
         </tr>
 
 <tr class="#LINK_STEREOTYPE# Block">
-    <td width="30%" class="TableRow" valign="top"><a href="../../EA2/EA462.htm">«block» 005OP-0000-004 Alastri</a></td>
+    <td width="30%" class="TableRow" valign="top"><a href="../../EA2/EA293.htm">«block» 855DC-1541-LIV LiveWire</a></td>
     <td width="10%" class="TableRow" valign="top">Block</td>
     <td width="10%" class="TableRow" valign="top">Abstraction</td>
     <td width="10%" class="TableRow" valign="top">From</td>
     <td width="40%" class="TableRow" valign="top">
-        <div class="ObjectDetailsNotes">&lt;a href=&quot;../../EA2/EA292.htm&quot;&gt;855DC-1541-LIV LiveWire&lt;/a&gt;&lt;br/&gt;</div>
+        <div class="ObjectDetailsNotes">&lt;a href=&quot;../../EA2/EA328.htm&quot;&gt;855DC-1542-008 Mine Electrification SCADA&lt;/a&gt;&lt;br/&gt;</div>
 
     </td>
 </tr>
 <tr class="#LINK_STEREOTYPE# Block">
-    <td width="30%" class="TableRow" valign="top"><a href="../../EA2/EA292.htm">«block» 855DC-1541-LIV LiveWire</a></td>
+    <td width="30%" class="TableRow" valign="top"><a href="../../EA2/EA328.htm">«block» 855DC-1542-008 Mine Electrification SCADA</a></td>
     <td width="10%" class="TableRow" valign="top">Block</td>
     <td width="10%" class="TableRow" valign="top">Abstraction</td>
     <td width="10%" class="TableRow" valign="top">From</td>
     <td width="40%" class="TableRow" valign="top">
-        <div class="ObjectDetailsNotes">&lt;a href=&quot;../../EA2/EA462.htm&quot;&gt;005OP-0000-004 Alastri&lt;/a&gt;&lt;br/&gt;</div>
+        <div class="ObjectDetailsNotes">&lt;a href=&quot;../../EA2/EA293.htm&quot;&gt;855DC-1541-LIV LiveWire&lt;/a&gt;&lt;br/&gt;</div>
 
     </td>
 </tr>

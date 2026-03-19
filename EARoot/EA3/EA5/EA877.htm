@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head><link rel="icon" href="/favicon.ico"></head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Interfaces::DGS-I_0235</title>
+<title>Interfaces::DGS-I_0234</title>
 <link href="../../../css/ea.css" rel="stylesheet" type="text/css" />
 <script language="JavaScript" src="../../../js/displayToc.js" type="text/javascript"></script>
 
@@ -379,6 +379,20 @@ function getTargetInfo(areaElement) {
 
         simplifyHeaderTitle(); // <-- cleans header text
 
+        // ----------------------------------------------------------------
+        // DELPHI RVAM BUTTON: Show only on the Delphi requirements diagram
+        // ----------------------------------------------------------------
+        (function() {
+            const h1 = document.querySelector('.header_frame h1');
+            const delphiBox = document.getElementById('delphi-rvam-box');
+            if (h1 && delphiBox) {
+                const pageTitle = h1.textContent.trim();
+                if (pageTitle.includes('855DC-1541-DEL Delphi')) {
+                    delphiBox.style.display = 'block';
+                }
+            }
+        })();
+
         // Netlify Navigation Fix
         const navLinks = document.querySelectorAll(
             'a[href^="./"], a[href^="../"], a[href$=".htm"], a[href$=".html"]'
@@ -408,17 +422,18 @@ function getTargetInfo(areaElement) {
             });
         }
 		// ----------------------------------------------------------------
-// DOWNLOAD LINK FIX (Interface Register)
+// DOWNLOAD LINK FIX (all files/ links, depth-independent)
 // ----------------------------------------------------------------
 const cssLinkDownload = document.querySelector('link[href*="ea.css"]');
 if (cssLinkDownload) {
     const cssPathDownload = cssLinkDownload.getAttribute('href');
     const rootPathDownload = cssPathDownload.substring(0, cssPathDownload.lastIndexOf('css/'));
 
-    const downloadLink = document.querySelector('.download-box a');
-    if (downloadLink) {
-        downloadLink.href = rootPathDownload + "files/Fortescue_Interface-Register_Z.xlsm";
-    }
+    document.querySelectorAll('a[href*="files/"]').forEach(link => {
+        const href = link.getAttribute('href');
+        const filename = href.substring(href.indexOf('files/'));
+        link.href = rootPathDownload + filename;
+    });
 }
 // ----------------------------------------------------------------
 // LEGEND SWITCHING (SBS Special Case)
@@ -477,11 +492,11 @@ if (cssLinkDownload) {
 <div class="section group" >
 
 		<div class="col span_2_of_2 header_frame">
-			<h1> Interfaces::DGS-I_0235 </h1>
+			<h1> Interfaces::DGS-I_0234 </h1>
 			<img class="header_image" src="../../../images/Logo.png" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
-			<p><a href="../../EA19.htm">Decarb Green Systems Architecture  Version: Z</a> / <a href="../EA480.htm">System Definition Elements</a> / <a href="EA642.htm">Interfaces</a> / <a href="EA877.htm">DGS-I_0235</a></p>
+			<p><a href="../../EA19.htm">Decarb Green Systems Architecture  Version: Z</a> / <a href="../EA481.htm">System Definition Elements</a> / <a href="EA643.htm">Interfaces</a> / <a href="EA877.htm">DGS-I_0234</a></p>
 		</div>
 			
 		<table class="contentmaintable">
@@ -492,9 +507,14 @@ if (cssLinkDownload) {
 						<div class="download-box">
 						<div class="download-box">
 							<a href="files/Fortescue_Interface-Register_Z.xlsm" target="_blank">
-							Interface Register
+							Export Interface Register
 							</a>
 						</div>
+						</div>
+						<div class="download-box" id="delphi-rvam-box" style="display:none;">
+							<a href="files/Delphi_RVAM_Z.xlsx" target="_blank">
+							Export RVAM for this system
+							</a>
 						</div>
                         
                         <div class="sidebar-search-container">
@@ -505,7 +525,7 @@ if (cssLinkDownload) {
 
                         <div id="originalTree">
 						    <ul>
-<a href="EA642.htm">Interfaces</a></ul>
+<a href="EA643.htm">Interfaces</a></ul>
 
                         </div>
 					</td>
@@ -639,7 +659,7 @@ if (cssLinkDownload) {
 
 <div class="PageBody" style="position: relative !important; height: auto !important; overflow: visible !important; padding-bottom: 10px;">
     <span class="ObjectTitle">
-        DGS-I_0235 : &lt;&lt;InterfaceBlock&gt;&gt;
+        DGS-I_0234 : &lt;&lt;InterfaceBlock&gt;&gt;
     </span>
 
     <table border="0" class="ObjectDetails" style="width: 100%; margin-bottom: 10px;">
@@ -648,14 +668,15 @@ if (cssLinkDownload) {
             <col width="*" />
         </colgroup>
         <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Status:</td><td class="ObjectDetailsValue">Proposed</td></tr>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Created:</td><td class="ObjectDetailsValue">11/11/2025 18:12:19</td></tr>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Modified:</td><td class="ObjectDetailsValue">11/12/2025 00:07:12</td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Created:</td><td class="ObjectDetailsValue">29/09/2025 22:08:22</td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Modified:</td><td class="ObjectDetailsValue">24/02/2026 23:50:15</td></tr>
         <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Author:</td><td class="ObjectDetailsValue">Admin</td></tr>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">UUID:</td><td class="ObjectDetailsValue">{8318C774-9390-4a35-9823-EC4F8C864BE4}</td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">UUID:</td><td class="ObjectDetailsValue">{B757E501-3B65-476e-81B9-312C7F9FD319}</td></tr>
         <tr id="adv01"><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Appears In:</td><td class="ObjectDetailsValue"></td></tr>
         <tr>
             <td class="ObjectDetailsTopic" style="padding-left:0; width:70px; vertical-align:top; padding-top:5px;">Remarks:</td>
-            <td class="ObjectDetailsValue remarks-cell" style="vertical-align:top; padding-top:5px;"></td>
+            <td class="ObjectDetailsValue remarks-cell" style="vertical-align:top; padding-top:5px;"><div class="ObjectDetailsNotes">NH 20/02/2026: Fields updated: Interface Type, Interface Flow.&lt;br/&gt;</div>
+</td>
         </tr>
     </table>
 </div>
@@ -1048,7 +1069,7 @@ if (cssLinkDownload) {
         </tr>
         			<tr>
 				<td class="TableRow" valign="top">1. Interface Name</td>
-				<td class="TableRow" valign="top">Solomon Mine Hub: Field Switches|Solomon Mine Hub: Sub Kiosks</td>
+				<td class="TableRow" valign="top">Solomon Mine Hub: Substation (33kV)|005OP-0000-017 Ignition</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1057,7 +1078,52 @@ if (cssLinkDownload) {
 				</td>
 			</tr>			<tr>
 				<td class="TableRow" valign="top">4. Interface Level</td>
-				<td class="TableRow" valign="top">System - System Interface</td>
+				<td class="TableRow" valign="top">Project - Project Interface</td>
+			</tr>	
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="2">
+					Details:
+						&nbsp;
+				</td>
+			</tr>			<tr>
+				<td class="TableRow" valign="top">5. Interface Type</td>
+				<td class="TableRow" valign="top">Technical-Electrical</td>
+			</tr>	
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="2">
+					Details:
+						&nbsp;
+				</td>
+			</tr>			<tr>
+				<td class="TableRow" valign="top">6. Interface Description</td>
+				<td class="TableRow" valign="top">This interface connects the Solomon 33kV substation to Ignition SCADA so operators can monitor its condition, alarms, and switching states.</td>
+			</tr>	
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="2">
+					Details:
+						&nbsp;
+				</td>
+			</tr>			<tr>
+				<td class="TableRow" valign="top">7. Interface Criticality</td>
+				<td class="TableRow" valign="top">HIGH</td>
+			</tr>	
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="2">
+					Details:
+						&nbsp;
+				</td>
+			</tr>			<tr>
+				<td class="TableRow" valign="top">8. Interface Flow</td>
+				<td class="TableRow" valign="top">Data Flow:<br />33 kV Substation (854DC-1521-0001) -&gt; Ignition SCADA (005OP-0000-017), transmitting breaker and isolator status, busbar configuration, transformer loading, feeder status, voltage and current measurements, protection relay indications, alarms, and fault events to provide real-time operational visibility of the 33 kV network.<br />Control Flow:<br />Ignition SCADA -&gt; 33 kV Substation, issuing remote switching commands, breaker open/close instructions, reset signals, and load transfer commands to enable safe isolation, alarm response, and coordinated network operations.</td>
+			</tr>	
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="2">
+					Details:
+						&nbsp;
+				</td>
+			</tr>			<tr>
+				<td class="TableRow" valign="top">9. Interface Criticality Justification</td>
+				<td class="TableRow" valign="top">The criticality level is HIGH because substations are essential parts of the HV network, and SCADA visibility is vital for safe electrical operations, quick fault isolation, and maintaining stable power supplies. Without this interface, operators lose real-time awareness of substation conditions, which raises the risk of prolonged outages or unsafe handling of electrical faults.</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1098,23 +1164,23 @@ if (cssLinkDownload) {
             <td class="TableHeading">Interfaces with</td>
         </tr>
 
-<tr class="#LINK_STEREOTYPE# Object">
-    <td width="30%" class="TableRow" valign="top"><a href="../EA2/EA3/EA567.htm">Solomon Mine Hub: Sub Kiosks</a></td>
-    <td width="10%" class="TableRow" valign="top">Object</td>
+<tr class="#LINK_STEREOTYPE# Block">
+    <td width="30%" class="TableRow" valign="top"><a href="../../EA2/EA475.htm">«block» 005OP-0000-017 Ignition</a></td>
+    <td width="10%" class="TableRow" valign="top">Block</td>
     <td width="10%" class="TableRow" valign="top">Abstraction</td>
     <td width="10%" class="TableRow" valign="top">From</td>
     <td width="40%" class="TableRow" valign="top">
-        <div class="ObjectDetailsNotes">&lt;a href=&quot;../EA2/EA3/EA561.htm&quot;&gt;Solomon Mine Hub: Field Switches&lt;/a&gt;&lt;br/&gt;</div>
+        <div class="ObjectDetailsNotes">&lt;a href=&quot;../EA2/EA1/EA527.htm&quot;&gt;Solomon Mine Hub: Substation (33kV)&lt;/a&gt;&lt;br/&gt;</div>
 
     </td>
 </tr>
 <tr class="#LINK_STEREOTYPE# Object">
-    <td width="30%" class="TableRow" valign="top"><a href="../EA2/EA3/EA561.htm">Solomon Mine Hub: Field Switches</a></td>
+    <td width="30%" class="TableRow" valign="top"><a href="../EA2/EA1/EA527.htm">Solomon Mine Hub: Substation (33kV)</a></td>
     <td width="10%" class="TableRow" valign="top">Object</td>
     <td width="10%" class="TableRow" valign="top">Abstraction</td>
     <td width="10%" class="TableRow" valign="top">From</td>
     <td width="40%" class="TableRow" valign="top">
-        <div class="ObjectDetailsNotes">&lt;a href=&quot;../EA2/EA3/EA567.htm&quot;&gt;Solomon Mine Hub: Sub Kiosks&lt;/a&gt;&lt;br/&gt;</div>
+        <div class="ObjectDetailsNotes">&lt;a href=&quot;../../EA2/EA475.htm&quot;&gt;005OP-0000-017 Ignition&lt;/a&gt;&lt;br/&gt;</div>
 
     </td>
 </tr>

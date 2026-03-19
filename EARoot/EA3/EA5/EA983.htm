@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head><link rel="icon" href="/favicon.ico"></head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Interfaces::DGS-I_0342</title>
+<title>Interfaces::DGS-I_0341</title>
 <link href="../../../css/ea.css" rel="stylesheet" type="text/css" />
 <script language="JavaScript" src="../../../js/displayToc.js" type="text/javascript"></script>
 
@@ -379,6 +379,20 @@ function getTargetInfo(areaElement) {
 
         simplifyHeaderTitle(); // <-- cleans header text
 
+        // ----------------------------------------------------------------
+        // DELPHI RVAM BUTTON: Show only on the Delphi requirements diagram
+        // ----------------------------------------------------------------
+        (function() {
+            const h1 = document.querySelector('.header_frame h1');
+            const delphiBox = document.getElementById('delphi-rvam-box');
+            if (h1 && delphiBox) {
+                const pageTitle = h1.textContent.trim();
+                if (pageTitle.includes('855DC-1541-DEL Delphi')) {
+                    delphiBox.style.display = 'block';
+                }
+            }
+        })();
+
         // Netlify Navigation Fix
         const navLinks = document.querySelectorAll(
             'a[href^="./"], a[href^="../"], a[href$=".htm"], a[href$=".html"]'
@@ -408,17 +422,18 @@ function getTargetInfo(areaElement) {
             });
         }
 		// ----------------------------------------------------------------
-// DOWNLOAD LINK FIX (Interface Register)
+// DOWNLOAD LINK FIX (all files/ links, depth-independent)
 // ----------------------------------------------------------------
 const cssLinkDownload = document.querySelector('link[href*="ea.css"]');
 if (cssLinkDownload) {
     const cssPathDownload = cssLinkDownload.getAttribute('href');
     const rootPathDownload = cssPathDownload.substring(0, cssPathDownload.lastIndexOf('css/'));
 
-    const downloadLink = document.querySelector('.download-box a');
-    if (downloadLink) {
-        downloadLink.href = rootPathDownload + "files/Fortescue_Interface-Register_Z.xlsm";
-    }
+    document.querySelectorAll('a[href*="files/"]').forEach(link => {
+        const href = link.getAttribute('href');
+        const filename = href.substring(href.indexOf('files/'));
+        link.href = rootPathDownload + filename;
+    });
 }
 // ----------------------------------------------------------------
 // LEGEND SWITCHING (SBS Special Case)
@@ -477,11 +492,11 @@ if (cssLinkDownload) {
 <div class="section group" >
 
 		<div class="col span_2_of_2 header_frame">
-			<h1> Interfaces::DGS-I_0342 </h1>
+			<h1> Interfaces::DGS-I_0341 </h1>
 			<img class="header_image" src="../../../images/Logo.png" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
-			<p><a href="../../EA19.htm">Decarb Green Systems Architecture  Version: Z</a> / <a href="../EA480.htm">System Definition Elements</a> / <a href="EA642.htm">Interfaces</a> / <a href="EA983.htm">DGS-I_0342</a></p>
+			<p><a href="../../EA19.htm">Decarb Green Systems Architecture  Version: Z</a> / <a href="../EA481.htm">System Definition Elements</a> / <a href="EA643.htm">Interfaces</a> / <a href="EA983.htm">DGS-I_0341</a></p>
 		</div>
 			
 		<table class="contentmaintable">
@@ -492,9 +507,14 @@ if (cssLinkDownload) {
 						<div class="download-box">
 						<div class="download-box">
 							<a href="files/Fortescue_Interface-Register_Z.xlsm" target="_blank">
-							Interface Register
+							Export Interface Register
 							</a>
 						</div>
+						</div>
+						<div class="download-box" id="delphi-rvam-box" style="display:none;">
+							<a href="files/Delphi_RVAM_Z.xlsx" target="_blank">
+							Export RVAM for this system
+							</a>
 						</div>
                         
                         <div class="sidebar-search-container">
@@ -505,7 +525,7 @@ if (cssLinkDownload) {
 
                         <div id="originalTree">
 						    <ul>
-<a href="EA642.htm">Interfaces</a></ul>
+<a href="EA643.htm">Interfaces</a></ul>
 
                         </div>
 					</td>
@@ -639,7 +659,7 @@ if (cssLinkDownload) {
 
 <div class="PageBody" style="position: relative !important; height: auto !important; overflow: visible !important; padding-bottom: 10px;">
     <span class="ObjectTitle">
-        DGS-I_0342 : &lt;&lt;InterfaceBlock&gt;&gt;
+        DGS-I_0341 : &lt;&lt;InterfaceBlock&gt;&gt;
     </span>
 
     <table border="0" class="ObjectDetails" style="width: 100%; margin-bottom: 10px;">
@@ -648,14 +668,14 @@ if (cssLinkDownload) {
             <col width="*" />
         </colgroup>
         <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Status:</td><td class="ObjectDetailsValue">Proposed</td></tr>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Created:</td><td class="ObjectDetailsValue">03/12/2025 11:54:22</td></tr>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Modified:</td><td class="ObjectDetailsValue">11/12/2025 00:07:10</td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Created:</td><td class="ObjectDetailsValue">03/12/2025 11:54:19</td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Modified:</td><td class="ObjectDetailsValue">24/02/2026 23:50:14</td></tr>
         <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Author:</td><td class="ObjectDetailsValue">Admin</td></tr>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">UUID:</td><td class="ObjectDetailsValue">{F83242B6-8DA3-4518-835A-D5337DC6327A}</td></tr>
-        <tr id="adv01"><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Appears In:</td><td class="ObjectDetailsValue"><a href="../../EA15.htm">System Definition (SD)</a>, <a href="../../EA3.htm">855DC-1541-LIV LiveWire</a></td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">UUID:</td><td class="ObjectDetailsValue">{B25AEEE6-5AD9-4b71-B0F3-31C9935194C0}</td></tr>
+        <tr id="adv01"><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Appears In:</td><td class="ObjectDetailsValue"><a href="../../EA15.htm">System Definition (SD)</a>, <a href="../../EA5.htm">855DC-1541-LIV LiveWire</a></td></tr>
         <tr>
             <td class="ObjectDetailsTopic" style="padding-left:0; width:70px; vertical-align:top; padding-top:5px;">Remarks:</td>
-            <td class="ObjectDetailsValue remarks-cell" style="vertical-align:top; padding-top:5px;"><div class="ObjectDetailsNotes">Meeting Remarks 02/12/2025: A potential safety risk arises from MineStar rather than LiveWire, as vehicles may be notified of a no-go zone.&lt;br/&gt;For the time being, the team has pivoted to focus on MineStar, including extracting the cable layer data from MineStar, integrating exclusion zones, working with available APIs, and connecting to the Snowflake databases.&lt;br/&gt;Improved visibility of the cavity is required, as the surface crust is not strong enough to safely support personnel.&lt;br/&gt;&lt;br/&gt;NH 04/12/2025: Note MineStar was archived as a result of the comment &#39;Archive - N/A for current SA&#39; from DGS_SBS-WBS_Comparison_20251001(JV2025.10.06). MineStar is now reinstated, and DGS-I_0342 was created between it and LiveWire.&lt;br/&gt;</div>
+            <td class="ObjectDetailsValue remarks-cell" style="vertical-align:top; padding-top:5px;"><div class="ObjectDetailsNotes">Meeting Remarks 02/12/2025: GPS sensors will be mounted on the cable couplers to enable accurate cable location tracking. Chance will also assess options for installing GPS units on the supporting cable infrastructure, including towers and in-pit switch locations.&lt;br/&gt;If the system becomes unavailable, the fallback process will be to update cable locations manually in LiveWire. LiveWire will also support fault diagnosis by indicating whether a specific gateway, sensor, or an entire site has gone offline.&lt;br/&gt;NH 25/02/2026: Fields updated:Interface Type&lt;br/&gt;</div>
 </td>
         </tr>
     </table>
@@ -1049,7 +1069,7 @@ if (cssLinkDownload) {
         </tr>
         			<tr>
 				<td class="TableRow" valign="top">1. Interface Name</td>
-				<td class="TableRow" valign="top">005OP-0000-008 MineStar|855DC-1541-LIV LiveWire</td>
+				<td class="TableRow" valign="top">850DC-1520-0004 Cable Coupler GPS Sensors (LORA)|855DC-1541-LIV LiveWire</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1067,7 +1087,7 @@ if (cssLinkDownload) {
 				</td>
 			</tr>			<tr>
 				<td class="TableRow" valign="top">3. Interface Contributor(s)</td>
-				<td class="TableRow" valign="top">Michael Chambers (Technical)</td>
+				<td class="TableRow" valign="top">Nicolas Alberto</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1094,7 +1114,7 @@ if (cssLinkDownload) {
 				</td>
 			</tr>			<tr>
 				<td class="TableRow" valign="top">6. Interface Description</td>
-				<td class="TableRow" valign="top">LiveWire &lt;-&gt; MineStar - Cable Layers, Exclusion Zones & Cavity Visibility<br />The purpose of this interface is to integrate LiveWire with MineStar to access cable layer data, exclusion zones, and geospatial safety information, specifically concerning areas like cavity or surface instability areas where ground crust may not support personnel. This data provides operators and planners with accurate spatial awareness, thereby improving safety when routing cables, planning field work, and managing electrical infrastructure around active mining areas.<br />Intermediate Elements: MineStar API, MineStar Snowflake database, LiveWire spatial and safety visualisation layers.</td>
+				<td class="TableRow" valign="top">GPS Sensors &lt;-&gt; LiveWire - Cable Coupler & Infrastructure Location Tracking<br />The purpose of this interface is to use GPS sensors, mounted on cable couplers and potentially on key assets such as towers, in-pit switches, and other cable infrastructure, to provide accurate real-time location tracking. LiveWire consumes this GPS data to maintain an up-to-date spatial view of cable positions across the site. If GPS sensors fail or communications drop, operators can manually update cable locations directly in LiveWire. LiveWire will also assist in diagnosing failure modes by identifying whether a specific gateway, sensor, or wider network segment has gone offline.<br />Intermediate Elements: GPS sensor hardware, telemetry/gateway network, LiveWire ingest service, and LiveWire spatial map.</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1112,7 +1132,7 @@ if (cssLinkDownload) {
 				</td>
 			</tr>			<tr>
 				<td class="TableRow" valign="top">8. Interface Flow</td>
-				<td class="TableRow" valign="top">Data Flow:<br />MineStar APIs / Snowflake datasets (cable layers, exclusion zones, cavity/surface integrity data) -&gt; LiveWire ingest -&gt; LiveWire geospatial visualisation.</td>
+				<td class="TableRow" valign="top">Data Flow:<br />GPS sensors (couplers, infra, switches) -&gt; Gateway/telemetry layer -&gt; LiveWire ingest -&gt; LiveWire geospatial visualisation.<br />Fallback: manual location updates in LiveWire UI.</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1121,7 +1141,7 @@ if (cssLinkDownload) {
 				</td>
 			</tr>			<tr>
 				<td class="TableRow" valign="top">9. Interface Criticality Justification</td>
-				<td class="TableRow" valign="top">The criticality level is HIGH because reliable MineStar data is essential for ensuring cables are routed safely and maintaining exclusion zone compliance. Failure risks serious safety incidents and the need for major operational replanning.</td>
+				<td class="TableRow" valign="top">The criticality level is HIGH because accurate cable location tracking is essential for safe pit operations, avoiding cable strikes, and supporting switching operations. Failure compromises safety and rapid fault detection.</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1163,22 +1183,22 @@ if (cssLinkDownload) {
         </tr>
 
 <tr class="#LINK_STEREOTYPE# Block">
-    <td width="30%" class="TableRow" valign="top"><a href="../../EA2/EA466.htm">«block» 005OP-0000-008 MineStar</a></td>
+    <td width="30%" class="TableRow" valign="top"><a href="../../EA2/EA233.htm">«block» 850DC-1520-0004 Cable Coupler GPS Sensors (LORA)</a></td>
     <td width="10%" class="TableRow" valign="top">Block</td>
     <td width="10%" class="TableRow" valign="top">Abstraction</td>
     <td width="10%" class="TableRow" valign="top">From</td>
     <td width="40%" class="TableRow" valign="top">
-        <div class="ObjectDetailsNotes">&lt;a href=&quot;../../EA2/EA292.htm&quot;&gt;855DC-1541-LIV LiveWire&lt;/a&gt;&lt;br/&gt;</div>
+        <div class="ObjectDetailsNotes">&lt;a href=&quot;../../EA2/EA293.htm&quot;&gt;855DC-1541-LIV LiveWire&lt;/a&gt;&lt;br/&gt;</div>
 
     </td>
 </tr>
 <tr class="#LINK_STEREOTYPE# Block">
-    <td width="30%" class="TableRow" valign="top"><a href="../../EA2/EA292.htm">«block» 855DC-1541-LIV LiveWire</a></td>
+    <td width="30%" class="TableRow" valign="top"><a href="../../EA2/EA293.htm">«block» 855DC-1541-LIV LiveWire</a></td>
     <td width="10%" class="TableRow" valign="top">Block</td>
     <td width="10%" class="TableRow" valign="top">Abstraction</td>
     <td width="10%" class="TableRow" valign="top">From</td>
     <td width="40%" class="TableRow" valign="top">
-        <div class="ObjectDetailsNotes">&lt;a href=&quot;../../EA2/EA466.htm&quot;&gt;005OP-0000-008 MineStar&lt;/a&gt;&lt;br/&gt;</div>
+        <div class="ObjectDetailsNotes">&lt;a href=&quot;../../EA2/EA233.htm&quot;&gt;850DC-1520-0004 Cable Coupler GPS Sensors (LORA)&lt;/a&gt;&lt;br/&gt;</div>
 
     </td>
 </tr>

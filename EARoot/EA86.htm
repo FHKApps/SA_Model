@@ -379,6 +379,20 @@ function getTargetInfo(areaElement) {
 
         simplifyHeaderTitle(); // <-- cleans header text
 
+        // ----------------------------------------------------------------
+        // DELPHI RVAM BUTTON: Show only on the Delphi requirements diagram
+        // ----------------------------------------------------------------
+        (function() {
+            const h1 = document.querySelector('.header_frame h1');
+            const delphiBox = document.getElementById('delphi-rvam-box');
+            if (h1 && delphiBox) {
+                const pageTitle = h1.textContent.trim();
+                if (pageTitle.includes('855DC-1541-DEL Delphi')) {
+                    delphiBox.style.display = 'block';
+                }
+            }
+        })();
+
         // Netlify Navigation Fix
         const navLinks = document.querySelectorAll(
             'a[href^="./"], a[href^="../"], a[href$=".htm"], a[href$=".html"]'
@@ -408,17 +422,18 @@ function getTargetInfo(areaElement) {
             });
         }
 		// ----------------------------------------------------------------
-// DOWNLOAD LINK FIX (Interface Register)
+// DOWNLOAD LINK FIX (all files/ links, depth-independent)
 // ----------------------------------------------------------------
 const cssLinkDownload = document.querySelector('link[href*="ea.css"]');
 if (cssLinkDownload) {
     const cssPathDownload = cssLinkDownload.getAttribute('href');
     const rootPathDownload = cssPathDownload.substring(0, cssPathDownload.lastIndexOf('css/'));
 
-    const downloadLink = document.querySelector('.download-box a');
-    if (downloadLink) {
-        downloadLink.href = rootPathDownload + "files/Fortescue_Interface-Register_Z.xlsm";
-    }
+    document.querySelectorAll('a[href*="files/"]').forEach(link => {
+        const href = link.getAttribute('href');
+        const filename = href.substring(href.indexOf('files/'));
+        link.href = rootPathDownload + filename;
+    });
 }
 // ----------------------------------------------------------------
 // LEGEND SWITCHING (SBS Special Case)
@@ -481,7 +496,7 @@ if (cssLinkDownload) {
 			<img class="header_image" src="../images/Logo.png" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
-			<p><a href="EA19.htm">Decarb Green Systems Architecture  Version: Z</a> / <a href="./EA2/EA159.htm">System Breakdown Structure Elements</a></p>
+			<p><a href="EA19.htm">Decarb Green Systems Architecture  Version: Z</a> / <a href="./EA2/EA160.htm">System Breakdown Structure Elements</a></p>
 		</div>
 			
 		<table class="contentmaintable">
@@ -492,9 +507,14 @@ if (cssLinkDownload) {
 						<div class="download-box">
 						<div class="download-box">
 							<a href="files/Fortescue_Interface-Register_Z.xlsm" target="_blank">
-							Interface Register
+							Export Interface Register
 							</a>
 						</div>
+						</div>
+						<div class="download-box" id="delphi-rvam-box" style="display:none;">
+							<a href="files/Delphi_RVAM_Z.xlsx" target="_blank">
+							Export RVAM for this system
+							</a>
 						</div>
                         
                         <div class="sidebar-search-container">
@@ -505,9 +525,9 @@ if (cssLinkDownload) {
 
                         <div id="originalTree">
 						    <ul>
-<li><img src="../images/5.png" alt="Class"/> <a href="./EA2/EA160.htm">Decarbonisation Portfolio</a></li>
-<li><img src="../images/5.png" alt="Class"/> <a href="./EA2/EA161.htm">Fortescue Operations Portfolio</a></li>
-<li><img src="../images/329.png" alt="Text"/> <a href="./EA2/EA162.htm">Key</a></li>
+<li><img src="../images/329.png" alt="Text"/> <a href="./EA2/EA163.htm">Key</a></li>
+<li><img src="../images/5.png" alt="Class"/> <a href="./EA2/EA162.htm">Fortescue Operations Portfolio</a></li>
+<li><img src="../images/5.png" alt="Class"/> <a href="./EA2/EA161.htm">Decarbonisation Portfolio</a></li>
 </ul>
 
                         </div>

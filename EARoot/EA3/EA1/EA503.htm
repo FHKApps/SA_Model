@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head><link rel="icon" href="/favicon.ico"></head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Archived Elements::Archive - 855DC-1544-FLE Fleet Power Draw Data (BEST)</title>
+<title>Archived Elements::Archive - 005OP-0000-- Mineplan [A.04.06]</title>
 <link href="../../../css/ea.css" rel="stylesheet" type="text/css" />
 <script language="JavaScript" src="../../../js/displayToc.js" type="text/javascript"></script>
 
@@ -379,6 +379,20 @@ function getTargetInfo(areaElement) {
 
         simplifyHeaderTitle(); // <-- cleans header text
 
+        // ----------------------------------------------------------------
+        // DELPHI RVAM BUTTON: Show only on the Delphi requirements diagram
+        // ----------------------------------------------------------------
+        (function() {
+            const h1 = document.querySelector('.header_frame h1');
+            const delphiBox = document.getElementById('delphi-rvam-box');
+            if (h1 && delphiBox) {
+                const pageTitle = h1.textContent.trim();
+                if (pageTitle.includes('855DC-1541-DEL Delphi')) {
+                    delphiBox.style.display = 'block';
+                }
+            }
+        })();
+
         // Netlify Navigation Fix
         const navLinks = document.querySelectorAll(
             'a[href^="./"], a[href^="../"], a[href$=".htm"], a[href$=".html"]'
@@ -408,17 +422,18 @@ function getTargetInfo(areaElement) {
             });
         }
 		// ----------------------------------------------------------------
-// DOWNLOAD LINK FIX (Interface Register)
+// DOWNLOAD LINK FIX (all files/ links, depth-independent)
 // ----------------------------------------------------------------
 const cssLinkDownload = document.querySelector('link[href*="ea.css"]');
 if (cssLinkDownload) {
     const cssPathDownload = cssLinkDownload.getAttribute('href');
     const rootPathDownload = cssPathDownload.substring(0, cssPathDownload.lastIndexOf('css/'));
 
-    const downloadLink = document.querySelector('.download-box a');
-    if (downloadLink) {
-        downloadLink.href = rootPathDownload + "files/Fortescue_Interface-Register_Z.xlsm";
-    }
+    document.querySelectorAll('a[href*="files/"]').forEach(link => {
+        const href = link.getAttribute('href');
+        const filename = href.substring(href.indexOf('files/'));
+        link.href = rootPathDownload + filename;
+    });
 }
 // ----------------------------------------------------------------
 // LEGEND SWITCHING (SBS Special Case)
@@ -477,11 +492,11 @@ if (cssLinkDownload) {
 <div class="section group" >
 
 		<div class="col span_2_of_2 header_frame">
-			<h1> Archived Elements::Archive - 855DC-1544-FLE Fleet Power Draw Data (BEST) </h1>
+			<h1> Archived Elements::Archive - 005OP-0000-- Mineplan [A.04.06] </h1>
 			<img class="header_image" src="../../../images/Logo.png" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
-			<p><a href="../../EA19.htm">Decarb Green Systems Architecture  Version: Z</a> / <a href="../EA480.htm">System Definition Elements</a> / <a href="EA487.htm">Archived Elements</a> / <a href="EA503.htm">Archive - 855DC-1544-FLE Fleet Power Draw Data (BEST)</a></p>
+			<p><a href="../../EA19.htm">Decarb Green Systems Architecture  Version: Z</a> / <a href="../EA481.htm">System Definition Elements</a> / <a href="EA488.htm">Archived Elements</a> / <a href="EA503.htm">Archive - 005OP-0000-- Mineplan [A.04.06]</a></p>
 		</div>
 			
 		<table class="contentmaintable">
@@ -492,9 +507,14 @@ if (cssLinkDownload) {
 						<div class="download-box">
 						<div class="download-box">
 							<a href="files/Fortescue_Interface-Register_Z.xlsm" target="_blank">
-							Interface Register
+							Export Interface Register
 							</a>
 						</div>
+						</div>
+						<div class="download-box" id="delphi-rvam-box" style="display:none;">
+							<a href="files/Delphi_RVAM_Z.xlsx" target="_blank">
+							Export RVAM for this system
+							</a>
 						</div>
                         
                         <div class="sidebar-search-container">
@@ -505,7 +525,7 @@ if (cssLinkDownload) {
 
                         <div id="originalTree">
 						    <ul>
-<a href="EA487.htm">Archived Elements</a></ul>
+<a href="EA488.htm">Archived Elements</a></ul>
 
                         </div>
 					</td>
@@ -639,7 +659,7 @@ if (cssLinkDownload) {
 
 <div class="PageBody" style="position: relative !important; height: auto !important; overflow: visible !important; padding-bottom: 10px;">
     <span class="ObjectTitle">
-        Archive - 855DC-1544-FLE Fleet Power Draw Data (BEST) : &lt;&lt;block&gt;&gt;
+        Archive - 005OP-0000-- Mineplan [A.04.06] : &lt;&lt;block&gt;&gt;
     </span>
 
     <table border="0" class="ObjectDetails" style="width: 100%; margin-bottom: 10px;">
@@ -648,14 +668,14 @@ if (cssLinkDownload) {
             <col width="*" />
         </colgroup>
         <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Status:</td><td class="ObjectDetailsValue">Proposed</td></tr>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Created:</td><td class="ObjectDetailsValue">05/02/2025 19:18:50</td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Created:</td><td class="ObjectDetailsValue">18/09/2025 17:06:56</td></tr>
         <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Modified:</td><td class="ObjectDetailsValue">21/01/2026 21:48:05</td></tr>
         <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Author:</td><td class="ObjectDetailsValue">Admin</td></tr>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">UUID:</td><td class="ObjectDetailsValue">{38CC29F9-5F3B-47e4-8A7B-BDE4625CD160}</td></tr>
-        <tr id="adv01"><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Appears In:</td><td class="ObjectDetailsValue"></td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">UUID:</td><td class="ObjectDetailsValue">{BD606A65-D46B-48aa-B28D-A15ADC21C712}</td></tr>
+        <tr id="adv01"><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Appears In:</td><td class="ObjectDetailsValue">Archive - System Definition - Christmas Creek Mine, Archive - System Definition - Cloudbreak Mine, Archive - System Definition - Iron Bridge Mine, Archive - System Definition - Port Hedland, Archive - System Definition - Eliwana Mine, Archive - System Definition - Flying Fish Mine</td></tr>
         <tr>
             <td class="ObjectDetailsTopic" style="padding-left:0; width:70px; vertical-align:top; padding-top:5px;">Remarks:</td>
-            <td class="ObjectDetailsValue remarks-cell" style="vertical-align:top; padding-top:5px;"><div class="ObjectDetailsNotes">SBS-WBS Mapping 20260201: Move to Orphaned/retired Artifact &amp; Hide/remove all interfaces.&lt;br/&gt;</div>
+            <td class="ObjectDetailsValue remarks-cell" style="vertical-align:top; padding-top:5px;"><div class="ObjectDetailsNotes">SBS-WBS Mapping 20260201: To be deleted - This is an general term not a separate system.&lt;br/&gt;</div>
 </td>
         </tr>
     </table>
@@ -1039,6 +1059,7 @@ if (cssLinkDownload) {
 		<ul class="ItemTitle">
 			<li onClick="parent != null ? parent.toggleItem('TaggedVal') : toggleItem('TaggedVal');" id="TaggedValTitle">Tagged Values</li>
 			<li onClick="parent != null ? parent.toggleItem('CustomProperties') : toggleItem('CustomProperties');" id="CustomPropertiesTitle">Advanced</li>
+			<li onClick="parent != null ? parent.toggleItem('Links') : toggleItem('Links');" id="LinksTitle">Other Links</li>
 		</ul>
 <div class="ItemBody" id="TaggedValTable">
     <table align="center" border="0" cellspacing="0" cellpadding="0" class="Table" style="width:100%; table-layout:fixed;">
@@ -1058,15 +1079,6 @@ if (cssLinkDownload) {
 			</tr>			<tr>
 				<td class="TableRow" valign="top">Element Type</td>
 				<td class="TableRow" valign="top">Project</td>
-			</tr>	
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="2">
-					Details:
-						&nbsp;
-				</td>
-			</tr>			<tr>
-				<td class="TableRow" valign="top">Old SBS ID</td>
-				<td class="TableRow" valign="top">A.01.05</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1094,7 +1106,38 @@ if (cssLinkDownload) {
 
 
 			</table>
-		</div>	</div>
+		</div><div class="ItemBody" id="LinksTable">
+    <table class="Table ea_table">
+        <colgroup>
+            <col style="width:250px">
+            <col style="width:120px">
+            <col style="width:0px">     <!-- Connection (hidden later) -->
+			<col style="width:100px">   <!-- Direction / Relationship -->
+            <col style="width:120px">   <!-- Interfaces with -->
+        </colgroup>
+
+        <tr>
+            <td class="TableHeading">Object</td>
+            <td class="TableHeading">Type</td>
+            <td class="TableHeading">Connection</td>
+            <td class="TableHeading">Relationship</td>
+            <td class="TableHeading">Interfaces with</td>
+        </tr>
+
+<tr class="#LINK_STEREOTYPE# InterfaceBlock">
+    <td width="30%" class="TableRow" valign="top"><a href="../EA5/EA745.htm">«InterfaceBlock» DGS-I_0102</a></td>
+    <td width="10%" class="TableRow" valign="top">InterfaceBlock</td>
+    <td width="10%" class="TableRow" valign="top">Abstraction</td>
+    <td width="10%" class="TableRow" valign="top">To</td>
+    <td width="40%" class="TableRow" valign="top">
+        <div class="ObjectDetailsNotes">[DELETED]&lt;br/&gt;</div>
+
+    </td>
+</tr>
+
+    </table>
+</div>
+	</div>
  </div>
  
                     </td>

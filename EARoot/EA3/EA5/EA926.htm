@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head><link rel="icon" href="/favicon.ico"></head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Interfaces::DGS-I_0284</title>
+<title>Interfaces::DGS-I_0283</title>
 <link href="../../../css/ea.css" rel="stylesheet" type="text/css" />
 <script language="JavaScript" src="../../../js/displayToc.js" type="text/javascript"></script>
 
@@ -379,6 +379,20 @@ function getTargetInfo(areaElement) {
 
         simplifyHeaderTitle(); // <-- cleans header text
 
+        // ----------------------------------------------------------------
+        // DELPHI RVAM BUTTON: Show only on the Delphi requirements diagram
+        // ----------------------------------------------------------------
+        (function() {
+            const h1 = document.querySelector('.header_frame h1');
+            const delphiBox = document.getElementById('delphi-rvam-box');
+            if (h1 && delphiBox) {
+                const pageTitle = h1.textContent.trim();
+                if (pageTitle.includes('855DC-1541-DEL Delphi')) {
+                    delphiBox.style.display = 'block';
+                }
+            }
+        })();
+
         // Netlify Navigation Fix
         const navLinks = document.querySelectorAll(
             'a[href^="./"], a[href^="../"], a[href$=".htm"], a[href$=".html"]'
@@ -408,17 +422,18 @@ function getTargetInfo(areaElement) {
             });
         }
 		// ----------------------------------------------------------------
-// DOWNLOAD LINK FIX (Interface Register)
+// DOWNLOAD LINK FIX (all files/ links, depth-independent)
 // ----------------------------------------------------------------
 const cssLinkDownload = document.querySelector('link[href*="ea.css"]');
 if (cssLinkDownload) {
     const cssPathDownload = cssLinkDownload.getAttribute('href');
     const rootPathDownload = cssPathDownload.substring(0, cssPathDownload.lastIndexOf('css/'));
 
-    const downloadLink = document.querySelector('.download-box a');
-    if (downloadLink) {
-        downloadLink.href = rootPathDownload + "files/Fortescue_Interface-Register_Z.xlsm";
-    }
+    document.querySelectorAll('a[href*="files/"]').forEach(link => {
+        const href = link.getAttribute('href');
+        const filename = href.substring(href.indexOf('files/'));
+        link.href = rootPathDownload + filename;
+    });
 }
 // ----------------------------------------------------------------
 // LEGEND SWITCHING (SBS Special Case)
@@ -477,11 +492,11 @@ if (cssLinkDownload) {
 <div class="section group" >
 
 		<div class="col span_2_of_2 header_frame">
-			<h1> Interfaces::DGS-I_0284 </h1>
+			<h1> Interfaces::DGS-I_0283 </h1>
 			<img class="header_image" src="../../../images/Logo.png" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
-			<p><a href="../../EA19.htm">Decarb Green Systems Architecture  Version: Z</a> / <a href="../EA480.htm">System Definition Elements</a> / <a href="EA642.htm">Interfaces</a> / <a href="EA926.htm">DGS-I_0284</a></p>
+			<p><a href="../../EA19.htm">Decarb Green Systems Architecture  Version: Z</a> / <a href="../EA481.htm">System Definition Elements</a> / <a href="EA643.htm">Interfaces</a> / <a href="EA926.htm">DGS-I_0283</a></p>
 		</div>
 			
 		<table class="contentmaintable">
@@ -492,9 +507,14 @@ if (cssLinkDownload) {
 						<div class="download-box">
 						<div class="download-box">
 							<a href="files/Fortescue_Interface-Register_Z.xlsm" target="_blank">
-							Interface Register
+							Export Interface Register
 							</a>
 						</div>
+						</div>
+						<div class="download-box" id="delphi-rvam-box" style="display:none;">
+							<a href="files/Delphi_RVAM_Z.xlsx" target="_blank">
+							Export RVAM for this system
+							</a>
 						</div>
                         
                         <div class="sidebar-search-container">
@@ -505,7 +525,7 @@ if (cssLinkDownload) {
 
                         <div id="originalTree">
 						    <ul>
-<a href="EA642.htm">Interfaces</a></ul>
+<a href="EA643.htm">Interfaces</a></ul>
 
                         </div>
 					</td>
@@ -639,7 +659,7 @@ if (cssLinkDownload) {
 
 <div class="PageBody" style="position: relative !important; height: auto !important; overflow: visible !important; padding-bottom: 10px;">
     <span class="ObjectTitle">
-        DGS-I_0284 : &lt;&lt;InterfaceBlock&gt;&gt;
+        DGS-I_0283 : &lt;&lt;InterfaceBlock&gt;&gt;
     </span>
 
     <table border="0" class="ObjectDetails" style="width: 100%; margin-bottom: 10px;">
@@ -647,15 +667,15 @@ if (cssLinkDownload) {
             <col width="70px" />
             <col width="*" />
         </colgroup>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Status:</td><td class="ObjectDetailsValue">Proposed</td></tr>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Created:</td><td class="ObjectDetailsValue">12/11/2025 15:11:15</td></tr>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Modified:</td><td class="ObjectDetailsValue">11/12/2025 00:07:09</td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Status:</td><td class="ObjectDetailsValue">Deleted</td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Created:</td><td class="ObjectDetailsValue">12/11/2025 15:11:10</td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Modified:</td><td class="ObjectDetailsValue">14/01/2026 21:56:51</td></tr>
         <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Author:</td><td class="ObjectDetailsValue">Admin</td></tr>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">UUID:</td><td class="ObjectDetailsValue">{41090570-2796-465b-AA8C-8ECFA84DE128}</td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">UUID:</td><td class="ObjectDetailsValue">{E365E36E-4DC6-413f-A1F6-A73F8DE1AC62}</td></tr>
         <tr id="adv01"><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Appears In:</td><td class="ObjectDetailsValue"></td></tr>
         <tr>
             <td class="ObjectDetailsTopic" style="padding-left:0; width:70px; vertical-align:top; padding-top:5px;">Remarks:</td>
-            <td class="ObjectDetailsValue remarks-cell" style="vertical-align:top; padding-top:5px;"><div class="ObjectDetailsNotes">From DGS-I_0175 (interface with generic AC1): CSMS Review 30/10/2025: Speak OCPP to a vCharm Edge.&lt;br/&gt;State, current voltage, car plugged in?&lt;br/&gt;Getting back charge auth, charge rate profiles. set charge rate.&lt;br/&gt;Depending on charger the charger, potentially phoning home to manufacturers cloud.&lt;br/&gt;</div>
+            <td class="ObjectDetailsValue remarks-cell" style="vertical-align:top; padding-top:5px;"><div class="ObjectDetailsNotes">SBS-WBS Mapping 02/01/2026: Delete LME &amp; Merge LME &amp; SME to combined Program Level - Interface deleted.&lt;br/&gt;</div>
 </td>
         </tr>
     </table>
@@ -1049,7 +1069,7 @@ if (cssLinkDownload) {
         </tr>
         			<tr>
 				<td class="TableRow" valign="top">1. Interface Name</td>
-				<td class="TableRow" valign="top">855DC-1542-CSM-002 vCharM.Edge|Solomon Mine Hub: AC1</td>
+				<td class="TableRow" valign="top">Solomon Mine Hub: Light Mobile Equipment (LME)|Solomon Mine Hub: LME / SME Chargers</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1058,52 +1078,7 @@ if (cssLinkDownload) {
 				</td>
 			</tr>			<tr>
 				<td class="TableRow" valign="top">4. Interface Level</td>
-				<td class="TableRow" valign="top">Subsystem - Subsystem Interface</td>
-			</tr>	
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="2">
-					Details:
-						&nbsp;
-				</td>
-			</tr>			<tr>
-				<td class="TableRow" valign="top">5. Interface Type</td>
-				<td class="TableRow" valign="top">Technical-Data/Software</td>
-			</tr>	
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="2">
-					Details:
-						&nbsp;
-				</td>
-			</tr>			<tr>
-				<td class="TableRow" valign="top">6. Interface Description</td>
-				<td class="TableRow" valign="top">This interface connects vCharM.Edge to the AC1 automated charging system at the Solomon Mine Hub, providing the real-time control signals and charger status required for automated plug-in and charging operations.</td>
-			</tr>	
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="2">
-					Details:
-						&nbsp;
-				</td>
-			</tr>			<tr>
-				<td class="TableRow" valign="top">7. Interface Criticality</td>
-				<td class="TableRow" valign="top">HIGH</td>
-			</tr>	
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="2">
-					Details:
-						&nbsp;
-				</td>
-			</tr>			<tr>
-				<td class="TableRow" valign="top">8. Interface Flow</td>
-				<td class="TableRow" valign="top">Data Flow:<br />vCharM.Edge / CSMS (855DC-1542) -&gt; AC1 Automated Charging System (850DC-1512-0001), transmitting charger availability, energisation status, authorisation signals, load limits, fault states, and interlock confirmations required for automated plug-in and charging initiation.<br />AC1 Automated Charging System -&gt; vCharM.Edge / CSMS, returning charger status, connection state, charging progress, power draw, alarms, and exception conditions to support real-time monitoring and load coordination.<br />Control Flow:<br />vCharM.Edge issues start/stop commands, charging setpoints, authorisation approvals, and load management instructions to AC1 units to ensure safe, coordinated, high-power charging operations.</td>
-			</tr>	
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="2">
-					Details:
-						&nbsp;
-				</td>
-			</tr>			<tr>
-				<td class="TableRow" valign="top">9. Interface Criticality Justification</td>
-				<td class="TableRow" valign="top">The criticality level is HIGH because the AC1 system relies on accurate, live data from vCharM.Edge to safely start and manage high-power automated charging. Failure could prevent automated charging from beginning, force trucks into manual charging procedures, or create electrical safety hazards during automated connection.</td>
+				<td class="TableRow" valign="top">Program - Project Interface</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1144,23 +1119,23 @@ if (cssLinkDownload) {
             <td class="TableHeading">Interfaces with</td>
         </tr>
 
-<tr class="#LINK_STEREOTYPE# Block">
-    <td width="30%" class="TableRow" valign="top"><a href="../../EA2/EA164.htm">«block» 855DC-1542-CSM-002 vCharM.Edge</a></td>
-    <td width="10%" class="TableRow" valign="top">Block</td>
-    <td width="10%" class="TableRow" valign="top">Abstraction</td>
-    <td width="10%" class="TableRow" valign="top">From</td>
-    <td width="40%" class="TableRow" valign="top">
-        <div class="ObjectDetailsNotes">&lt;a href=&quot;../EA2/EA3/EA588.htm&quot;&gt;Solomon Mine Hub: AC1&lt;/a&gt;&lt;br/&gt;</div>
-
-    </td>
-</tr>
 <tr class="#LINK_STEREOTYPE# Object">
-    <td width="30%" class="TableRow" valign="top"><a href="../EA2/EA3/EA588.htm">Solomon Mine Hub: AC1</a></td>
+    <td width="30%" class="TableRow" valign="top"><a href="../EA2/EA3/EA564.htm">Solomon Mine Hub: Light Mobile Equipment (LME)</a></td>
     <td width="10%" class="TableRow" valign="top">Object</td>
     <td width="10%" class="TableRow" valign="top">Abstraction</td>
     <td width="10%" class="TableRow" valign="top">From</td>
     <td width="40%" class="TableRow" valign="top">
-        <div class="ObjectDetailsNotes">&lt;a href=&quot;../../EA2/EA164.htm&quot;&gt;855DC-1542-CSM-002 vCharM.Edge&lt;/a&gt;&lt;br/&gt;</div>
+        <div class="ObjectDetailsNotes">[DELETED]&lt;br/&gt;</div>
+
+    </td>
+</tr>
+<tr class="#LINK_STEREOTYPE# Object">
+    <td width="30%" class="TableRow" valign="top"><a href="../EA2/EA3/EA588.htm">Solomon Mine Hub: LME / SME Chargers</a></td>
+    <td width="10%" class="TableRow" valign="top">Object</td>
+    <td width="10%" class="TableRow" valign="top">Abstraction</td>
+    <td width="10%" class="TableRow" valign="top">From</td>
+    <td width="40%" class="TableRow" valign="top">
+        <div class="ObjectDetailsNotes">[DELETED]&lt;br/&gt;</div>
 
     </td>
 </tr>

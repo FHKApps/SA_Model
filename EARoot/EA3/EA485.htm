@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head><link rel="icon" href="/favicon.ico"></head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Stakeholders</title>
+<title>Key</title>
 <link href="../../css/ea.css" rel="stylesheet" type="text/css" />
 <script language="JavaScript" src="../../js/displayToc.js" type="text/javascript"></script>
 
@@ -379,6 +379,20 @@ function getTargetInfo(areaElement) {
 
         simplifyHeaderTitle(); // <-- cleans header text
 
+        // ----------------------------------------------------------------
+        // DELPHI RVAM BUTTON: Show only on the Delphi requirements diagram
+        // ----------------------------------------------------------------
+        (function() {
+            const h1 = document.querySelector('.header_frame h1');
+            const delphiBox = document.getElementById('delphi-rvam-box');
+            if (h1 && delphiBox) {
+                const pageTitle = h1.textContent.trim();
+                if (pageTitle.includes('855DC-1541-DEL Delphi')) {
+                    delphiBox.style.display = 'block';
+                }
+            }
+        })();
+
         // Netlify Navigation Fix
         const navLinks = document.querySelectorAll(
             'a[href^="./"], a[href^="../"], a[href$=".htm"], a[href$=".html"]'
@@ -408,17 +422,18 @@ function getTargetInfo(areaElement) {
             });
         }
 		// ----------------------------------------------------------------
-// DOWNLOAD LINK FIX (Interface Register)
+// DOWNLOAD LINK FIX (all files/ links, depth-independent)
 // ----------------------------------------------------------------
 const cssLinkDownload = document.querySelector('link[href*="ea.css"]');
 if (cssLinkDownload) {
     const cssPathDownload = cssLinkDownload.getAttribute('href');
     const rootPathDownload = cssPathDownload.substring(0, cssPathDownload.lastIndexOf('css/'));
 
-    const downloadLink = document.querySelector('.download-box a');
-    if (downloadLink) {
-        downloadLink.href = rootPathDownload + "files/Fortescue_Interface-Register_Z.xlsm";
-    }
+    document.querySelectorAll('a[href*="files/"]').forEach(link => {
+        const href = link.getAttribute('href');
+        const filename = href.substring(href.indexOf('files/'));
+        link.href = rootPathDownload + filename;
+    });
 }
 // ----------------------------------------------------------------
 // LEGEND SWITCHING (SBS Special Case)
@@ -477,11 +492,11 @@ if (cssLinkDownload) {
 <div class="section group" >
 
 		<div class="col span_2_of_2 header_frame">
-			<h1> Stakeholders </h1>
+			<h1> Key </h1>
 			<img class="header_image" src="../../images/Logo.png" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
-			<p><a href="../EA19.htm">Decarb Green Systems Architecture  Version: Z</a> / <a href="EA480.htm">System Definition Elements</a> / <a href="./EA4/EA626.htm">Stakeholders</a></p>
+			<p><a href="../EA19.htm">Decarb Green Systems Architecture  Version: Z</a> / <a href="EA481.htm">System Definition Elements</a> / <a href="EA485.htm">Key</a></p>
 		</div>
 			
 		<table class="contentmaintable">
@@ -492,9 +507,14 @@ if (cssLinkDownload) {
 						<div class="download-box">
 						<div class="download-box">
 							<a href="files/Fortescue_Interface-Register_Z.xlsm" target="_blank">
-							Interface Register
+							Export Interface Register
 							</a>
 						</div>
+						</div>
+						<div class="download-box" id="delphi-rvam-box" style="display:none;">
+							<a href="files/Delphi_RVAM_Z.xlsx" target="_blank">
+							Export RVAM for this system
+							</a>
 						</div>
                         
                         <div class="sidebar-search-container">
@@ -505,21 +525,7 @@ if (cssLinkDownload) {
 
                         <div id="originalTree">
 						    <ul>
-<li><img src="../../images/6.png" alt="Actor"/> <a href="./EA4/EA627.htm">Asset Health</a></li>
-<li><img src="../../images/6.png" alt="Actor"/> <a href="./EA4/EA628.htm">Decarbonisation Delivery</a></li>
-<li><img src="../../images/6.png" alt="Actor"/> <a href="./EA4/EA629.htm">Decarbonisation Site Infrastructure Projects</a></li>
-<li><img src="../../images/6.png" alt="Actor"/> <a href="./EA4/EA630.htm">Energy Operations (HIVE)</a></li>
-<li><img src="../../images/6.png" alt="Actor"/> <a href="./EA4/EA631.htm">ESO</a></li>
-<li><img src="../../images/6.png" alt="Actor"/> <a href="./EA4/EA632.htm">HIVE</a></li>
-<li><img src="../../images/6.png" alt="Actor"/> <a href="./EA4/EA633.htm">Integrated Planning</a></li>
-<li><img src="../../images/6.png" alt="Actor"/> <a href="./EA4/EA634.htm">Mine Services</a></li>
-<li><img src="../../images/6.png" alt="Actor"/> <a href="./EA4/EA635.htm">Mine Services Process Control</a></li>
-<li><img src="../../images/6.png" alt="Actor"/> <a href="./EA4/EA636.htm">Mining Operations</a></li>
-<li><img src="../../images/6.png" alt="Actor"/> <a href="./EA4/EA637.htm">Non-Process Infrastructure (NPI) Maintenance Controller</a></li>
-<li><img src="../../images/6.png" alt="Actor"/> <a href="./EA4/EA638.htm">Operations Planning</a></li>
-<li><img src="../../images/6.png" alt="Actor"/> <a href="./EA4/EA639.htm">Power Projects</a></li>
-<li><img src="../../images/6.png" alt="Actor"/> <a href="./EA4/EA640.htm">Technical Services</a></li>
-</ul>
+<a href="EA481.htm">System Definition Elements</a></ul>
 
                         </div>
 					</td>
@@ -653,7 +659,7 @@ if (cssLinkDownload) {
 
 <div class="PageBody" style="position: relative !important; height: auto !important; overflow: visible !important; padding-bottom: 10px;">
     <span class="ObjectTitle">
-        Stakeholders : 
+        Key : 
     </span>
 
     <table border="0" class="ObjectDetails" style="width: 100%; margin-bottom: 10px;">
@@ -662,11 +668,11 @@ if (cssLinkDownload) {
             <col width="*" />
         </colgroup>
         <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Status:</td><td class="ObjectDetailsValue">Proposed</td></tr>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Created:</td><td class="ObjectDetailsValue">12/04/2025 15:10:05</td></tr>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Modified:</td><td class="ObjectDetailsValue">08/12/2025 21:33:34</td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Created:</td><td class="ObjectDetailsValue">28/08/2025 19:36:53</td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Modified:</td><td class="ObjectDetailsValue">19/01/2026 17:32:20</td></tr>
         <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Author:</td><td class="ObjectDetailsValue">Admin</td></tr>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">UUID:</td><td class="ObjectDetailsValue">{888D73F5-598D-4f88-9429-7CCEDF090FEF}</td></tr>
-        <tr id="adv01"><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Appears In:</td><td class="ObjectDetailsValue"></td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">UUID:</td><td class="ObjectDetailsValue">{AE54DE44-9705-502E-ACEB-E07724E66036}</td></tr>
+        <tr id="adv01"><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Appears In:</td><td class="ObjectDetailsValue"><a href="../EA7.htm">855DC-1542-008 Mine Electrification SCADA</a>, <a href="../EA13.htm">855DC-1543-008 Monarch</a>, <a href="../EA15.htm">System Definition (SD)</a>, <a href="../EA1.htm">855DC-1541-ECL Eclipse</a>, <a href="../EA5.htm">855DC-1541-LIV LiveWire</a>, <a href="../EA3.htm">855DC-1541-DEL Delphi</a>, <a href="../EA11.htm">855DC-1542-LMS Load Management System (LMS)</a>, <a href="../EA9.htm">855DC-1542-CSM Charge Station Management System (CSMS)</a>, Archive - System Definition - Christmas Creek Mine, Archive - System Definition - Cloudbreak Mine, Archive - System Definition - Iron Bridge Mine, Archive - System Definition - Port Hedland, Archive - System Definition - Eliwana Mine, Archive - System Definition - Flying Fish Mine</td></tr>
         <tr>
             <td class="ObjectDetailsTopic" style="padding-left:0; width:70px; vertical-align:top; padding-top:5px;">Remarks:</td>
             <td class="ObjectDetailsValue remarks-cell" style="vertical-align:top; padding-top:5px;"></td>
@@ -1048,7 +1054,105 @@ if (cssLinkDownload) {
         init();
     }
 })();
-</script> </div>
+</script>	<div class="TableGroup" id="TableGroup">
+		<ul class="ItemTitle">
+			<li onClick="parent != null ? parent.toggleItem('CustomProperties') : toggleItem('CustomProperties');" id="CustomPropertiesTitle">Advanced</li>
+		</ul>
+		<div class="ItemBody" id="CustomPropertiesTable">
+			<table class="Table ea_table">
+				<tr>
+					<td width="30%" class="TableHeading">Property</td>
+					<td width="70%" class="TableHeading">Value</td>
+				</tr>
+			<tr>
+				<td width="30%" class="TableRow">Planning and Forecast Systems:</td>
+				<td width="70%" class="TableRow">#Back_Ground_Color#=15130800;#Pen_Color#=0;#Pen_Size#=1;#Legend_Type#=LEGEND_OBJECTSTYLE;</td>
+			</tr>
+
+			<tr>
+				<td width="30%" class="TableRow">Control & Monitoring Systems:</td>
+				<td width="70%" class="TableRow">#Back_Ground_Color#=42495;#Pen_Color#=0;#Pen_Size#=1;#Legend_Type#=LEGEND_OBJECTSTYLE;</td>
+			</tr>
+
+			<tr>
+				<td width="30%" class="TableRow">Existing Systems - Green Enhancement:</td>
+				<td width="70%" class="TableRow">#Back_Ground_Color#=13959039;#Pen_Color#=0;#Pen_Size#=1;#Legend_Type#=LEGEND_OBJECTSTYLE;</td>
+			</tr>
+
+			<tr>
+				<td width="30%" class="TableRow">IT/OT Systems:</td>
+				<td width="70%" class="TableRow">#Back_Ground_Color#=14745599;#Pen_Color#=0;#Pen_Size#=1;#Legend_Type#=LEGEND_OBJECTSTYLE;</td>
+			</tr>
+
+			<tr>
+				<td width="30%" class="TableRow">Mobile Assets:</td>
+				<td width="70%" class="TableRow">#Back_Ground_Color#=4678655;#Pen_Color#=0;#Pen_Size#=1;#Legend_Type#=LEGEND_OBJECTSTYLE;</td>
+			</tr>
+
+			<tr>
+				<td width="30%" class="TableRow">Fixed Plant:</td>
+				<td width="70%" class="TableRow">#Back_Ground_Color#=9741566;#Pen_Color#=0;#Pen_Size#=1;#Legend_Type#=LEGEND_OBJECTSTYLE;</td>
+			</tr>
+
+			<tr>
+				<td width="30%" class="TableRow">Non-Process Infrastructure (NPI):</td>
+				<td width="70%" class="TableRow">#Back_Ground_Color#=14204888;#Pen_Color#=0;#Pen_Size#=1;#Legend_Type#=LEGEND_OBJECTSTYLE;</td>
+			</tr>
+
+			<tr>
+				<td width="30%" class="TableRow">Green Power:</td>
+				<td width="70%" class="TableRow">#Back_Ground_Color#=15631086;#Pen_Color#=0;#Pen_Size#=1;#Legend_Type#=LEGEND_OBJECTSTYLE;</td>
+			</tr>
+
+			<tr>
+				<td width="30%" class="TableRow">Product Storage:</td>
+				<td width="70%" class="TableRow">#Back_Ground_Color#=16777215;#Pen_Color#=0;#Pen_Size#=1;#Legend_Type#=LEGEND_OBJECTSTYLE;</td>
+			</tr>
+
+			<tr>
+				<td width="30%" class="TableRow">HaulX:</td>
+				<td width="70%" class="TableRow">#Back_Ground_Color#=7451452;#Pen_Color#=0;#Pen_Size#=1;#Legend_Type#=LEGEND_OBJECTSTYLE;</td>
+			</tr>
+
+			<tr>
+				<td width="30%" class="TableRow">Ancillary/Other:</td>
+				<td width="70%" class="TableRow">#Back_Ground_Color#=14474460;#Pen_Color#=0;#Pen_Size#=1;#Legend_Type#=LEGEND_OBJECTSTYLE;</td>
+			</tr>
+
+			<tr>
+				<td width="30%" class="TableRow">Decarb Infrastructure:</td>
+				<td width="70%" class="TableRow">#Back_Ground_Color#=3329434;#Pen_Color#=0;#Pen_Size#=1;#Legend_Type#=LEGEND_OBJECTSTYLE;</td>
+			</tr>
+
+			<tr>
+				<td width="30%" class="TableRow">Power Generation & Transmission:</td>
+				<td width="70%" class="TableRow">#Back_Ground_Color#=4163021;#Pen_Color#=0;#Pen_Size#=1;#Legend_Type#=LEGEND_OBJECTSTYLE;</td>
+			</tr>
+
+			<tr>
+				<td width="30%" class="TableRow">Unassigned / TBC:</td>
+				<td width="70%" class="TableRow">#Back_Ground_Color#=11119017;#Pen_Color#=0;#Pen_Size#=1;#Legend_Type#=LEGEND_OBJECTSTYLE;</td>
+			</tr>
+
+			<tr>
+				<td width="30%" class="TableRow">External Assets:</td>
+				<td width="70%" class="TableRow">#Back_Ground_Color#=0;#Pen_Color#=0;#Pen_Size#=1;#Legend_Type#=LEGEND_OBJECTSTYLE;</td>
+			</tr>
+
+			<tr>
+				<td width="30%" class="TableRow">Interface:</td>
+				<td width="70%" class="TableRow">#Back_Ground_Color#=14674162;#Pen_Color#=0;#Pen_Size#=1;#Legend_Type#=LEGEND_OBJECTSTYLE;</td>
+			</tr>
+
+			<tr>
+				<td width="30%" class="TableRow">Key:</td>
+				<td width="70%" class="TableRow">#HEADINGSIZE#=20;#FONTCOLOR#=6303744;#BACKGROUNDCOLOR#=16053492;#BORDERCOLOR#=15066597;#BACKGROUNDISDEFAULT#=1;#TITLE#=Key;</td>
+			</tr>
+
+
+			</table>
+		</div>	</div>
+ </div>
  
                     </td>
 				</tr>

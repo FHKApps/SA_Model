@@ -2,9 +2,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head><link rel="icon" href="/favicon.ico"></head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Solomon Mine Hub</title>
-<link href="../../../../css/ea.css" rel="stylesheet" type="text/css" />
-<script language="JavaScript" src="../../../../js/displayToc.js" type="text/javascript"></script>
+<title>Non FMG Assets::Non FMG Power Assets::RHIO 220kV</title>
+<link href="../../../css/ea.css" rel="stylesheet" type="text/css" />
+<script language="JavaScript" src="../../../js/displayToc.js" type="text/javascript"></script>
 
 <script>
   (function() {
@@ -379,6 +379,20 @@ function getTargetInfo(areaElement) {
 
         simplifyHeaderTitle(); // <-- cleans header text
 
+        // ----------------------------------------------------------------
+        // DELPHI RVAM BUTTON: Show only on the Delphi requirements diagram
+        // ----------------------------------------------------------------
+        (function() {
+            const h1 = document.querySelector('.header_frame h1');
+            const delphiBox = document.getElementById('delphi-rvam-box');
+            if (h1 && delphiBox) {
+                const pageTitle = h1.textContent.trim();
+                if (pageTitle.includes('855DC-1541-DEL Delphi')) {
+                    delphiBox.style.display = 'block';
+                }
+            }
+        })();
+
         // Netlify Navigation Fix
         const navLinks = document.querySelectorAll(
             'a[href^="./"], a[href^="../"], a[href$=".htm"], a[href$=".html"]'
@@ -408,17 +422,18 @@ function getTargetInfo(areaElement) {
             });
         }
 		// ----------------------------------------------------------------
-// DOWNLOAD LINK FIX (Interface Register)
+// DOWNLOAD LINK FIX (all files/ links, depth-independent)
 // ----------------------------------------------------------------
 const cssLinkDownload = document.querySelector('link[href*="ea.css"]');
 if (cssLinkDownload) {
     const cssPathDownload = cssLinkDownload.getAttribute('href');
     const rootPathDownload = cssPathDownload.substring(0, cssPathDownload.lastIndexOf('css/'));
 
-    const downloadLink = document.querySelector('.download-box a');
-    if (downloadLink) {
-        downloadLink.href = rootPathDownload + "files/Fortescue_Interface-Register_Z.xlsm";
-    }
+    document.querySelectorAll('a[href*="files/"]').forEach(link => {
+        const href = link.getAttribute('href');
+        const filename = href.substring(href.indexOf('files/'));
+        link.href = rootPathDownload + filename;
+    });
 }
 // ----------------------------------------------------------------
 // LEGEND SWITCHING (SBS Special Case)
@@ -477,11 +492,11 @@ if (cssLinkDownload) {
 <div class="section group" >
 
 		<div class="col span_2_of_2 header_frame">
-			<h1> Solomon Mine Hub </h1>
-			<img class="header_image" src="../../../../images/Logo.png" align="right" alt="Header Image" />
+			<h1> Non FMG Assets::Non FMG Power Assets::RHIO 220kV </h1>
+			<img class="header_image" src="../../../images/Logo.png" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
-			<p><a href="../../../EA19.htm">Decarb Green Systems Architecture  Version: Z</a> / <a href="../../EA480.htm">System Definition Elements</a> / <a href="../EA509.htm">Locations</a> / <a href="EA553.htm">Solomon Mine Hub</a></p>
+			<p><a href="../../EA19.htm">Decarb Green Systems Architecture  Version: Z</a> / <a href="../EA481.htm">System Definition Elements</a> / <a href="EA610.htm">Non FMG Assets</a> / <a href="EA611.htm">Non FMG Power Assets</a> / <a href="EA626.htm">RHIO 220kV</a></p>
 		</div>
 			
 		<table class="contentmaintable">
@@ -492,9 +507,14 @@ if (cssLinkDownload) {
 						<div class="download-box">
 						<div class="download-box">
 							<a href="files/Fortescue_Interface-Register_Z.xlsm" target="_blank">
-							Interface Register
+							Export Interface Register
 							</a>
 						</div>
+						</div>
+						<div class="download-box" id="delphi-rvam-box" style="display:none;">
+							<a href="files/Delphi_RVAM_Z.xlsx" target="_blank">
+							Export RVAM for this system
+							</a>
 						</div>
                         
                         <div class="sidebar-search-container">
@@ -505,27 +525,7 @@ if (cssLinkDownload) {
 
                         <div id="originalTree">
 						    <ul>
-<li><img src="../../../../images/25.png" alt="Object"/> <a href="EA554.htm">Solomon Mine Hub: CCTV: 002OP-1800 CCTV</a></li>
-<li><img src="../../../../images/25.png" alt="Object"/> <a href="EA555.htm">Solomon Mine Hub: Chargers: 850DC-1510 Chargers</a></li>
-<li><img src="../../../../images/25.png" alt="Object"/> <a href="EA556.htm">Solomon Mine Hub: Coarse Ore Stockpile (COS): 004OP-1302 Coarse Ore Stockpile (COS)</a></li>
-<li><img src="../../../../images/25.png" alt="Object"/> <a href="EA557.htm">Solomon Mine Hub: Decarb Ancillary: 853DC Decarb Ancillary</a></li>
-<li><img src="../../../../images/25.png" alt="Object"/> <a href="EA558.htm">Solomon Mine Hub: Dewatering Pumps: 002OP-2000 Dewatering Pumps</a></li>
-<li><img src="../../../../images/25.png" alt="Object"/> <a href="EA559.htm">Solomon Mine Hub: Energy Generation: 854DC-5670 Energy Generation - Solar</a></li>
-<li><img src="../../../../images/25.png" alt="Object"/> <a href="EA560.htm">Solomon Mine Hub: Energy Storage Systems: 854DC-5680 Battery Energy Storage System (BESS)</a></li>
-<li><img src="../../../../images/25.png" alt="Object"/> <a href="EA561.htm">Solomon Mine Hub: Field Switches: 850DC-1522 Field Switches</a></li>
-<li><img src="../../../../images/25.png" alt="Object"/> <a href="EA562.htm">Solomon Mine Hub: Heavy Mobile Equipment (HME): 851DC Heavy Mobile Equipment (HME)</a></li>
-<li><img src="../../../../images/25.png" alt="Object"/> <a href="EA563.htm">Solomon Mine Hub: Light Mobile Equipment (LME): Archive - 852DC Light Mobile Equipment (LME)</a></li>
-<li><img src="../../../../images/25.png" alt="Object"/> <a href="EA573.htm">Solomon Mine Hub: Ore Processing Facility (OPF): 001OP-2001 Ore Processing Facility (OPF)</a></li>
-<li><img src="../../../../images/25.png" alt="Object"/> <a href="EA564.htm">Solomon Mine Hub: Ore Stockpile: 004OP-1303 Train Loadout (TLO) Ore Stockpile</a></li>
-<li><img src="../../../../images/25.png" alt="Object"/> <a href="EA565.htm">Solomon Mine Hub: Primary Crusher: 001OP-2110 Primary Crusher</a></li>
-<li><img src="../../../../images/25.png" alt="Object"/> <a href="EA566.htm">Solomon Mine Hub: Run of Mine (ROM): 004OP-1301 Run of Mine (ROM)</a></li>
-<li><img src="../../../../images/25.png" alt="Object"/> <a href="EA567.htm">Solomon Mine Hub: Sub Kiosks: 850DC-1523 Sub Kiosks</a></li>
-<li><img src="../../../../images/25.png" alt="Object"/> <a href="EA568.htm">Solomon Mine Hub: Support Mobile Equipment (SME): 852DC Light Mobile Equipment (LME) & Support Mobile Equipment (SME)</a></li>
-<li><img src="../../../../images/25.png" alt="Object"/> <a href="EA569.htm">Solomon Mine Hub: Thermal Generators: 003OP-5612 Diesel Generators</a></li>
-<li><img src="../../../../images/25.png" alt="Object"/> <a href="EA570.htm">Solomon Mine Hub: Trailing Cable: 850DC-1520 Trailing Cable</a></li>
-<li><img src="../../../../images/25.png" alt="Object"/> <a href="EA571.htm">Solomon Mine Hub: Train Load Out (TLO): 001OP-2920 Train Load Out (TLO)</a></li>
-<li><img src="../../../../images/99.png" alt="UMLDiagram"/> <a href="EA572.htm">System Definition - Solomon Mine Hub</a></li>
-</ul>
+<a href="EA611.htm">Non FMG Power Assets</a></ul>
 
                         </div>
 					</td>
@@ -659,7 +659,7 @@ if (cssLinkDownload) {
 
 <div class="PageBody" style="position: relative !important; height: auto !important; overflow: visible !important; padding-bottom: 10px;">
     <span class="ObjectTitle">
-        Solomon Mine Hub : 
+        RHIO 220kV : &lt;&lt;block&gt;&gt;
     </span>
 
     <table border="0" class="ObjectDetails" style="width: 100%; margin-bottom: 10px;">
@@ -668,10 +668,10 @@ if (cssLinkDownload) {
             <col width="*" />
         </colgroup>
         <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Status:</td><td class="ObjectDetailsValue">Proposed</td></tr>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Created:</td><td class="ObjectDetailsValue">26/09/2025 15:19:57</td></tr>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Modified:</td><td class="ObjectDetailsValue">03/12/2025 14:47:42</td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Created:</td><td class="ObjectDetailsValue">15/10/2025 11:35:44</td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Modified:</td><td class="ObjectDetailsValue">28/11/2025 15:37:02</td></tr>
         <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Author:</td><td class="ObjectDetailsValue">Admin</td></tr>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">UUID:</td><td class="ObjectDetailsValue">{895831A6-5ECD-89B3-B62C-90C6184E59FA}</td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">UUID:</td><td class="ObjectDetailsValue">{11F4CF0D-1D05-407a-9F4E-37F33838D201}</td></tr>
         <tr id="adv01"><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Appears In:</td><td class="ObjectDetailsValue"></td></tr>
         <tr>
             <td class="ObjectDetailsTopic" style="padding-left:0; width:70px; vertical-align:top; padding-top:5px;">Remarks:</td>
@@ -1054,7 +1054,205 @@ if (cssLinkDownload) {
         init();
     }
 })();
-</script> </div>
+</script>	<div class="TableGroup" id="TableGroup">
+		<ul class="ItemTitle">
+			<li onClick="parent != null ? parent.toggleItem('AssociationsTo') : toggleItem('AssociationsTo');" id="AssociationsToTitle">Associations To</li>
+			<li onClick="parent != null ? parent.toggleItem('TaggedVal') : toggleItem('TaggedVal');" id="TaggedValTitle">Tagged Values</li>
+			<li onClick="parent != null ? parent.toggleItem('CustomProperties') : toggleItem('CustomProperties');" id="CustomPropertiesTitle">Advanced</li>
+			<li onClick="parent != null ? parent.toggleItem('Links') : toggleItem('Links');" id="LinksTitle">Other Links</li>
+		</ul>
+		<div class="ItemBody" id="AssociationsToTable">
+			<table class="Table ea_table">
+				<tr>
+					<td width="40%" class="TableHeading">Element</td>
+					<td width="30%" class="TableHeading">Source Role</td>
+					<td width="30%" class="TableHeading">Target Role</td>
+				</tr>
+				<tr>
+					<td width="40%" class="TableRow" valign="top">
+						<a href="EA611.htm">«block» Non FMG Power Assets</a><br />
+						Block &nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> Non FMG Power Asset<br />
+						&nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> &nbsp;<br />
+						&nbsp;	
+					</td>
+				</tr>
+				<tr>
+					<td class="TableRowBottomDashed"  colspan="3">
+						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageLink3473" /></button>Details:
+							<div id="detailsDIVLink3473" class="DetailsDiv" >
+							&nbsp;
+							</div>
+						</div>
+					</td>
+				</tr>
+
+			</table>
+		</div>
+<div class="ItemBody" id="TaggedValTable">
+    <table align="center" border="0" cellspacing="0" cellpadding="0" class="Table" style="width:100%; table-layout:fixed;">
+        <tr>
+            <td class="TableHeading">Tag</td>
+            <td class="TableHeading">Value</td>
+        </tr>
+        			<tr>
+				<td class="TableRow" valign="top">Element</td>
+				<td class="TableRow" valign="top">External Physical Asset</td>
+			</tr>	
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="2">
+					Details:
+						&nbsp;
+				</td>
+			</tr>			<tr>
+				<td class="TableRow" valign="top">Element Type</td>
+				<td class="TableRow" valign="top">External Physical Asset</td>
+			</tr>	
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="2">
+					Details:
+						&nbsp;
+				</td>
+			</tr>			<tr>
+				<td class="TableRow" valign="top">Facility Code</td>
+				<td class="TableRow" valign="top">External Physical Asset</td>
+			</tr>	
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="2">
+					Details:
+						&nbsp;
+				</td>
+			</tr>			<tr>
+				<td class="TableRow" valign="top">isEncapsulated</td>
+				<td class="TableRow" valign="top">&nbsp;</td>
+			</tr>	
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="2">
+					Details:
+						<div class="ObjectDetailsNotes">Values: true,false<br /></div>
+
+				</td>
+			</tr>			<tr>
+				<td class="TableRow" valign="top">Program</td>
+				<td class="TableRow" valign="top">External Physical Asset</td>
+			</tr>	
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="2">
+					Details:
+						&nbsp;
+				</td>
+			</tr>			<tr>
+				<td class="TableRow" valign="top">Program Code</td>
+				<td class="TableRow" valign="top">External Physical Asset</td>
+			</tr>	
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="2">
+					Details:
+						&nbsp;
+				</td>
+			</tr>			<tr>
+				<td class="TableRow" valign="top">Project</td>
+				<td class="TableRow" valign="top">External Physical Asset</td>
+			</tr>	
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="2">
+					Details:
+						&nbsp;
+				</td>
+			</tr>			<tr>
+				<td class="TableRow" valign="top">Project Code</td>
+				<td class="TableRow" valign="top">External Physical Asset</td>
+			</tr>	
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="2">
+					Details:
+						&nbsp;
+				</td>
+			</tr>			<tr>
+				<td class="TableRow" valign="top">Subsystem</td>
+				<td class="TableRow" valign="top">External Physical Asset</td>
+			</tr>	
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="2">
+					Details:
+						&nbsp;
+				</td>
+			</tr>			<tr>
+				<td class="TableRow" valign="top">System</td>
+				<td class="TableRow" valign="top">External Physical Asset</td>
+			</tr>	
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="2">
+					Details:
+						&nbsp;
+				</td>
+			</tr>			<tr>
+				<td class="TableRow" valign="top">WBS Code</td>
+				<td class="TableRow" valign="top">External Physical Asset</td>
+			</tr>	
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="2">
+					Details:
+						&nbsp;
+				</td>
+			</tr>
+    </table>
+</div>
+		<div class="ItemBody" id="CustomPropertiesTable">
+			<table class="Table ea_table">
+				<tr>
+					<td width="30%" class="TableHeading">Property</td>
+					<td width="70%" class="TableHeading">Value</td>
+				</tr>
+			<tr>
+				<td width="30%" class="TableRow">_defaultDiagramType:</td>
+				<td width="70%" class="TableRow">SysML1.4::InternalBlock</td>
+			</tr>
+
+			<tr>
+				<td width="30%" class="TableRow">isFinalSpecialization:</td>
+				<td width="70%" class="TableRow">0</td>
+			</tr>
+
+
+			</table>
+		</div><div class="ItemBody" id="LinksTable">
+    <table class="Table ea_table">
+        <colgroup>
+            <col style="width:250px">
+            <col style="width:120px">
+            <col style="width:0px">     <!-- Connection (hidden later) -->
+			<col style="width:100px">   <!-- Direction / Relationship -->
+            <col style="width:120px">   <!-- Interfaces with -->
+        </colgroup>
+
+        <tr>
+            <td class="TableHeading">Object</td>
+            <td class="TableHeading">Type</td>
+            <td class="TableHeading">Connection</td>
+            <td class="TableHeading">Relationship</td>
+            <td class="TableHeading">Interfaces with</td>
+        </tr>
+
+<tr class="#LINK_STEREOTYPE# Block">
+    <td width="30%" class="TableRow" valign="top"><a href="EA611.htm">«block» Non FMG Power Assets</a></td>
+    <td width="10%" class="TableRow" valign="top">Block</td>
+    <td width="10%" class="TableRow" valign="top">Strong</td>
+    <td width="10%" class="TableRow" valign="top">To</td>
+    <td width="40%" class="TableRow" valign="top">
+        &nbsp;
+    </td>
+</tr>
+
+    </table>
+</div>
+	</div>
+ </div>
  
                     </td>
 				</tr>

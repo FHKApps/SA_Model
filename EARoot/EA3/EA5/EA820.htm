@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head><link rel="icon" href="/favicon.ico"></head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Interfaces::DGS-I_0178</title>
+<title>Interfaces::DGS-I_0177</title>
 <link href="../../../css/ea.css" rel="stylesheet" type="text/css" />
 <script language="JavaScript" src="../../../js/displayToc.js" type="text/javascript"></script>
 
@@ -379,6 +379,20 @@ function getTargetInfo(areaElement) {
 
         simplifyHeaderTitle(); // <-- cleans header text
 
+        // ----------------------------------------------------------------
+        // DELPHI RVAM BUTTON: Show only on the Delphi requirements diagram
+        // ----------------------------------------------------------------
+        (function() {
+            const h1 = document.querySelector('.header_frame h1');
+            const delphiBox = document.getElementById('delphi-rvam-box');
+            if (h1 && delphiBox) {
+                const pageTitle = h1.textContent.trim();
+                if (pageTitle.includes('855DC-1541-DEL Delphi')) {
+                    delphiBox.style.display = 'block';
+                }
+            }
+        })();
+
         // Netlify Navigation Fix
         const navLinks = document.querySelectorAll(
             'a[href^="./"], a[href^="../"], a[href$=".htm"], a[href$=".html"]'
@@ -408,17 +422,18 @@ function getTargetInfo(areaElement) {
             });
         }
 		// ----------------------------------------------------------------
-// DOWNLOAD LINK FIX (Interface Register)
+// DOWNLOAD LINK FIX (all files/ links, depth-independent)
 // ----------------------------------------------------------------
 const cssLinkDownload = document.querySelector('link[href*="ea.css"]');
 if (cssLinkDownload) {
     const cssPathDownload = cssLinkDownload.getAttribute('href');
     const rootPathDownload = cssPathDownload.substring(0, cssPathDownload.lastIndexOf('css/'));
 
-    const downloadLink = document.querySelector('.download-box a');
-    if (downloadLink) {
-        downloadLink.href = rootPathDownload + "files/Fortescue_Interface-Register_Z.xlsm";
-    }
+    document.querySelectorAll('a[href*="files/"]').forEach(link => {
+        const href = link.getAttribute('href');
+        const filename = href.substring(href.indexOf('files/'));
+        link.href = rootPathDownload + filename;
+    });
 }
 // ----------------------------------------------------------------
 // LEGEND SWITCHING (SBS Special Case)
@@ -477,11 +492,11 @@ if (cssLinkDownload) {
 <div class="section group" >
 
 		<div class="col span_2_of_2 header_frame">
-			<h1> Interfaces::DGS-I_0178 </h1>
+			<h1> Interfaces::DGS-I_0177 </h1>
 			<img class="header_image" src="../../../images/Logo.png" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
-			<p><a href="../../EA19.htm">Decarb Green Systems Architecture  Version: Z</a> / <a href="../EA480.htm">System Definition Elements</a> / <a href="EA642.htm">Interfaces</a> / <a href="EA820.htm">DGS-I_0178</a></p>
+			<p><a href="../../EA19.htm">Decarb Green Systems Architecture  Version: Z</a> / <a href="../EA481.htm">System Definition Elements</a> / <a href="EA643.htm">Interfaces</a> / <a href="EA820.htm">DGS-I_0177</a></p>
 		</div>
 			
 		<table class="contentmaintable">
@@ -492,9 +507,14 @@ if (cssLinkDownload) {
 						<div class="download-box">
 						<div class="download-box">
 							<a href="files/Fortescue_Interface-Register_Z.xlsm" target="_blank">
-							Interface Register
+							Export Interface Register
 							</a>
 						</div>
+						</div>
+						<div class="download-box" id="delphi-rvam-box" style="display:none;">
+							<a href="files/Delphi_RVAM_Z.xlsx" target="_blank">
+							Export RVAM for this system
+							</a>
 						</div>
                         
                         <div class="sidebar-search-container">
@@ -505,7 +525,7 @@ if (cssLinkDownload) {
 
                         <div id="originalTree">
 						    <ul>
-<a href="EA642.htm">Interfaces</a></ul>
+<a href="EA643.htm">Interfaces</a></ul>
 
                         </div>
 					</td>
@@ -639,7 +659,7 @@ if (cssLinkDownload) {
 
 <div class="PageBody" style="position: relative !important; height: auto !important; overflow: visible !important; padding-bottom: 10px;">
     <span class="ObjectTitle">
-        DGS-I_0178 : &lt;&lt;InterfaceBlock&gt;&gt;
+        DGS-I_0177 : &lt;&lt;InterfaceBlock&gt;&gt;
     </span>
 
     <table border="0" class="ObjectDetails" style="width: 100%; margin-bottom: 10px;">
@@ -648,11 +668,11 @@ if (cssLinkDownload) {
             <col width="*" />
         </colgroup>
         <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Status:</td><td class="ObjectDetailsValue">Proposed</td></tr>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Created:</td><td class="ObjectDetailsValue">03/11/2025 19:22:43</td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Created:</td><td class="ObjectDetailsValue">03/11/2025 19:22:27</td></tr>
         <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Modified:</td><td class="ObjectDetailsValue">11/12/2025 01:37:20</td></tr>
         <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Author:</td><td class="ObjectDetailsValue">Admin</td></tr>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">UUID:</td><td class="ObjectDetailsValue">{5E03B19B-FF4F-4d05-A884-E768B6D97D60}</td></tr>
-        <tr id="adv01"><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Appears In:</td><td class="ObjectDetailsValue"><a href="../../EA13.htm">855DC-1543-008 Monarch</a>, <a href="../../EA15.htm">System Definition (SD)</a>, <a href="../../EA1.htm">855DC-1541-ECL Eclipse</a>, <a href="../../EA3.htm">855DC-1541-LIV LiveWire</a>, <a href="../../EA5.htm">855DC-1541-DEL Delphi</a></td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">UUID:</td><td class="ObjectDetailsValue">{DAB1A2AA-472A-4991-9C71-ACBC1E44DECF}</td></tr>
+        <tr id="adv01"><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Appears In:</td><td class="ObjectDetailsValue"><a href="../../EA13.htm">855DC-1543-008 Monarch</a>, <a href="../../EA15.htm">System Definition (SD)</a>, <a href="../../EA1.htm">855DC-1541-ECL Eclipse</a>, <a href="../../EA5.htm">855DC-1541-LIV LiveWire</a>, <a href="../../EA3.htm">855DC-1541-DEL Delphi</a></td></tr>
         <tr>
             <td class="ObjectDetailsTopic" style="padding-left:0; width:70px; vertical-align:top; padding-top:5px;">Remarks:</td>
             <td class="ObjectDetailsValue remarks-cell" style="vertical-align:top; padding-top:5px;"></td>
@@ -1048,7 +1068,7 @@ if (cssLinkDownload) {
         </tr>
         			<tr>
 				<td class="TableRow" valign="top">1. Interface Name</td>
-				<td class="TableRow" valign="top">859DC-1410-001-002 HaulX Control (Autonomous Haulage System)|851DC Heavy Mobile Equipment (HME)</td>
+				<td class="TableRow" valign="top">859DC-1410-001-004 HaulX Shield (Collision Avoidance System)|852DC Light Mobile Equipment (LME) & Support Mobile Equipment (SME)</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1075,7 +1095,7 @@ if (cssLinkDownload) {
 				</td>
 			</tr>			<tr>
 				<td class="TableRow" valign="top">6. Interface Description</td>
-				<td class="TableRow" valign="top">This interface connects HaulX Control with Heavy Mobile Equipment, enabling autonomous haulage to recognise HME locations, status, and movement patterns when planning and executing safe truck paths.</td>
+				<td class="TableRow" valign="top">This interface provides HaulX Shield with SME position, proximity, and sensor data to support collision-avoidance logic across mixed traffic.</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1093,7 +1113,7 @@ if (cssLinkDownload) {
 				</td>
 			</tr>			<tr>
 				<td class="TableRow" valign="top">8. Interface Flow</td>
-				<td class="TableRow" valign="top">Data Flow: Heavy Mobile Equipment (HME) -&gt; HaulX Control (real-time position, speed, heading, trajectory, operational status, payload status, fault alarms, sensor health, geofence status) to support autonomous haulage planning and safe path execution.<br />Data Flow: HaulX Control -&gt; HME (route assignments, speed commands, path updates, stop/go commands, hazard alerts, exclusion zone updates) to coordinate safe autonomous movement.</td>
+				<td class="TableRow" valign="top">Data Flow: SME (Light & Support Mobile Equipment) -&gt; HaulX Shield (real-time position, speed, heading, proximity data, equipment ID, status, sensor health, geofence alerts) to support collision-avoidance logic and mixed-traffic coordination.</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1102,7 +1122,7 @@ if (cssLinkDownload) {
 				</td>
 			</tr>			<tr>
 				<td class="TableRow" valign="top">9. Interface Criticality Justification</td>
-				<td class="TableRow" valign="top">The criticality level is HIGH because autonomous trucks must reliably detect and account for HME to prevent collisions, unsafe routing, or operational blockages. A failure of this interface undermines the situational awareness necessary for autonomous operations, potentially forcing a shutdown of AHS activity.</td>
+				<td class="TableRow" valign="top">The criticality level is HIGH because incorrect or missing positional data from SMEs may compromise safe autonomous or assisted haulage operations, increasing the risk of vehicle interactions. Collision-avoidance systems depend on reliable position and movement data from all equipment types to ensure safe operation, making this interface safety-critical.</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1153,22 +1173,22 @@ if (cssLinkDownload) {
         </tr>
 
 <tr class="#LINK_STEREOTYPE# Block">
-    <td width="30%" class="TableRow" valign="top"><a href="../../EA2/EA302.htm">«block» 851DC Heavy Mobile Equipment (HME)</a></td>
+    <td width="30%" class="TableRow" valign="top"><a href="../../EA2/EA304.htm">«block» 852DC Light Mobile Equipment (LME) & Support Mobile Equipment (SME)</a></td>
     <td width="10%" class="TableRow" valign="top">Block</td>
     <td width="10%" class="TableRow" valign="top">Abstraction</td>
     <td width="10%" class="TableRow" valign="top">From</td>
     <td width="40%" class="TableRow" valign="top">
-        <div class="ObjectDetailsNotes">&lt;a href=&quot;../../EA2/EA200.htm&quot;&gt;859DC-1410-001-002 HaulX Control (Autonomous Haulage System)&lt;/a&gt;&lt;br/&gt;</div>
+        <div class="ObjectDetailsNotes">&lt;a href=&quot;../../EA2/EA203.htm&quot;&gt;859DC-1410-001-004 HaulX Shield (Collision Avoidance System)&lt;/a&gt;&lt;br/&gt;</div>
 
     </td>
 </tr>
 <tr class="#LINK_STEREOTYPE# Block">
-    <td width="30%" class="TableRow" valign="top"><a href="../../EA2/EA200.htm">«block» 859DC-1410-001-002 HaulX Control (Autonomous Haulage System)</a></td>
+    <td width="30%" class="TableRow" valign="top"><a href="../../EA2/EA203.htm">«block» 859DC-1410-001-004 HaulX Shield (Collision Avoidance System)</a></td>
     <td width="10%" class="TableRow" valign="top">Block</td>
     <td width="10%" class="TableRow" valign="top">Abstraction</td>
     <td width="10%" class="TableRow" valign="top">From</td>
     <td width="40%" class="TableRow" valign="top">
-        <div class="ObjectDetailsNotes">&lt;a href=&quot;../../EA2/EA302.htm&quot;&gt;851DC Heavy Mobile Equipment (HME)&lt;/a&gt;&lt;br/&gt;</div>
+        <div class="ObjectDetailsNotes">&lt;a href=&quot;../../EA2/EA304.htm&quot;&gt;852DC Light Mobile Equipment (LME) & Support Mobile Equipment (SME)&lt;/a&gt;&lt;br/&gt;</div>
 
     </td>
 </tr>

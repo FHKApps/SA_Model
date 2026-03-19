@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head><link rel="icon" href="/favicon.ico"></head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>System Breakdown Structure Elements::Fortescue Operations Portfolio::001OP Fixed Process Plant::001OP-4000 Port Facilities</title>
+<title>System Breakdown Structure Elements::Fortescue Operations Portfolio::001OP Fixed Process Plant::001OP-2001 Ore Processing Facility (OPF)</title>
 <link href="../../css/ea.css" rel="stylesheet" type="text/css" />
 <script language="JavaScript" src="../../js/displayToc.js" type="text/javascript"></script>
 
@@ -379,6 +379,20 @@ function getTargetInfo(areaElement) {
 
         simplifyHeaderTitle(); // <-- cleans header text
 
+        // ----------------------------------------------------------------
+        // DELPHI RVAM BUTTON: Show only on the Delphi requirements diagram
+        // ----------------------------------------------------------------
+        (function() {
+            const h1 = document.querySelector('.header_frame h1');
+            const delphiBox = document.getElementById('delphi-rvam-box');
+            if (h1 && delphiBox) {
+                const pageTitle = h1.textContent.trim();
+                if (pageTitle.includes('855DC-1541-DEL Delphi')) {
+                    delphiBox.style.display = 'block';
+                }
+            }
+        })();
+
         // Netlify Navigation Fix
         const navLinks = document.querySelectorAll(
             'a[href^="./"], a[href^="../"], a[href$=".htm"], a[href$=".html"]'
@@ -408,17 +422,18 @@ function getTargetInfo(areaElement) {
             });
         }
 		// ----------------------------------------------------------------
-// DOWNLOAD LINK FIX (Interface Register)
+// DOWNLOAD LINK FIX (all files/ links, depth-independent)
 // ----------------------------------------------------------------
 const cssLinkDownload = document.querySelector('link[href*="ea.css"]');
 if (cssLinkDownload) {
     const cssPathDownload = cssLinkDownload.getAttribute('href');
     const rootPathDownload = cssPathDownload.substring(0, cssPathDownload.lastIndexOf('css/'));
 
-    const downloadLink = document.querySelector('.download-box a');
-    if (downloadLink) {
-        downloadLink.href = rootPathDownload + "files/Fortescue_Interface-Register_Z.xlsm";
-    }
+    document.querySelectorAll('a[href*="files/"]').forEach(link => {
+        const href = link.getAttribute('href');
+        const filename = href.substring(href.indexOf('files/'));
+        link.href = rootPathDownload + filename;
+    });
 }
 // ----------------------------------------------------------------
 // LEGEND SWITCHING (SBS Special Case)
@@ -477,11 +492,11 @@ if (cssLinkDownload) {
 <div class="section group" >
 
 		<div class="col span_2_of_2 header_frame">
-			<h1> System Breakdown Structure Elements::Fortescue Operations Portfolio::001OP Fixed Process Plant::001OP-4000 Port Facilities </h1>
+			<h1> System Breakdown Structure Elements::Fortescue Operations Portfolio::001OP Fixed Process Plant::001OP-2001 Ore Processing Facility (OPF) </h1>
 			<img class="header_image" src="../../images/Logo.png" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
-			<p><a href="../EA19.htm">Decarb Green Systems Architecture  Version: Z</a> / <a href="EA159.htm">System Breakdown Structure Elements</a> / <a href="EA161.htm">Fortescue Operations Portfolio</a> / <a href="EA417.htm">001OP Fixed Process Plant</a> / <a href="EA245.htm">001OP-4000 Port Facilities</a></p>
+			<p><a href="../EA19.htm">Decarb Green Systems Architecture  Version: Z</a> / <a href="EA160.htm">System Breakdown Structure Elements</a> / <a href="EA162.htm">Fortescue Operations Portfolio</a> / <a href="EA418.htm">001OP Fixed Process Plant</a> / <a href="EA245.htm">001OP-2001 Ore Processing Facility (OPF)</a></p>
 		</div>
 			
 		<table class="contentmaintable">
@@ -492,9 +507,14 @@ if (cssLinkDownload) {
 						<div class="download-box">
 						<div class="download-box">
 							<a href="files/Fortescue_Interface-Register_Z.xlsm" target="_blank">
-							Interface Register
+							Export Interface Register
 							</a>
 						</div>
+						</div>
+						<div class="download-box" id="delphi-rvam-box" style="display:none;">
+							<a href="files/Delphi_RVAM_Z.xlsx" target="_blank">
+							Export RVAM for this system
+							</a>
 						</div>
                         
                         <div class="sidebar-search-container">
@@ -505,7 +525,7 @@ if (cssLinkDownload) {
 
                         <div id="originalTree">
 						    <ul>
-<a href="EA417.htm">001OP Fixed Process Plant</a></ul>
+<a href="EA418.htm">001OP Fixed Process Plant</a></ul>
 
                         </div>
 					</td>
@@ -639,7 +659,7 @@ if (cssLinkDownload) {
 
 <div class="PageBody" style="position: relative !important; height: auto !important; overflow: visible !important; padding-bottom: 10px;">
     <span class="ObjectTitle">
-        001OP-4000 Port Facilities : &lt;&lt;block&gt;&gt;
+        001OP-2001 Ore Processing Facility (OPF) : &lt;&lt;block&gt;&gt;
     </span>
 
     <table border="0" class="ObjectDetails" style="width: 100%; margin-bottom: 10px;">
@@ -648,11 +668,11 @@ if (cssLinkDownload) {
             <col width="*" />
         </colgroup>
         <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Status:</td><td class="ObjectDetailsValue">Proposed</td></tr>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Created:</td><td class="ObjectDetailsValue">06/10/2025 18:22:38</td></tr>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Modified:</td><td class="ObjectDetailsValue">07/01/2026 15:03:19</td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Created:</td><td class="ObjectDetailsValue">23/09/2025 20:27:31</td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Modified:</td><td class="ObjectDetailsValue">07/01/2026 15:03:20</td></tr>
         <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Author:</td><td class="ObjectDetailsValue">Admin</td></tr>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">UUID:</td><td class="ObjectDetailsValue">{6763A74A-4A3D-4ef6-82C9-417F18526F09}</td></tr>
-        <tr id="adv01"><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Appears In:</td><td class="ObjectDetailsValue"><a href="../EA7.htm">855DC-1542-008 Mine Electrification SCADA</a>, <a href="../EA13.htm">855DC-1543-008 Monarch</a>, <a href="../EA15.htm">System Definition (SD)</a>, <a href="../EA1.htm">855DC-1541-ECL Eclipse</a>, <a href="../EA3.htm">855DC-1541-LIV LiveWire</a>, <a href="../EA5.htm">855DC-1541-DEL Delphi</a>, <a href="../EA11.htm">855DC-1542-LMS Load Management System (LMS)</a>, <a href="../EA9.htm">855DC-1542-CSM Charge Station Management System (CSMS)</a>, <a href="../EA17.htm">System Breakdown Structure (SBS)</a></td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">UUID:</td><td class="ObjectDetailsValue">{03246CE4-320B-4447-BA5B-70B5F400C5A5}</td></tr>
+        <tr id="adv01"><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Appears In:</td><td class="ObjectDetailsValue"><a href="../EA7.htm">855DC-1542-008 Mine Electrification SCADA</a>, <a href="../EA13.htm">855DC-1543-008 Monarch</a>, <a href="../EA15.htm">System Definition (SD)</a>, <a href="../EA1.htm">855DC-1541-ECL Eclipse</a>, <a href="../EA5.htm">855DC-1541-LIV LiveWire</a>, <a href="../EA3.htm">855DC-1541-DEL Delphi</a>, <a href="../EA11.htm">855DC-1542-LMS Load Management System (LMS)</a>, <a href="../EA9.htm">855DC-1542-CSM Charge Station Management System (CSMS)</a>, <a href="../EA17.htm">System Breakdown Structure (SBS)</a></td></tr>
         <tr>
             <td class="ObjectDetailsTopic" style="padding-left:0; width:70px; vertical-align:top; padding-top:5px;">Remarks:</td>
             <td class="ObjectDetailsValue remarks-cell" style="vertical-align:top; padding-top:5px;"></td>
@@ -1050,7 +1070,7 @@ if (cssLinkDownload) {
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="EA417.htm">«block» 001OP Fixed Process Plant</a><br />
+						<a href="EA418.htm">«block» 001OP Fixed Process Plant</a><br />
 						Block &nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
@@ -1064,8 +1084,8 @@ if (cssLinkDownload) {
 				</tr>
 				<tr>
 					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink1138" /></button>Details:
-							<div id="detailsDIVLink1138" class="DetailsDiv" >
+						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink1124" /></button>Details:
+							<div id="detailsDIVLink1124" class="DetailsDiv" >
 							&nbsp;
 							</div>
 						</div>
@@ -1100,7 +1120,7 @@ if (cssLinkDownload) {
 				</td>
 			</tr>			<tr>
 				<td class="TableRow" valign="top">Facility Code</td>
-				<td class="TableRow" valign="top">4000</td>
+				<td class="TableRow" valign="top">2001</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1118,7 +1138,7 @@ if (cssLinkDownload) {
 				</td>
 			</tr>			<tr>
 				<td class="TableRow" valign="top">Old SBS ID</td>
-				<td class="TableRow" valign="top">F.02</td>
+				<td class="TableRow" valign="top">F.01</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1181,7 +1201,7 @@ if (cssLinkDownload) {
 				</td>
 			</tr>			<tr>
 				<td class="TableRow" valign="top">System</td>
-				<td class="TableRow" valign="top">001OP-4000 Port Facilities</td>
+				<td class="TableRow" valign="top">001OP-2001 Ore Processing Facility (OPF)</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1190,7 +1210,7 @@ if (cssLinkDownload) {
 				</td>
 			</tr>			<tr>
 				<td class="TableRow" valign="top">WBS Code</td>
-				<td class="TableRow" valign="top">001OP-4000</td>
+				<td class="TableRow" valign="top">001OP-2001</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1236,53 +1256,43 @@ if (cssLinkDownload) {
             <td class="TableHeading">Interfaces with</td>
         </tr>
 
+<tr class="#LINK_STEREOTYPE# InterfaceBlock">
+    <td width="30%" class="TableRow" valign="top"><a href="../EA3/EA5/EA701.htm">«InterfaceBlock» DGS-I_0058</a></td>
+    <td width="10%" class="TableRow" valign="top">InterfaceBlock</td>
+    <td width="10%" class="TableRow" valign="top">Abstraction</td>
+    <td width="10%" class="TableRow" valign="top">To</td>
+    <td width="40%" class="TableRow" valign="top">
+        <div class="ObjectDetailsNotes">&lt;a href=&quot;EA321.htm&quot;&gt;855DC-1543-PPC Pit Power Capacity Planning Tool - Capacity Check&lt;/a&gt;&lt;br/&gt;</div>
+
+    </td>
+</tr>
+<tr class="#LINK_STEREOTYPE# InterfaceBlock">
+    <td width="30%" class="TableRow" valign="top"><a href="../EA3/EA5/EA736.htm">«InterfaceBlock» DGS-I_0093</a></td>
+    <td width="10%" class="TableRow" valign="top">InterfaceBlock</td>
+    <td width="10%" class="TableRow" valign="top">Abstraction</td>
+    <td width="10%" class="TableRow" valign="top">To</td>
+    <td width="40%" class="TableRow" valign="top">
+        <div class="ObjectDetailsNotes">&lt;a href=&quot;EA278.htm&quot;&gt;004OP-1303 Train Loadout (TLO) Ore Stockpile&lt;/a&gt;&lt;br/&gt;</div>
+
+    </td>
+</tr>
+<tr class="#LINK_STEREOTYPE# InterfaceBlock">
+    <td width="30%" class="TableRow" valign="top"><a href="../EA3/EA5/EA737.htm">«InterfaceBlock» DGS-I_0094</a></td>
+    <td width="10%" class="TableRow" valign="top">InterfaceBlock</td>
+    <td width="10%" class="TableRow" valign="top">Abstraction</td>
+    <td width="10%" class="TableRow" valign="top">To</td>
+    <td width="40%" class="TableRow" valign="top">
+        <div class="ObjectDetailsNotes">&lt;a href=&quot;EA277.htm&quot;&gt;004OP-1302 Coarse Ore Stockpile (COS)&lt;/a&gt;&lt;br/&gt;</div>
+
+    </td>
+</tr>
 <tr class="#LINK_STEREOTYPE# Block">
-    <td width="30%" class="TableRow" valign="top"><a href="EA417.htm">«block» 001OP Fixed Process Plant</a></td>
+    <td width="30%" class="TableRow" valign="top"><a href="EA418.htm">«block» 001OP Fixed Process Plant</a></td>
     <td width="10%" class="TableRow" valign="top">Block</td>
     <td width="10%" class="TableRow" valign="top">Strong</td>
     <td width="10%" class="TableRow" valign="top">To</td>
     <td width="40%" class="TableRow" valign="top">
         &nbsp;
-    </td>
-</tr>
-<tr class="#LINK_STEREOTYPE# InterfaceBlock">
-    <td width="30%" class="TableRow" valign="top"><a href="../EA3/EA5/EA697.htm">«InterfaceBlock» DGS-I_0055</a></td>
-    <td width="10%" class="TableRow" valign="top">InterfaceBlock</td>
-    <td width="10%" class="TableRow" valign="top">Abstraction</td>
-    <td width="10%" class="TableRow" valign="top">To</td>
-    <td width="40%" class="TableRow" valign="top">
-        <div class="ObjectDetailsNotes">&lt;a href=&quot;EA320.htm&quot;&gt;855DC-1543-PPC Pit Power Capacity Planning Tool - Capacity Check&lt;/a&gt;&lt;br/&gt;</div>
-
-    </td>
-</tr>
-<tr class="#LINK_STEREOTYPE# InterfaceBlock">
-    <td width="30%" class="TableRow" valign="top"><a href="../EA3/EA5/EA743.htm">«InterfaceBlock» DGS-I_0101</a></td>
-    <td width="10%" class="TableRow" valign="top">InterfaceBlock</td>
-    <td width="10%" class="TableRow" valign="top">Abstraction</td>
-    <td width="10%" class="TableRow" valign="top">To</td>
-    <td width="40%" class="TableRow" valign="top">
-        <div class="ObjectDetailsNotes">&lt;a href=&quot;EA259.htm&quot;&gt;001OP-3720 Concentrate Pipeline&lt;/a&gt;&lt;br/&gt;</div>
-
-    </td>
-</tr>
-<tr class="#LINK_STEREOTYPE# InterfaceBlock">
-    <td width="30%" class="TableRow" valign="top"><a href="../EA3/EA5/EA742.htm">«InterfaceBlock» DGS-I_0100</a></td>
-    <td width="10%" class="TableRow" valign="top">InterfaceBlock</td>
-    <td width="10%" class="TableRow" valign="top">Abstraction</td>
-    <td width="10%" class="TableRow" valign="top">To</td>
-    <td width="40%" class="TableRow" valign="top">
-        <div class="ObjectDetailsNotes">&lt;a href=&quot;EA254.htm&quot;&gt;001OP-2700 Material Handling Equipment&lt;/a&gt;&lt;br/&gt;</div>
-
-    </td>
-</tr>
-<tr class="#LINK_STEREOTYPE# InterfaceBlock">
-    <td width="30%" class="TableRow" valign="top"><a href="../EA3/EA5/EA741.htm">«InterfaceBlock» DGS-I_0099</a></td>
-    <td width="10%" class="TableRow" valign="top">InterfaceBlock</td>
-    <td width="10%" class="TableRow" valign="top">Abstraction</td>
-    <td width="10%" class="TableRow" valign="top">To</td>
-    <td width="40%" class="TableRow" valign="top">
-        <div class="ObjectDetailsNotes">&lt;a href=&quot;EA258.htm&quot;&gt;001OP-4160 Train Unloader (TUL)&lt;/a&gt;&lt;br/&gt;</div>
-
     </td>
 </tr>
 

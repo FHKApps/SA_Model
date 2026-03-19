@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head><link rel="icon" href="/favicon.ico"></head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>System Breakdown Structure Elements::Decarbonisation Portfolio::852DC Light Mobile Equipment (LME) & Support Mobile Equipment (SME)</title>
+<title>System Breakdown Structure Elements::Decarbonisation Portfolio::851DC Heavy Mobile Equipment (HME)</title>
 <link href="../../css/ea.css" rel="stylesheet" type="text/css" />
 <script language="JavaScript" src="../../js/displayToc.js" type="text/javascript"></script>
 
@@ -379,6 +379,20 @@ function getTargetInfo(areaElement) {
 
         simplifyHeaderTitle(); // <-- cleans header text
 
+        // ----------------------------------------------------------------
+        // DELPHI RVAM BUTTON: Show only on the Delphi requirements diagram
+        // ----------------------------------------------------------------
+        (function() {
+            const h1 = document.querySelector('.header_frame h1');
+            const delphiBox = document.getElementById('delphi-rvam-box');
+            if (h1 && delphiBox) {
+                const pageTitle = h1.textContent.trim();
+                if (pageTitle.includes('855DC-1541-DEL Delphi')) {
+                    delphiBox.style.display = 'block';
+                }
+            }
+        })();
+
         // Netlify Navigation Fix
         const navLinks = document.querySelectorAll(
             'a[href^="./"], a[href^="../"], a[href$=".htm"], a[href$=".html"]'
@@ -408,17 +422,18 @@ function getTargetInfo(areaElement) {
             });
         }
 		// ----------------------------------------------------------------
-// DOWNLOAD LINK FIX (Interface Register)
+// DOWNLOAD LINK FIX (all files/ links, depth-independent)
 // ----------------------------------------------------------------
 const cssLinkDownload = document.querySelector('link[href*="ea.css"]');
 if (cssLinkDownload) {
     const cssPathDownload = cssLinkDownload.getAttribute('href');
     const rootPathDownload = cssPathDownload.substring(0, cssPathDownload.lastIndexOf('css/'));
 
-    const downloadLink = document.querySelector('.download-box a');
-    if (downloadLink) {
-        downloadLink.href = rootPathDownload + "files/Fortescue_Interface-Register_Z.xlsm";
-    }
+    document.querySelectorAll('a[href*="files/"]').forEach(link => {
+        const href = link.getAttribute('href');
+        const filename = href.substring(href.indexOf('files/'));
+        link.href = rootPathDownload + filename;
+    });
 }
 // ----------------------------------------------------------------
 // LEGEND SWITCHING (SBS Special Case)
@@ -477,11 +492,11 @@ if (cssLinkDownload) {
 <div class="section group" >
 
 		<div class="col span_2_of_2 header_frame">
-			<h1> System Breakdown Structure Elements::Decarbonisation Portfolio::852DC Light Mobile Equipment (LME) & Support Mobile Equipment (SME) </h1>
+			<h1> System Breakdown Structure Elements::Decarbonisation Portfolio::851DC Heavy Mobile Equipment (HME) </h1>
 			<img class="header_image" src="../../images/Logo.png" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
-			<p><a href="../EA19.htm">Decarb Green Systems Architecture  Version: Z</a> / <a href="EA159.htm">System Breakdown Structure Elements</a> / <a href="EA160.htm">Decarbonisation Portfolio</a> / <a href="EA303.htm">852DC Light Mobile Equipment (LME) & Support Mobile Equipment (SME)</a></p>
+			<p><a href="../EA19.htm">Decarb Green Systems Architecture  Version: Z</a> / <a href="EA160.htm">System Breakdown Structure Elements</a> / <a href="EA161.htm">Decarbonisation Portfolio</a> / <a href="EA303.htm">851DC Heavy Mobile Equipment (HME)</a></p>
 		</div>
 			
 		<table class="contentmaintable">
@@ -492,9 +507,14 @@ if (cssLinkDownload) {
 						<div class="download-box">
 						<div class="download-box">
 							<a href="files/Fortescue_Interface-Register_Z.xlsm" target="_blank">
-							Interface Register
+							Export Interface Register
 							</a>
 						</div>
+						</div>
+						<div class="download-box" id="delphi-rvam-box" style="display:none;">
+							<a href="files/Delphi_RVAM_Z.xlsx" target="_blank">
+							Export RVAM for this system
+							</a>
 						</div>
                         
                         <div class="sidebar-search-container">
@@ -505,32 +525,18 @@ if (cssLinkDownload) {
 
                         <div id="originalTree">
 						    <ul>
-<li><img src="../../images/5.png" alt="Class"/> <a href="EA368.htm">852DC-1583 Dozer (&lt;40t)</a></li>
-<li><img src="../../images/5.png" alt="Class"/> <a href="EA370.htm">852DC-1585 SME Loader</a></li>
-<li><img src="../../images/118.png" alt="Part"/> <a href="EA386.htm">System: 852DC-1575 ESO Vehicles</a></li>
-<li><img src="../../images/118.png" alt="Part"/> <a href="EA385.htm">System: 852DC-1574 People Movers (Buses & Coaches)</a></li>
-<li><img src="../../images/118.png" alt="Part"/> <a href="EA384.htm">System: 852DC-1573 LVs</a></li>
-<li><img src="../../images/118.png" alt="Part"/> <a href="EA383.htm">System: 852DC-1572 Light Truck (&lt;4.5t)</a></li>
-<li><img src="../../images/118.png" alt="Part"/> <a href="EA382.htm">System: 852DC-1571 ATV</a></li>
-<li><img src="../../images/5.png" alt="Class"/> <a href="EA363.htm">852DC-1573 LVs</a></li>
-<li><img src="../../images/5.png" alt="Class"/> <a href="EA364.htm">852DC-1574 People Movers (Buses & Coaches)</a></li>
-<li><img src="../../images/5.png" alt="Class"/> <a href="EA365.htm">852DC-1575 ESO Vehicles</a></li>
-<li><img src="../../images/5.png" alt="Class"/> <a href="EA362.htm">852DC-1572 Light Truck (&lt;4.5t)</a></li>
-<li><img src="../../images/5.png" alt="Class"/> <a href="EA361.htm">852DC-1571 ATV</a></li>
-<li><img src="../../images/118.png" alt="Part"/> <a href="EA381.htm">System: 852DC-1588 Wheel Tractor</a></li>
-<li><img src="../../images/118.png" alt="Part"/> <a href="EA380.htm">System: 852DC-1586 Roller</a></li>
-<li><img src="../../images/118.png" alt="Part"/> <a href="EA379.htm">System: 852DC-1587 Prime Movers & Trucks (&gt;4.5t)</a></li>
-<li><img src="../../images/118.png" alt="Part"/> <a href="EA378.htm">System: 852DC-1584 Grader (&lt;15ft)</a></li>
-<li><img src="../../images/118.png" alt="Part"/> <a href="EA377.htm">System: 852DC-1581 Excavators (&lt;110t)</a></li>
-<li><img src="../../images/118.png" alt="Part"/> <a href="EA376.htm">System: 852DC-1582 Dump Truck (45t)</a></li>
-<li><img src="../../images/5.png" alt="Class"/> <a href="EA366.htm">852DC-1581 Excavators (&lt;110t)</a></li>
-<li><img src="../../images/5.png" alt="Class"/> <a href="EA373.htm">852DC-1588 Wheel Tractor</a></li>
-<li><img src="../../images/5.png" alt="Class"/> <a href="EA369.htm">852DC-1584 Grader (&lt;15ft)</a></li>
-<li><img src="../../images/5.png" alt="Class"/> <a href="EA372.htm">852DC-1587 Prime Movers & Trucks (&gt;4.5t)</a></li>
-<li><img src="../../images/5.png" alt="Class"/> <a href="EA371.htm">852DC-1586 Roller</a></li>
-<li><img src="../../images/5.png" alt="Class"/> <a href="EA367.htm">852DC-1582 Dump Truck (45t)</a></li>
-<li><img src="../../images/118.png" alt="Part"/> <a href="EA375.htm">System: 852DC-1585 SME Loader</a></li>
-<li><img src="../../images/118.png" alt="Part"/> <a href="EA374.htm">System: 852DC-1583 Dozer (&lt;40t)</a></li>
+<li><img src="../../images/5.png" alt="Class"/> <a href="EA351.htm">851DC-1592 Haulage</a></li>
+<li><img src="../../images/118.png" alt="Part"/> <a href="EA361.htm">System: 851DC-1596 Watercarts</a></li>
+<li><img src="../../images/5.png" alt="Class"/> <a href="EA355.htm">851DC-1596 Watercarts</a></li>
+<li><img src="../../images/118.png" alt="Part"/> <a href="EA360.htm">System: 851DC-1593 HME Loader</a></li>
+<li><img src="../../images/118.png" alt="Part"/> <a href="EA359.htm">System: 851DC-1595 Grader (&gt;15ft)</a></li>
+<li><img src="../../images/118.png" alt="Part"/> <a href="EA358.htm">System: 851DC-1591 Excavator (&gt;110t)</a></li>
+<li><img src="../../images/5.png" alt="Class"/> <a href="EA352.htm">851DC-1593 HME Loader</a></li>
+<li><img src="../../images/5.png" alt="Class"/> <a href="EA354.htm">851DC-1595 Grader (&gt;15ft)</a></li>
+<li><img src="../../images/5.png" alt="Class"/> <a href="EA350.htm">851DC-1591 Excavator (&gt;110t)</a></li>
+<li><img src="../../images/118.png" alt="Part"/> <a href="EA357.htm">System: 851DC-1594 Dozer ( &gt;40t)</a></li>
+<li><img src="../../images/118.png" alt="Part"/> <a href="EA356.htm">System: 851DC-1592 Haulage</a></li>
+<li><img src="../../images/5.png" alt="Class"/> <a href="EA353.htm">851DC-1594 Dozer ( &gt;40t)</a></li>
 </ul>
 
                         </div>
@@ -665,7 +671,7 @@ if (cssLinkDownload) {
 
 <div class="PageBody" style="position: relative !important; height: auto !important; overflow: visible !important; padding-bottom: 10px;">
     <span class="ObjectTitle">
-        852DC Light Mobile Equipment (LME) & Support Mobile Equipment (SME) : &lt;&lt;block&gt;&gt;
+        851DC Heavy Mobile Equipment (HME) : &lt;&lt;block&gt;&gt;
     </span>
 
     <table border="0" class="ObjectDetails" style="width: 100%; margin-bottom: 10px;">
@@ -674,11 +680,11 @@ if (cssLinkDownload) {
             <col width="*" />
         </colgroup>
         <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Status:</td><td class="ObjectDetailsValue">Proposed</td></tr>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Created:</td><td class="ObjectDetailsValue">06/10/2025 17:19:46</td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Created:</td><td class="ObjectDetailsValue">06/10/2025 17:10:16</td></tr>
         <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Modified:</td><td class="ObjectDetailsValue">07/01/2026 15:03:18</td></tr>
         <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Author:</td><td class="ObjectDetailsValue">Admin</td></tr>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">UUID:</td><td class="ObjectDetailsValue">{886059F3-A68D-446b-9C8C-9C58E53CD1CC}</td></tr>
-        <tr id="adv01"><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Appears In:</td><td class="ObjectDetailsValue"><a href="../EA7.htm">855DC-1542-008 Mine Electrification SCADA</a>, <a href="../EA13.htm">855DC-1543-008 Monarch</a>, <a href="../EA15.htm">System Definition (SD)</a>, <a href="../EA1.htm">855DC-1541-ECL Eclipse</a>, <a href="../EA3.htm">855DC-1541-LIV LiveWire</a>, <a href="../EA5.htm">855DC-1541-DEL Delphi</a>, <a href="../EA11.htm">855DC-1542-LMS Load Management System (LMS)</a>, <a href="../EA9.htm">855DC-1542-CSM Charge Station Management System (CSMS)</a>, <a href="../EA17.htm">System Breakdown Structure (SBS)</a></td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">UUID:</td><td class="ObjectDetailsValue">{5545954E-174B-4210-96B2-196EA9212010}</td></tr>
+        <tr id="adv01"><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Appears In:</td><td class="ObjectDetailsValue"><a href="../EA7.htm">855DC-1542-008 Mine Electrification SCADA</a>, <a href="../EA13.htm">855DC-1543-008 Monarch</a>, <a href="../EA15.htm">System Definition (SD)</a>, <a href="../EA1.htm">855DC-1541-ECL Eclipse</a>, <a href="../EA5.htm">855DC-1541-LIV LiveWire</a>, <a href="../EA3.htm">855DC-1541-DEL Delphi</a>, <a href="../EA11.htm">855DC-1542-LMS Load Management System (LMS)</a>, <a href="../EA9.htm">855DC-1542-CSM Charge Station Management System (CSMS)</a>, <a href="../EA17.htm">System Breakdown Structure (SBS)</a></td></tr>
         <tr>
             <td class="ObjectDetailsTopic" style="padding-left:0; width:70px; vertical-align:top; padding-top:5px;">Remarks:</td>
             <td class="ObjectDetailsValue remarks-cell" style="vertical-align:top; padding-top:5px;"></td>
@@ -1077,7 +1083,7 @@ if (cssLinkDownload) {
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="EA160.htm">«block» Decarbonisation Portfolio</a><br />
+						<a href="EA161.htm">«block» Decarbonisation Portfolio</a><br />
 						Block &nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
@@ -1091,8 +1097,8 @@ if (cssLinkDownload) {
 				</tr>
 				<tr>
 					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink1586" /></button>Details:
-							<div id="detailsDIVLink1586" class="DetailsDiv" >
+						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink1567" /></button>Details:
+							<div id="detailsDIVLink1567" class="DetailsDiv" >
 							&nbsp;
 							</div>
 						</div>
@@ -1110,7 +1116,7 @@ if (cssLinkDownload) {
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="EA373.htm">«block» 852DC-1588 Wheel Tractor</a><br />
+						<a href="EA353.htm">«block» 851DC-1594 Dozer ( >40t)</a><br />
 						Block &nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
@@ -1124,8 +1130,8 @@ if (cssLinkDownload) {
 				</tr>
 				<tr>
 					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink1587" /></button>Details:
-							<div id="detailsDIVLink1587" class="DetailsDiv" >
+						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink1568" /></button>Details:
+							<div id="detailsDIVLink1568" class="DetailsDiv" >
 							&nbsp;
 							</div>
 						</div>
@@ -1133,7 +1139,7 @@ if (cssLinkDownload) {
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="EA361.htm">«block» 852DC-1571 ATV</a><br />
+						<a href="EA352.htm">«block» 851DC-1593 HME Loader</a><br />
 						Block &nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
@@ -1147,8 +1153,8 @@ if (cssLinkDownload) {
 				</tr>
 				<tr>
 					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink1588" /></button>Details:
-							<div id="detailsDIVLink1588" class="DetailsDiv" >
+						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink1569" /></button>Details:
+							<div id="detailsDIVLink1569" class="DetailsDiv" >
 							&nbsp;
 							</div>
 						</div>
@@ -1156,7 +1162,7 @@ if (cssLinkDownload) {
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="EA364.htm">«block» 852DC-1574 People Movers (Buses & Coaches)</a><br />
+						<a href="EA355.htm">«block» 851DC-1596 Watercarts</a><br />
 						Block &nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
@@ -1170,8 +1176,8 @@ if (cssLinkDownload) {
 				</tr>
 				<tr>
 					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink1589" /></button>Details:
-							<div id="detailsDIVLink1589" class="DetailsDiv" >
+						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink1570" /></button>Details:
+							<div id="detailsDIVLink1570" class="DetailsDiv" >
 							&nbsp;
 							</div>
 						</div>
@@ -1179,7 +1185,7 @@ if (cssLinkDownload) {
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="EA368.htm">«block» 852DC-1583 Dozer (<40t)</a><br />
+						<a href="EA354.htm">«block» 851DC-1595 Grader (>15ft)</a><br />
 						Block &nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
@@ -1193,8 +1199,8 @@ if (cssLinkDownload) {
 				</tr>
 				<tr>
 					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink1590" /></button>Details:
-							<div id="detailsDIVLink1590" class="DetailsDiv" >
+						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink1571" /></button>Details:
+							<div id="detailsDIVLink1571" class="DetailsDiv" >
 							&nbsp;
 							</div>
 						</div>
@@ -1202,7 +1208,7 @@ if (cssLinkDownload) {
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="EA365.htm">«block» 852DC-1575 ESO Vehicles</a><br />
+						<a href="EA350.htm">«block» 851DC-1591 Excavator (>110t)</a><br />
 						Block &nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
@@ -1216,8 +1222,8 @@ if (cssLinkDownload) {
 				</tr>
 				<tr>
 					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink1591" /></button>Details:
-							<div id="detailsDIVLink1591" class="DetailsDiv" >
+						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink1572" /></button>Details:
+							<div id="detailsDIVLink1572" class="DetailsDiv" >
 							&nbsp;
 							</div>
 						</div>
@@ -1225,7 +1231,7 @@ if (cssLinkDownload) {
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="EA370.htm">«block» 852DC-1585 SME Loader</a><br />
+						<a href="EA351.htm">«block» 851DC-1592 Haulage</a><br />
 						Block &nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
@@ -1239,169 +1245,8 @@ if (cssLinkDownload) {
 				</tr>
 				<tr>
 					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink1592" /></button>Details:
-							<div id="detailsDIVLink1592" class="DetailsDiv" >
-							&nbsp;
-							</div>
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<td width="40%" class="TableRow" valign="top">
-						<a href="EA372.htm">«block» 852DC-1587 Prime Movers & Trucks (>4.5t)</a><br />
-						Block &nbsp;
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> System<br />
-						&nbsp;
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> &nbsp;<br />
-						&nbsp;	
-					</td>
-				</tr>
-				<tr>
-					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink1593" /></button>Details:
-							<div id="detailsDIVLink1593" class="DetailsDiv" >
-							&nbsp;
-							</div>
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<td width="40%" class="TableRow" valign="top">
-						<a href="EA369.htm">«block» 852DC-1584 Grader (<15ft)</a><br />
-						Block &nbsp;
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> System<br />
-						&nbsp;
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> &nbsp;<br />
-						&nbsp;	
-					</td>
-				</tr>
-				<tr>
-					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink1594" /></button>Details:
-							<div id="detailsDIVLink1594" class="DetailsDiv" >
-							&nbsp;
-							</div>
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<td width="40%" class="TableRow" valign="top">
-						<a href="EA367.htm">«block» 852DC-1582 Dump Truck (45t)</a><br />
-						Block &nbsp;
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> System<br />
-						&nbsp;
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> &nbsp;<br />
-						&nbsp;	
-					</td>
-				</tr>
-				<tr>
-					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink1595" /></button>Details:
-							<div id="detailsDIVLink1595" class="DetailsDiv" >
-							&nbsp;
-							</div>
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<td width="40%" class="TableRow" valign="top">
-						<a href="EA366.htm">«block» 852DC-1581 Excavators (<110t)</a><br />
-						Block &nbsp;
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> System<br />
-						&nbsp;
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> &nbsp;<br />
-						&nbsp;	
-					</td>
-				</tr>
-				<tr>
-					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink1596" /></button>Details:
-							<div id="detailsDIVLink1596" class="DetailsDiv" >
-							&nbsp;
-							</div>
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<td width="40%" class="TableRow" valign="top">
-						<a href="EA371.htm">«block» 852DC-1586 Roller</a><br />
-						Block &nbsp;
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> System<br />
-						&nbsp;
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> &nbsp;<br />
-						&nbsp;	
-					</td>
-				</tr>
-				<tr>
-					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink1597" /></button>Details:
-							<div id="detailsDIVLink1597" class="DetailsDiv" >
-							&nbsp;
-							</div>
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<td width="40%" class="TableRow" valign="top">
-						<a href="EA362.htm">«block» 852DC-1572 Light Truck (<4.5t)</a><br />
-						Block &nbsp;
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> System<br />
-						&nbsp;
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> &nbsp;<br />
-						&nbsp;	
-					</td>
-				</tr>
-				<tr>
-					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink1598" /></button>Details:
-							<div id="detailsDIVLink1598" class="DetailsDiv" >
-							&nbsp;
-							</div>
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<td width="40%" class="TableRow" valign="top">
-						<a href="EA363.htm">«block» 852DC-1573 LVs</a><br />
-						Block &nbsp;
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> System<br />
-						&nbsp;
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> &nbsp;<br />
-						&nbsp;	
-					</td>
-				</tr>
-				<tr>
-					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink1599" /></button>Details:
-							<div id="detailsDIVLink1599" class="DetailsDiv" >
+						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink1573" /></button>Details:
+							<div id="detailsDIVLink1573" class="DetailsDiv" >
 							&nbsp;
 							</div>
 						</div>
@@ -1454,7 +1299,7 @@ if (cssLinkDownload) {
 				</td>
 			</tr>			<tr>
 				<td class="TableRow" valign="top">Old SBS ID</td>
-				<td class="TableRow" valign="top">C.</td>
+				<td class="TableRow" valign="top">B.</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1481,7 +1326,7 @@ if (cssLinkDownload) {
 				</td>
 			</tr>			<tr>
 				<td class="TableRow" valign="top">Program</td>
-				<td class="TableRow" valign="top">852DC Light Mobile Equipment (LME) & Support Mobile Equipment (SME)</td>
+				<td class="TableRow" valign="top">851DC Heavy Mobile Equipment (HME)</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1490,7 +1335,7 @@ if (cssLinkDownload) {
 				</td>
 			</tr>			<tr>
 				<td class="TableRow" valign="top">Program Code</td>
-				<td class="TableRow" valign="top">852DC</td>
+				<td class="TableRow" valign="top">851DC</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1517,7 +1362,7 @@ if (cssLinkDownload) {
 				</td>
 			</tr>			<tr>
 				<td class="TableRow" valign="top">WBS Code</td>
-				<td class="TableRow" valign="top">852DC</td>
+				<td class="TableRow" valign="top">851DC</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1563,18 +1408,8 @@ if (cssLinkDownload) {
             <td class="TableHeading">Interfaces with</td>
         </tr>
 
-<tr class="#LINK_STEREOTYPE# InterfaceBlock">
-    <td width="30%" class="TableRow" valign="top"><a href="../EA3/EA5/EA819.htm">«InterfaceBlock» DGS-I_0177</a></td>
-    <td width="10%" class="TableRow" valign="top">InterfaceBlock</td>
-    <td width="10%" class="TableRow" valign="top">Abstraction</td>
-    <td width="10%" class="TableRow" valign="top">To</td>
-    <td width="40%" class="TableRow" valign="top">
-        <div class="ObjectDetailsNotes">&lt;a href=&quot;EA202.htm&quot;&gt;859DC-1410-001-004 HaulX Shield (Collision Avoidance System)&lt;/a&gt;&lt;br/&gt;</div>
-
-    </td>
-</tr>
 <tr class="#LINK_STEREOTYPE# Block">
-    <td width="30%" class="TableRow" valign="top"><a href="EA373.htm">«block» 852DC-1588 Wheel Tractor</a></td>
+    <td width="30%" class="TableRow" valign="top"><a href="EA353.htm">«block» 851DC-1594 Dozer ( >40t)</a></td>
     <td width="10%" class="TableRow" valign="top">Block</td>
     <td width="10%" class="TableRow" valign="top">Strong</td>
     <td width="10%" class="TableRow" valign="top">From</td>
@@ -1583,35 +1418,37 @@ if (cssLinkDownload) {
     </td>
 </tr>
 <tr class="#LINK_STEREOTYPE# InterfaceBlock">
-    <td width="30%" class="TableRow" valign="top"><a href="../EA3/EA5/EA694.htm">«InterfaceBlock» DGS-I_0052</a></td>
+    <td width="30%" class="TableRow" valign="top"><a href="../EA3/EA5/EA825.htm">«InterfaceBlock» DGS-I_0182</a></td>
     <td width="10%" class="TableRow" valign="top">InterfaceBlock</td>
     <td width="10%" class="TableRow" valign="top">Abstraction</td>
     <td width="10%" class="TableRow" valign="top">To</td>
     <td width="40%" class="TableRow" valign="top">
-        <div class="ObjectDetailsNotes">&lt;a href=&quot;EA265.htm&quot;&gt;850DC-1514-0003 LME / SME Chargers&lt;/a&gt;&lt;br/&gt;</div>
+        <div class="ObjectDetailsNotes">&lt;a href=&quot;EA202.htm&quot;&gt;859DC-1410-001-003 HaulX Precision (High Precision Machine Guidance)&lt;/a&gt;&lt;br/&gt;</div>
+
+    </td>
+</tr>
+<tr class="#LINK_STEREOTYPE# InterfaceBlock">
+    <td width="30%" class="TableRow" valign="top"><a href="../EA3/EA5/EA714.htm">«InterfaceBlock» DGS-I_0071</a></td>
+    <td width="10%" class="TableRow" valign="top">InterfaceBlock</td>
+    <td width="10%" class="TableRow" valign="top">Abstraction</td>
+    <td width="10%" class="TableRow" valign="top">To</td>
+    <td width="40%" class="TableRow" valign="top">
+        <div class="ObjectDetailsNotes">&lt;a href=&quot;EA321.htm&quot;&gt;855DC-1543-PPC Pit Power Capacity Planning Tool - Capacity Check&lt;/a&gt;&lt;br/&gt;</div>
+
+    </td>
+</tr>
+<tr class="#LINK_STEREOTYPE# InterfaceBlock">
+    <td width="30%" class="TableRow" valign="top"><a href="../EA3/EA5/EA822.htm">«InterfaceBlock» DGS-I_0179</a></td>
+    <td width="10%" class="TableRow" valign="top">InterfaceBlock</td>
+    <td width="10%" class="TableRow" valign="top">Abstraction</td>
+    <td width="10%" class="TableRow" valign="top">To</td>
+    <td width="40%" class="TableRow" valign="top">
+        <div class="ObjectDetailsNotes">&lt;a href=&quot;EA200.htm&quot;&gt;859DC-1410-001-001 HaulX Dispatch (Fleet Management System (FMS))&lt;/a&gt;&lt;br/&gt;</div>
 
     </td>
 </tr>
 <tr class="#LINK_STEREOTYPE# Block">
-    <td width="30%" class="TableRow" valign="top"><a href="EA361.htm">«block» 852DC-1571 ATV</a></td>
-    <td width="10%" class="TableRow" valign="top">Block</td>
-    <td width="10%" class="TableRow" valign="top">Strong</td>
-    <td width="10%" class="TableRow" valign="top">From</td>
-    <td width="40%" class="TableRow" valign="top">
-        &nbsp;
-    </td>
-</tr>
-<tr class="#LINK_STEREOTYPE# Block">
-    <td width="30%" class="TableRow" valign="top"><a href="EA364.htm">«block» 852DC-1574 People Movers (Buses & Coaches)</a></td>
-    <td width="10%" class="TableRow" valign="top">Block</td>
-    <td width="10%" class="TableRow" valign="top">Strong</td>
-    <td width="10%" class="TableRow" valign="top">From</td>
-    <td width="40%" class="TableRow" valign="top">
-        &nbsp;
-    </td>
-</tr>
-<tr class="#LINK_STEREOTYPE# Block">
-    <td width="30%" class="TableRow" valign="top"><a href="EA368.htm">«block» 852DC-1583 Dozer (<40t)</a></td>
+    <td width="30%" class="TableRow" valign="top"><a href="EA352.htm">«block» 851DC-1593 HME Loader</a></td>
     <td width="10%" class="TableRow" valign="top">Block</td>
     <td width="10%" class="TableRow" valign="top">Strong</td>
     <td width="10%" class="TableRow" valign="top">From</td>
@@ -1620,26 +1457,37 @@ if (cssLinkDownload) {
     </td>
 </tr>
 <tr class="#LINK_STEREOTYPE# InterfaceBlock">
-    <td width="30%" class="TableRow" valign="top"><a href="../EA3/EA5/EA695.htm">«InterfaceBlock» DGS-I_0053</a></td>
+    <td width="30%" class="TableRow" valign="top"><a href="../EA3/EA5/EA821.htm">«InterfaceBlock» DGS-I_0178</a></td>
     <td width="10%" class="TableRow" valign="top">InterfaceBlock</td>
     <td width="10%" class="TableRow" valign="top">Abstraction</td>
     <td width="10%" class="TableRow" valign="top">To</td>
     <td width="40%" class="TableRow" valign="top">
-        <div class="ObjectDetailsNotes">&lt;a href=&quot;EA264.htm&quot;&gt;850DC-1513-0002 HME Auxilary Chargers&lt;/a&gt;&lt;br/&gt;</div>
+        <div class="ObjectDetailsNotes">&lt;a href=&quot;EA201.htm&quot;&gt;859DC-1410-001-002 HaulX Control (Autonomous Haulage System)&lt;/a&gt;&lt;br/&gt;</div>
+
+    </td>
+</tr>
+<tr class="#LINK_STEREOTYPE# InterfaceBlock">
+    <td width="30%" class="TableRow" valign="top"><a href="../EA3/EA5/EA824.htm">«InterfaceBlock» DGS-I_0181</a></td>
+    <td width="10%" class="TableRow" valign="top">InterfaceBlock</td>
+    <td width="10%" class="TableRow" valign="top">Abstraction</td>
+    <td width="10%" class="TableRow" valign="top">To</td>
+    <td width="40%" class="TableRow" valign="top">
+        <div class="ObjectDetailsNotes">&lt;a href=&quot;EA203.htm&quot;&gt;859DC-1410-001-004 HaulX Shield (Collision Avoidance System)&lt;/a&gt;&lt;br/&gt;</div>
+
+    </td>
+</tr>
+<tr class="#LINK_STEREOTYPE# InterfaceBlock">
+    <td width="30%" class="TableRow" valign="top"><a href="../EA3/EA5/EA688.htm">«InterfaceBlock» DGS-I_0045</a></td>
+    <td width="10%" class="TableRow" valign="top">InterfaceBlock</td>
+    <td width="10%" class="TableRow" valign="top">Abstraction</td>
+    <td width="10%" class="TableRow" valign="top">To</td>
+    <td width="40%" class="TableRow" valign="top">
+        <div class="ObjectDetailsNotes">&lt;a href=&quot;EA480.htm&quot;&gt;859DC-1410-001 HaulX&lt;/a&gt;&lt;br/&gt;</div>
 
     </td>
 </tr>
 <tr class="#LINK_STEREOTYPE# Block">
-    <td width="30%" class="TableRow" valign="top"><a href="EA160.htm">«block» Decarbonisation Portfolio</a></td>
-    <td width="10%" class="TableRow" valign="top">Block</td>
-    <td width="10%" class="TableRow" valign="top">Strong</td>
-    <td width="10%" class="TableRow" valign="top">To</td>
-    <td width="40%" class="TableRow" valign="top">
-        &nbsp;
-    </td>
-</tr>
-<tr class="#LINK_STEREOTYPE# Block">
-    <td width="30%" class="TableRow" valign="top"><a href="EA365.htm">«block» 852DC-1575 ESO Vehicles</a></td>
+    <td width="30%" class="TableRow" valign="top"><a href="EA355.htm">«block» 851DC-1596 Watercarts</a></td>
     <td width="10%" class="TableRow" valign="top">Block</td>
     <td width="10%" class="TableRow" valign="top">Strong</td>
     <td width="10%" class="TableRow" valign="top">From</td>
@@ -1648,17 +1496,27 @@ if (cssLinkDownload) {
     </td>
 </tr>
 <tr class="#LINK_STEREOTYPE# InterfaceBlock">
-    <td width="30%" class="TableRow" valign="top"><a href="../EA3/EA5/EA825.htm">«InterfaceBlock» DGS-I_0183</a></td>
+    <td width="30%" class="TableRow" valign="top"><a href="../EA3/EA5/EA697.htm">«InterfaceBlock» DGS-I_0054</a></td>
     <td width="10%" class="TableRow" valign="top">InterfaceBlock</td>
     <td width="10%" class="TableRow" valign="top">Abstraction</td>
     <td width="10%" class="TableRow" valign="top">To</td>
     <td width="40%" class="TableRow" valign="top">
-        <div class="ObjectDetailsNotes">&lt;a href=&quot;EA201.htm&quot;&gt;859DC-1410-001-003 HaulX Precision (High Precision Machine Guidance)&lt;/a&gt;&lt;br/&gt;</div>
+        <div class="ObjectDetailsNotes">&lt;a href=&quot;EA264.htm&quot;&gt;850DC-1512-0001 HME Chargers - Gen1&lt;/a&gt;&lt;br/&gt;</div>
+
+    </td>
+</tr>
+<tr class="#LINK_STEREOTYPE# InterfaceBlock">
+    <td width="30%" class="TableRow" valign="top"><a href="../EA3/EA5/EA779.htm">«InterfaceBlock» DGS-I_0136</a></td>
+    <td width="10%" class="TableRow" valign="top">InterfaceBlock</td>
+    <td width="10%" class="TableRow" valign="top">Abstraction</td>
+    <td width="10%" class="TableRow" valign="top">To</td>
+    <td width="40%" class="TableRow" valign="top">
+        <div class="ObjectDetailsNotes">&lt;a href=&quot;EA267.htm&quot;&gt;850DC-1510 Chargers&lt;/a&gt;&lt;br/&gt;</div>
 
     </td>
 </tr>
 <tr class="#LINK_STEREOTYPE# Block">
-    <td width="30%" class="TableRow" valign="top"><a href="EA370.htm">«block» 852DC-1585 SME Loader</a></td>
+    <td width="30%" class="TableRow" valign="top"><a href="EA354.htm">«block» 851DC-1595 Grader (>15ft)</a></td>
     <td width="10%" class="TableRow" valign="top">Block</td>
     <td width="10%" class="TableRow" valign="top">Strong</td>
     <td width="10%" class="TableRow" valign="top">From</td>
@@ -1667,25 +1525,7 @@ if (cssLinkDownload) {
     </td>
 </tr>
 <tr class="#LINK_STEREOTYPE# Block">
-    <td width="30%" class="TableRow" valign="top"><a href="EA372.htm">«block» 852DC-1587 Prime Movers & Trucks (>4.5t)</a></td>
-    <td width="10%" class="TableRow" valign="top">Block</td>
-    <td width="10%" class="TableRow" valign="top">Strong</td>
-    <td width="10%" class="TableRow" valign="top">From</td>
-    <td width="40%" class="TableRow" valign="top">
-        &nbsp;
-    </td>
-</tr>
-<tr class="#LINK_STEREOTYPE# Block">
-    <td width="30%" class="TableRow" valign="top"><a href="EA369.htm">«block» 852DC-1584 Grader (<15ft)</a></td>
-    <td width="10%" class="TableRow" valign="top">Block</td>
-    <td width="10%" class="TableRow" valign="top">Strong</td>
-    <td width="10%" class="TableRow" valign="top">From</td>
-    <td width="40%" class="TableRow" valign="top">
-        &nbsp;
-    </td>
-</tr>
-<tr class="#LINK_STEREOTYPE# Block">
-    <td width="30%" class="TableRow" valign="top"><a href="EA367.htm">«block» 852DC-1582 Dump Truck (45t)</a></td>
+    <td width="30%" class="TableRow" valign="top"><a href="EA350.htm">«block» 851DC-1591 Excavator (>110t)</a></td>
     <td width="10%" class="TableRow" valign="top">Block</td>
     <td width="10%" class="TableRow" valign="top">Strong</td>
     <td width="10%" class="TableRow" valign="top">From</td>
@@ -1694,74 +1534,26 @@ if (cssLinkDownload) {
     </td>
 </tr>
 <tr class="#LINK_STEREOTYPE# InterfaceBlock">
-    <td width="30%" class="TableRow" valign="top"><a href="../EA3/EA5/EA714.htm">«InterfaceBlock» DGS-I_0072</a></td>
+    <td width="30%" class="TableRow" valign="top"><a href="../EA3/EA5/EA786.htm">«InterfaceBlock» DGS-I_0143</a></td>
     <td width="10%" class="TableRow" valign="top">InterfaceBlock</td>
     <td width="10%" class="TableRow" valign="top">Abstraction</td>
     <td width="10%" class="TableRow" valign="top">To</td>
     <td width="40%" class="TableRow" valign="top">
-        <div class="ObjectDetailsNotes">&lt;a href=&quot;EA320.htm&quot;&gt;855DC-1543-PPC Pit Power Capacity Planning Tool - Capacity Check&lt;/a&gt;&lt;br/&gt;</div>
+        <div class="ObjectDetailsNotes">[DELETED]&lt;br/&gt;</div>
 
     </td>
 </tr>
 <tr class="#LINK_STEREOTYPE# Block">
-    <td width="30%" class="TableRow" valign="top"><a href="EA366.htm">«block» 852DC-1581 Excavators (<110t)</a></td>
+    <td width="30%" class="TableRow" valign="top"><a href="EA161.htm">«block» Decarbonisation Portfolio</a></td>
     <td width="10%" class="TableRow" valign="top">Block</td>
     <td width="10%" class="TableRow" valign="top">Strong</td>
-    <td width="10%" class="TableRow" valign="top">From</td>
+    <td width="10%" class="TableRow" valign="top">To</td>
     <td width="40%" class="TableRow" valign="top">
         &nbsp;
     </td>
 </tr>
 <tr class="#LINK_STEREOTYPE# Block">
-    <td width="30%" class="TableRow" valign="top"><a href="EA371.htm">«block» 852DC-1586 Roller</a></td>
-    <td width="10%" class="TableRow" valign="top">Block</td>
-    <td width="10%" class="TableRow" valign="top">Strong</td>
-    <td width="10%" class="TableRow" valign="top">From</td>
-    <td width="40%" class="TableRow" valign="top">
-        &nbsp;
-    </td>
-</tr>
-<tr class="#LINK_STEREOTYPE# InterfaceBlock">
-    <td width="30%" class="TableRow" valign="top"><a href="../EA3/EA5/EA777.htm">«InterfaceBlock» DGS-I_0135</a></td>
-    <td width="10%" class="TableRow" valign="top">InterfaceBlock</td>
-    <td width="10%" class="TableRow" valign="top">Abstraction</td>
-    <td width="10%" class="TableRow" valign="top">To</td>
-    <td width="40%" class="TableRow" valign="top">
-        <div class="ObjectDetailsNotes">&lt;a href=&quot;EA266.htm&quot;&gt;850DC-1510 Chargers&lt;/a&gt;&lt;br/&gt;</div>
-
-    </td>
-</tr>
-<tr class="#LINK_STEREOTYPE# Block">
-    <td width="30%" class="TableRow" valign="top"><a href="EA362.htm">«block» 852DC-1572 Light Truck (<4.5t)</a></td>
-    <td width="10%" class="TableRow" valign="top">Block</td>
-    <td width="10%" class="TableRow" valign="top">Strong</td>
-    <td width="10%" class="TableRow" valign="top">From</td>
-    <td width="40%" class="TableRow" valign="top">
-        &nbsp;
-    </td>
-</tr>
-<tr class="#LINK_STEREOTYPE# InterfaceBlock">
-    <td width="30%" class="TableRow" valign="top"><a href="../EA3/EA5/EA779.htm">«InterfaceBlock» DGS-I_0137</a></td>
-    <td width="10%" class="TableRow" valign="top">InterfaceBlock</td>
-    <td width="10%" class="TableRow" valign="top">Abstraction</td>
-    <td width="10%" class="TableRow" valign="top">To</td>
-    <td width="40%" class="TableRow" valign="top">
-        <div class="ObjectDetailsNotes">&lt;a href=&quot;EA199.htm&quot;&gt;859DC-1410-001-001 HaulX Dispatch (Fleet Management System (FMS))&lt;/a&gt;&lt;br/&gt;</div>
-
-    </td>
-</tr>
-<tr class="#LINK_STEREOTYPE# InterfaceBlock">
-    <td width="30%" class="TableRow" valign="top"><a href="../EA3/EA5/EA686.htm">«InterfaceBlock» DGS-I_0044</a></td>
-    <td width="10%" class="TableRow" valign="top">InterfaceBlock</td>
-    <td width="10%" class="TableRow" valign="top">Abstraction</td>
-    <td width="10%" class="TableRow" valign="top">To</td>
-    <td width="40%" class="TableRow" valign="top">
-        <div class="ObjectDetailsNotes">&lt;a href=&quot;EA479.htm&quot;&gt;859DC-1410-001 HaulX&lt;/a&gt;&lt;br/&gt;</div>
-
-    </td>
-</tr>
-<tr class="#LINK_STEREOTYPE# Block">
-    <td width="30%" class="TableRow" valign="top"><a href="EA363.htm">«block» 852DC-1573 LVs</a></td>
+    <td width="30%" class="TableRow" valign="top"><a href="EA351.htm">«block» 851DC-1592 Haulage</a></td>
     <td width="10%" class="TableRow" valign="top">Block</td>
     <td width="10%" class="TableRow" valign="top">Strong</td>
     <td width="10%" class="TableRow" valign="top">From</td>

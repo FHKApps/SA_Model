@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head><link rel="icon" href="/favicon.ico"></head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>GSP-IR-0028</title>
+<title>GSP-IR-0027</title>
 <link href="../../../css/ea.css" rel="stylesheet" type="text/css" />
 <script language="JavaScript" src="../../../js/displayToc.js" type="text/javascript"></script>
 
@@ -379,6 +379,20 @@ function getTargetInfo(areaElement) {
 
         simplifyHeaderTitle(); // <-- cleans header text
 
+        // ----------------------------------------------------------------
+        // DELPHI RVAM BUTTON: Show only on the Delphi requirements diagram
+        // ----------------------------------------------------------------
+        (function() {
+            const h1 = document.querySelector('.header_frame h1');
+            const delphiBox = document.getElementById('delphi-rvam-box');
+            if (h1 && delphiBox) {
+                const pageTitle = h1.textContent.trim();
+                if (pageTitle.includes('855DC-1541-DEL Delphi')) {
+                    delphiBox.style.display = 'block';
+                }
+            }
+        })();
+
         // Netlify Navigation Fix
         const navLinks = document.querySelectorAll(
             'a[href^="./"], a[href^="../"], a[href$=".htm"], a[href$=".html"]'
@@ -408,17 +422,18 @@ function getTargetInfo(areaElement) {
             });
         }
 		// ----------------------------------------------------------------
-// DOWNLOAD LINK FIX (Interface Register)
+// DOWNLOAD LINK FIX (all files/ links, depth-independent)
 // ----------------------------------------------------------------
 const cssLinkDownload = document.querySelector('link[href*="ea.css"]');
 if (cssLinkDownload) {
     const cssPathDownload = cssLinkDownload.getAttribute('href');
     const rootPathDownload = cssPathDownload.substring(0, cssPathDownload.lastIndexOf('css/'));
 
-    const downloadLink = document.querySelector('.download-box a');
-    if (downloadLink) {
-        downloadLink.href = rootPathDownload + "files/Fortescue_Interface-Register_Z.xlsm";
-    }
+    document.querySelectorAll('a[href*="files/"]').forEach(link => {
+        const href = link.getAttribute('href');
+        const filename = href.substring(href.indexOf('files/'));
+        link.href = rootPathDownload + filename;
+    });
 }
 // ----------------------------------------------------------------
 // LEGEND SWITCHING (SBS Special Case)
@@ -477,11 +492,11 @@ if (cssLinkDownload) {
 <div class="section group" >
 
 		<div class="col span_2_of_2 header_frame">
-			<h1> GSP-IR-0028 </h1>
+			<h1> GSP-IR-0027 </h1>
 			<img class="header_image" src="../../../images/Logo.png" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
-			<p><a href="../../EA19.htm">Decarb Green Systems Architecture  Version: Z</a> / <a href="../EA90.htm">Requirements</a> / <a href="EA92.htm">Requirements Elements</a> / <a href="EA93.htm">GSP-RH-0001: Green Systems Interface Requirements</a> / <a href="EA158.htm">GSP-RH-0002: Delphi Interface Requirements</a> / <a href="EA120.htm">GSP-IR-0028</a></p>
+			<p><a href="../../EA19.htm">Decarb Green Systems Architecture  Version: Z</a> / <a href="../EA90.htm">Requirements</a> / <a href="EA93.htm">Requirements Elements</a> / <a href="EA94.htm">GSP-RH-0001: Green Systems Interface Requirements</a> / <a href="EA159.htm">GSP-RH-0002: Delphi Interface Requirements</a> / <a href="EA120.htm">GSP-IR-0027</a></p>
 		</div>
 			
 		<table class="contentmaintable">
@@ -492,9 +507,14 @@ if (cssLinkDownload) {
 						<div class="download-box">
 						<div class="download-box">
 							<a href="files/Fortescue_Interface-Register_Z.xlsm" target="_blank">
-							Interface Register
+							Export Interface Register
 							</a>
 						</div>
+						</div>
+						<div class="download-box" id="delphi-rvam-box" style="display:none;">
+							<a href="files/Delphi_RVAM_Z.xlsx" target="_blank">
+							Export RVAM for this system
+							</a>
 						</div>
                         
                         <div class="sidebar-search-container">
@@ -505,7 +525,7 @@ if (cssLinkDownload) {
 
                         <div id="originalTree">
 						    <ul>
-<a href="EA158.htm">GSP-RH-0002: Delphi Interface Requirements</a></ul>
+<a href="EA159.htm">GSP-RH-0002: Delphi Interface Requirements</a></ul>
 
                         </div>
 					</td>
@@ -639,7 +659,7 @@ if (cssLinkDownload) {
 
 <div class="PageBody" style="position: relative !important; height: auto !important; overflow: visible !important; padding-bottom: 10px;">
     <span class="ObjectTitle">
-        GSP-IR-0028 : &lt;&lt;interfaceRequirement&gt;&gt;
+        GSP-IR-0027 : &lt;&lt;interfaceRequirement&gt;&gt;
     </span>
 
     <table border="0" class="ObjectDetails" style="width: 100%; margin-bottom: 10px;">
@@ -651,7 +671,7 @@ if (cssLinkDownload) {
         <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Created:</td><td class="ObjectDetailsValue">17/03/2026 19:57:31</td></tr>
         <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Modified:</td><td class="ObjectDetailsValue">18/03/2026 13:53:40</td></tr>
         <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Author:</td><td class="ObjectDetailsValue">Admin</td></tr>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">UUID:</td><td class="ObjectDetailsValue">{2B365404-C532-4382-98B3-C4DCD4C312BA}</td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">UUID:</td><td class="ObjectDetailsValue">{2518AB8C-2FDB-4675-9BC5-94918166FAB4}</td></tr>
         <tr id="adv01"><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Appears In:</td><td class="ObjectDetailsValue"><a href="../EA88.htm">Requirements: 855DC-1541-DEL Delphi</a></td></tr>
         <tr>
             <td class="ObjectDetailsTopic" style="padding-left:0; width:70px; vertical-align:top; padding-top:5px;">Remarks:</td>
@@ -1048,7 +1068,7 @@ if (cssLinkDownload) {
         </tr>
         			<tr>
 				<td class="TableRow" valign="top">a. Requirement Text</td>
-				<td class="TableRow" valign="top">The interface shall deliver Solstice AI forecasts at a temporal resolution sufficient to support short-term operational decision-making and dispatch adjustment.</td>
+				<td class="TableRow" valign="top">The interface shall ingest high-resolution solar irradiance forecasts for the North Star Junction site from the Solstice AI service into Delphi and Eclipse.</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1084,7 +1104,7 @@ if (cssLinkDownload) {
 				</td>
 			</tr>			<tr>
 				<td class="TableRow" valign="top">e. Rationale</td>
-				<td class="TableRow" valign="top">Near-term operational control requires granular forecasts to anticipate rapid changes.</td>
+				<td class="TableRow" valign="top">Accurate site-specific irradiance forecasts are required for solar output planning and BESS management.</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1144,12 +1164,12 @@ if (cssLinkDownload) {
         </tr>
 
 <tr class="#LINK_STEREOTYPE# InterfaceBlock">
-    <td width="30%" class="TableRow" valign="top"><a href="../../EA3/EA5/EA968.htm">«InterfaceBlock» DGS-I_0327</a></td>
+    <td width="30%" class="TableRow" valign="top"><a href="../../EA3/EA5/EA969.htm">«InterfaceBlock» DGS-I_0327</a></td>
     <td width="10%" class="TableRow" valign="top">InterfaceBlock</td>
     <td width="10%" class="TableRow" valign="top">Abstraction</td>
     <td width="10%" class="TableRow" valign="top">To</td>
     <td width="40%" class="TableRow" valign="top">
-        <div class="ObjectDetailsNotes">005OP-0000-005-004 Solstice|855DC-1541-DEL Delphi; a. Requirement Text=The interface shall deliver Solstice AI forecasts at a temporal resolution sufficient to support short-term operational decision-making and dispatch adjustment.; b. Artifact Type=Interface Requirement; c. Source=Green Systems Interface Register, Interface DGS-I_0327; d. Apportionment=Delphi; e. Rationale=Near-term operational control requires granular forecasts to anticipate rapid changes.; f. Requirement Status=Draft; g. Criticality Level=; h. Quality Flaw=; i. Validation Method=; j. Verification Method=; Supporting information from Interface Register=005OP-0000-005-004 Solstice|855DC-1541-DEL Delphi&lt;br/&gt;Project - Subsystem Interface&lt;br/&gt;Technical-Data/Software&lt;br/&gt;Solstice AI - North Star Junction Irradiance Forecasting&lt;br/&gt;The purpose of this interface is for Solstice AI to provide high-resolution solar irradiance forecasting for the North Star Junction site to support short-term operational decision-making. These forecasts will specifically help operators to anticipate changes in solar generation, adjust dispatch, and manage Battery Energy Storage System (BESS) behaviour proactively.&lt;br/&gt;The criticality level is HIGH because accurate near-term irradiance forecasts are essential for reliable solar output planning and maintaining stability of site operations. Failure risks incorrect dispatch and management of BESS behaviour.&lt;br/&gt;</div>
+        <div class="ObjectDetailsNotes">005OP-0000-005-004 Solstice|855DC-1541-DEL Delphi; a. Requirement Text=The interface shall ingest high-resolution solar irradiance forecasts for the North Star Junction site from the Solstice AI service into Delphi and Eclipse.; b. Artifact Type=Interface Requirement; c. Source=Green Systems Interface Register, Interface DGS-I_0327; d. Apportionment=Delphi; e. Rationale=Accurate site-specific irradiance forecasts are required for solar output planning and BESS management.; f. Requirement Status=Draft; g. Criticality Level=; h. Quality Flaw=; i. Validation Method=; j. Verification Method=; Supporting information from Interface Register=005OP-0000-005-004 Solstice|855DC-1541-DEL Delphi&lt;br/&gt;Project - Subsystem Interface&lt;br/&gt;Technical-Data/Software&lt;br/&gt;Solstice AI - North Star Junction Irradiance Forecasting&lt;br/&gt;The purpose of this interface is for Solstice AI to provide high-resolution solar irradiance forecasting for the North Star Junction site to support short-term operational decision-making. These forecasts will specifically help operators to anticipate changes in solar generation, adjust dispatch, and manage Battery Energy Storage System (BESS) behaviour proactively.&lt;br/&gt;The criticality level is HIGH because accurate near-term irradiance forecasts are essential for reliable solar output planning and maintaining stability of site operations. Failure risks incorrect dispatch and management of BESS behaviour.&lt;br/&gt;</div>
 
     </td>
 </tr>

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head><link rel="icon" href="/favicon.ico"></head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>GSP-IR-0010</title>
+<title>GSP-IR-0009</title>
 <link href="../../../css/ea.css" rel="stylesheet" type="text/css" />
 <script language="JavaScript" src="../../../js/displayToc.js" type="text/javascript"></script>
 
@@ -379,6 +379,20 @@ function getTargetInfo(areaElement) {
 
         simplifyHeaderTitle(); // <-- cleans header text
 
+        // ----------------------------------------------------------------
+        // DELPHI RVAM BUTTON: Show only on the Delphi requirements diagram
+        // ----------------------------------------------------------------
+        (function() {
+            const h1 = document.querySelector('.header_frame h1');
+            const delphiBox = document.getElementById('delphi-rvam-box');
+            if (h1 && delphiBox) {
+                const pageTitle = h1.textContent.trim();
+                if (pageTitle.includes('855DC-1541-DEL Delphi')) {
+                    delphiBox.style.display = 'block';
+                }
+            }
+        })();
+
         // Netlify Navigation Fix
         const navLinks = document.querySelectorAll(
             'a[href^="./"], a[href^="../"], a[href$=".htm"], a[href$=".html"]'
@@ -408,17 +422,18 @@ function getTargetInfo(areaElement) {
             });
         }
 		// ----------------------------------------------------------------
-// DOWNLOAD LINK FIX (Interface Register)
+// DOWNLOAD LINK FIX (all files/ links, depth-independent)
 // ----------------------------------------------------------------
 const cssLinkDownload = document.querySelector('link[href*="ea.css"]');
 if (cssLinkDownload) {
     const cssPathDownload = cssLinkDownload.getAttribute('href');
     const rootPathDownload = cssPathDownload.substring(0, cssPathDownload.lastIndexOf('css/'));
 
-    const downloadLink = document.querySelector('.download-box a');
-    if (downloadLink) {
-        downloadLink.href = rootPathDownload + "files/Fortescue_Interface-Register_Z.xlsm";
-    }
+    document.querySelectorAll('a[href*="files/"]').forEach(link => {
+        const href = link.getAttribute('href');
+        const filename = href.substring(href.indexOf('files/'));
+        link.href = rootPathDownload + filename;
+    });
 }
 // ----------------------------------------------------------------
 // LEGEND SWITCHING (SBS Special Case)
@@ -477,11 +492,11 @@ if (cssLinkDownload) {
 <div class="section group" >
 
 		<div class="col span_2_of_2 header_frame">
-			<h1> GSP-IR-0010 </h1>
+			<h1> GSP-IR-0009 </h1>
 			<img class="header_image" src="../../../images/Logo.png" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
-			<p><a href="../../EA19.htm">Decarb Green Systems Architecture  Version: Z</a> / <a href="../EA90.htm">Requirements</a> / <a href="EA92.htm">Requirements Elements</a> / <a href="EA93.htm">GSP-RH-0001: Green Systems Interface Requirements</a> / <a href="EA158.htm">GSP-RH-0002: Delphi Interface Requirements</a> / <a href="EA102.htm">GSP-IR-0010</a></p>
+			<p><a href="../../EA19.htm">Decarb Green Systems Architecture  Version: Z</a> / <a href="../EA90.htm">Requirements</a> / <a href="EA93.htm">Requirements Elements</a> / <a href="EA94.htm">GSP-RH-0001: Green Systems Interface Requirements</a> / <a href="EA159.htm">GSP-RH-0002: Delphi Interface Requirements</a> / <a href="EA102.htm">GSP-IR-0009</a></p>
 		</div>
 			
 		<table class="contentmaintable">
@@ -492,9 +507,14 @@ if (cssLinkDownload) {
 						<div class="download-box">
 						<div class="download-box">
 							<a href="files/Fortescue_Interface-Register_Z.xlsm" target="_blank">
-							Interface Register
+							Export Interface Register
 							</a>
 						</div>
+						</div>
+						<div class="download-box" id="delphi-rvam-box" style="display:none;">
+							<a href="files/Delphi_RVAM_Z.xlsx" target="_blank">
+							Export RVAM for this system
+							</a>
 						</div>
                         
                         <div class="sidebar-search-container">
@@ -505,7 +525,7 @@ if (cssLinkDownload) {
 
                         <div id="originalTree">
 						    <ul>
-<a href="EA158.htm">GSP-RH-0002: Delphi Interface Requirements</a></ul>
+<a href="EA159.htm">GSP-RH-0002: Delphi Interface Requirements</a></ul>
 
                         </div>
 					</td>
@@ -639,7 +659,7 @@ if (cssLinkDownload) {
 
 <div class="PageBody" style="position: relative !important; height: auto !important; overflow: visible !important; padding-bottom: 10px;">
     <span class="ObjectTitle">
-        GSP-IR-0010 : &lt;&lt;interfaceRequirement&gt;&gt;
+        GSP-IR-0009 : &lt;&lt;interfaceRequirement&gt;&gt;
     </span>
 
     <table border="0" class="ObjectDetails" style="width: 100%; margin-bottom: 10px;">
@@ -647,11 +667,11 @@ if (cssLinkDownload) {
             <col width="70px" />
             <col width="*" />
         </colgroup>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Status:</td><td class="ObjectDetailsValue">Proposed</td></tr>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Created:</td><td class="ObjectDetailsValue">17/03/2026 19:57:32</td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Status:</td><td class="ObjectDetailsValue">Draft</td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Created:</td><td class="ObjectDetailsValue">17/03/2026 19:57:31</td></tr>
         <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Modified:</td><td class="ObjectDetailsValue">18/03/2026 13:53:40</td></tr>
         <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Author:</td><td class="ObjectDetailsValue">Admin</td></tr>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">UUID:</td><td class="ObjectDetailsValue">{67FB47F2-F1F6-4a52-A864-8C906D7AD9C8}</td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">UUID:</td><td class="ObjectDetailsValue">{C9DF9207-BABB-4122-94B9-6B9DB089CAE0}</td></tr>
         <tr id="adv01"><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Appears In:</td><td class="ObjectDetailsValue"><a href="../EA88.htm">Requirements: 855DC-1541-DEL Delphi</a></td></tr>
         <tr>
             <td class="ObjectDetailsTopic" style="padding-left:0; width:70px; vertical-align:top; padding-top:5px;">Remarks:</td>
@@ -1048,7 +1068,7 @@ if (cssLinkDownload) {
         </tr>
         			<tr>
 				<td class="TableRow" valign="top">a. Requirement Text</td>
-				<td class="TableRow" valign="top">The interface shall apply data-quality checks, including type, range, and completeness validation, before data is ingested into Delphi.</td>
+				<td class="TableRow" valign="top">The interface shall provide version-controlled historical datasets to support consistent retrospective analysis and model training.</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1084,7 +1104,7 @@ if (cssLinkDownload) {
 				</td>
 			</tr>			<tr>
 				<td class="TableRow" valign="top">e. Rationale</td>
-				<td class="TableRow" valign="top">Low-quality data can drive unsafe or inefficient planning outcomes.</td>
+				<td class="TableRow" valign="top">Consistent datasets are needed to reproduce and improve forecasting models.</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1144,12 +1164,12 @@ if (cssLinkDownload) {
         </tr>
 
 <tr class="#LINK_STEREOTYPE# InterfaceBlock">
-    <td width="30%" class="TableRow" valign="top"><a href="../../EA3/EA5/EA986.htm">«InterfaceBlock» DGS-I_0345</a></td>
+    <td width="30%" class="TableRow" valign="top"><a href="../../EA3/EA5/EA987.htm">«InterfaceBlock» DGS-I_0345</a></td>
     <td width="10%" class="TableRow" valign="top">InterfaceBlock</td>
     <td width="10%" class="TableRow" valign="top">Abstraction</td>
     <td width="10%" class="TableRow" valign="top">To</td>
     <td width="40%" class="TableRow" valign="top">
-        <div class="ObjectDetailsNotes">005OP-0000-006 Snowflake (General)|855DC-1541-DEL Delphi; a. Requirement Text=The interface shall apply data-quality checks, including type, range, and completeness validation, before data is ingested into Delphi.; b. Artifact Type=Interface Requirement; c. Source=Green Systems Interface Register, Interface DGS-I_0345; d. Apportionment=Delphi; e. Rationale=Low-quality data can drive unsafe or inefficient planning outcomes.; f. Requirement Status=Draft; g. Criticality Level=; h. Quality Flaw=; i. Validation Method=; j. Verification Method=; Supporting information from Interface Register=005OP-0000-006 Snowflake (General)|855DC-1541-DEL Delphi&lt;br/&gt;Project - Project Interface&lt;br/&gt;Technical-Data/Software&lt;br/&gt;This interface collects general actuals and historical data residing in Snowflake. Snowflake provides a &#39;time travel&#39; function, which is from 1 day (default) up to a maximum of 90 days.&lt;br/&gt;This interface is rated HIGH because accurate historical and actual data underpins short-term forecasting, model validation, and operational planning accuracy. Loss or corruption of this data materially degrades forecast reliability, increasing the risk of incorrect generation dispatch, inefficient curtailment decisions, and potential instability in power management. Reliable historical data is essential for maintaining confidence in optimisation and planning outputs.&lt;br/&gt;</div>
+        <div class="ObjectDetailsNotes">005OP-0000-006 Snowflake (General)|855DC-1541-DEL Delphi; a. Requirement Text=The interface shall provide version-controlled historical datasets to support consistent retrospective analysis and model training.; b. Artifact Type=Interface Requirement; c. Source=Green Systems Interface Register, Interface DGS-I_0345; d. Apportionment=Delphi; e. Rationale=Consistent datasets are needed to reproduce and improve forecasting models.; f. Requirement Status=Draft; g. Criticality Level=; h. Quality Flaw=; i. Validation Method=; j. Verification Method=; Supporting information from Interface Register=005OP-0000-006 Snowflake (General)|855DC-1541-DEL Delphi&lt;br/&gt;Project - Project Interface&lt;br/&gt;Technical-Data/Software&lt;br/&gt;This interface collects general actuals and historical data residing in Snowflake. Snowflake provides a &#39;time travel&#39; function, which is from 1 day (default) up to a maximum of 90 days.&lt;br/&gt;This interface is rated HIGH because accurate historical and actual data underpins short-term forecasting, model validation, and operational planning accuracy. Loss or corruption of this data materially degrades forecast reliability, increasing the risk of incorrect generation dispatch, inefficient curtailment decisions, and potential instability in power management. Reliable historical data is essential for maintaining confidence in optimisation and planning outputs.&lt;br/&gt;</div>
 
     </td>
 </tr>

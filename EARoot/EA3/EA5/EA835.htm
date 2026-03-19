@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head><link rel="icon" href="/favicon.ico"></head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Interfaces::DGS-I_0193</title>
+<title>Interfaces::DGS-I_0192</title>
 <link href="../../../css/ea.css" rel="stylesheet" type="text/css" />
 <script language="JavaScript" src="../../../js/displayToc.js" type="text/javascript"></script>
 
@@ -379,6 +379,20 @@ function getTargetInfo(areaElement) {
 
         simplifyHeaderTitle(); // <-- cleans header text
 
+        // ----------------------------------------------------------------
+        // DELPHI RVAM BUTTON: Show only on the Delphi requirements diagram
+        // ----------------------------------------------------------------
+        (function() {
+            const h1 = document.querySelector('.header_frame h1');
+            const delphiBox = document.getElementById('delphi-rvam-box');
+            if (h1 && delphiBox) {
+                const pageTitle = h1.textContent.trim();
+                if (pageTitle.includes('855DC-1541-DEL Delphi')) {
+                    delphiBox.style.display = 'block';
+                }
+            }
+        })();
+
         // Netlify Navigation Fix
         const navLinks = document.querySelectorAll(
             'a[href^="./"], a[href^="../"], a[href$=".htm"], a[href$=".html"]'
@@ -408,17 +422,18 @@ function getTargetInfo(areaElement) {
             });
         }
 		// ----------------------------------------------------------------
-// DOWNLOAD LINK FIX (Interface Register)
+// DOWNLOAD LINK FIX (all files/ links, depth-independent)
 // ----------------------------------------------------------------
 const cssLinkDownload = document.querySelector('link[href*="ea.css"]');
 if (cssLinkDownload) {
     const cssPathDownload = cssLinkDownload.getAttribute('href');
     const rootPathDownload = cssPathDownload.substring(0, cssPathDownload.lastIndexOf('css/'));
 
-    const downloadLink = document.querySelector('.download-box a');
-    if (downloadLink) {
-        downloadLink.href = rootPathDownload + "files/Fortescue_Interface-Register_Z.xlsm";
-    }
+    document.querySelectorAll('a[href*="files/"]').forEach(link => {
+        const href = link.getAttribute('href');
+        const filename = href.substring(href.indexOf('files/'));
+        link.href = rootPathDownload + filename;
+    });
 }
 // ----------------------------------------------------------------
 // LEGEND SWITCHING (SBS Special Case)
@@ -477,11 +492,11 @@ if (cssLinkDownload) {
 <div class="section group" >
 
 		<div class="col span_2_of_2 header_frame">
-			<h1> Interfaces::DGS-I_0193 </h1>
+			<h1> Interfaces::DGS-I_0192 </h1>
 			<img class="header_image" src="../../../images/Logo.png" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
-			<p><a href="../../EA19.htm">Decarb Green Systems Architecture  Version: Z</a> / <a href="../EA480.htm">System Definition Elements</a> / <a href="EA642.htm">Interfaces</a> / <a href="EA835.htm">DGS-I_0193</a></p>
+			<p><a href="../../EA19.htm">Decarb Green Systems Architecture  Version: Z</a> / <a href="../EA481.htm">System Definition Elements</a> / <a href="EA643.htm">Interfaces</a> / <a href="EA835.htm">DGS-I_0192</a></p>
 		</div>
 			
 		<table class="contentmaintable">
@@ -492,9 +507,14 @@ if (cssLinkDownload) {
 						<div class="download-box">
 						<div class="download-box">
 							<a href="files/Fortescue_Interface-Register_Z.xlsm" target="_blank">
-							Interface Register
+							Export Interface Register
 							</a>
 						</div>
+						</div>
+						<div class="download-box" id="delphi-rvam-box" style="display:none;">
+							<a href="files/Delphi_RVAM_Z.xlsx" target="_blank">
+							Export RVAM for this system
+							</a>
 						</div>
                         
                         <div class="sidebar-search-container">
@@ -505,7 +525,7 @@ if (cssLinkDownload) {
 
                         <div id="originalTree">
 						    <ul>
-<a href="EA642.htm">Interfaces</a></ul>
+<a href="EA643.htm">Interfaces</a></ul>
 
                         </div>
 					</td>
@@ -639,7 +659,7 @@ if (cssLinkDownload) {
 
 <div class="PageBody" style="position: relative !important; height: auto !important; overflow: visible !important; padding-bottom: 10px;">
     <span class="ObjectTitle">
-        DGS-I_0193 : &lt;&lt;InterfaceBlock&gt;&gt;
+        DGS-I_0192 : &lt;&lt;InterfaceBlock&gt;&gt;
     </span>
 
     <table border="0" class="ObjectDetails" style="width: 100%; margin-bottom: 10px;">
@@ -647,15 +667,15 @@ if (cssLinkDownload) {
             <col width="70px" />
             <col width="*" />
         </colgroup>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Status:</td><td class="ObjectDetailsValue">Deleted</td></tr>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Created:</td><td class="ObjectDetailsValue">26/08/2025 22:02:13</td></tr>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Modified:</td><td class="ObjectDetailsValue">11/12/2025 01:37:19</td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Status:</td><td class="ObjectDetailsValue">Proposed</td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Created:</td><td class="ObjectDetailsValue">04/11/2025 16:21:29</td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Modified:</td><td class="ObjectDetailsValue">24/02/2026 23:50:14</td></tr>
         <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Author:</td><td class="ObjectDetailsValue">Admin</td></tr>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">UUID:</td><td class="ObjectDetailsValue">{12CC5FC1-1A75-42d9-9B1B-6D695BB85CF8}</td></tr>
-        <tr id="adv01"><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Appears In:</td><td class="ObjectDetailsValue">Archive - System Definition - Christmas Creek Mine, Archive - System Definition - Cloudbreak Mine, Archive - System Definition - Iron Bridge Mine, Archive - System Definition - Port Hedland, Archive - System Definition - Eliwana Mine, Archive - System Definition - Flying Fish Mine</td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">UUID:</td><td class="ObjectDetailsValue">{EBB4E328-0889-439e-AC8C-6DB775CC97F1}</td></tr>
+        <tr id="adv01"><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Appears In:</td><td class="ObjectDetailsValue"><a href="../../EA13.htm">855DC-1543-008 Monarch</a>, <a href="../../EA15.htm">System Definition (SD)</a>, <a href="../../EA1.htm">855DC-1541-ECL Eclipse</a></td></tr>
         <tr>
             <td class="ObjectDetailsTopic" style="padding-left:0; width:70px; vertical-align:top; padding-top:5px;">Remarks:</td>
-            <td class="ObjectDetailsValue remarks-cell" style="vertical-align:top; padding-top:5px;"><div class="ObjectDetailsNotes">Interface Review 25/11/2025: Delete&lt;br/&gt;</div>
+            <td class="ObjectDetailsValue remarks-cell" style="vertical-align:top; padding-top:5px;"><div class="ObjectDetailsNotes">NH 20/02/2026: Fields updated: Interface Type, Interface Flow.&lt;br/&gt;</div>
 </td>
         </tr>
     </table>
@@ -1049,7 +1069,7 @@ if (cssLinkDownload) {
         </tr>
         			<tr>
 				<td class="TableRow" valign="top">1. Interface Name</td>
-				<td class="TableRow" valign="top">855DC-1541-DEL Delphi|HIVE</td>
+				<td class="TableRow" valign="top">855DC-1541-ECL-003 Plexos|855DC-1543-008-003 OpenAGC (Automatic Generation Control)</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1058,7 +1078,52 @@ if (cssLinkDownload) {
 				</td>
 			</tr>			<tr>
 				<td class="TableRow" valign="top">4. Interface Level</td>
-				<td class="TableRow" valign="top">Stakeholder - Project Interface</td>
+				<td class="TableRow" valign="top">Subsystem - Subsystem Interface</td>
+			</tr>	
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="2">
+					Details:
+						&nbsp;
+				</td>
+			</tr>			<tr>
+				<td class="TableRow" valign="top">5. Interface Type</td>
+				<td class="TableRow" valign="top">Technical-Data/Software</td>
+			</tr>	
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="2">
+					Details:
+						&nbsp;
+				</td>
+			</tr>			<tr>
+				<td class="TableRow" valign="top">6. Interface Description</td>
+				<td class="TableRow" valign="top">This interface allows Plexos to deliver long-term modelling, forecasted generation schedules, and market-style optimisation inputs to OpenAGC, which oversees short-interval automatic generation control.</td>
+			</tr>	
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="2">
+					Details:
+						&nbsp;
+				</td>
+			</tr>			<tr>
+				<td class="TableRow" valign="top">7. Interface Criticality</td>
+				<td class="TableRow" valign="top">MEDIUM</td>
+			</tr>	
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="2">
+					Details:
+						&nbsp;
+				</td>
+			</tr>			<tr>
+				<td class="TableRow" valign="top">8. Interface Flow</td>
+				<td class="TableRow" valign="top">Data Flow: Monarch -&gt; Energy Operations (real-time generation output, storage state, network status, load balance, alarms, equipment availability, event notifications) to provide system-wide situational awareness and oversight.<br />Read-only interface - no control flow from Energy Operations to Monarch via this link.</td>
+			</tr>	
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="2">
+					Details:
+						&nbsp;
+				</td>
+			</tr>			<tr>
+				<td class="TableRow" valign="top">9. Interface Criticality Justification</td>
+				<td class="TableRow" valign="top">The criticality level is MEDIUM because although OpenAGC can still operate independently without forward-looking data, the lack of Plexos inputs diminishes optimisation quality and can result in less stable or less efficient generation behaviour. Failure may increase operational costs, but it does not cause immediate outages.</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1067,22 +1132,12 @@ if (cssLinkDownload) {
 				</td>
 			</tr>			<tr>
 				<td class="TableRow" valign="top">Element Type</td>
-				<td class="TableRow" valign="top">Stakeholder - Project Interface</td>
+				<td class="TableRow" valign="top">Subsystem - Subsystem Interface</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
 					Details:
 						&nbsp;
-				</td>
-			</tr>			<tr>
-				<td class="TableRow" valign="top">isEncapsulated</td>
-				<td class="TableRow" valign="top">&nbsp;</td>
-			</tr>	
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="2">
-					Details:
-						<div class="ObjectDetailsNotes">Values: true,false<br /></div>
-
 				</td>
 			</tr>
     </table>
@@ -1118,23 +1173,23 @@ if (cssLinkDownload) {
             <td class="TableHeading">Interfaces with</td>
         </tr>
 
-<tr class="#LINK_STEREOTYPE# Actor">
-    <td width="30%" class="TableRow" valign="top"><a href="../EA4/EA632.htm">HIVE</a></td>
-    <td width="10%" class="TableRow" valign="top">Actor</td>
-    <td width="10%" class="TableRow" valign="top">Abstraction</td>
-    <td width="10%" class="TableRow" valign="top">From</td>
-    <td width="40%" class="TableRow" valign="top">
-        <div class="ObjectDetailsNotes">[DELETED]&lt;br/&gt;</div>
-
-    </td>
-</tr>
 <tr class="#LINK_STEREOTYPE# Block">
-    <td width="30%" class="TableRow" valign="top"><a href="../../EA2/EA290.htm">«block» 855DC-1541-DEL Delphi</a></td>
+    <td width="30%" class="TableRow" valign="top"><a href="../../EA2/EA184.htm">«block» 855DC-1541-ECL-003 Plexos</a></td>
     <td width="10%" class="TableRow" valign="top">Block</td>
     <td width="10%" class="TableRow" valign="top">Abstraction</td>
     <td width="10%" class="TableRow" valign="top">From</td>
     <td width="40%" class="TableRow" valign="top">
-        <div class="ObjectDetailsNotes">[DELETED]&lt;br/&gt;</div>
+        <div class="ObjectDetailsNotes">&lt;a href=&quot;../../EA2/EA193.htm&quot;&gt;855DC-1543-008-003 OpenAGC (Automatic Generation Control)&lt;/a&gt;&lt;br/&gt;</div>
+
+    </td>
+</tr>
+<tr class="#LINK_STEREOTYPE# Block">
+    <td width="30%" class="TableRow" valign="top"><a href="../../EA2/EA193.htm">«block» 855DC-1543-008-003 OpenAGC (Automatic Generation Control)</a></td>
+    <td width="10%" class="TableRow" valign="top">Block</td>
+    <td width="10%" class="TableRow" valign="top">Abstraction</td>
+    <td width="10%" class="TableRow" valign="top">From</td>
+    <td width="40%" class="TableRow" valign="top">
+        <div class="ObjectDetailsNotes">&lt;a href=&quot;../../EA2/EA184.htm&quot;&gt;855DC-1541-ECL-003 Plexos&lt;/a&gt;&lt;br/&gt;</div>
 
     </td>
 </tr>

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head><link rel="icon" href="/favicon.ico"></head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>System Breakdown Structure Elements::Fortescue Operations Portfolio::005OP IT/OT Systems::005OP-0000-005 Weather Forecasting</title>
+<title>System Breakdown Structure Elements::Fortescue Operations Portfolio::005OP IT/OT Systems::005OP-0000-004 Alastri</title>
 <link href="../../css/ea.css" rel="stylesheet" type="text/css" />
 <script language="JavaScript" src="../../js/displayToc.js" type="text/javascript"></script>
 
@@ -379,6 +379,20 @@ function getTargetInfo(areaElement) {
 
         simplifyHeaderTitle(); // <-- cleans header text
 
+        // ----------------------------------------------------------------
+        // DELPHI RVAM BUTTON: Show only on the Delphi requirements diagram
+        // ----------------------------------------------------------------
+        (function() {
+            const h1 = document.querySelector('.header_frame h1');
+            const delphiBox = document.getElementById('delphi-rvam-box');
+            if (h1 && delphiBox) {
+                const pageTitle = h1.textContent.trim();
+                if (pageTitle.includes('855DC-1541-DEL Delphi')) {
+                    delphiBox.style.display = 'block';
+                }
+            }
+        })();
+
         // Netlify Navigation Fix
         const navLinks = document.querySelectorAll(
             'a[href^="./"], a[href^="../"], a[href$=".htm"], a[href$=".html"]'
@@ -408,17 +422,18 @@ function getTargetInfo(areaElement) {
             });
         }
 		// ----------------------------------------------------------------
-// DOWNLOAD LINK FIX (Interface Register)
+// DOWNLOAD LINK FIX (all files/ links, depth-independent)
 // ----------------------------------------------------------------
 const cssLinkDownload = document.querySelector('link[href*="ea.css"]');
 if (cssLinkDownload) {
     const cssPathDownload = cssLinkDownload.getAttribute('href');
     const rootPathDownload = cssPathDownload.substring(0, cssPathDownload.lastIndexOf('css/'));
 
-    const downloadLink = document.querySelector('.download-box a');
-    if (downloadLink) {
-        downloadLink.href = rootPathDownload + "files/Fortescue_Interface-Register_Z.xlsm";
-    }
+    document.querySelectorAll('a[href*="files/"]').forEach(link => {
+        const href = link.getAttribute('href');
+        const filename = href.substring(href.indexOf('files/'));
+        link.href = rootPathDownload + filename;
+    });
 }
 // ----------------------------------------------------------------
 // LEGEND SWITCHING (SBS Special Case)
@@ -477,11 +492,11 @@ if (cssLinkDownload) {
 <div class="section group" >
 
 		<div class="col span_2_of_2 header_frame">
-			<h1> System Breakdown Structure Elements::Fortescue Operations Portfolio::005OP IT/OT Systems::005OP-0000-005 Weather Forecasting </h1>
+			<h1> System Breakdown Structure Elements::Fortescue Operations Portfolio::005OP IT/OT Systems::005OP-0000-004 Alastri </h1>
 			<img class="header_image" src="../../images/Logo.png" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
-			<p><a href="../EA19.htm">Decarb Green Systems Architecture  Version: Z</a> / <a href="EA159.htm">System Breakdown Structure Elements</a> / <a href="EA161.htm">Fortescue Operations Portfolio</a> / <a href="EA421.htm">005OP IT/OT Systems</a> / <a href="EA463.htm">005OP-0000-005 Weather Forecasting</a></p>
+			<p><a href="../EA19.htm">Decarb Green Systems Architecture  Version: Z</a> / <a href="EA160.htm">System Breakdown Structure Elements</a> / <a href="EA162.htm">Fortescue Operations Portfolio</a> / <a href="EA422.htm">005OP IT/OT Systems</a> / <a href="EA463.htm">005OP-0000-004 Alastri</a></p>
 		</div>
 			
 		<table class="contentmaintable">
@@ -492,9 +507,14 @@ if (cssLinkDownload) {
 						<div class="download-box">
 						<div class="download-box">
 							<a href="files/Fortescue_Interface-Register_Z.xlsm" target="_blank">
-							Interface Register
+							Export Interface Register
 							</a>
 						</div>
+						</div>
+						<div class="download-box" id="delphi-rvam-box" style="display:none;">
+							<a href="files/Delphi_RVAM_Z.xlsx" target="_blank">
+							Export RVAM for this system
+							</a>
 						</div>
                         
                         <div class="sidebar-search-container">
@@ -505,18 +525,9 @@ if (cssLinkDownload) {
 
                         <div id="originalTree">
 						    <ul>
-<li><img src="../../images/5.png" alt="Class"/> <a href="EA411.htm">005OP-0000-005-001 Weather data</a></li>
-<li><img src="../../images/5.png" alt="Class"/> <a href="EA412.htm">005OP-0000-005-002 Snowflake (Wind)</a></li>
-<li><img src="../../images/5.png" alt="Class"/> <a href="EA416.htm">005OP-0000-005-006 Atevia (Solar NSJ)</a></li>
-<li><img src="../../images/5.png" alt="Class"/> <a href="EA413.htm">005OP-0000-005-003 Snowflake (Weather)</a></li>
-<li><img src="../../images/5.png" alt="Class"/> <a href="EA415.htm">005OP-0000-005-005 Weatherzone</a></li>
-<li><img src="../../images/5.png" alt="Class"/> <a href="EA414.htm">005OP-0000-005-004 Solstice</a></li>
-<li><img src="../../images/118.png" alt="Part"/> <a href="EA410.htm">Subsystem: 005OP-0000-005-001 Weather data</a></li>
-<li><img src="../../images/118.png" alt="Part"/> <a href="EA409.htm">Subsystem: 005OP-0000-005-002 Snowflake (Wind)</a></li>
-<li><img src="../../images/118.png" alt="Part"/> <a href="EA408.htm">Subsystem: 005OP-0000-005-005 Weatherzone</a></li>
-<li><img src="../../images/118.png" alt="Part"/> <a href="EA407.htm">Subsystem: 005OP-0000-005-004 Solstice</a></li>
-<li><img src="../../images/118.png" alt="Part"/> <a href="EA406.htm">Subsystem: 005OP-0000-005-003 Snowflake (Weather)</a></li>
-<li><img src="../../images/118.png" alt="Part"/> <a href="EA405.htm">Subsystem: 005OP-0000-005-006 Atevia (Solar NSJ)</a></li>
+<li><img src="../../images/5.png" alt="Class"/> <a href="EA333.htm">005OP-0000-004-001 Alastri Haul Infinity</a></li>
+<li><img src="../../images/5.png" alt="Class"/> <a href="EA335.htm">005OP-0000-004-002 Alastri Production Scheduler (APS) / Alastri Tactical Scheduler (ATS)</a></li>
+<li><img src="../../images/118.png" alt="Part"/> <a href="EA334.htm">Subsystem: 005OP-0000-004-001 Alastri Haul Infinity</a></li>
 </ul>
 
                         </div>
@@ -651,7 +662,7 @@ if (cssLinkDownload) {
 
 <div class="PageBody" style="position: relative !important; height: auto !important; overflow: visible !important; padding-bottom: 10px;">
     <span class="ObjectTitle">
-        005OP-0000-005 Weather Forecasting : &lt;&lt;block&gt;&gt;
+        005OP-0000-004 Alastri : &lt;&lt;block&gt;&gt;
     </span>
 
     <table border="0" class="ObjectDetails" style="width: 100%; margin-bottom: 10px;">
@@ -659,12 +670,12 @@ if (cssLinkDownload) {
             <col width="70px" />
             <col width="*" />
         </colgroup>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Status:</td><td class="ObjectDetailsValue">Approved</td></tr>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Created:</td><td class="ObjectDetailsValue">10/12/2025 01:43:22</td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Status:</td><td class="ObjectDetailsValue">Proposed</td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Created:</td><td class="ObjectDetailsValue">06/10/2025 15:58:48</td></tr>
         <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Modified:</td><td class="ObjectDetailsValue">10/01/2026 20:56:38</td></tr>
         <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Author:</td><td class="ObjectDetailsValue">Admin</td></tr>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">UUID:</td><td class="ObjectDetailsValue">{3AC65EC9-B513-4d14-9F91-B6216C1FAF0F}</td></tr>
-        <tr id="adv01"><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Appears In:</td><td class="ObjectDetailsValue"><a href="../EA15.htm">System Definition (SD)</a>, <a href="../EA5.htm">855DC-1541-DEL Delphi</a>, <a href="../EA17.htm">System Breakdown Structure (SBS)</a></td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">UUID:</td><td class="ObjectDetailsValue">{CE32B422-94FA-4b07-94C1-E201EAD567D9}</td></tr>
+        <tr id="adv01"><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Appears In:</td><td class="ObjectDetailsValue"><a href="../EA15.htm">System Definition (SD)</a>, <a href="../EA1.htm">855DC-1541-ECL Eclipse</a>, <a href="../EA5.htm">855DC-1541-LIV LiveWire</a>, <a href="../EA3.htm">855DC-1541-DEL Delphi</a>, Archive - System Definition - Christmas Creek Mine, Archive - System Definition - Cloudbreak Mine, Archive - System Definition - Iron Bridge Mine, Archive - System Definition - Port Hedland, Archive - System Definition - Eliwana Mine, Archive - System Definition - Flying Fish Mine, <a href="../EA17.htm">System Breakdown Structure (SBS)</a></td></tr>
         <tr>
             <td class="ObjectDetailsTopic" style="padding-left:0; width:70px; vertical-align:top; padding-top:5px;">Remarks:</td>
             <td class="ObjectDetailsValue remarks-cell" style="vertical-align:top; padding-top:5px;"></td>
@@ -1063,7 +1074,7 @@ if (cssLinkDownload) {
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="EA421.htm">«block» 005OP IT/OT Systems</a><br />
+						<a href="EA422.htm">«block» 005OP IT/OT Systems</a><br />
 						Block &nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
@@ -1077,8 +1088,8 @@ if (cssLinkDownload) {
 				</tr>
 				<tr>
 					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink2877" /></button>Details:
-							<div id="detailsDIVLink2877" class="DetailsDiv" >
+						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink2862" /></button>Details:
+							<div id="detailsDIVLink2862" class="DetailsDiv" >
 							&nbsp;
 							</div>
 						</div>
@@ -1096,7 +1107,7 @@ if (cssLinkDownload) {
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="EA413.htm">«block» 005OP-0000-005-003 Snowflake (Weather)</a><br />
+						<a href="EA333.htm">«block» 005OP-0000-004-001 Alastri Haul Infinity</a><br />
 						Block &nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
@@ -1110,8 +1121,8 @@ if (cssLinkDownload) {
 				</tr>
 				<tr>
 					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink2878" /></button>Details:
-							<div id="detailsDIVLink2878" class="DetailsDiv" >
+						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink2863" /></button>Details:
+							<div id="detailsDIVLink2863" class="DetailsDiv" >
 							&nbsp;
 							</div>
 						</div>
@@ -1119,7 +1130,7 @@ if (cssLinkDownload) {
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="EA415.htm">«block» 005OP-0000-005-005 Weatherzone</a><br />
+						<a href="EA335.htm">«block» 005OP-0000-004-002 Alastri Production Scheduler (APS) / Alastri Tactical Scheduler (ATS)</a><br />
 						Block &nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
@@ -1133,100 +1144,8 @@ if (cssLinkDownload) {
 				</tr>
 				<tr>
 					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink2879" /></button>Details:
-							<div id="detailsDIVLink2879" class="DetailsDiv" >
-							&nbsp;
-							</div>
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<td width="40%" class="TableRow" valign="top">
-						<a href="EA414.htm">«block» 005OP-0000-005-004 Solstice</a><br />
-						Block &nbsp;
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> Subsystem<br />
-						&nbsp;
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> &nbsp;<br />
-						&nbsp;	
-					</td>
-				</tr>
-				<tr>
-					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink2880" /></button>Details:
-							<div id="detailsDIVLink2880" class="DetailsDiv" >
-							&nbsp;
-							</div>
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<td width="40%" class="TableRow" valign="top">
-						<a href="EA411.htm">«block» 005OP-0000-005-001 Weather data</a><br />
-						Block &nbsp;
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> Subsystem<br />
-						&nbsp;
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> &nbsp;<br />
-						&nbsp;	
-					</td>
-				</tr>
-				<tr>
-					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink2881" /></button>Details:
-							<div id="detailsDIVLink2881" class="DetailsDiv" >
-							&nbsp;
-							</div>
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<td width="40%" class="TableRow" valign="top">
-						<a href="EA416.htm">«block» 005OP-0000-005-006 Atevia (Solar NSJ)</a><br />
-						Block &nbsp;
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> Subsystem<br />
-						&nbsp;
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> &nbsp;<br />
-						&nbsp;	
-					</td>
-				</tr>
-				<tr>
-					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink2882" /></button>Details:
-							<div id="detailsDIVLink2882" class="DetailsDiv" >
-							&nbsp;
-							</div>
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<td width="40%" class="TableRow" valign="top">
-						<a href="EA412.htm">«block» 005OP-0000-005-002 Snowflake (Wind)</a><br />
-						Block &nbsp;
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> Subsystem<br />
-						&nbsp;
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> &nbsp;<br />
-						&nbsp;	
-					</td>
-				</tr>
-				<tr>
-					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink2883" /></button>Details:
-							<div id="detailsDIVLink2883" class="DetailsDiv" >
+						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink2864" /></button>Details:
+							<div id="detailsDIVLink2864" class="DetailsDiv" >
 							&nbsp;
 							</div>
 						</div>
@@ -1242,96 +1161,6 @@ if (cssLinkDownload) {
             <td class="TableHeading">Value</td>
         </tr>
         			<tr>
-				<td class="TableRow" valign="top">1. Interface Name</td>
-				<td class="TableRow" valign="top">&nbsp;</td>
-			</tr>	
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="2">
-					Details:
-						&nbsp;
-				</td>
-			</tr>			<tr>
-				<td class="TableRow" valign="top">2. Interface Lead</td>
-				<td class="TableRow" valign="top">&nbsp;</td>
-			</tr>	
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="2">
-					Details:
-						&nbsp;
-				</td>
-			</tr>			<tr>
-				<td class="TableRow" valign="top">3. Interface Contributor(s)</td>
-				<td class="TableRow" valign="top">&nbsp;</td>
-			</tr>	
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="2">
-					Details:
-						&nbsp;
-				</td>
-			</tr>			<tr>
-				<td class="TableRow" valign="top">4. Interface Level</td>
-				<td class="TableRow" valign="top">&nbsp;</td>
-			</tr>	
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="2">
-					Details:
-						&nbsp;
-				</td>
-			</tr>			<tr>
-				<td class="TableRow" valign="top">5. Interface Type</td>
-				<td class="TableRow" valign="top">&nbsp;</td>
-			</tr>	
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="2">
-					Details:
-						&nbsp;
-				</td>
-			</tr>			<tr>
-				<td class="TableRow" valign="top">6. Interface Description</td>
-				<td class="TableRow" valign="top">&nbsp;</td>
-			</tr>	
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="2">
-					Details:
-						&nbsp;
-				</td>
-			</tr>			<tr>
-				<td class="TableRow" valign="top">7. Interface Criticality</td>
-				<td class="TableRow" valign="top">&nbsp;</td>
-			</tr>	
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="2">
-					Details:
-						&nbsp;
-				</td>
-			</tr>			<tr>
-				<td class="TableRow" valign="top">8. Interface Flow</td>
-				<td class="TableRow" valign="top">&nbsp;</td>
-			</tr>	
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="2">
-					Details:
-						&nbsp;
-				</td>
-			</tr>			<tr>
-				<td class="TableRow" valign="top">9. Interface Criticality Justification</td>
-				<td class="TableRow" valign="top">&nbsp;</td>
-			</tr>	
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="2">
-					Details:
-						&nbsp;
-				</td>
-			</tr>			<tr>
-				<td class="TableRow" valign="top">Allocation</td>
-				<td class="TableRow" valign="top">&nbsp;</td>
-			</tr>	
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="2">
-					Details:
-						&nbsp;
-				</td>
-			</tr>			<tr>
 				<td class="TableRow" valign="top">Element</td>
 				<td class="TableRow" valign="top">Project</td>
 			</tr>	
@@ -1359,26 +1188,8 @@ if (cssLinkDownload) {
 						&nbsp;
 				</td>
 			</tr>			<tr>
-				<td class="TableRow" valign="top">Location</td>
-				<td class="TableRow" valign="top">&nbsp;</td>
-			</tr>	
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="2">
-					Details:
-						&nbsp;
-				</td>
-			</tr>			<tr>
 				<td class="TableRow" valign="top">Old SBS ID</td>
-				<td class="TableRow" valign="top">A.04.17</td>
-			</tr>	
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="2">
-					Details:
-						&nbsp;
-				</td>
-			</tr>			<tr>
-				<td class="TableRow" valign="top">Owner</td>
-				<td class="TableRow" valign="top">&nbsp;</td>
+				<td class="TableRow" valign="top">A.02.09</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1423,7 +1234,7 @@ if (cssLinkDownload) {
 				</td>
 			</tr>			<tr>
 				<td class="TableRow" valign="top">Project</td>
-				<td class="TableRow" valign="top">005OP-0000-005 Weather Forecasting</td>
+				<td class="TableRow" valign="top">005OP-0000-004 Alastri</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1432,25 +1243,7 @@ if (cssLinkDownload) {
 				</td>
 			</tr>			<tr>
 				<td class="TableRow" valign="top">Project Code</td>
-				<td class="TableRow" valign="top">005</td>
-			</tr>	
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="2">
-					Details:
-						&nbsp;
-				</td>
-			</tr>			<tr>
-				<td class="TableRow" valign="top">Rationale</td>
-				<td class="TableRow" valign="top">&nbsp;</td>
-			</tr>	
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="2">
-					Details:
-						&nbsp;
-				</td>
-			</tr>			<tr>
-				<td class="TableRow" valign="top">Subsystem</td>
-				<td class="TableRow" valign="top">&nbsp;</td>
+				<td class="TableRow" valign="top">004</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1468,7 +1261,7 @@ if (cssLinkDownload) {
 				</td>
 			</tr>			<tr>
 				<td class="TableRow" valign="top">WBS Code</td>
-				<td class="TableRow" valign="top">005OP-0000-005</td>
+				<td class="TableRow" valign="top">005OP-0000-004</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1515,7 +1308,7 @@ if (cssLinkDownload) {
         </tr>
 
 <tr class="#LINK_STEREOTYPE# Block">
-    <td width="30%" class="TableRow" valign="top"><a href="EA413.htm">«block» 005OP-0000-005-003 Snowflake (Weather)</a></td>
+    <td width="30%" class="TableRow" valign="top"><a href="EA333.htm">«block» 005OP-0000-004-001 Alastri Haul Infinity</a></td>
     <td width="10%" class="TableRow" valign="top">Block</td>
     <td width="10%" class="TableRow" valign="top">Strong</td>
     <td width="10%" class="TableRow" valign="top">From</td>
@@ -1523,8 +1316,37 @@ if (cssLinkDownload) {
         &nbsp;
     </td>
 </tr>
+<tr class="#LINK_STEREOTYPE# InterfaceBlock">
+    <td width="30%" class="TableRow" valign="top"><a href="../EA3/EA5/EA656.htm">«InterfaceBlock» DGS-I_0013</a></td>
+    <td width="10%" class="TableRow" valign="top">InterfaceBlock</td>
+    <td width="10%" class="TableRow" valign="top">Abstraction</td>
+    <td width="10%" class="TableRow" valign="top">To</td>
+    <td width="40%" class="TableRow" valign="top">
+        <div class="ObjectDetailsNotes">&lt;a href=&quot;EA292.htm&quot;&gt;855DC-1541-ECL Eclipse&lt;/a&gt;&lt;br/&gt;</div>
+
+    </td>
+</tr>
 <tr class="#LINK_STEREOTYPE# Block">
-    <td width="30%" class="TableRow" valign="top"><a href="EA421.htm">«block» 005OP IT/OT Systems</a></td>
+    <td width="30%" class="TableRow" valign="top"><a href="EA335.htm">«block» 005OP-0000-004-002 Alastri Production Scheduler (APS) / Alastri Tactical Scheduler (ATS)</a></td>
+    <td width="10%" class="TableRow" valign="top">Block</td>
+    <td width="10%" class="TableRow" valign="top">Strong</td>
+    <td width="10%" class="TableRow" valign="top">From</td>
+    <td width="40%" class="TableRow" valign="top">
+        &nbsp;
+    </td>
+</tr>
+<tr class="#LINK_STEREOTYPE# InterfaceBlock">
+    <td width="30%" class="TableRow" valign="top"><a href="../EA3/EA5/EA671.htm">«InterfaceBlock» DGS-I_0028</a></td>
+    <td width="10%" class="TableRow" valign="top">InterfaceBlock</td>
+    <td width="10%" class="TableRow" valign="top">Abstraction</td>
+    <td width="10%" class="TableRow" valign="top">To</td>
+    <td width="40%" class="TableRow" valign="top">
+        <div class="ObjectDetailsNotes">[DELETED]&lt;br/&gt;</div>
+
+    </td>
+</tr>
+<tr class="#LINK_STEREOTYPE# Block">
+    <td width="30%" class="TableRow" valign="top"><a href="EA422.htm">«block» 005OP IT/OT Systems</a></td>
     <td width="10%" class="TableRow" valign="top">Block</td>
     <td width="10%" class="TableRow" valign="top">Strong</td>
     <td width="10%" class="TableRow" valign="top">To</td>
@@ -1532,49 +1354,54 @@ if (cssLinkDownload) {
         &nbsp;
     </td>
 </tr>
-<tr class="#LINK_STEREOTYPE# Block">
-    <td width="30%" class="TableRow" valign="top"><a href="EA415.htm">«block» 005OP-0000-005-005 Weatherzone</a></td>
-    <td width="10%" class="TableRow" valign="top">Block</td>
-    <td width="10%" class="TableRow" valign="top">Strong</td>
-    <td width="10%" class="TableRow" valign="top">From</td>
+<tr class="#LINK_STEREOTYPE# InterfaceBlock">
+    <td width="30%" class="TableRow" valign="top"><a href="../EA3/EA5/EA668.htm">«InterfaceBlock» DGS-I_0025</a></td>
+    <td width="10%" class="TableRow" valign="top">InterfaceBlock</td>
+    <td width="10%" class="TableRow" valign="top">Abstraction</td>
+    <td width="10%" class="TableRow" valign="top">To</td>
     <td width="40%" class="TableRow" valign="top">
-        &nbsp;
+        <div class="ObjectDetailsNotes">&lt;a href=&quot;EA293.htm&quot;&gt;855DC-1541-LIV LiveWire&lt;/a&gt;&lt;br/&gt;</div>
+
     </td>
 </tr>
-<tr class="#LINK_STEREOTYPE# Block">
-    <td width="30%" class="TableRow" valign="top"><a href="EA414.htm">«block» 005OP-0000-005-004 Solstice</a></td>
-    <td width="10%" class="TableRow" valign="top">Block</td>
-    <td width="10%" class="TableRow" valign="top">Strong</td>
-    <td width="10%" class="TableRow" valign="top">From</td>
+<tr class="#LINK_STEREOTYPE# InterfaceBlock">
+    <td width="30%" class="TableRow" valign="top"><a href="../EA3/EA5/EA672.htm">«InterfaceBlock» DGS-I_0029</a></td>
+    <td width="10%" class="TableRow" valign="top">InterfaceBlock</td>
+    <td width="10%" class="TableRow" valign="top">Abstraction</td>
+    <td width="10%" class="TableRow" valign="top">To</td>
     <td width="40%" class="TableRow" valign="top">
-        &nbsp;
+        <div class="ObjectDetailsNotes">[DELETED]&lt;br/&gt;</div>
+
     </td>
 </tr>
-<tr class="#LINK_STEREOTYPE# Block">
-    <td width="30%" class="TableRow" valign="top"><a href="EA411.htm">«block» 005OP-0000-005-001 Weather data</a></td>
-    <td width="10%" class="TableRow" valign="top">Block</td>
-    <td width="10%" class="TableRow" valign="top">Strong</td>
-    <td width="10%" class="TableRow" valign="top">From</td>
+<tr class="#LINK_STEREOTYPE# InterfaceBlock">
+    <td width="30%" class="TableRow" valign="top"><a href="../EA3/EA5/EA664.htm">«InterfaceBlock» DGS-I_0021</a></td>
+    <td width="10%" class="TableRow" valign="top">InterfaceBlock</td>
+    <td width="10%" class="TableRow" valign="top">Abstraction</td>
+    <td width="10%" class="TableRow" valign="top">To</td>
     <td width="40%" class="TableRow" valign="top">
-        &nbsp;
+        <div class="ObjectDetailsNotes">&lt;a href=&quot;EA291.htm&quot;&gt;855DC-1541-DEL Delphi&lt;/a&gt;&lt;br/&gt;</div>
+
     </td>
 </tr>
-<tr class="#LINK_STEREOTYPE# Block">
-    <td width="30%" class="TableRow" valign="top"><a href="EA416.htm">«block» 005OP-0000-005-006 Atevia (Solar NSJ)</a></td>
-    <td width="10%" class="TableRow" valign="top">Block</td>
-    <td width="10%" class="TableRow" valign="top">Strong</td>
-    <td width="10%" class="TableRow" valign="top">From</td>
+<tr class="#LINK_STEREOTYPE# InterfaceBlock">
+    <td width="30%" class="TableRow" valign="top"><a href="../EA3/EA5/EA674.htm">«InterfaceBlock» DGS-I_0031</a></td>
+    <td width="10%" class="TableRow" valign="top">InterfaceBlock</td>
+    <td width="10%" class="TableRow" valign="top">Abstraction</td>
+    <td width="10%" class="TableRow" valign="top">To</td>
     <td width="40%" class="TableRow" valign="top">
-        &nbsp;
+        <div class="ObjectDetailsNotes">&lt;a href=&quot;EA480.htm&quot;&gt;859DC-1410-001 HaulX&lt;/a&gt;&lt;br/&gt;</div>
+
     </td>
 </tr>
-<tr class="#LINK_STEREOTYPE# Block">
-    <td width="30%" class="TableRow" valign="top"><a href="EA412.htm">«block» 005OP-0000-005-002 Snowflake (Wind)</a></td>
-    <td width="10%" class="TableRow" valign="top">Block</td>
-    <td width="10%" class="TableRow" valign="top">Strong</td>
-    <td width="10%" class="TableRow" valign="top">From</td>
+<tr class="#LINK_STEREOTYPE# InterfaceBlock">
+    <td width="30%" class="TableRow" valign="top"><a href="../EA3/EA5/EA670.htm">«InterfaceBlock» DGS-I_0027</a></td>
+    <td width="10%" class="TableRow" valign="top">InterfaceBlock</td>
+    <td width="10%" class="TableRow" valign="top">Abstraction</td>
+    <td width="10%" class="TableRow" valign="top">To</td>
     <td width="40%" class="TableRow" valign="top">
-        &nbsp;
+        <div class="ObjectDetailsNotes">&lt;a href=&quot;EA290.htm&quot;&gt;855DC-1541-005 HaulAI&lt;/a&gt;&lt;br/&gt;</div>
+
     </td>
 </tr>
 

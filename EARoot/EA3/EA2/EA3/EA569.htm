@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head><link rel="icon" href="/favicon.ico"></head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Solomon Mine Hub: Thermal Generators: 003OP-5612 Diesel Generators</title>
+<title>Solomon Mine Hub: Support Mobile Equipment (SME): 852DC Light Mobile Equipment (LME) & Support Mobile Equipment (SME)</title>
 <link href="../../../../css/ea.css" rel="stylesheet" type="text/css" />
 <script language="JavaScript" src="../../../../js/displayToc.js" type="text/javascript"></script>
 
@@ -379,6 +379,20 @@ function getTargetInfo(areaElement) {
 
         simplifyHeaderTitle(); // <-- cleans header text
 
+        // ----------------------------------------------------------------
+        // DELPHI RVAM BUTTON: Show only on the Delphi requirements diagram
+        // ----------------------------------------------------------------
+        (function() {
+            const h1 = document.querySelector('.header_frame h1');
+            const delphiBox = document.getElementById('delphi-rvam-box');
+            if (h1 && delphiBox) {
+                const pageTitle = h1.textContent.trim();
+                if (pageTitle.includes('855DC-1541-DEL Delphi')) {
+                    delphiBox.style.display = 'block';
+                }
+            }
+        })();
+
         // Netlify Navigation Fix
         const navLinks = document.querySelectorAll(
             'a[href^="./"], a[href^="../"], a[href$=".htm"], a[href$=".html"]'
@@ -408,17 +422,18 @@ function getTargetInfo(areaElement) {
             });
         }
 		// ----------------------------------------------------------------
-// DOWNLOAD LINK FIX (Interface Register)
+// DOWNLOAD LINK FIX (all files/ links, depth-independent)
 // ----------------------------------------------------------------
 const cssLinkDownload = document.querySelector('link[href*="ea.css"]');
 if (cssLinkDownload) {
     const cssPathDownload = cssLinkDownload.getAttribute('href');
     const rootPathDownload = cssPathDownload.substring(0, cssPathDownload.lastIndexOf('css/'));
 
-    const downloadLink = document.querySelector('.download-box a');
-    if (downloadLink) {
-        downloadLink.href = rootPathDownload + "files/Fortescue_Interface-Register_Z.xlsm";
-    }
+    document.querySelectorAll('a[href*="files/"]').forEach(link => {
+        const href = link.getAttribute('href');
+        const filename = href.substring(href.indexOf('files/'));
+        link.href = rootPathDownload + filename;
+    });
 }
 // ----------------------------------------------------------------
 // LEGEND SWITCHING (SBS Special Case)
@@ -477,11 +492,11 @@ if (cssLinkDownload) {
 <div class="section group" >
 
 		<div class="col span_2_of_2 header_frame">
-			<h1> Solomon Mine Hub: Thermal Generators: 003OP-5612 Diesel Generators </h1>
+			<h1> Solomon Mine Hub: Support Mobile Equipment (SME): 852DC Light Mobile Equipment (LME) & Support Mobile Equipment (SME) </h1>
 			<img class="header_image" src="../../../../images/Logo.png" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
-			<p><a href="../../../EA19.htm">Decarb Green Systems Architecture  Version: Z</a> / <a href="../../EA480.htm">System Definition Elements</a> / <a href="../EA509.htm">Locations</a> / <a href="EA553.htm">Solomon Mine Hub</a> / <a href="EA569.htm">Solomon Mine Hub: Thermal Generators: 003OP-5612 Diesel Generators</a></p>
+			<p><a href="../../../EA19.htm">Decarb Green Systems Architecture  Version: Z</a> / <a href="../../EA481.htm">System Definition Elements</a> / <a href="../EA510.htm">Locations</a> / <a href="EA554.htm">Solomon Mine Hub</a> / <a href="EA569.htm">Solomon Mine Hub: Support Mobile Equipment (SME): 852DC Light Mobile Equipment (LME) & Support Mobile Equipment (SME)</a></p>
 		</div>
 			
 		<table class="contentmaintable">
@@ -492,9 +507,14 @@ if (cssLinkDownload) {
 						<div class="download-box">
 						<div class="download-box">
 							<a href="files/Fortescue_Interface-Register_Z.xlsm" target="_blank">
-							Interface Register
+							Export Interface Register
 							</a>
 						</div>
+						</div>
+						<div class="download-box" id="delphi-rvam-box" style="display:none;">
+							<a href="files/Delphi_RVAM_Z.xlsx" target="_blank">
+							Export RVAM for this system
+							</a>
 						</div>
                         
                         <div class="sidebar-search-container">
@@ -505,7 +525,16 @@ if (cssLinkDownload) {
 
                         <div id="originalTree">
 						    <ul>
-<a href="EA553.htm">Solomon Mine Hub</a></ul>
+<li><img src="../../../../images/25.png" alt="Object"/> <a href="EA595.htm">Solomon Mine Hub: Lifting / Access Equipment: Archive - 852DC-1576/1589 Lifting / Access Equipment</a></li>
+<li><img src="../../../../images/25.png" alt="Object"/> <a href="EA599.htm">Solomon Mine Hub: Wheel Tractor: 852DC-1588 Wheel Tractor</a></li>
+<li><img src="../../../../images/25.png" alt="Object"/> <a href="EA598.htm">Solomon Mine Hub: SME Loader: 852DC-1585 SME Loader</a></li>
+<li><img src="../../../../images/25.png" alt="Object"/> <a href="EA597.htm">Solomon Mine Hub: Roller: 852DC-1586 Roller</a></li>
+<li><img src="../../../../images/25.png" alt="Object"/> <a href="EA596.htm">Solomon Mine Hub: Prime Movers & Trucks [&gt;4.5t]: 852DC-1587 Prime Movers & Trucks (&gt;4.5t)</a></li>
+<li><img src="../../../../images/25.png" alt="Object"/> <a href="EA594.htm">Solomon Mine Hub: Grader [&lt;15ft]: 852DC-1584 Grader (&lt;15ft)</a></li>
+<li><img src="../../../../images/25.png" alt="Object"/> <a href="EA592.htm">Solomon Mine Hub: Dump Truck [45t]: 852DC-1582 Dump Truck (45t)</a></li>
+<li><img src="../../../../images/25.png" alt="Object"/> <a href="EA591.htm">Solomon Mine Hub: Dozer [&lt;40t]: 852DC-1583 Dozer (&lt;40t)</a></li>
+<li><img src="../../../../images/25.png" alt="Object"/> <a href="EA593.htm">Solomon Mine Hub: Excavators [&lt;110t]: 852DC-1581 Excavators (&lt;110t)</a></li>
+</ul>
 
                         </div>
 					</td>
@@ -639,7 +668,7 @@ if (cssLinkDownload) {
 
 <div class="PageBody" style="position: relative !important; height: auto !important; overflow: visible !important; padding-bottom: 10px;">
     <span class="ObjectTitle">
-        Solomon Mine Hub: Thermal Generators : 
+        Solomon Mine Hub: Support Mobile Equipment (SME) : 
     </span>
 
     <table border="0" class="ObjectDetails" style="width: 100%; margin-bottom: 10px;">
@@ -648,10 +677,10 @@ if (cssLinkDownload) {
             <col width="*" />
         </colgroup>
         <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Status:</td><td class="ObjectDetailsValue">Proposed</td></tr>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Created:</td><td class="ObjectDetailsValue">26/09/2025 15:47:56</td></tr>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Modified:</td><td class="ObjectDetailsValue">14/11/2025 02:09:15</td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Created:</td><td class="ObjectDetailsValue">12/11/2025 15:13:43</td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Modified:</td><td class="ObjectDetailsValue">13/11/2025 10:55:14</td></tr>
         <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Author:</td><td class="ObjectDetailsValue">Admin</td></tr>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">UUID:</td><td class="ObjectDetailsValue">{B63469E0-5077-4abb-B215-9FCD6D0CCDD5}</td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">UUID:</td><td class="ObjectDetailsValue">{FB5EBAF3-C7AE-489e-97C3-155E2B6D4684}</td></tr>
         <tr id="adv01"><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Appears In:</td><td class="ObjectDetailsValue"></td></tr>
         <tr>
             <td class="ObjectDetailsTopic" style="padding-left:0; width:70px; vertical-align:top; padding-top:5px;">Remarks:</td>
@@ -1095,22 +1124,32 @@ if (cssLinkDownload) {
         </tr>
 
 <tr class="#LINK_STEREOTYPE# InterfaceBlock">
-    <td width="30%" class="TableRow" valign="top"><a href="../../EA5/EA868.htm">«InterfaceBlock» DGS-I_0226</a></td>
+    <td width="30%" class="TableRow" valign="top"><a href="../../EA5/EA917.htm">«InterfaceBlock» DGS-I_0274</a></td>
     <td width="10%" class="TableRow" valign="top">InterfaceBlock</td>
     <td width="10%" class="TableRow" valign="top">Abstraction</td>
     <td width="10%" class="TableRow" valign="top">To</td>
     <td width="40%" class="TableRow" valign="top">
-        <div class="ObjectDetailsNotes">&lt;a href=&quot;../../../EA2/EA319.htm&quot;&gt;855DC-1543-008 Monarch&lt;/a&gt;&lt;br/&gt;</div>
+        <div class="ObjectDetailsNotes">&lt;a href=&quot;../../../EA2/EA203.htm&quot;&gt;859DC-1410-001-004 HaulX Shield (Collision Avoidance System)&lt;/a&gt;&lt;br/&gt;</div>
 
     </td>
 </tr>
 <tr class="#LINK_STEREOTYPE# InterfaceBlock">
-    <td width="30%" class="TableRow" valign="top"><a href="../../EA5/EA869.htm">«InterfaceBlock» DGS-I_0227</a></td>
+    <td width="30%" class="TableRow" valign="top"><a href="../../EA5/EA925.htm">«InterfaceBlock» DGS-I_0282</a></td>
     <td width="10%" class="TableRow" valign="top">InterfaceBlock</td>
     <td width="10%" class="TableRow" valign="top">Abstraction</td>
     <td width="10%" class="TableRow" valign="top">To</td>
     <td width="40%" class="TableRow" valign="top">
-        <div class="ObjectDetailsNotes">&lt;a href=&quot;../EA1/EA526.htm&quot;&gt;Solomon Mine Hub: Substation (33kV)&lt;/a&gt;&lt;br/&gt;</div>
+        <div class="ObjectDetailsNotes">&lt;a href=&quot;EA586.htm&quot;&gt;Solomon Mine Hub: HME Auxilary Chargers&lt;/a&gt;&lt;br/&gt;</div>
+
+    </td>
+</tr>
+<tr class="#LINK_STEREOTYPE# InterfaceBlock">
+    <td width="30%" class="TableRow" valign="top"><a href="../../EA5/EA920.htm">«InterfaceBlock» DGS-I_0277</a></td>
+    <td width="10%" class="TableRow" valign="top">InterfaceBlock</td>
+    <td width="10%" class="TableRow" valign="top">Abstraction</td>
+    <td width="10%" class="TableRow" valign="top">To</td>
+    <td width="40%" class="TableRow" valign="top">
+        <div class="ObjectDetailsNotes">&lt;a href=&quot;../../../EA2/EA321.htm&quot;&gt;855DC-1543-PPC Pit Power Capacity Planning Tool - Capacity Check&lt;/a&gt;&lt;br/&gt;</div>
 
     </td>
 </tr>

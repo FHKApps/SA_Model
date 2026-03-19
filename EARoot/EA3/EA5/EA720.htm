@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head><link rel="icon" href="/favicon.ico"></head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Interfaces::DGS-I_0078</title>
+<title>Interfaces::DGS-I_0077</title>
 <link href="../../../css/ea.css" rel="stylesheet" type="text/css" />
 <script language="JavaScript" src="../../../js/displayToc.js" type="text/javascript"></script>
 
@@ -379,6 +379,20 @@ function getTargetInfo(areaElement) {
 
         simplifyHeaderTitle(); // <-- cleans header text
 
+        // ----------------------------------------------------------------
+        // DELPHI RVAM BUTTON: Show only on the Delphi requirements diagram
+        // ----------------------------------------------------------------
+        (function() {
+            const h1 = document.querySelector('.header_frame h1');
+            const delphiBox = document.getElementById('delphi-rvam-box');
+            if (h1 && delphiBox) {
+                const pageTitle = h1.textContent.trim();
+                if (pageTitle.includes('855DC-1541-DEL Delphi')) {
+                    delphiBox.style.display = 'block';
+                }
+            }
+        })();
+
         // Netlify Navigation Fix
         const navLinks = document.querySelectorAll(
             'a[href^="./"], a[href^="../"], a[href$=".htm"], a[href$=".html"]'
@@ -408,17 +422,18 @@ function getTargetInfo(areaElement) {
             });
         }
 		// ----------------------------------------------------------------
-// DOWNLOAD LINK FIX (Interface Register)
+// DOWNLOAD LINK FIX (all files/ links, depth-independent)
 // ----------------------------------------------------------------
 const cssLinkDownload = document.querySelector('link[href*="ea.css"]');
 if (cssLinkDownload) {
     const cssPathDownload = cssLinkDownload.getAttribute('href');
     const rootPathDownload = cssPathDownload.substring(0, cssPathDownload.lastIndexOf('css/'));
 
-    const downloadLink = document.querySelector('.download-box a');
-    if (downloadLink) {
-        downloadLink.href = rootPathDownload + "files/Fortescue_Interface-Register_Z.xlsm";
-    }
+    document.querySelectorAll('a[href*="files/"]').forEach(link => {
+        const href = link.getAttribute('href');
+        const filename = href.substring(href.indexOf('files/'));
+        link.href = rootPathDownload + filename;
+    });
 }
 // ----------------------------------------------------------------
 // LEGEND SWITCHING (SBS Special Case)
@@ -477,11 +492,11 @@ if (cssLinkDownload) {
 <div class="section group" >
 
 		<div class="col span_2_of_2 header_frame">
-			<h1> Interfaces::DGS-I_0078 </h1>
+			<h1> Interfaces::DGS-I_0077 </h1>
 			<img class="header_image" src="../../../images/Logo.png" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
-			<p><a href="../../EA19.htm">Decarb Green Systems Architecture  Version: Z</a> / <a href="../EA480.htm">System Definition Elements</a> / <a href="EA642.htm">Interfaces</a> / <a href="EA720.htm">DGS-I_0078</a></p>
+			<p><a href="../../EA19.htm">Decarb Green Systems Architecture  Version: Z</a> / <a href="../EA481.htm">System Definition Elements</a> / <a href="EA643.htm">Interfaces</a> / <a href="EA720.htm">DGS-I_0077</a></p>
 		</div>
 			
 		<table class="contentmaintable">
@@ -492,9 +507,14 @@ if (cssLinkDownload) {
 						<div class="download-box">
 						<div class="download-box">
 							<a href="files/Fortescue_Interface-Register_Z.xlsm" target="_blank">
-							Interface Register
+							Export Interface Register
 							</a>
 						</div>
+						</div>
+						<div class="download-box" id="delphi-rvam-box" style="display:none;">
+							<a href="files/Delphi_RVAM_Z.xlsx" target="_blank">
+							Export RVAM for this system
+							</a>
 						</div>
                         
                         <div class="sidebar-search-container">
@@ -505,7 +525,7 @@ if (cssLinkDownload) {
 
                         <div id="originalTree">
 						    <ul>
-<a href="EA642.htm">Interfaces</a></ul>
+<a href="EA643.htm">Interfaces</a></ul>
 
                         </div>
 					</td>
@@ -639,7 +659,7 @@ if (cssLinkDownload) {
 
 <div class="PageBody" style="position: relative !important; height: auto !important; overflow: visible !important; padding-bottom: 10px;">
     <span class="ObjectTitle">
-        DGS-I_0078 : &lt;&lt;InterfaceBlock&gt;&gt;
+        DGS-I_0077 : &lt;&lt;InterfaceBlock&gt;&gt;
     </span>
 
     <table border="0" class="ObjectDetails" style="width: 100%; margin-bottom: 10px;">
@@ -647,15 +667,15 @@ if (cssLinkDownload) {
             <col width="70px" />
             <col width="*" />
         </colgroup>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Status:</td><td class="ObjectDetailsValue">Simplified Interface</td></tr>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Created:</td><td class="ObjectDetailsValue">16/10/2025 13:52:26</td></tr>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Modified:</td><td class="ObjectDetailsValue">24/02/2026 23:50:14</td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Status:</td><td class="ObjectDetailsValue">Proposed</td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Created:</td><td class="ObjectDetailsValue">16/10/2025 13:52:24</td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Modified:</td><td class="ObjectDetailsValue">24/02/2026 23:50:15</td></tr>
         <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Author:</td><td class="ObjectDetailsValue">Admin</td></tr>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">UUID:</td><td class="ObjectDetailsValue">{797178F6-6344-444a-98CC-2D991B04CE7E}</td></tr>
-        <tr id="adv01"><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Appears In:</td><td class="ObjectDetailsValue"></td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">UUID:</td><td class="ObjectDetailsValue">{CD69AA90-0CD3-44e0-A368-EEC621D1383F}</td></tr>
+        <tr id="adv01"><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Appears In:</td><td class="ObjectDetailsValue"><a href="../../EA7.htm">855DC-1542-008 Mine Electrification SCADA</a>, <a href="../../EA15.htm">System Definition (SD)</a>, <a href="../../EA5.htm">855DC-1541-LIV LiveWire</a></td></tr>
         <tr>
             <td class="ObjectDetailsTopic" style="padding-left:0; width:70px; vertical-align:top; padding-top:5px;">Remarks:</td>
-            <td class="ObjectDetailsValue remarks-cell" style="vertical-align:top; padding-top:5px;"><div class="ObjectDetailsNotes">CSMS Review 30/10/2025: Speak OCPP to a vCharm Edge.&lt;br/&gt;State, current voltage, car plugged in?&lt;br/&gt;Getting back charge auth, charge rate profiles. set charge rate.&lt;br/&gt;Depending on the charger, potentially phoning home to the manufacturers&#39; cloud.&lt;br/&gt;NH 25/02/2026: Fields updated:Interface Type&lt;br/&gt;</div>
+            <td class="ObjectDetailsValue remarks-cell" style="vertical-align:top; padding-top:5px;"><div class="ObjectDetailsNotes">LMS Review 30/10/2025: PLC in a field switch OPC/UA.&lt;br/&gt;Status for SCADA tags, circuit breaker statuses, temp data. &lt;br/&gt;&lt;br/&gt;Two way (control as well for HV Switching).&lt;br/&gt;&lt;br/&gt;SCADA Review 30/10/2025: Similar interface and functionality to GSS.&lt;br/&gt;&lt;br/&gt;Remark 02/12/2025: Move mine electrification SCADA to retired systems and delete associated interfaces.&lt;br/&gt;NH 04/12/2025: The Project A.02.03 Mine Electrification SCADA was renamed from A.02.03 Power Infrastructure SCADA and is composed of the following Subsystems: A.02.03.01 Ignition SCADA and A.02.03.02 Non-Process Infrastructure (NPI) SCADA. Removing the project would also remove the Subsystems, unless they are promoted to Projects. (see diagram A.02.03 Mine Electrification SCADA&#160;&#160;- reviewed as A.02.03 Power Infrastructure SCADA on 30/10/2025).&lt;br/&gt;JV 13/01/2026: Mine Electrification SCADA is a live project - retain in the System Architecture and Interface Register.&lt;br/&gt;NH 20/02/2026: Fields updated: Interface Type, Interface Flow.&lt;br/&gt;</div>
 </td>
         </tr>
     </table>
@@ -1049,25 +1069,7 @@ if (cssLinkDownload) {
         </tr>
         			<tr>
 				<td class="TableRow" valign="top">1. Interface Name</td>
-				<td class="TableRow" valign="top">850DC-1510 Chargers|855DC-1542-CSM Charge Station Management System (CSMS)</td>
-			</tr>	
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="2">
-					Details:
-						&nbsp;
-				</td>
-			</tr>			<tr>
-				<td class="TableRow" valign="top">2. Interface Lead</td>
-				<td class="TableRow" valign="top">Sam Hedgcock</td>
-			</tr>	
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="2">
-					Details:
-						&nbsp;
-				</td>
-			</tr>			<tr>
-				<td class="TableRow" valign="top">3. Interface Contributor(s)</td>
-				<td class="TableRow" valign="top">Rhys Jasper</td>
+				<td class="TableRow" valign="top">850DC-1522 Field Switches|855DC-1542-008 Mine Electrification SCADA</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1085,7 +1087,7 @@ if (cssLinkDownload) {
 				</td>
 			</tr>			<tr>
 				<td class="TableRow" valign="top">5. Interface Type</td>
-				<td class="TableRow" valign="top">Technical-Data/Software</td>
+				<td class="TableRow" valign="top">Technical-Electrical</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1094,7 +1096,7 @@ if (cssLinkDownload) {
 				</td>
 			</tr>			<tr>
 				<td class="TableRow" valign="top">6. Interface Description</td>
-				<td class="TableRow" valign="top">vCharm Edge &lt;-&gt; EV Chargers - OCPP Integration for Charging Control & Status<br />The purpose of this interface is to allow vCharm Edge to communicate with EV chargers using OCPP to manage charging sessions and retrieve real-time charger information. This includes charger state, current and voltage levels, plug-in status, and vehicle connection details. The system also receives charge authorisation and rate profiles, and can send commands such as setting or adjusting the charge rate. Some charger models may additionally connect to the manufacturer&#39;s cloud..<br />Intermediate Elements: vCharm Edge gateway, OCPP protocol, charger manufacturer cloud (where required), charger telemetry and control interfaces.</td>
+				<td class="TableRow" valign="top">This interface allows Mine Electrification SCADA to monitor and operate field switches across the site, ensuring safe isolation, load transfer, and protection coordination.</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1112,7 +1114,7 @@ if (cssLinkDownload) {
 				</td>
 			</tr>			<tr>
 				<td class="TableRow" valign="top">8. Interface Flow</td>
-				<td class="TableRow" valign="top">Data Flow:<br />EV Chargers &lt;-&gt; OCPP &lt;-&gt; vCharm Edge (status, telemetry, control) -&gt; Local energy systems (LMS/SCADA where applicable).</td>
+				<td class="TableRow" valign="top">Data Flow: Field Switches -&gt; Mine Electrification SCADA (switch position, feeder status, voltage/current measurements where applicable, protection indications, alarms, fault events) for real-time monitoring and network status visibility.<br />Control Flow: Mine Electrification SCADA -&gt; Field Switches (remote open/close commands, isolation instructions, load transfer commands, reset signals) to enable safe switching and fault isolation.</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1121,7 +1123,7 @@ if (cssLinkDownload) {
 				</td>
 			</tr>			<tr>
 				<td class="TableRow" valign="top">9. Interface Criticality Justification</td>
-				<td class="TableRow" valign="top">The criticality level is HIGH because reliable OCPP communication is essential for managing EV charging loads, ensuring safe power distribution, and enabling coordinated charging behaviour across the site.</td>
+				<td class="TableRow" valign="top">The criticality level is HIGH because field switching is essential for electrical safety, maintenance coordination, and fault response. Without SCADA visibility, operators cannot promptly detect faults or safely reconfigure the network, creating both operational and safety risks.</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1181,22 +1183,22 @@ if (cssLinkDownload) {
         </tr>
 
 <tr class="#LINK_STEREOTYPE# Block">
-    <td width="30%" class="TableRow" valign="top"><a href="../../EA2/EA328.htm">«block» 855DC-1542-CSM Charge Station Management System (CSMS)</a></td>
+    <td width="30%" class="TableRow" valign="top"><a href="../../EA2/EA268.htm">«block» 850DC-1522 Field Switches</a></td>
     <td width="10%" class="TableRow" valign="top">Block</td>
     <td width="10%" class="TableRow" valign="top">Abstraction</td>
     <td width="10%" class="TableRow" valign="top">From</td>
     <td width="40%" class="TableRow" valign="top">
-        <div class="ObjectDetailsNotes">&lt;a href=&quot;../../EA2/EA266.htm&quot;&gt;850DC-1510 Chargers&lt;/a&gt;&lt;br/&gt;</div>
+        <div class="ObjectDetailsNotes">&lt;a href=&quot;../../EA2/EA328.htm&quot;&gt;855DC-1542-008 Mine Electrification SCADA&lt;/a&gt;&lt;br/&gt;</div>
 
     </td>
 </tr>
 <tr class="#LINK_STEREOTYPE# Block">
-    <td width="30%" class="TableRow" valign="top"><a href="../../EA2/EA266.htm">«block» 850DC-1510 Chargers</a></td>
+    <td width="30%" class="TableRow" valign="top"><a href="../../EA2/EA328.htm">«block» 855DC-1542-008 Mine Electrification SCADA</a></td>
     <td width="10%" class="TableRow" valign="top">Block</td>
     <td width="10%" class="TableRow" valign="top">Abstraction</td>
     <td width="10%" class="TableRow" valign="top">From</td>
     <td width="40%" class="TableRow" valign="top">
-        <div class="ObjectDetailsNotes">&lt;a href=&quot;../../EA2/EA328.htm&quot;&gt;855DC-1542-CSM Charge Station Management System (CSMS)&lt;/a&gt;&lt;br/&gt;</div>
+        <div class="ObjectDetailsNotes">&lt;a href=&quot;../../EA2/EA268.htm&quot;&gt;850DC-1522 Field Switches&lt;/a&gt;&lt;br/&gt;</div>
 
     </td>
 </tr>

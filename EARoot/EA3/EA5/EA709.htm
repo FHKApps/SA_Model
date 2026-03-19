@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head><link rel="icon" href="/favicon.ico"></head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Interfaces::DGS-I_0067</title>
+<title>Interfaces::DGS-I_0066</title>
 <link href="../../../css/ea.css" rel="stylesheet" type="text/css" />
 <script language="JavaScript" src="../../../js/displayToc.js" type="text/javascript"></script>
 
@@ -379,6 +379,20 @@ function getTargetInfo(areaElement) {
 
         simplifyHeaderTitle(); // <-- cleans header text
 
+        // ----------------------------------------------------------------
+        // DELPHI RVAM BUTTON: Show only on the Delphi requirements diagram
+        // ----------------------------------------------------------------
+        (function() {
+            const h1 = document.querySelector('.header_frame h1');
+            const delphiBox = document.getElementById('delphi-rvam-box');
+            if (h1 && delphiBox) {
+                const pageTitle = h1.textContent.trim();
+                if (pageTitle.includes('855DC-1541-DEL Delphi')) {
+                    delphiBox.style.display = 'block';
+                }
+            }
+        })();
+
         // Netlify Navigation Fix
         const navLinks = document.querySelectorAll(
             'a[href^="./"], a[href^="../"], a[href$=".htm"], a[href$=".html"]'
@@ -408,17 +422,18 @@ function getTargetInfo(areaElement) {
             });
         }
 		// ----------------------------------------------------------------
-// DOWNLOAD LINK FIX (Interface Register)
+// DOWNLOAD LINK FIX (all files/ links, depth-independent)
 // ----------------------------------------------------------------
 const cssLinkDownload = document.querySelector('link[href*="ea.css"]');
 if (cssLinkDownload) {
     const cssPathDownload = cssLinkDownload.getAttribute('href');
     const rootPathDownload = cssPathDownload.substring(0, cssPathDownload.lastIndexOf('css/'));
 
-    const downloadLink = document.querySelector('.download-box a');
-    if (downloadLink) {
-        downloadLink.href = rootPathDownload + "files/Fortescue_Interface-Register_Z.xlsm";
-    }
+    document.querySelectorAll('a[href*="files/"]').forEach(link => {
+        const href = link.getAttribute('href');
+        const filename = href.substring(href.indexOf('files/'));
+        link.href = rootPathDownload + filename;
+    });
 }
 // ----------------------------------------------------------------
 // LEGEND SWITCHING (SBS Special Case)
@@ -477,11 +492,11 @@ if (cssLinkDownload) {
 <div class="section group" >
 
 		<div class="col span_2_of_2 header_frame">
-			<h1> Interfaces::DGS-I_0067 </h1>
+			<h1> Interfaces::DGS-I_0066 </h1>
 			<img class="header_image" src="../../../images/Logo.png" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
-			<p><a href="../../EA19.htm">Decarb Green Systems Architecture  Version: Z</a> / <a href="../EA480.htm">System Definition Elements</a> / <a href="EA642.htm">Interfaces</a> / <a href="EA709.htm">DGS-I_0067</a></p>
+			<p><a href="../../EA19.htm">Decarb Green Systems Architecture  Version: Z</a> / <a href="../EA481.htm">System Definition Elements</a> / <a href="EA643.htm">Interfaces</a> / <a href="EA709.htm">DGS-I_0066</a></p>
 		</div>
 			
 		<table class="contentmaintable">
@@ -492,9 +507,14 @@ if (cssLinkDownload) {
 						<div class="download-box">
 						<div class="download-box">
 							<a href="files/Fortescue_Interface-Register_Z.xlsm" target="_blank">
-							Interface Register
+							Export Interface Register
 							</a>
 						</div>
+						</div>
+						<div class="download-box" id="delphi-rvam-box" style="display:none;">
+							<a href="files/Delphi_RVAM_Z.xlsx" target="_blank">
+							Export RVAM for this system
+							</a>
 						</div>
                         
                         <div class="sidebar-search-container">
@@ -505,7 +525,7 @@ if (cssLinkDownload) {
 
                         <div id="originalTree">
 						    <ul>
-<a href="EA642.htm">Interfaces</a></ul>
+<a href="EA643.htm">Interfaces</a></ul>
 
                         </div>
 					</td>
@@ -639,7 +659,7 @@ if (cssLinkDownload) {
 
 <div class="PageBody" style="position: relative !important; height: auto !important; overflow: visible !important; padding-bottom: 10px;">
     <span class="ObjectTitle">
-        DGS-I_0067 : &lt;&lt;InterfaceBlock&gt;&gt;
+        DGS-I_0066 : &lt;&lt;InterfaceBlock&gt;&gt;
     </span>
 
     <table border="0" class="ObjectDetails" style="width: 100%; margin-bottom: 10px;">
@@ -648,15 +668,14 @@ if (cssLinkDownload) {
             <col width="*" />
         </colgroup>
         <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Status:</td><td class="ObjectDetailsValue">Proposed</td></tr>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Created:</td><td class="ObjectDetailsValue">16/10/2025 13:52:07</td></tr>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Modified:</td><td class="ObjectDetailsValue">18/02/2026 22:45:05</td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Created:</td><td class="ObjectDetailsValue">16/10/2025 13:52:03</td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Modified:</td><td class="ObjectDetailsValue">11/12/2025 01:37:17</td></tr>
         <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Author:</td><td class="ObjectDetailsValue">Admin</td></tr>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">UUID:</td><td class="ObjectDetailsValue">{8CC2114A-FDA7-4362-9035-2B05E1E94D5B}</td></tr>
-        <tr id="adv01"><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Appears In:</td><td class="ObjectDetailsValue"><a href="../../EA7.htm">855DC-1542-008 Mine Electrification SCADA</a>, <a href="../../EA13.htm">855DC-1543-008 Monarch</a>, <a href="../../EA15.htm">System Definition (SD)</a>, <a href="../../EA1.htm">855DC-1541-ECL Eclipse</a>, <a href="../../EA3.htm">855DC-1541-LIV LiveWire</a>, <a href="../../EA5.htm">855DC-1541-DEL Delphi</a>, <a href="../../EA11.htm">855DC-1542-LMS Load Management System (LMS)</a>, <a href="../../EA9.htm">855DC-1542-CSM Charge Station Management System (CSMS)</a></td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">UUID:</td><td class="ObjectDetailsValue">{F68F2B87-6626-4364-89D0-956B6D531581}</td></tr>
+        <tr id="adv01"><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Appears In:</td><td class="ObjectDetailsValue"></td></tr>
         <tr>
             <td class="ObjectDetailsTopic" style="padding-left:0; width:70px; vertical-align:top; padding-top:5px;">Remarks:</td>
-            <td class="ObjectDetailsValue remarks-cell" style="vertical-align:top; padding-top:5px;"><div class="ObjectDetailsNotes">Interface Review 02/12/2025: Move Pit Power Capacity to retired systems and delete associated interfaces.&lt;br/&gt;NH 04/12/2025: A.02.08 Pit Power Capacity Planning Tool - Capacity Check is the secondary interface between Green Systems and many physical assets. If it is removed, the physical assets will be removed from the diagrams. &lt;br/&gt;SBS-WBS Mapping 01/02/2026: Move Pit Power Capacity to Orphaned/retired Artifact &amp; Hide/remove all interfaces - Interface deleted.&lt;br/&gt;GSP Context diagram 27/01/2026: Pit Power Capacity Planning and Design to be added back to the system architecture.&lt;br/&gt;NH 18/02/2026: Fields updated: Interface Type, Interface Description (Interface Purpose), Interface Criticality, Interface Criticality Explanation, Interface Flow.&lt;br/&gt;</div>
-</td>
+            <td class="ObjectDetailsValue remarks-cell" style="vertical-align:top; padding-top:5px;"></td>
         </tr>
     </table>
 </div>
@@ -1049,7 +1068,7 @@ if (cssLinkDownload) {
         </tr>
         			<tr>
 				<td class="TableRow" valign="top">1. Interface Name</td>
-				<td class="TableRow" valign="top">002OP-2000 Dewatering Pumps|855DC-1543-PPC Pit Power Capacity Planning Tool - Capacity Check</td>
+				<td class="TableRow" valign="top">853DC-1561 Drill Rig|859DC-1410-001 HaulX</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1067,7 +1086,7 @@ if (cssLinkDownload) {
 				</td>
 			</tr>			<tr>
 				<td class="TableRow" valign="top">5. Interface Type</td>
-				<td class="TableRow" valign="top">Technical - Data/Software</td>
+				<td class="TableRow" valign="top">Functional-Operational</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1076,7 +1095,7 @@ if (cssLinkDownload) {
 				</td>
 			</tr>			<tr>
 				<td class="TableRow" valign="top">6. Interface Description</td>
-				<td class="TableRow" valign="top">This interface provides the Pit Power Capacity Planning Tool - Capacity Check with electrical load and operational data from the Dewatering Pumps, including flow rates, pump status, and peak power demands. The tool uses this information to assess pit network capacity and support safe, reliable power allocation. This interface is read-only and does not control the Dewatering Pumps.</td>
+				<td class="TableRow" valign="top">This interface links the drill rig system with HaulX for location information, operational status, or integration into autonomous haulage awareness (depending on deployment).</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1085,7 +1104,7 @@ if (cssLinkDownload) {
 				</td>
 			</tr>			<tr>
 				<td class="TableRow" valign="top">7. Interface Criticality</td>
-				<td class="TableRow" valign="top">HIGH</td>
+				<td class="TableRow" valign="top">LOW</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1094,7 +1113,7 @@ if (cssLinkDownload) {
 				</td>
 			</tr>			<tr>
 				<td class="TableRow" valign="top">8. Interface Flow</td>
-				<td class="TableRow" valign="top">Dewatering Pumps -&gt; Pit Power Capacity Planning Tool - Capacity Check</td>
+				<td class="TableRow" valign="top">Data Flow:<br />Drill Rig (853DC-1561) -&gt; HaulX Control (859DC-1410-001), transmitting location (GPS), operational status (active/idle/maintenance), working zone boundaries, and basic activity state to support haulage situational awareness and traffic coordination.<br />HaulX -&gt; Drill Rig (where implemented), providing advisory proximity notifications or awareness information related to nearby haulage movements.<br />Control Flow:<br />No direct control of drilling operations is exercised by HaulX. The interface supports awareness and optional integration into autonomous haulage logic.</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1103,7 +1122,7 @@ if (cssLinkDownload) {
 				</td>
 			</tr>			<tr>
 				<td class="TableRow" valign="top">9. Interface Criticality Justification</td>
-				<td class="TableRow" valign="top">The criticality is HIGH because the Dewatering Pumps represent a significant and continuous electrical load. Accurate and timely data is essential for the tool to prevent network overloads and ensure reliable pit power system operation.</td>
+				<td class="TableRow" valign="top">This interface is rated LOW because it supports situational awareness rather than direct operational control or safety interlocking. Failure may reduce coordination efficiency or visibility of drill locations but does not directly affect production continuity, safety systems, or core haulage control. Manual coordination processes can mitigate the impact.</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1163,22 +1182,22 @@ if (cssLinkDownload) {
         </tr>
 
 <tr class="#LINK_STEREOTYPE# Block">
-    <td width="30%" class="TableRow" valign="top"><a href="../../EA2/EA320.htm">«block» 855DC-1543-PPC Pit Power Capacity Planning Tool - Capacity Check</a></td>
+    <td width="30%" class="TableRow" valign="top"><a href="../../EA2/EA480.htm">«block» 859DC-1410-001 HaulX</a></td>
     <td width="10%" class="TableRow" valign="top">Block</td>
     <td width="10%" class="TableRow" valign="top">Abstraction</td>
     <td width="10%" class="TableRow" valign="top">From</td>
     <td width="40%" class="TableRow" valign="top">
-        <div class="ObjectDetailsNotes">&lt;a href=&quot;../../EA2/EA429.htm&quot;&gt;002OP-2000 Dewatering Pumps&lt;/a&gt;&lt;br/&gt;</div>
+        <div class="ObjectDetailsNotes">&lt;a href=&quot;../../EA2/EA241.htm&quot;&gt;853DC-1561 Drill Rig&lt;/a&gt;&lt;br/&gt;</div>
 
     </td>
 </tr>
 <tr class="#LINK_STEREOTYPE# Block">
-    <td width="30%" class="TableRow" valign="top"><a href="../../EA2/EA429.htm">«block» 002OP-2000 Dewatering Pumps</a></td>
+    <td width="30%" class="TableRow" valign="top"><a href="../../EA2/EA241.htm">«block» 853DC-1561 Drill Rig</a></td>
     <td width="10%" class="TableRow" valign="top">Block</td>
     <td width="10%" class="TableRow" valign="top">Abstraction</td>
     <td width="10%" class="TableRow" valign="top">From</td>
     <td width="40%" class="TableRow" valign="top">
-        <div class="ObjectDetailsNotes">&lt;a href=&quot;../../EA2/EA320.htm&quot;&gt;855DC-1543-PPC Pit Power Capacity Planning Tool - Capacity Check&lt;/a&gt;&lt;br/&gt;</div>
+        <div class="ObjectDetailsNotes">&lt;a href=&quot;../../EA2/EA480.htm&quot;&gt;859DC-1410-001 HaulX&lt;/a&gt;&lt;br/&gt;</div>
 
     </td>
 </tr>

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head><link rel="icon" href="/favicon.ico"></head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>GSP-IR-0020</title>
+<title>GSP-IR-0019</title>
 <link href="../../../css/ea.css" rel="stylesheet" type="text/css" />
 <script language="JavaScript" src="../../../js/displayToc.js" type="text/javascript"></script>
 
@@ -379,6 +379,20 @@ function getTargetInfo(areaElement) {
 
         simplifyHeaderTitle(); // <-- cleans header text
 
+        // ----------------------------------------------------------------
+        // DELPHI RVAM BUTTON: Show only on the Delphi requirements diagram
+        // ----------------------------------------------------------------
+        (function() {
+            const h1 = document.querySelector('.header_frame h1');
+            const delphiBox = document.getElementById('delphi-rvam-box');
+            if (h1 && delphiBox) {
+                const pageTitle = h1.textContent.trim();
+                if (pageTitle.includes('855DC-1541-DEL Delphi')) {
+                    delphiBox.style.display = 'block';
+                }
+            }
+        })();
+
         // Netlify Navigation Fix
         const navLinks = document.querySelectorAll(
             'a[href^="./"], a[href^="../"], a[href$=".htm"], a[href$=".html"]'
@@ -408,17 +422,18 @@ function getTargetInfo(areaElement) {
             });
         }
 		// ----------------------------------------------------------------
-// DOWNLOAD LINK FIX (Interface Register)
+// DOWNLOAD LINK FIX (all files/ links, depth-independent)
 // ----------------------------------------------------------------
 const cssLinkDownload = document.querySelector('link[href*="ea.css"]');
 if (cssLinkDownload) {
     const cssPathDownload = cssLinkDownload.getAttribute('href');
     const rootPathDownload = cssPathDownload.substring(0, cssPathDownload.lastIndexOf('css/'));
 
-    const downloadLink = document.querySelector('.download-box a');
-    if (downloadLink) {
-        downloadLink.href = rootPathDownload + "files/Fortescue_Interface-Register_Z.xlsm";
-    }
+    document.querySelectorAll('a[href*="files/"]').forEach(link => {
+        const href = link.getAttribute('href');
+        const filename = href.substring(href.indexOf('files/'));
+        link.href = rootPathDownload + filename;
+    });
 }
 // ----------------------------------------------------------------
 // LEGEND SWITCHING (SBS Special Case)
@@ -477,11 +492,11 @@ if (cssLinkDownload) {
 <div class="section group" >
 
 		<div class="col span_2_of_2 header_frame">
-			<h1> GSP-IR-0020 </h1>
+			<h1> GSP-IR-0019 </h1>
 			<img class="header_image" src="../../../images/Logo.png" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
-			<p><a href="../../EA19.htm">Decarb Green Systems Architecture  Version: Z</a> / <a href="../EA90.htm">Requirements</a> / <a href="EA92.htm">Requirements Elements</a> / <a href="EA93.htm">GSP-RH-0001: Green Systems Interface Requirements</a> / <a href="EA158.htm">GSP-RH-0002: Delphi Interface Requirements</a> / <a href="EA112.htm">GSP-IR-0020</a></p>
+			<p><a href="../../EA19.htm">Decarb Green Systems Architecture  Version: Z</a> / <a href="../EA90.htm">Requirements</a> / <a href="EA93.htm">Requirements Elements</a> / <a href="EA94.htm">GSP-RH-0001: Green Systems Interface Requirements</a> / <a href="EA159.htm">GSP-RH-0002: Delphi Interface Requirements</a> / <a href="EA112.htm">GSP-IR-0019</a></p>
 		</div>
 			
 		<table class="contentmaintable">
@@ -492,9 +507,14 @@ if (cssLinkDownload) {
 						<div class="download-box">
 						<div class="download-box">
 							<a href="files/Fortescue_Interface-Register_Z.xlsm" target="_blank">
-							Interface Register
+							Export Interface Register
 							</a>
 						</div>
+						</div>
+						<div class="download-box" id="delphi-rvam-box" style="display:none;">
+							<a href="files/Delphi_RVAM_Z.xlsx" target="_blank">
+							Export RVAM for this system
+							</a>
 						</div>
                         
                         <div class="sidebar-search-container">
@@ -505,7 +525,7 @@ if (cssLinkDownload) {
 
                         <div id="originalTree">
 						    <ul>
-<a href="EA158.htm">GSP-RH-0002: Delphi Interface Requirements</a></ul>
+<a href="EA159.htm">GSP-RH-0002: Delphi Interface Requirements</a></ul>
 
                         </div>
 					</td>
@@ -639,7 +659,7 @@ if (cssLinkDownload) {
 
 <div class="PageBody" style="position: relative !important; height: auto !important; overflow: visible !important; padding-bottom: 10px;">
     <span class="ObjectTitle">
-        GSP-IR-0020 : &lt;&lt;interfaceRequirement&gt;&gt;
+        GSP-IR-0019 : &lt;&lt;interfaceRequirement&gt;&gt;
     </span>
 
     <table border="0" class="ObjectDetails" style="width: 100%; margin-bottom: 10px;">
@@ -649,9 +669,9 @@ if (cssLinkDownload) {
         </colgroup>
         <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Status:</td><td class="ObjectDetailsValue">Draft</td></tr>
         <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Created:</td><td class="ObjectDetailsValue">17/03/2026 19:57:32</td></tr>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Modified:</td><td class="ObjectDetailsValue">18/03/2026 13:53:40</td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Modified:</td><td class="ObjectDetailsValue">18/03/2026 13:53:41</td></tr>
         <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Author:</td><td class="ObjectDetailsValue">Admin</td></tr>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">UUID:</td><td class="ObjectDetailsValue">{7D92C050-77AA-4da8-8E68-BC1C92D0BB97}</td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">UUID:</td><td class="ObjectDetailsValue">{5B1FA5DD-BE70-4ce5-94CC-0F42B1CFDA90}</td></tr>
         <tr id="adv01"><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Appears In:</td><td class="ObjectDetailsValue"><a href="../EA88.htm">Requirements: 855DC-1541-DEL Delphi</a></td></tr>
         <tr>
             <td class="ObjectDetailsTopic" style="padding-left:0; width:70px; vertical-align:top; padding-top:5px;">Remarks:</td>
@@ -1048,7 +1068,7 @@ if (cssLinkDownload) {
         </tr>
         			<tr>
 				<td class="TableRow" valign="top">a. Requirement Text</td>
-				<td class="TableRow" valign="top">The interface shall update State-of-Charge (SoC) data at a refresh rate of 1 Hz (one update per second), with a maximum data latency of ?2 seconds, to support short-term operational decisions for charging, discharging, and curtailment.</td>
+				<td class="TableRow" valign="top">The interface shall ingest real-time Battery Energy Storage System (BESS) state-of-charge (SoC) and related performance metrics from the Atevia Web API into Delphi.</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1084,7 +1104,7 @@ if (cssLinkDownload) {
 				</td>
 			</tr>			<tr>
 				<td class="TableRow" valign="top">e. Rationale</td>
-				<td class="TableRow" valign="top">Delayed SoC information can lead to unsafe or inefficient BESS behaviour.</td>
+				<td class="TableRow" valign="top">Accurate SoC data is essential for safe and efficient BESS operation and dispatch decisions.</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1144,12 +1164,12 @@ if (cssLinkDownload) {
         </tr>
 
 <tr class="#LINK_STEREOTYPE# InterfaceBlock">
-    <td width="30%" class="TableRow" valign="top"><a href="../../EA3/EA5/EA974.htm">«InterfaceBlock» DGS-I_0333</a></td>
+    <td width="30%" class="TableRow" valign="top"><a href="../../EA3/EA5/EA975.htm">«InterfaceBlock» DGS-I_0333</a></td>
     <td width="10%" class="TableRow" valign="top">InterfaceBlock</td>
     <td width="10%" class="TableRow" valign="top">Abstraction</td>
     <td width="10%" class="TableRow" valign="top">To</td>
     <td width="40%" class="TableRow" valign="top">
-        <div class="ObjectDetailsNotes">855DC-1541-DEL Delphi|855DC-1542-009 Elysia; a. Requirement Text=The interface shall update State-of-Charge (SoC) data at a refresh rate of 1 Hz (one update per second), with a maximum data latency of ?2 seconds, to support short-term operational decisions for charging, discharging, and curtailment.; b. Artifact Type=Interface Requirement; c. Source=Green Systems Interface Register, Interface DGS-I_0333; d. Apportionment=Delphi; e. Rationale=Delayed SoC information can lead to unsafe or inefficient BESS behaviour.; f. Requirement Status=Draft; g. Criticality Level=; h. Quality Flaw=; i. Validation Method=; j. Verification Method=; Supporting information from Interface Register=855DC-1541-DEL Delphi|855DC-1542-009 Elysia&lt;br/&gt;Project - Project Interface&lt;br/&gt;Technical-Data/Software&lt;br/&gt;Elysia BESS -State of Charge Actuals (Atevia Web API)&lt;br/&gt;The purpose of this interface is for Delphi to consume the real-time state of charge (SoC) and related battery performance metrics for the BESS via the Atevia Web API used by Energy Operations. These SoC actuals support short-term operational decision-making, including when to charge, discharge, or curtail based on site conditions and energy demand.&lt;br/&gt;Intermediate Elements: Snowflake (storage and distribution of BESS SoC actuals).&lt;br/&gt;The criticality level is HIGH because accurate and timely SoC information is essential for safe and efficient BESS operation, energy optimisation, and maintaining system stability. Failure compromises operational decision-making.&lt;br/&gt;</div>
+        <div class="ObjectDetailsNotes">855DC-1541-DEL Delphi|855DC-1542-009 Elysia; a. Requirement Text=The interface shall ingest real-time Battery Energy Storage System (BESS) state-of-charge (SoC) and related performance metrics from the Atevia Web API into Delphi.; b. Artifact Type=Interface Requirement; c. Source=Green Systems Interface Register, Interface DGS-I_0333; d. Apportionment=Delphi; e. Rationale=Accurate SoC data is essential for safe and efficient BESS operation and dispatch decisions.; f. Requirement Status=Draft; g. Criticality Level=; h. Quality Flaw=; i. Validation Method=; j. Verification Method=; Supporting information from Interface Register=855DC-1541-DEL Delphi|855DC-1542-009 Elysia&lt;br/&gt;Project - Project Interface&lt;br/&gt;Technical-Data/Software&lt;br/&gt;Elysia BESS -State of Charge Actuals (Atevia Web API)&lt;br/&gt;The purpose of this interface is for Delphi to consume the real-time state of charge (SoC) and related battery performance metrics for the BESS via the Atevia Web API used by Energy Operations. These SoC actuals support short-term operational decision-making, including when to charge, discharge, or curtail based on site conditions and energy demand.&lt;br/&gt;Intermediate Elements: Snowflake (storage and distribution of BESS SoC actuals).&lt;br/&gt;The criticality level is HIGH because accurate and timely SoC information is essential for safe and efficient BESS operation, energy optimisation, and maintaining system stability. Failure compromises operational decision-making.&lt;br/&gt;</div>
 
     </td>
 </tr>

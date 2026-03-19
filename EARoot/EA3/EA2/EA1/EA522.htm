@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head><link rel="icon" href="/favicon.ico"></head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Port Hedland: Substations: 854DC-1521 HV Substations</title>
+<title>Iron Bridge Mine: Substations: 854DC-1521 HV Substations</title>
 <link href="../../../../css/ea.css" rel="stylesheet" type="text/css" />
 <script language="JavaScript" src="../../../../js/displayToc.js" type="text/javascript"></script>
 
@@ -379,6 +379,20 @@ function getTargetInfo(areaElement) {
 
         simplifyHeaderTitle(); // <-- cleans header text
 
+        // ----------------------------------------------------------------
+        // DELPHI RVAM BUTTON: Show only on the Delphi requirements diagram
+        // ----------------------------------------------------------------
+        (function() {
+            const h1 = document.querySelector('.header_frame h1');
+            const delphiBox = document.getElementById('delphi-rvam-box');
+            if (h1 && delphiBox) {
+                const pageTitle = h1.textContent.trim();
+                if (pageTitle.includes('855DC-1541-DEL Delphi')) {
+                    delphiBox.style.display = 'block';
+                }
+            }
+        })();
+
         // Netlify Navigation Fix
         const navLinks = document.querySelectorAll(
             'a[href^="./"], a[href^="../"], a[href$=".htm"], a[href$=".html"]'
@@ -408,17 +422,18 @@ function getTargetInfo(areaElement) {
             });
         }
 		// ----------------------------------------------------------------
-// DOWNLOAD LINK FIX (Interface Register)
+// DOWNLOAD LINK FIX (all files/ links, depth-independent)
 // ----------------------------------------------------------------
 const cssLinkDownload = document.querySelector('link[href*="ea.css"]');
 if (cssLinkDownload) {
     const cssPathDownload = cssLinkDownload.getAttribute('href');
     const rootPathDownload = cssPathDownload.substring(0, cssPathDownload.lastIndexOf('css/'));
 
-    const downloadLink = document.querySelector('.download-box a');
-    if (downloadLink) {
-        downloadLink.href = rootPathDownload + "files/Fortescue_Interface-Register_Z.xlsm";
-    }
+    document.querySelectorAll('a[href*="files/"]').forEach(link => {
+        const href = link.getAttribute('href');
+        const filename = href.substring(href.indexOf('files/'));
+        link.href = rootPathDownload + filename;
+    });
 }
 // ----------------------------------------------------------------
 // LEGEND SWITCHING (SBS Special Case)
@@ -477,11 +492,11 @@ if (cssLinkDownload) {
 <div class="section group" >
 
 		<div class="col span_2_of_2 header_frame">
-			<h1> Port Hedland: Substations: 854DC-1521 HV Substations </h1>
+			<h1> Iron Bridge Mine: Substations: 854DC-1521 HV Substations </h1>
 			<img class="header_image" src="../../../../images/Logo.png" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
-			<p><a href="../../../EA19.htm">Decarb Green Systems Architecture  Version: Z</a> / <a href="../../EA480.htm">System Definition Elements</a> / <a href="../EA509.htm">Locations</a> / <a href="EA513.htm">Substations</a> / <a href="EA522.htm">Port Hedland: Substations: 854DC-1521 HV Substations</a></p>
+			<p><a href="../../../EA19.htm">Decarb Green Systems Architecture  Version: Z</a> / <a href="../../EA481.htm">System Definition Elements</a> / <a href="../EA510.htm">Locations</a> / <a href="EA514.htm">Substations</a> / <a href="EA522.htm">Iron Bridge Mine: Substations: 854DC-1521 HV Substations</a></p>
 		</div>
 			
 		<table class="contentmaintable">
@@ -492,9 +507,14 @@ if (cssLinkDownload) {
 						<div class="download-box">
 						<div class="download-box">
 							<a href="files/Fortescue_Interface-Register_Z.xlsm" target="_blank">
-							Interface Register
+							Export Interface Register
 							</a>
 						</div>
+						</div>
+						<div class="download-box" id="delphi-rvam-box" style="display:none;">
+							<a href="files/Delphi_RVAM_Z.xlsx" target="_blank">
+							Export RVAM for this system
+							</a>
 						</div>
                         
                         <div class="sidebar-search-container">
@@ -505,9 +525,8 @@ if (cssLinkDownload) {
 
                         <div id="originalTree">
 						    <ul>
-<li><img src="../../../../images/25.png" alt="Object"/> <a href="EA539.htm">Port Hedland: Substation (66kV): 854DC-1521-0002 Substation (66kV)</a></li>
-<li><img src="../../../../images/25.png" alt="Object"/> <a href="EA538.htm">Port Hedland: Substation (22kV): 854DC-1521-0005 Substation (22kV)</a></li>
-<li><img src="../../../../images/25.png" alt="Object"/> <a href="EA540.htm">Port Hedland: Substation (220kV): 854DC-1521-0004 Substation (220kV)</a></li>
+<li><img src="../../../../images/25.png" alt="Object"/> <a href="EA536.htm">Iron Bridge Mine: Substation (220kV): 854DC-1521-0004 Substation (220kV)</a></li>
+<li><img src="../../../../images/25.png" alt="Object"/> <a href="EA537.htm">Iron Bridge Mine: Substation (33kV): 854DC-1521-0001 Substation (33kV)</a></li>
 </ul>
 
                         </div>
@@ -642,7 +661,7 @@ if (cssLinkDownload) {
 
 <div class="PageBody" style="position: relative !important; height: auto !important; overflow: visible !important; padding-bottom: 10px;">
     <span class="ObjectTitle">
-        Port Hedland: Substations : 
+        Iron Bridge Mine: Substations : 
     </span>
 
     <table border="0" class="ObjectDetails" style="width: 100%; margin-bottom: 10px;">
@@ -651,11 +670,11 @@ if (cssLinkDownload) {
             <col width="*" />
         </colgroup>
         <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Status:</td><td class="ObjectDetailsValue">Proposed</td></tr>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Created:</td><td class="ObjectDetailsValue">20/11/2025 14:04:37</td></tr>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Modified:</td><td class="ObjectDetailsValue">01/12/2025 10:46:34</td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Created:</td><td class="ObjectDetailsValue">19/11/2025 20:27:28</td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Modified:</td><td class="ObjectDetailsValue">01/12/2025 10:46:18</td></tr>
         <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Author:</td><td class="ObjectDetailsValue">Admin</td></tr>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">UUID:</td><td class="ObjectDetailsValue">{99A7AF4C-1334-7FBB-85BF-6B9A0E4EB993}</td></tr>
-        <tr id="adv01"><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Appears In:</td><td class="ObjectDetailsValue">Archive - System Definition - Port Hedland</td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">UUID:</td><td class="ObjectDetailsValue">{99A7AF4C-1334-7FBB-9869-D41F97DD0665}</td></tr>
+        <tr id="adv01"><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Appears In:</td><td class="ObjectDetailsValue">Archive - System Definition - Iron Bridge Mine</td></tr>
         <tr>
             <td class="ObjectDetailsTopic" style="padding-left:0; width:70px; vertical-align:top; padding-top:5px;">Remarks:</td>
             <td class="ObjectDetailsValue remarks-cell" style="vertical-align:top; padding-top:5px;"></td>
@@ -1050,7 +1069,7 @@ if (cssLinkDownload) {
         </tr>
         			<tr>
 				<td class="TableRow" valign="top">Location</td>
-				<td class="TableRow" valign="top">Port Hedland</td>
+				<td class="TableRow" valign="top">Iron Bridge Mine</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head><link rel="icon" href="/favicon.ico"></head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Interfaces::DGS-I_0023</title>
+<title>Interfaces::DGS-I_0022</title>
 <link href="../../../css/ea.css" rel="stylesheet" type="text/css" />
 <script language="JavaScript" src="../../../js/displayToc.js" type="text/javascript"></script>
 
@@ -379,6 +379,20 @@ function getTargetInfo(areaElement) {
 
         simplifyHeaderTitle(); // <-- cleans header text
 
+        // ----------------------------------------------------------------
+        // DELPHI RVAM BUTTON: Show only on the Delphi requirements diagram
+        // ----------------------------------------------------------------
+        (function() {
+            const h1 = document.querySelector('.header_frame h1');
+            const delphiBox = document.getElementById('delphi-rvam-box');
+            if (h1 && delphiBox) {
+                const pageTitle = h1.textContent.trim();
+                if (pageTitle.includes('855DC-1541-DEL Delphi')) {
+                    delphiBox.style.display = 'block';
+                }
+            }
+        })();
+
         // Netlify Navigation Fix
         const navLinks = document.querySelectorAll(
             'a[href^="./"], a[href^="../"], a[href$=".htm"], a[href$=".html"]'
@@ -408,17 +422,18 @@ function getTargetInfo(areaElement) {
             });
         }
 		// ----------------------------------------------------------------
-// DOWNLOAD LINK FIX (Interface Register)
+// DOWNLOAD LINK FIX (all files/ links, depth-independent)
 // ----------------------------------------------------------------
 const cssLinkDownload = document.querySelector('link[href*="ea.css"]');
 if (cssLinkDownload) {
     const cssPathDownload = cssLinkDownload.getAttribute('href');
     const rootPathDownload = cssPathDownload.substring(0, cssPathDownload.lastIndexOf('css/'));
 
-    const downloadLink = document.querySelector('.download-box a');
-    if (downloadLink) {
-        downloadLink.href = rootPathDownload + "files/Fortescue_Interface-Register_Z.xlsm";
-    }
+    document.querySelectorAll('a[href*="files/"]').forEach(link => {
+        const href = link.getAttribute('href');
+        const filename = href.substring(href.indexOf('files/'));
+        link.href = rootPathDownload + filename;
+    });
 }
 // ----------------------------------------------------------------
 // LEGEND SWITCHING (SBS Special Case)
@@ -477,11 +492,11 @@ if (cssLinkDownload) {
 <div class="section group" >
 
 		<div class="col span_2_of_2 header_frame">
-			<h1> Interfaces::DGS-I_0023 </h1>
+			<h1> Interfaces::DGS-I_0022 </h1>
 			<img class="header_image" src="../../../images/Logo.png" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
-			<p><a href="../../EA19.htm">Decarb Green Systems Architecture  Version: Z</a> / <a href="../EA480.htm">System Definition Elements</a> / <a href="EA642.htm">Interfaces</a> / <a href="EA665.htm">DGS-I_0023</a></p>
+			<p><a href="../../EA19.htm">Decarb Green Systems Architecture  Version: Z</a> / <a href="../EA481.htm">System Definition Elements</a> / <a href="EA643.htm">Interfaces</a> / <a href="EA665.htm">DGS-I_0022</a></p>
 		</div>
 			
 		<table class="contentmaintable">
@@ -492,9 +507,14 @@ if (cssLinkDownload) {
 						<div class="download-box">
 						<div class="download-box">
 							<a href="files/Fortescue_Interface-Register_Z.xlsm" target="_blank">
-							Interface Register
+							Export Interface Register
 							</a>
 						</div>
+						</div>
+						<div class="download-box" id="delphi-rvam-box" style="display:none;">
+							<a href="files/Delphi_RVAM_Z.xlsx" target="_blank">
+							Export RVAM for this system
+							</a>
 						</div>
                         
                         <div class="sidebar-search-container">
@@ -505,7 +525,7 @@ if (cssLinkDownload) {
 
                         <div id="originalTree">
 						    <ul>
-<a href="EA642.htm">Interfaces</a></ul>
+<a href="EA643.htm">Interfaces</a></ul>
 
                         </div>
 					</td>
@@ -639,7 +659,7 @@ if (cssLinkDownload) {
 
 <div class="PageBody" style="position: relative !important; height: auto !important; overflow: visible !important; padding-bottom: 10px;">
     <span class="ObjectTitle">
-        DGS-I_0023 : &lt;&lt;InterfaceBlock&gt;&gt;
+        DGS-I_0022 : &lt;&lt;InterfaceBlock&gt;&gt;
     </span>
 
     <table border="0" class="ObjectDetails" style="width: 100%; margin-bottom: 10px;">
@@ -648,14 +668,14 @@ if (cssLinkDownload) {
             <col width="*" />
         </colgroup>
         <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Status:</td><td class="ObjectDetailsValue">Proposed</td></tr>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Created:</td><td class="ObjectDetailsValue">14/10/2025 14:56:34</td></tr>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Modified:</td><td class="ObjectDetailsValue">24/02/2026 23:50:13</td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Created:</td><td class="ObjectDetailsValue">08/11/2025 20:46:51</td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Modified:</td><td class="ObjectDetailsValue">24/02/2026 23:50:15</td></tr>
         <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Author:</td><td class="ObjectDetailsValue">Admin</td></tr>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">UUID:</td><td class="ObjectDetailsValue">{64A6D7CD-E761-420b-9707-23C798573461}</td></tr>
-        <tr id="adv01"><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Appears In:</td><td class="ObjectDetailsValue"><a href="../../EA15.htm">System Definition (SD)</a>, <a href="../../EA1.htm">855DC-1541-ECL Eclipse</a>, <a href="../../EA5.htm">855DC-1541-DEL Delphi</a>, <a href="../../EA1/EA88.htm">Requirements: 855DC-1541-DEL Delphi</a></td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">UUID:</td><td class="ObjectDetailsValue">{F823C1ED-408B-4677-BC5B-CDD0209A3679}</td></tr>
+        <tr id="adv01"><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Appears In:</td><td class="ObjectDetailsValue"><a href="../../EA15.htm">System Definition (SD)</a>, <a href="../../EA1.htm">855DC-1541-ECL Eclipse</a>, <a href="../../EA3.htm">855DC-1541-DEL Delphi</a>, <a href="../../EA9.htm">855DC-1542-CSM Charge Station Management System (CSMS)</a></td></tr>
         <tr>
             <td class="ObjectDetailsTopic" style="padding-left:0; width:70px; vertical-align:top; padding-top:5px;">Remarks:</td>
-            <td class="ObjectDetailsValue remarks-cell" style="vertical-align:top; padding-top:5px;"><div class="ObjectDetailsNotes">Interface Review 25/11/2025: Delete (more Eclipse)&lt;br/&gt;Delphi RVAM 28/01/2026: Reinstated&lt;br/&gt;NH 25/02/2026: Fields updated:Interface Type, Interface Criticality, Interface Criticality Explanation&lt;br/&gt;</div>
+            <td class="ObjectDetailsValue remarks-cell" style="vertical-align:top; padding-top:5px;"><div class="ObjectDetailsNotes">CSMS Review 30/10/2025: Not integrated with CSMS. Delphi feeds Eclipse and Monarch. Energy Ops (Confirm with Abby)&lt;br/&gt;Interface Review 02/12/2025: Confirmed Delete&lt;br/&gt;DocStack-SAComparison_Delphi 18/02/2026: Reinstate DGS-I_0022.&lt;br/&gt;NH 25/02/2026: Fields updated:Interface Criticality Explanation, Interface Flow&lt;br/&gt;</div>
 </td>
         </tr>
     </table>
@@ -1049,7 +1069,25 @@ if (cssLinkDownload) {
         </tr>
         			<tr>
 				<td class="TableRow" valign="top">1. Interface Name</td>
-				<td class="TableRow" valign="top">859DC-1410-001 HaulX|855DC-1541-DEL Delphi</td>
+				<td class="TableRow" valign="top">855DC-1542-CSM Charge Station Management System (CSMS)|855DC-1541-DEL Delphi</td>
+			</tr>	
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="2">
+					Details:
+						&nbsp;
+				</td>
+			</tr>			<tr>
+				<td class="TableRow" valign="top">2. Interface Lead</td>
+				<td class="TableRow" valign="top">Sam Hedgcock</td>
+			</tr>	
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="2">
+					Details:
+						&nbsp;
+				</td>
+			</tr>			<tr>
+				<td class="TableRow" valign="top">3. Interface Contributor(s)</td>
+				<td class="TableRow" valign="top">Abby Buters</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1067,7 +1105,7 @@ if (cssLinkDownload) {
 				</td>
 			</tr>			<tr>
 				<td class="TableRow" valign="top">5. Interface Type</td>
-				<td class="TableRow" valign="top">Technical-Data/Software</td>
+				<td class="TableRow" valign="top">Functional-Operational</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1076,7 +1114,7 @@ if (cssLinkDownload) {
 				</td>
 			</tr>			<tr>
 				<td class="TableRow" valign="top">6. Interface Description</td>
-				<td class="TableRow" valign="top">This interface provides a near-term forecast of fleet energy consumption. This depends on the HaulX forecast horizon, based on a dispatch plan and mine plan. 30-40% of load based on mobile asset energy consumption. Frequency, resolution and horizon need to be determined for truck and excavator fleet on charge. State of charge, estimated time of completion.</td>
+				<td class="TableRow" valign="top">The purpose of this interface is to serve as a human-machine interface between personnel in Mine Services and the Charge Station Management System (CSMS), allowing them to execute remote commands, access historical data, as well as remotely monitor, diagnose, and manage the state of the charging network.</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1085,7 +1123,7 @@ if (cssLinkDownload) {
 				</td>
 			</tr>			<tr>
 				<td class="TableRow" valign="top">7. Interface Criticality</td>
-				<td class="TableRow" valign="top">LOW</td>
+				<td class="TableRow" valign="top">N/A</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1094,7 +1132,7 @@ if (cssLinkDownload) {
 				</td>
 			</tr>			<tr>
 				<td class="TableRow" valign="top">8. Interface Flow</td>
-				<td class="TableRow" valign="top">HaulX-&gt;Delphi</td>
+				<td class="TableRow" valign="top">CSMS - &gt; Delphi</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1103,25 +1141,7 @@ if (cssLinkDownload) {
 				</td>
 			</tr>			<tr>
 				<td class="TableRow" valign="top">9. Interface Criticality Justification</td>
-				<td class="TableRow" valign="top">The criticality level is LOW because, although Delphi receives fleet energy forecasts from HaulX to support planning and optimisation, the interface does not affect real-time haulage operations, safety, or production continuity. If the interface fails, Haulage and mine operations continue normally, though forecast accuracy and decision-making may be reduced.</td>
-			</tr>	
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="2">
-					Details:
-						&nbsp;
-				</td>
-			</tr>			<tr>
-				<td class="TableRow" valign="top">Element Type</td>
-				<td class="TableRow" valign="top">Project - Project Interface</td>
-			</tr>	
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="2">
-					Details:
-						&nbsp;
-				</td>
-			</tr>			<tr>
-				<td class="TableRow" valign="top">Interface Type</td>
-				<td class="TableRow" valign="top">Logical</td>
+				<td class="TableRow" valign="top">The criticality is N/A because this interface primarily provides a human-machine interface for monitoring, diagnosing, and managing the charging network. It does not control or protect core mine operations, and any delay or failure would not immediately affect production, safety, or throughput. Operational personnel can continue to manage charging activities manually or through alternate systems, and the interface mainly supports data visibility and efficiency.</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1163,62 +1183,22 @@ if (cssLinkDownload) {
         </tr>
 
 <tr class="#LINK_STEREOTYPE# Block">
-    <td width="30%" class="TableRow" valign="top"><a href="../../EA2/EA290.htm">«block» 855DC-1541-DEL Delphi</a></td>
+    <td width="30%" class="TableRow" valign="top"><a href="../../EA2/EA291.htm">«block» 855DC-1541-DEL Delphi</a></td>
     <td width="10%" class="TableRow" valign="top">Block</td>
     <td width="10%" class="TableRow" valign="top">Abstraction</td>
     <td width="10%" class="TableRow" valign="top">From</td>
     <td width="40%" class="TableRow" valign="top">
-        <div class="ObjectDetailsNotes">&lt;a href=&quot;../../EA2/EA479.htm&quot;&gt;859DC-1410-001 HaulX&lt;/a&gt;&lt;br/&gt;</div>
-
-    </td>
-</tr>
-<tr class="#LINK_STEREOTYPE# InterfaceRequirement">
-    <td width="30%" class="TableRow" valign="top"><a href="../../EA1/EA1/EA96.htm">«interfaceRequirement» GSP-IR-0004</a></td>
-    <td width="10%" class="TableRow" valign="top">InterfaceRequirement</td>
-    <td width="10%" class="TableRow" valign="top">Abstraction</td>
-    <td width="10%" class="TableRow" valign="top">From</td>
-    <td width="40%" class="TableRow" valign="top">
-        <div class="ObjectDetailsNotes">859DC-1410-001 HaulX|855DC-1541-DEL Delphi; a. Requirement Text=The interface shall ensure completeness of all mandatory Heavy Mining Equipment (HME) load-profile data fields used by the Eclipse simulation engine.; b. Artifact Type=Interface Requirement; c. Source=Green Systems Interface Register, Interface DGS-I_0023; d. Apportionment=Delphi; e. Rationale=Missing fields lead to invalid or failed simulations.; f. Requirement Status=Draft; g. Criticality Level=; h. Quality Flaw=; i. Validation Method=; j. Verification Method=; Supporting information from Interface Register=859DC-1410-001 HaulX|855DC-1541-DEL Delphi&lt;br/&gt;Project - Project Interface&lt;br/&gt;Technical-Data/Software&lt;br/&gt;This interface provides a near-term forecast of fleet energy consumption. This depends on the HaulX forecast horizon, based on a dispatch plan and mine plan. 30-40% of load based on mobile asset energy consumption. Frequency, resolution and horizon need to be determined for truck and excavator fleet on charge. State of charge, estimated time of completion.&lt;br/&gt;The criticality level is LOW because, although Delphi receives fleet energy forecasts from HaulX to support planning and optimisation, the interface does not affect real-time haulage operations, safety, or production continuity. If the interface fails, Haulage and mine operations continue normally, though forecast accuracy and decision-making may be reduced.&lt;br/&gt;</div>
+        <div class="ObjectDetailsNotes">&lt;a href=&quot;../../EA2/EA329.htm&quot;&gt;855DC-1542-CSM Charge Station Management System (CSMS)&lt;/a&gt;&lt;br/&gt;</div>
 
     </td>
 </tr>
 <tr class="#LINK_STEREOTYPE# Block">
-    <td width="30%" class="TableRow" valign="top"><a href="../../EA2/EA479.htm">«block» 859DC-1410-001 HaulX</a></td>
+    <td width="30%" class="TableRow" valign="top"><a href="../../EA2/EA329.htm">«block» 855DC-1542-CSM Charge Station Management System (CSMS)</a></td>
     <td width="10%" class="TableRow" valign="top">Block</td>
     <td width="10%" class="TableRow" valign="top">Abstraction</td>
     <td width="10%" class="TableRow" valign="top">From</td>
     <td width="40%" class="TableRow" valign="top">
-        <div class="ObjectDetailsNotes">&lt;a href=&quot;../../EA2/EA290.htm&quot;&gt;855DC-1541-DEL Delphi&lt;/a&gt;&lt;br/&gt;</div>
-
-    </td>
-</tr>
-<tr class="#LINK_STEREOTYPE# InterfaceRequirement">
-    <td width="30%" class="TableRow" valign="top"><a href="../../EA1/EA1/EA95.htm">«interfaceRequirement» GSP-IR-0003</a></td>
-    <td width="10%" class="TableRow" valign="top">InterfaceRequirement</td>
-    <td width="10%" class="TableRow" valign="top">Abstraction</td>
-    <td width="10%" class="TableRow" valign="top">From</td>
-    <td width="40%" class="TableRow" valign="top">
-        <div class="ObjectDetailsNotes">859DC-1410-001 HaulX|855DC-1541-DEL Delphi; a. Requirement Text=The interface shall provide Heavy Mining Equipment (HME) operational and load-profile input data to Delphi at a frequency of 1 Hz (one update per second), with a maximum end-to-end latency of up to 2 seconds, to support fleet simulation and energy feasibility analysis.; b. Artifact Type=Interface Requirement; c. Source=Green Systems Interface Register, Interface DGS-I_0023; d. Apportionment=Delphi; e. Rationale=Feasibility analysis requires timely data; delayed or missing data prevents simulation and energy checks.; f. Requirement Status=Draft; g. Criticality Level=; h. Quality Flaw=; i. Validation Method=; j. Verification Method=; Supporting information from Interface Register=859DC-1410-001 HaulX|855DC-1541-DEL Delphi&lt;br/&gt;Project - Project Interface&lt;br/&gt;Technical-Data/Software&lt;br/&gt;This interface provides a near-term forecast of fleet energy consumption. This depends on the HaulX forecast horizon, based on a dispatch plan and mine plan. 30-40% of load based on mobile asset energy consumption. Frequency, resolution and horizon need to be determined for truck and excavator fleet on charge. State of charge, estimated time of completion.&lt;br/&gt;The criticality level is LOW because, although Delphi receives fleet energy forecasts from HaulX to support planning and optimisation, the interface does not affect real-time haulage operations, safety, or production continuity. If the interface fails, Haulage and mine operations continue normally, though forecast accuracy and decision-making may be reduced.&lt;br/&gt;</div>
-
-    </td>
-</tr>
-<tr class="#LINK_STEREOTYPE# InterfaceRequirement">
-    <td width="30%" class="TableRow" valign="top"><a href="../../EA1/EA1/EA97.htm">«interfaceRequirement» GSP-IR-0005</a></td>
-    <td width="10%" class="TableRow" valign="top">InterfaceRequirement</td>
-    <td width="10%" class="TableRow" valign="top">Abstraction</td>
-    <td width="10%" class="TableRow" valign="top">From</td>
-    <td width="40%" class="TableRow" valign="top">
-        <div class="ObjectDetailsNotes">859DC-1410-001 HaulX|855DC-1541-DEL Delphi; a. Requirement Text=The interface shall ensure integrity of transmitted values, including protection against corruption and preservation of source identifiers and timestamps.; b. Artifact Type=Interface Requirement; c. Source=Green Systems Interface Register, Interface DGS-I_0023; d. Apportionment=Delphi; e. Rationale=Compromised integrity produces incorrect feasibility results and curtailment decisions.; f. Requirement Status=Draft; g. Criticality Level=; h. Quality Flaw=; i. Validation Method=; j. Verification Method=; Supporting information from Interface Register=859DC-1410-001 HaulX|855DC-1541-DEL Delphi&lt;br/&gt;Project - Project Interface&lt;br/&gt;Technical-Data/Software&lt;br/&gt;This interface provides a near-term forecast of fleet energy consumption. This depends on the HaulX forecast horizon, based on a dispatch plan and mine plan. 30-40% of load based on mobile asset energy consumption. Frequency, resolution and horizon need to be determined for truck and excavator fleet on charge. State of charge, estimated time of completion.&lt;br/&gt;The criticality level is LOW because, although Delphi receives fleet energy forecasts from HaulX to support planning and optimisation, the interface does not affect real-time haulage operations, safety, or production continuity. If the interface fails, Haulage and mine operations continue normally, though forecast accuracy and decision-making may be reduced.&lt;br/&gt;</div>
-
-    </td>
-</tr>
-<tr class="#LINK_STEREOTYPE# InterfaceRequirement">
-    <td width="30%" class="TableRow" valign="top"><a href="../../EA1/EA1/EA98.htm">«interfaceRequirement» GSP-IR-0006</a></td>
-    <td width="10%" class="TableRow" valign="top">InterfaceRequirement</td>
-    <td width="10%" class="TableRow" valign="top">Abstraction</td>
-    <td width="10%" class="TableRow" valign="top">From</td>
-    <td width="40%" class="TableRow" valign="top">
-        <div class="ObjectDetailsNotes">859DC-1410-001 HaulX|855DC-1541-DEL Delphi; a. Requirement Text=The interface shall provide deterministic error handling and clear notifications when Heavy Mining Equipment (HME) data is missing, delayed, or invalid.; b. Artifact Type=Interface Requirement; c. Source=Green Systems Interface Register, Interface DGS-I_0023; d. Apportionment=Delphi; e. Rationale=Clear fault visibility is required to avoid silent degradation of planning capability.; f. Requirement Status=Draft; g. Criticality Level=; h. Quality Flaw=; i. Validation Method=; j. Verification Method=; Supporting information from Interface Register=859DC-1410-001 HaulX|855DC-1541-DEL Delphi&lt;br/&gt;Project - Project Interface&lt;br/&gt;Technical-Data/Software&lt;br/&gt;This interface provides a near-term forecast of fleet energy consumption. This depends on the HaulX forecast horizon, based on a dispatch plan and mine plan. 30-40% of load based on mobile asset energy consumption. Frequency, resolution and horizon need to be determined for truck and excavator fleet on charge. State of charge, estimated time of completion.&lt;br/&gt;The criticality level is LOW because, although Delphi receives fleet energy forecasts from HaulX to support planning and optimisation, the interface does not affect real-time haulage operations, safety, or production continuity. If the interface fails, Haulage and mine operations continue normally, though forecast accuracy and decision-making may be reduced.&lt;br/&gt;</div>
+        <div class="ObjectDetailsNotes">&lt;a href=&quot;../../EA2/EA291.htm&quot;&gt;855DC-1541-DEL Delphi&lt;/a&gt;&lt;br/&gt;</div>
 
     </td>
 </tr>

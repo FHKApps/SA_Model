@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head><link rel="icon" href="/favicon.ico"></head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Subsystem: 855DC-1541-ECL-002 Online Security Constrained Unit Commitment (SCUC)</title>
+<title>System Breakdown Structure Elements::Decarbonisation Portfolio::855DC Decarb Green Systems::855DC-1544 Unassigned / TBC</title>
 <link href="../../css/ea.css" rel="stylesheet" type="text/css" />
 <script language="JavaScript" src="../../js/displayToc.js" type="text/javascript"></script>
 
@@ -379,6 +379,20 @@ function getTargetInfo(areaElement) {
 
         simplifyHeaderTitle(); // <-- cleans header text
 
+        // ----------------------------------------------------------------
+        // DELPHI RVAM BUTTON: Show only on the Delphi requirements diagram
+        // ----------------------------------------------------------------
+        (function() {
+            const h1 = document.querySelector('.header_frame h1');
+            const delphiBox = document.getElementById('delphi-rvam-box');
+            if (h1 && delphiBox) {
+                const pageTitle = h1.textContent.trim();
+                if (pageTitle.includes('855DC-1541-DEL Delphi')) {
+                    delphiBox.style.display = 'block';
+                }
+            }
+        })();
+
         // Netlify Navigation Fix
         const navLinks = document.querySelectorAll(
             'a[href^="./"], a[href^="../"], a[href$=".htm"], a[href$=".html"]'
@@ -408,17 +422,18 @@ function getTargetInfo(areaElement) {
             });
         }
 		// ----------------------------------------------------------------
-// DOWNLOAD LINK FIX (Interface Register)
+// DOWNLOAD LINK FIX (all files/ links, depth-independent)
 // ----------------------------------------------------------------
 const cssLinkDownload = document.querySelector('link[href*="ea.css"]');
 if (cssLinkDownload) {
     const cssPathDownload = cssLinkDownload.getAttribute('href');
     const rootPathDownload = cssPathDownload.substring(0, cssPathDownload.lastIndexOf('css/'));
 
-    const downloadLink = document.querySelector('.download-box a');
-    if (downloadLink) {
-        downloadLink.href = rootPathDownload + "files/Fortescue_Interface-Register_Z.xlsm";
-    }
+    document.querySelectorAll('a[href*="files/"]').forEach(link => {
+        const href = link.getAttribute('href');
+        const filename = href.substring(href.indexOf('files/'));
+        link.href = rootPathDownload + filename;
+    });
 }
 // ----------------------------------------------------------------
 // LEGEND SWITCHING (SBS Special Case)
@@ -477,11 +492,11 @@ if (cssLinkDownload) {
 <div class="section group" >
 
 		<div class="col span_2_of_2 header_frame">
-			<h1> Subsystem: 855DC-1541-ECL-002 Online Security Constrained Unit Commitment (SCUC) </h1>
+			<h1> System Breakdown Structure Elements::Decarbonisation Portfolio::855DC Decarb Green Systems::855DC-1544 Unassigned / TBC </h1>
 			<img class="header_image" src="../../images/Logo.png" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
-			<p><a href="../EA19.htm">Decarb Green Systems Architecture  Version: Z</a> / <a href="EA159.htm">System Breakdown Structure Elements</a> / <a href="EA160.htm">Decarbonisation Portfolio</a> / <a href="EA306.htm">855DC Decarb Green Systems</a> / <a href="EA169.htm">855DC-1541 Planning and Forecast Systems</a> / <a href="EA291.htm">855DC-1541-ECL Eclipse</a> / <a href="EA177.htm">Subsystem: 855DC-1541-ECL-002 Online Security Constrained Unit Commitment (SCUC)</a></p>
+			<p><a href="../EA19.htm">Decarb Green Systems Architecture  Version: Z</a> / <a href="EA160.htm">System Breakdown Structure Elements</a> / <a href="EA161.htm">Decarbonisation Portfolio</a> / <a href="EA307.htm">855DC Decarb Green Systems</a> / <a href="EA177.htm">855DC-1544 Unassigned / TBC</a></p>
 		</div>
 			
 		<table class="contentmaintable">
@@ -492,9 +507,14 @@ if (cssLinkDownload) {
 						<div class="download-box">
 						<div class="download-box">
 							<a href="files/Fortescue_Interface-Register_Z.xlsm" target="_blank">
-							Interface Register
+							Export Interface Register
 							</a>
 						</div>
+						</div>
+						<div class="download-box" id="delphi-rvam-box" style="display:none;">
+							<a href="files/Delphi_RVAM_Z.xlsx" target="_blank">
+							Export RVAM for this system
+							</a>
 						</div>
                         
                         <div class="sidebar-search-container">
@@ -505,7 +525,21 @@ if (cssLinkDownload) {
 
                         <div id="originalTree">
 						    <ul>
-<a href="EA291.htm">855DC-1541-ECL Eclipse</a></ul>
+<li><img src="../../images/5.png" alt="Class"/> <a href="EA340.htm">855DC-1544-020 BET/DET Model</a></li>
+<li><img src="../../images/5.png" alt="Class"/> <a href="EA346.htm">855DC-1544-011 Health Monitoring & Analytics</a></li>
+<li><img src="../../images/118.png" alt="Part"/> <a href="EA339.htm">Project: 855DC-1544-025 Constraints Library</a></li>
+<li><img src="../../images/5.png" alt="Class"/> <a href="EA345.htm">855DC-1544-025 Constraints Library</a></li>
+<li><img src="../../images/118.png" alt="Part"/> <a href="EA338.htm">Project: 855DC-1544-024 Demand Response (DR) Playbook</a></li>
+<li><img src="../../images/5.png" alt="Class"/> <a href="EA344.htm">855DC-1544-024 Demand Response (DR) Playbook</a></li>
+<li><img src="../../images/118.png" alt="Part"/> <a href="EA337.htm">Project: 855DC-1544-023 Superblock</a></li>
+<li><img src="../../images/5.png" alt="Class"/> <a href="EA343.htm">855DC-1544-023 Superblock</a></li>
+<li><img src="../../images/118.png" alt="Part"/> <a href="EA336.htm">Project: 855DC-1544-011 Health Monitoring & Analytics</a></li>
+<li><img src="../../images/118.png" alt="Part"/> <a href="EA349.htm">Project: 855DC-1544-022 Genotech</a></li>
+<li><img src="../../images/5.png" alt="Class"/> <a href="EA342.htm">855DC-1544-022 Genotech</a></li>
+<li><img src="../../images/118.png" alt="Part"/> <a href="EA348.htm">Project: 855DC-1544-021 GAF24</a></li>
+<li><img src="../../images/5.png" alt="Class"/> <a href="EA341.htm">855DC-1544-021 GAF24</a></li>
+<li><img src="../../images/118.png" alt="Part"/> <a href="EA347.htm">Project: 855DC-1544-020 BET/DET Model</a></li>
+</ul>
 
                         </div>
 					</td>
@@ -639,7 +673,7 @@ if (cssLinkDownload) {
 
 <div class="PageBody" style="position: relative !important; height: auto !important; overflow: visible !important; padding-bottom: 10px;">
     <span class="ObjectTitle">
-        Subsystem : 
+        855DC-1544 Unassigned / TBC : &lt;&lt;block&gt;&gt;
     </span>
 
     <table border="0" class="ObjectDetails" style="width: 100%; margin-bottom: 10px;">
@@ -648,11 +682,11 @@ if (cssLinkDownload) {
             <col width="*" />
         </colgroup>
         <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Status:</td><td class="ObjectDetailsValue">Proposed</td></tr>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Created:</td><td class="ObjectDetailsValue">06/10/2025 14:34:02</td></tr>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Modified:</td><td class="ObjectDetailsValue">06/10/2025 14:36:02</td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Created:</td><td class="ObjectDetailsValue">06/10/2025 16:16:31</td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Modified:</td><td class="ObjectDetailsValue">18/02/2026 13:18:07</td></tr>
         <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Author:</td><td class="ObjectDetailsValue">Admin</td></tr>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">UUID:</td><td class="ObjectDetailsValue">{567A1D99-78D7-45d1-A1CC-7A6E9189B3B0}</td></tr>
-        <tr id="adv01"><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Appears In:</td><td class="ObjectDetailsValue"></td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">UUID:</td><td class="ObjectDetailsValue">{DD480475-159C-483c-991A-DDDA9DAE402C}</td></tr>
+        <tr id="adv01"><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Appears In:</td><td class="ObjectDetailsValue"><a href="../EA17.htm">System Breakdown Structure (SBS)</a></td></tr>
         <tr>
             <td class="ObjectDetailsTopic" style="padding-left:0; width:70px; vertical-align:top; padding-top:5px;">Remarks:</td>
             <td class="ObjectDetailsValue remarks-cell" style="vertical-align:top; padding-top:5px;"></td>
@@ -1036,8 +1070,379 @@ if (cssLinkDownload) {
 })();
 </script>	<div class="TableGroup" id="TableGroup">
 		<ul class="ItemTitle">
+			<li onClick="parent != null ? parent.toggleItem('AssociationsTo') : toggleItem('AssociationsTo');" id="AssociationsToTitle">Associations To</li>
+			<li onClick="parent != null ? parent.toggleItem('AssociationsFrom') : toggleItem('AssociationsFrom');" id="AssociationsFromTitle">Associations From</li>
+			<li onClick="parent != null ? parent.toggleItem('TaggedVal') : toggleItem('TaggedVal');" id="TaggedValTitle">Tagged Values</li>
 			<li onClick="parent != null ? parent.toggleItem('CustomProperties') : toggleItem('CustomProperties');" id="CustomPropertiesTitle">Advanced</li>
+			<li onClick="parent != null ? parent.toggleItem('Links') : toggleItem('Links');" id="LinksTitle">Other Links</li>
 		</ul>
+		<div class="ItemBody" id="AssociationsToTable">
+			<table class="Table ea_table">
+				<tr>
+					<td width="40%" class="TableHeading">Element</td>
+					<td width="30%" class="TableHeading">Source Role</td>
+					<td width="30%" class="TableHeading">Target Role</td>
+				</tr>
+				<tr>
+					<td width="40%" class="TableRow" valign="top">
+						<a href="EA307.htm">«block» 855DC Decarb Green Systems</a><br />
+						Block &nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> System<br />
+						&nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> &nbsp;<br />
+						&nbsp;	
+					</td>
+				</tr>
+				<tr>
+					<td class="TableRowBottomDashed"  colspan="3">
+						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink596" /></button>Details:
+							<div id="detailsDIVLink596" class="DetailsDiv" >
+							&nbsp;
+							</div>
+						</div>
+					</td>
+				</tr>
+
+			</table>
+		</div>
+		<div class="ItemBody" id="AssociationsFromTable">
+			<table class="Table ea_table">
+				<tr>
+					<td width="40%" class="TableHeading">Element</td>
+					<td width="30%" class="TableHeading">Source Role</td>
+					<td width="30%" class="TableHeading">Target Role</td>
+				</tr>
+				<tr>
+					<td width="40%" class="TableRow" valign="top">
+						<a href="EA346.htm">«block» 855DC-1544-011 Health Monitoring & Analytics</a><br />
+						Block &nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> Project<br />
+						&nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> &nbsp;<br />
+						&nbsp;	
+					</td>
+				</tr>
+				<tr>
+					<td class="TableRowBottomDashed"  colspan="3">
+						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink597" /></button>Details:
+							<div id="detailsDIVLink597" class="DetailsDiv" >
+							&nbsp;
+							</div>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td width="40%" class="TableRow" valign="top">
+						<a href="../EA3/EA1/EA502.htm">«block» Archive - 855DC-1544-026 Solar and Wind Modelling Gen-AI</a><br />
+						Block &nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> Project<br />
+						&nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> &nbsp;<br />
+						&nbsp;	
+					</td>
+				</tr>
+				<tr>
+					<td class="TableRowBottomDashed"  colspan="3">
+						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink598" /></button>Details:
+							<div id="detailsDIVLink598" class="DetailsDiv" >
+							&nbsp;
+							</div>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td width="40%" class="TableRow" valign="top">
+						<a href="EA344.htm">«block» 855DC-1544-024 Demand Response (DR) Playbook</a><br />
+						Block &nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> Project<br />
+						&nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> &nbsp;<br />
+						&nbsp;	
+					</td>
+				</tr>
+				<tr>
+					<td class="TableRowBottomDashed"  colspan="3">
+						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink599" /></button>Details:
+							<div id="detailsDIVLink599" class="DetailsDiv" >
+							&nbsp;
+							</div>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td width="40%" class="TableRow" valign="top">
+						<a href="EA345.htm">«block» 855DC-1544-025 Constraints Library</a><br />
+						Block &nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> Project<br />
+						&nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> &nbsp;<br />
+						&nbsp;	
+					</td>
+				</tr>
+				<tr>
+					<td class="TableRowBottomDashed"  colspan="3">
+						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink600" /></button>Details:
+							<div id="detailsDIVLink600" class="DetailsDiv" >
+							&nbsp;
+							</div>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td width="40%" class="TableRow" valign="top">
+						<a href="EA341.htm">«block» 855DC-1544-021 GAF24</a><br />
+						Block &nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> Project<br />
+						&nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> &nbsp;<br />
+						&nbsp;	
+					</td>
+				</tr>
+				<tr>
+					<td class="TableRowBottomDashed"  colspan="3">
+						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink601" /></button>Details:
+							<div id="detailsDIVLink601" class="DetailsDiv" >
+							&nbsp;
+							</div>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td width="40%" class="TableRow" valign="top">
+						<a href="EA340.htm">«block» 855DC-1544-020 BET/DET Model</a><br />
+						Block &nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> Project<br />
+						&nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> &nbsp;<br />
+						&nbsp;	
+					</td>
+				</tr>
+				<tr>
+					<td class="TableRowBottomDashed"  colspan="3">
+						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink602" /></button>Details:
+							<div id="detailsDIVLink602" class="DetailsDiv" >
+							&nbsp;
+							</div>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td width="40%" class="TableRow" valign="top">
+						<a href="EA343.htm">«block» 855DC-1544-023 Superblock</a><br />
+						Block &nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> Project<br />
+						&nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> &nbsp;<br />
+						&nbsp;	
+					</td>
+				</tr>
+				<tr>
+					<td class="TableRowBottomDashed"  colspan="3">
+						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink603" /></button>Details:
+							<div id="detailsDIVLink603" class="DetailsDiv" >
+							&nbsp;
+							</div>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td width="40%" class="TableRow" valign="top">
+						<a href="../EA3/EA1/EA494.htm">«block» Archive - 855DC-1544-PSP Power System Protection System</a><br />
+						Block &nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> Project<br />
+						&nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> &nbsp;<br />
+						&nbsp;	
+					</td>
+				</tr>
+				<tr>
+					<td class="TableRowBottomDashed"  colspan="3">
+						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink604" /></button>Details:
+							<div id="detailsDIVLink604" class="DetailsDiv" >
+							&nbsp;
+							</div>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td width="40%" class="TableRow" valign="top">
+						<a href="EA342.htm">«block» 855DC-1544-022 Genotech</a><br />
+						Block &nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> Project<br />
+						&nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> &nbsp;<br />
+						&nbsp;	
+					</td>
+				</tr>
+				<tr>
+					<td class="TableRowBottomDashed"  colspan="3">
+						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink605" /></button>Details:
+							<div id="detailsDIVLink605" class="DetailsDiv" >
+							&nbsp;
+							</div>
+						</div>
+					</td>
+				</tr>
+
+			</table>
+		</div>
+<div class="ItemBody" id="TaggedValTable">
+    <table align="center" border="0" cellspacing="0" cellpadding="0" class="Table" style="width:100%; table-layout:fixed;">
+        <tr>
+            <td class="TableHeading">Tag</td>
+            <td class="TableHeading">Value</td>
+        </tr>
+        			<tr>
+				<td class="TableRow" valign="top">Element</td>
+				<td class="TableRow" valign="top">System</td>
+			</tr>	
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="2">
+					Details:
+						&nbsp;
+				</td>
+			</tr>			<tr>
+				<td class="TableRow" valign="top">Element Type</td>
+				<td class="TableRow" valign="top">System</td>
+			</tr>	
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="2">
+					Details:
+						&nbsp;
+				</td>
+			</tr>			<tr>
+				<td class="TableRow" valign="top">Facility Code</td>
+				<td class="TableRow" valign="top">1544</td>
+			</tr>	
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="2">
+					Details:
+						&nbsp;
+				</td>
+			</tr>			<tr>
+				<td class="TableRow" valign="top">Old SBS ID</td>
+				<td class="TableRow" valign="top">A.04</td>
+			</tr>	
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="2">
+					Details:
+						&nbsp;
+				</td>
+			</tr>			<tr>
+				<td class="TableRow" valign="top">Portfolio</td>
+				<td class="TableRow" valign="top">Decarbonisation Portfolio</td>
+			</tr>	
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="2">
+					Details:
+						&nbsp;
+				</td>
+			</tr>			<tr>
+				<td class="TableRow" valign="top">Portfolio Code</td>
+				<td class="TableRow" valign="top">DC</td>
+			</tr>	
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="2">
+					Details:
+						&nbsp;
+				</td>
+			</tr>			<tr>
+				<td class="TableRow" valign="top">Program</td>
+				<td class="TableRow" valign="top">855DC Decarb Green Systems</td>
+			</tr>	
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="2">
+					Details:
+						&nbsp;
+				</td>
+			</tr>			<tr>
+				<td class="TableRow" valign="top">Program Code</td>
+				<td class="TableRow" valign="top">855DC</td>
+			</tr>	
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="2">
+					Details:
+						&nbsp;
+				</td>
+			</tr>			<tr>
+				<td class="TableRow" valign="top">Project Code</td>
+				<td class="TableRow" valign="top">[BLANK]</td>
+			</tr>	
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="2">
+					Details:
+						&nbsp;
+				</td>
+			</tr>			<tr>
+				<td class="TableRow" valign="top">Subsystem Code</td>
+				<td class="TableRow" valign="top">[BLANK]</td>
+			</tr>	
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="2">
+					Details:
+						&nbsp;
+				</td>
+			</tr>			<tr>
+				<td class="TableRow" valign="top">System</td>
+				<td class="TableRow" valign="top">855DC-1544 Unassigned / TBC</td>
+			</tr>	
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="2">
+					Details:
+						&nbsp;
+				</td>
+			</tr>			<tr>
+				<td class="TableRow" valign="top">WBS Code</td>
+				<td class="TableRow" valign="top">855DC-1544</td>
+			</tr>	
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="2">
+					Details:
+						&nbsp;
+				</td>
+			</tr>
+    </table>
+</div>
 		<div class="ItemBody" id="CustomPropertiesTable">
 			<table class="Table ea_table">
 				<tr>
@@ -1045,58 +1450,129 @@ if (cssLinkDownload) {
 					<td width="70%" class="TableHeading">Value</td>
 				</tr>
 			<tr>
-				<td width="30%" class="TableRow">_connectorRef:</td>
-				<td width="70%" class="TableRow"><SOURCE></td>
+				<td width="30%" class="TableRow">_defaultDiagramType:</td>
+				<td width="70%" class="TableRow">SysML1.4::InternalBlock</td>
 			</tr>
 
 			<tr>
-				<td width="30%" class="TableRow">isReference:</td>
-				<td width="70%" class="TableRow">False</td>
-			</tr>
-
-			<tr>
-				<td width="30%" class="TableRow">isOrdered:</td>
-				<td width="70%" class="TableRow">false</td>
-			</tr>
-
-			<tr>
-				<td width="30%" class="TableRow">isUnique:</td>
-				<td width="70%" class="TableRow">true</td>
-			</tr>
-
-			<tr>
-				<td width="30%" class="TableRow">isDerived:</td>
-				<td width="70%" class="TableRow">false</td>
-			</tr>
-
-			<tr>
-				<td width="30%" class="TableRow">isID:</td>
-				<td width="70%" class="TableRow">false</td>
-			</tr>
-
-			<tr>
-				<td width="30%" class="TableRow">isReadOnly:</td>
-				<td width="70%" class="TableRow">false</td>
-			</tr>
-
-			<tr>
-				<td width="30%" class="TableRow">aggregation:</td>
-				<td width="70%" class="TableRow">none</td>
-			</tr>
-
-			<tr>
-				<td width="30%" class="TableRow">isDerivedUnion:</td>
-				<td width="70%" class="TableRow">false</td>
-			</tr>
-
-			<tr>
-				<td width="30%" class="TableRow">isStatic:</td>
-				<td width="70%" class="TableRow">false</td>
+				<td width="30%" class="TableRow">isFinalSpecialization:</td>
+				<td width="70%" class="TableRow">0</td>
 			</tr>
 
 
 			</table>
-		</div>	</div>
+		</div><div class="ItemBody" id="LinksTable">
+    <table class="Table ea_table">
+        <colgroup>
+            <col style="width:250px">
+            <col style="width:120px">
+            <col style="width:0px">     <!-- Connection (hidden later) -->
+			<col style="width:100px">   <!-- Direction / Relationship -->
+            <col style="width:120px">   <!-- Interfaces with -->
+        </colgroup>
+
+        <tr>
+            <td class="TableHeading">Object</td>
+            <td class="TableHeading">Type</td>
+            <td class="TableHeading">Connection</td>
+            <td class="TableHeading">Relationship</td>
+            <td class="TableHeading">Interfaces with</td>
+        </tr>
+
+<tr class="#LINK_STEREOTYPE# Block">
+    <td width="30%" class="TableRow" valign="top"><a href="EA346.htm">«block» 855DC-1544-011 Health Monitoring & Analytics</a></td>
+    <td width="10%" class="TableRow" valign="top">Block</td>
+    <td width="10%" class="TableRow" valign="top">Strong</td>
+    <td width="10%" class="TableRow" valign="top">From</td>
+    <td width="40%" class="TableRow" valign="top">
+        &nbsp;
+    </td>
+</tr>
+<tr class="#LINK_STEREOTYPE# Block">
+    <td width="30%" class="TableRow" valign="top"><a href="../EA3/EA1/EA502.htm">«block» Archive - 855DC-1544-026 Solar and Wind Modelling Gen-AI</a></td>
+    <td width="10%" class="TableRow" valign="top">Block</td>
+    <td width="10%" class="TableRow" valign="top">Strong</td>
+    <td width="10%" class="TableRow" valign="top">From</td>
+    <td width="40%" class="TableRow" valign="top">
+        &nbsp;
+    </td>
+</tr>
+<tr class="#LINK_STEREOTYPE# Block">
+    <td width="30%" class="TableRow" valign="top"><a href="EA344.htm">«block» 855DC-1544-024 Demand Response (DR) Playbook</a></td>
+    <td width="10%" class="TableRow" valign="top">Block</td>
+    <td width="10%" class="TableRow" valign="top">Strong</td>
+    <td width="10%" class="TableRow" valign="top">From</td>
+    <td width="40%" class="TableRow" valign="top">
+        &nbsp;
+    </td>
+</tr>
+<tr class="#LINK_STEREOTYPE# Block">
+    <td width="30%" class="TableRow" valign="top"><a href="EA307.htm">«block» 855DC Decarb Green Systems</a></td>
+    <td width="10%" class="TableRow" valign="top">Block</td>
+    <td width="10%" class="TableRow" valign="top">Strong</td>
+    <td width="10%" class="TableRow" valign="top">To</td>
+    <td width="40%" class="TableRow" valign="top">
+        &nbsp;
+    </td>
+</tr>
+<tr class="#LINK_STEREOTYPE# Block">
+    <td width="30%" class="TableRow" valign="top"><a href="EA345.htm">«block» 855DC-1544-025 Constraints Library</a></td>
+    <td width="10%" class="TableRow" valign="top">Block</td>
+    <td width="10%" class="TableRow" valign="top">Strong</td>
+    <td width="10%" class="TableRow" valign="top">From</td>
+    <td width="40%" class="TableRow" valign="top">
+        &nbsp;
+    </td>
+</tr>
+<tr class="#LINK_STEREOTYPE# Block">
+    <td width="30%" class="TableRow" valign="top"><a href="EA341.htm">«block» 855DC-1544-021 GAF24</a></td>
+    <td width="10%" class="TableRow" valign="top">Block</td>
+    <td width="10%" class="TableRow" valign="top">Strong</td>
+    <td width="10%" class="TableRow" valign="top">From</td>
+    <td width="40%" class="TableRow" valign="top">
+        &nbsp;
+    </td>
+</tr>
+<tr class="#LINK_STEREOTYPE# Block">
+    <td width="30%" class="TableRow" valign="top"><a href="EA340.htm">«block» 855DC-1544-020 BET/DET Model</a></td>
+    <td width="10%" class="TableRow" valign="top">Block</td>
+    <td width="10%" class="TableRow" valign="top">Strong</td>
+    <td width="10%" class="TableRow" valign="top">From</td>
+    <td width="40%" class="TableRow" valign="top">
+        &nbsp;
+    </td>
+</tr>
+<tr class="#LINK_STEREOTYPE# Block">
+    <td width="30%" class="TableRow" valign="top"><a href="EA343.htm">«block» 855DC-1544-023 Superblock</a></td>
+    <td width="10%" class="TableRow" valign="top">Block</td>
+    <td width="10%" class="TableRow" valign="top">Strong</td>
+    <td width="10%" class="TableRow" valign="top">From</td>
+    <td width="40%" class="TableRow" valign="top">
+        &nbsp;
+    </td>
+</tr>
+<tr class="#LINK_STEREOTYPE# Block">
+    <td width="30%" class="TableRow" valign="top"><a href="../EA3/EA1/EA494.htm">«block» Archive - 855DC-1544-PSP Power System Protection System</a></td>
+    <td width="10%" class="TableRow" valign="top">Block</td>
+    <td width="10%" class="TableRow" valign="top">Strong</td>
+    <td width="10%" class="TableRow" valign="top">From</td>
+    <td width="40%" class="TableRow" valign="top">
+        &nbsp;
+    </td>
+</tr>
+<tr class="#LINK_STEREOTYPE# Block">
+    <td width="30%" class="TableRow" valign="top"><a href="EA342.htm">«block» 855DC-1544-022 Genotech</a></td>
+    <td width="10%" class="TableRow" valign="top">Block</td>
+    <td width="10%" class="TableRow" valign="top">Strong</td>
+    <td width="10%" class="TableRow" valign="top">From</td>
+    <td width="40%" class="TableRow" valign="top">
+        &nbsp;
+    </td>
+</tr>
+
+    </table>
+</div>
+	</div>
  </div>
  
                     </td>

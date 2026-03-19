@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head><link rel="icon" href="/favicon.ico"></head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Interfaces::DGS-I_0326</title>
+<title>Interfaces::DGS-I_0325</title>
 <link href="../../../css/ea.css" rel="stylesheet" type="text/css" />
 <script language="JavaScript" src="../../../js/displayToc.js" type="text/javascript"></script>
 
@@ -379,6 +379,20 @@ function getTargetInfo(areaElement) {
 
         simplifyHeaderTitle(); // <-- cleans header text
 
+        // ----------------------------------------------------------------
+        // DELPHI RVAM BUTTON: Show only on the Delphi requirements diagram
+        // ----------------------------------------------------------------
+        (function() {
+            const h1 = document.querySelector('.header_frame h1');
+            const delphiBox = document.getElementById('delphi-rvam-box');
+            if (h1 && delphiBox) {
+                const pageTitle = h1.textContent.trim();
+                if (pageTitle.includes('855DC-1541-DEL Delphi')) {
+                    delphiBox.style.display = 'block';
+                }
+            }
+        })();
+
         // Netlify Navigation Fix
         const navLinks = document.querySelectorAll(
             'a[href^="./"], a[href^="../"], a[href$=".htm"], a[href$=".html"]'
@@ -408,17 +422,18 @@ function getTargetInfo(areaElement) {
             });
         }
 		// ----------------------------------------------------------------
-// DOWNLOAD LINK FIX (Interface Register)
+// DOWNLOAD LINK FIX (all files/ links, depth-independent)
 // ----------------------------------------------------------------
 const cssLinkDownload = document.querySelector('link[href*="ea.css"]');
 if (cssLinkDownload) {
     const cssPathDownload = cssLinkDownload.getAttribute('href');
     const rootPathDownload = cssPathDownload.substring(0, cssPathDownload.lastIndexOf('css/'));
 
-    const downloadLink = document.querySelector('.download-box a');
-    if (downloadLink) {
-        downloadLink.href = rootPathDownload + "files/Fortescue_Interface-Register_Z.xlsm";
-    }
+    document.querySelectorAll('a[href*="files/"]').forEach(link => {
+        const href = link.getAttribute('href');
+        const filename = href.substring(href.indexOf('files/'));
+        link.href = rootPathDownload + filename;
+    });
 }
 // ----------------------------------------------------------------
 // LEGEND SWITCHING (SBS Special Case)
@@ -477,11 +492,11 @@ if (cssLinkDownload) {
 <div class="section group" >
 
 		<div class="col span_2_of_2 header_frame">
-			<h1> Interfaces::DGS-I_0326 </h1>
+			<h1> Interfaces::DGS-I_0325 </h1>
 			<img class="header_image" src="../../../images/Logo.png" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
-			<p><a href="../../EA19.htm">Decarb Green Systems Architecture  Version: Z</a> / <a href="../EA480.htm">System Definition Elements</a> / <a href="EA642.htm">Interfaces</a> / <a href="EA967.htm">DGS-I_0326</a></p>
+			<p><a href="../../EA19.htm">Decarb Green Systems Architecture  Version: Z</a> / <a href="../EA481.htm">System Definition Elements</a> / <a href="EA643.htm">Interfaces</a> / <a href="EA967.htm">DGS-I_0325</a></p>
 		</div>
 			
 		<table class="contentmaintable">
@@ -492,9 +507,14 @@ if (cssLinkDownload) {
 						<div class="download-box">
 						<div class="download-box">
 							<a href="files/Fortescue_Interface-Register_Z.xlsm" target="_blank">
-							Interface Register
+							Export Interface Register
 							</a>
 						</div>
+						</div>
+						<div class="download-box" id="delphi-rvam-box" style="display:none;">
+							<a href="files/Delphi_RVAM_Z.xlsx" target="_blank">
+							Export RVAM for this system
+							</a>
 						</div>
                         
                         <div class="sidebar-search-container">
@@ -505,7 +525,7 @@ if (cssLinkDownload) {
 
                         <div id="originalTree">
 						    <ul>
-<a href="EA642.htm">Interfaces</a></ul>
+<a href="EA643.htm">Interfaces</a></ul>
 
                         </div>
 					</td>
@@ -639,7 +659,7 @@ if (cssLinkDownload) {
 
 <div class="PageBody" style="position: relative !important; height: auto !important; overflow: visible !important; padding-bottom: 10px;">
     <span class="ObjectTitle">
-        DGS-I_0326 : &lt;&lt;InterfaceBlock&gt;&gt;
+        DGS-I_0325 : &lt;&lt;InterfaceBlock&gt;&gt;
     </span>
 
     <table border="0" class="ObjectDetails" style="width: 100%; margin-bottom: 10px;">
@@ -648,11 +668,11 @@ if (cssLinkDownload) {
             <col width="*" />
         </colgroup>
         <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Status:</td><td class="ObjectDetailsValue">Proposed</td></tr>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Created:</td><td class="ObjectDetailsValue">26/11/2025 23:14:07</td></tr>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Modified:</td><td class="ObjectDetailsValue">11/12/2025 00:07:08</td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Created:</td><td class="ObjectDetailsValue">26/11/2025 23:13:57</td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Modified:</td><td class="ObjectDetailsValue">11/12/2025 00:07:07</td></tr>
         <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Author:</td><td class="ObjectDetailsValue">Admin</td></tr>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">UUID:</td><td class="ObjectDetailsValue">{C4CBB4FD-A818-4725-83F6-9C3E40830970}</td></tr>
-        <tr id="adv01"><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Appears In:</td><td class="ObjectDetailsValue"><a href="../../EA15.htm">System Definition (SD)</a>, <a href="../../EA5.htm">855DC-1541-DEL Delphi</a>, <a href="../../EA1/EA88.htm">Requirements: 855DC-1541-DEL Delphi</a></td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">UUID:</td><td class="ObjectDetailsValue">{21DF6376-2595-4e9b-9BE6-7EB46015221E}</td></tr>
+        <tr id="adv01"><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Appears In:</td><td class="ObjectDetailsValue"><a href="../../EA15.htm">System Definition (SD)</a>, <a href="../../EA3.htm">855DC-1541-DEL Delphi</a>, <a href="../../EA1/EA88.htm">Requirements: 855DC-1541-DEL Delphi</a></td></tr>
         <tr>
             <td class="ObjectDetailsTopic" style="padding-left:0; width:70px; vertical-align:top; padding-top:5px;">Remarks:</td>
             <td class="ObjectDetailsValue remarks-cell" style="vertical-align:top; padding-top:5px;"></td>
@@ -1048,7 +1068,7 @@ if (cssLinkDownload) {
         </tr>
         			<tr>
 				<td class="TableRow" valign="top">1. Interface Name</td>
-				<td class="TableRow" valign="top">BoM|855DC-1541-DEL Delphi</td>
+				<td class="TableRow" valign="top">005OP-0000-005-003 Snowflake (Weather)|855DC-1541-DEL Delphi</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1066,7 +1086,7 @@ if (cssLinkDownload) {
 				</td>
 			</tr>			<tr>
 				<td class="TableRow" valign="top">3. Interface Contributor(s)</td>
-				<td class="TableRow" valign="top">External Government</td>
+				<td class="TableRow" valign="top">Snowflake BAZ TBC</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1075,7 +1095,7 @@ if (cssLinkDownload) {
 				</td>
 			</tr>			<tr>
 				<td class="TableRow" valign="top">4. Interface Level</td>
-				<td class="TableRow" valign="top">External Software - Project Interface</td>
+				<td class="TableRow" valign="top">Project - Subsystem Interface</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1093,7 +1113,7 @@ if (cssLinkDownload) {
 				</td>
 			</tr>			<tr>
 				<td class="TableRow" valign="top">6. Interface Description</td>
-				<td class="TableRow" valign="top">Delphi data transfer through Snowflake (BOM API)<br />The purpose of this interface is to provide Eclipse with up-to-date Bureau of Meteorology (BOM) weather forecasts and actuals to support the short-term planning cycle (up to 48 hours ahead) and to build long-term planning models from historical data. This weather data includes wind, solar, rain, and lightning. Additionally, Elysia Battery Energy Storage System (BESS) state of charge (SoC) actuals are provided to Delphi to support operational decisions regarding charging, discharging, and curtailment.</td>
+				<td class="TableRow" valign="top">Weather Actuals - 15-Year Historical Weather Dataset (Snowflake)<br />The purpose of this interface is to provide up to 15 years of historical weather data - including rain, wind, lightning, and other key variables - via Snowflake through the Weather Actuals system. Eclipse uses this long-term dataset to train and validate forecasting models, analyse historical patterns, and support long-term operational and strategic planning.</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1111,7 +1131,7 @@ if (cssLinkDownload) {
 				</td>
 			</tr>			<tr>
 				<td class="TableRow" valign="top">8. Interface Flow</td>
-				<td class="TableRow" valign="top">BOM API -&gt; Delphi (ingest/aggregation) -&gt; Delphi Snowflake database -&gt; Eclipse Snowflake database (uni-directional).</td>
+				<td class="TableRow" valign="top">Weather Actuals Snowflake dataset -&gt; Delphi/Eclipse Snowflake (uni-directional).</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1120,7 +1140,7 @@ if (cssLinkDownload) {
 				</td>
 			</tr>			<tr>
 				<td class="TableRow" valign="top">9. Interface Criticality Justification</td>
-				<td class="TableRow" valign="top">The criticality level is HIGH because failure to receive timely BOM forecast and actual weather data will cause near- and long-term mine plans to be inaccurate, severely compromising planning feasibility.</td>
+				<td class="TableRow" valign="top">The criticality level is HIGH because a deep and accurate historical weather record is essential for building reliable forecasting models. Failure compromises long-term operational and strategic planning decisions.</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1162,62 +1182,62 @@ if (cssLinkDownload) {
         </tr>
 
 <tr class="#LINK_STEREOTYPE# InterfaceRequirement">
-    <td width="30%" class="TableRow" valign="top"><a href="../../EA1/EA1/EA134.htm">«interfaceRequirement» GSP-IR-0042</a></td>
+    <td width="30%" class="TableRow" valign="top"><a href="../../EA1/EA1/EA118.htm">«interfaceRequirement» GSP-IR-0025</a></td>
     <td width="10%" class="TableRow" valign="top">InterfaceRequirement</td>
     <td width="10%" class="TableRow" valign="top">Abstraction</td>
     <td width="10%" class="TableRow" valign="top">From</td>
     <td width="40%" class="TableRow" valign="top">
-        <div class="ObjectDetailsNotes">BoM|855DC-1541-DEL Delphi; a. Requirement Text=The interface shall deliver Elysia BESS SoC actuals into Delphi where Bureau of Meteorology (BOM) data is used for operational decisions regarding charging, discharging, and curtailment.; b. Artifact Type=Interface Requirement; c. Source=Green Systems Interface Register, Interface DGS-I_0326; d. Apportionment=Delphi; e. Rationale=Combining BOM and SoC information enables integrated operational decision-making.; f. Requirement Status=Draft; g. Criticality Level=; h. Quality Flaw=; i. Validation Method=; j. Verification Method=; Supporting information from Interface Register=BoM|855DC-1541-DEL Delphi&lt;br/&gt;External Software - Project Interface&lt;br/&gt;Technical-Data/Software&lt;br/&gt;Delphi data transfer through Snowflake (BOM API)&lt;br/&gt;The purpose of this interface is to provide Eclipse with up-to-date Bureau of Meteorology (BOM) weather forecasts and actuals to support the short-term planning cycle (up to 48 hours ahead) and to build long-term planning models from historical data. This weather data includes wind, solar, rain, and lightning. Additionally, Elysia Battery Energy Storage System (BESS) state of charge (SoC) actuals are provided to Delphi to support operational decisions regarding charging, discharging, and curtailment.&lt;br/&gt;The criticality level is HIGH because failure to receive timely BOM forecast and actual weather data will cause near- and long-term mine plans to be inaccurate, severely compromising planning feasibility.&lt;br/&gt;</div>
-
-    </td>
-</tr>
-<tr class="#LINK_STEREOTYPE# InterfaceRequirement">
-    <td width="30%" class="TableRow" valign="top"><a href="../../EA1/EA1/EA133.htm">«interfaceRequirement» GSP-IR-0041</a></td>
-    <td width="10%" class="TableRow" valign="top">InterfaceRequirement</td>
-    <td width="10%" class="TableRow" valign="top">Abstraction</td>
-    <td width="10%" class="TableRow" valign="top">From</td>
-    <td width="40%" class="TableRow" valign="top">
-        <div class="ObjectDetailsNotes">BoM|855DC-1541-DEL Delphi; a. Requirement Text=The interface shall retain historical Bureau of Meteorology (BOM) forecast and actuals data for a minimum period of five years, ensuring data is accessible with a retrieval latency not exceeding 5 seconds per query, to support long-term planning model development and back-testing.; b. Artifact Type=Interface Requirement; c. Source=Green Systems Interface Register, Interface DGS-I_0326; d. Apportionment=Delphi; e. Rationale=Historical BOM data is needed to build and refine long-term models.; f. Requirement Status=Draft; g. Criticality Level=; h. Quality Flaw=; i. Validation Method=; j. Verification Method=; Supporting information from Interface Register=BoM|855DC-1541-DEL Delphi&lt;br/&gt;External Software - Project Interface&lt;br/&gt;Technical-Data/Software&lt;br/&gt;Delphi data transfer through Snowflake (BOM API)&lt;br/&gt;The purpose of this interface is to provide Eclipse with up-to-date Bureau of Meteorology (BOM) weather forecasts and actuals to support the short-term planning cycle (up to 48 hours ahead) and to build long-term planning models from historical data. This weather data includes wind, solar, rain, and lightning. Additionally, Elysia Battery Energy Storage System (BESS) state of charge (SoC) actuals are provided to Delphi to support operational decisions regarding charging, discharging, and curtailment.&lt;br/&gt;The criticality level is HIGH because failure to receive timely BOM forecast and actual weather data will cause near- and long-term mine plans to be inaccurate, severely compromising planning feasibility.&lt;br/&gt;</div>
+        <div class="ObjectDetailsNotes">005OP-0000-005-003 Snowflake (Weather)|855DC-1541-DEL Delphi; a. Requirement Text=The interface shall provide a uni-directional data flow from the Weather Actuals Snowflake dataset into Delphi and Eclipse Snowflake environments.; b. Artifact Type=Interface Requirement; c. Source=Green Systems Interface Register, Interface DGS-I_0325; d. Apportionment=Delphi; e. Rationale=Clear, one-way data paths simplify governance and protect source datasets.; f. Requirement Status=Draft; g. Criticality Level=; h. Quality Flaw=; i. Validation Method=; j. Verification Method=; Supporting information from Interface Register=005OP-0000-005-003 Snowflake (Weather)|855DC-1541-DEL Delphi&lt;br/&gt;Project - Subsystem Interface&lt;br/&gt;Technical-Data/Software&lt;br/&gt;Weather Actuals - 15-Year Historical Weather Dataset (Snowflake)&lt;br/&gt;The purpose of this interface is to provide up to 15 years of historical weather data - including rain, wind, lightning, and other key variables - via Snowflake through the Weather Actuals system. Eclipse uses this long-term dataset to train and validate forecasting models, analyse historical patterns, and support long-term operational and strategic planning.&lt;br/&gt;The criticality level is HIGH because a deep and accurate historical weather record is essential for building reliable forecasting models. Failure compromises long-term operational and strategic planning decisions.&lt;br/&gt;</div>
 
     </td>
 </tr>
 <tr class="#LINK_STEREOTYPE# Block">
-    <td width="30%" class="TableRow" valign="top"><a href="../../EA2/EA290.htm">«block» 855DC-1541-DEL Delphi</a></td>
+    <td width="30%" class="TableRow" valign="top"><a href="../../EA2/EA414.htm">«block» 005OP-0000-005-003 Snowflake (Weather)</a></td>
     <td width="10%" class="TableRow" valign="top">Block</td>
     <td width="10%" class="TableRow" valign="top">Abstraction</td>
     <td width="10%" class="TableRow" valign="top">From</td>
     <td width="40%" class="TableRow" valign="top">
-        <div class="ObjectDetailsNotes">&lt;a href=&quot;../EA3/EA615.htm&quot;&gt;BoM&lt;/a&gt;&lt;br/&gt;</div>
+        <div class="ObjectDetailsNotes">&lt;a href=&quot;../../EA2/EA291.htm&quot;&gt;855DC-1541-DEL Delphi&lt;/a&gt;&lt;br/&gt;</div>
 
     </td>
 </tr>
 <tr class="#LINK_STEREOTYPE# InterfaceRequirement">
-    <td width="30%" class="TableRow" valign="top"><a href="../../EA1/EA1/EA132.htm">«interfaceRequirement» GSP-IR-0040</a></td>
+    <td width="30%" class="TableRow" valign="top"><a href="../../EA1/EA1/EA119.htm">«interfaceRequirement» GSP-IR-0026</a></td>
     <td width="10%" class="TableRow" valign="top">InterfaceRequirement</td>
     <td width="10%" class="TableRow" valign="top">Abstraction</td>
     <td width="10%" class="TableRow" valign="top">From</td>
     <td width="40%" class="TableRow" valign="top">
-        <div class="ObjectDetailsNotes">BoM|855DC-1541-DEL Delphi; a. Requirement Text=The interface shall support short-term planning horizons of at least 48 hours ahead using BOM forecast data.; b. Artifact Type=Interface Requirement; c. Source=Green Systems Interface Register, Interface DGS-I_0326; d. Apportionment=Delphi; e. Rationale=The stated planning cycle requires forecasts over this horizon.; f. Requirement Status=Draft; g. Criticality Level=; h. Quality Flaw=; i. Validation Method=; j. Verification Method=; Supporting information from Interface Register=BoM|855DC-1541-DEL Delphi&lt;br/&gt;External Software - Project Interface&lt;br/&gt;Technical-Data/Software&lt;br/&gt;Delphi data transfer through Snowflake (BOM API)&lt;br/&gt;The purpose of this interface is to provide Eclipse with up-to-date Bureau of Meteorology (BOM) weather forecasts and actuals to support the short-term planning cycle (up to 48 hours ahead) and to build long-term planning models from historical data. This weather data includes wind, solar, rain, and lightning. Additionally, Elysia Battery Energy Storage System (BESS) state of charge (SoC) actuals are provided to Delphi to support operational decisions regarding charging, discharging, and curtailment.&lt;br/&gt;The criticality level is HIGH because failure to receive timely BOM forecast and actual weather data will cause near- and long-term mine plans to be inaccurate, severely compromising planning feasibility.&lt;br/&gt;</div>
+        <div class="ObjectDetailsNotes">005OP-0000-005-003 Snowflake (Weather)|855DC-1541-DEL Delphi; a. Requirement Text=The interface shall maintain metadata describing data provenance, update cadence, and any known limitations of the historical weather dataset.; b. Artifact Type=Interface Requirement; c. Source=Green Systems Interface Register, Interface DGS-I_0325; d. Apportionment=Delphi; e. Rationale=Users need transparency on dataset limitations to interpret model results correctly.; f. Requirement Status=Draft; g. Criticality Level=; h. Quality Flaw=; i. Validation Method=; j. Verification Method=; Supporting information from Interface Register=005OP-0000-005-003 Snowflake (Weather)|855DC-1541-DEL Delphi&lt;br/&gt;Project - Subsystem Interface&lt;br/&gt;Technical-Data/Software&lt;br/&gt;Weather Actuals - 15-Year Historical Weather Dataset (Snowflake)&lt;br/&gt;The purpose of this interface is to provide up to 15 years of historical weather data - including rain, wind, lightning, and other key variables - via Snowflake through the Weather Actuals system. Eclipse uses this long-term dataset to train and validate forecasting models, analyse historical patterns, and support long-term operational and strategic planning.&lt;br/&gt;The criticality level is HIGH because a deep and accurate historical weather record is essential for building reliable forecasting models. Failure compromises long-term operational and strategic planning decisions.&lt;br/&gt;</div>
 
     </td>
 </tr>
 <tr class="#LINK_STEREOTYPE# Block">
-    <td width="30%" class="TableRow" valign="top"><a href="../EA3/EA615.htm">«block» BoM</a></td>
+    <td width="30%" class="TableRow" valign="top"><a href="../../EA2/EA291.htm">«block» 855DC-1541-DEL Delphi</a></td>
     <td width="10%" class="TableRow" valign="top">Block</td>
     <td width="10%" class="TableRow" valign="top">Abstraction</td>
     <td width="10%" class="TableRow" valign="top">From</td>
     <td width="40%" class="TableRow" valign="top">
-        <div class="ObjectDetailsNotes">&lt;a href=&quot;../../EA2/EA290.htm&quot;&gt;855DC-1541-DEL Delphi&lt;/a&gt;&lt;br/&gt;</div>
+        <div class="ObjectDetailsNotes">&lt;a href=&quot;../../EA2/EA414.htm&quot;&gt;005OP-0000-005-003 Snowflake (Weather)&lt;/a&gt;&lt;br/&gt;</div>
 
     </td>
 </tr>
 <tr class="#LINK_STEREOTYPE# InterfaceRequirement">
-    <td width="30%" class="TableRow" valign="top"><a href="../../EA1/EA1/EA131.htm">«interfaceRequirement» GSP-IR-0039</a></td>
+    <td width="30%" class="TableRow" valign="top"><a href="../../EA1/EA1/EA116.htm">«interfaceRequirement» GSP-IR-0023</a></td>
     <td width="10%" class="TableRow" valign="top">InterfaceRequirement</td>
     <td width="10%" class="TableRow" valign="top">Abstraction</td>
     <td width="10%" class="TableRow" valign="top">From</td>
     <td width="40%" class="TableRow" valign="top">
-        <div class="ObjectDetailsNotes">BoM|855DC-1541-DEL Delphi; a. Requirement Text=The interface shall provide Delphi and Eclipse with up-to-date Bureau of Meteorology forecasts and actuals for wind, solar, rain, and lightning via Snowflake.; b. Artifact Type=Interface Requirement; c. Source=Green Systems Interface Register, Interface DGS-I_0326; d. Apportionment=Delphi; e. Rationale=BOM data underpins the short-term planning cycle and long-term planning models.; f. Requirement Status=Draft; g. Criticality Level=; h. Quality Flaw=; i. Validation Method=; j. Verification Method=; Supporting information from Interface Register=BoM|855DC-1541-DEL Delphi&lt;br/&gt;External Software - Project Interface&lt;br/&gt;Technical-Data/Software&lt;br/&gt;Delphi data transfer through Snowflake (BOM API)&lt;br/&gt;The purpose of this interface is to provide Eclipse with up-to-date Bureau of Meteorology (BOM) weather forecasts and actuals to support the short-term planning cycle (up to 48 hours ahead) and to build long-term planning models from historical data. This weather data includes wind, solar, rain, and lightning. Additionally, Elysia Battery Energy Storage System (BESS) state of charge (SoC) actuals are provided to Delphi to support operational decisions regarding charging, discharging, and curtailment.&lt;br/&gt;The criticality level is HIGH because failure to receive timely BOM forecast and actual weather data will cause near- and long-term mine plans to be inaccurate, severely compromising planning feasibility.&lt;br/&gt;</div>
+        <div class="ObjectDetailsNotes">005OP-0000-005-003 Snowflake (Weather)|855DC-1541-DEL Delphi; a. Requirement Text=The interface shall provide Delphi and Eclipse with access to up to 15 years of historical weather data, including rain, wind, lightning, and other key variables, via Snowflake.; b. Artifact Type=Interface Requirement; c. Source=Green Systems Interface Register, Interface DGS-I_0325; d. Apportionment=Delphi; e. Rationale=Long-term datasets are required for training and validating forecasting models and supporting strategic planning.; f. Requirement Status=Draft; g. Criticality Level=; h. Quality Flaw=; i. Validation Method=; j. Verification Method=; Supporting information from Interface Register=005OP-0000-005-003 Snowflake (Weather)|855DC-1541-DEL Delphi&lt;br/&gt;Project - Subsystem Interface&lt;br/&gt;Technical-Data/Software&lt;br/&gt;Weather Actuals - 15-Year Historical Weather Dataset (Snowflake)&lt;br/&gt;The purpose of this interface is to provide up to 15 years of historical weather data - including rain, wind, lightning, and other key variables - via Snowflake through the Weather Actuals system. Eclipse uses this long-term dataset to train and validate forecasting models, analyse historical patterns, and support long-term operational and strategic planning.&lt;br/&gt;The criticality level is HIGH because a deep and accurate historical weather record is essential for building reliable forecasting models. Failure compromises long-term operational and strategic planning decisions.&lt;br/&gt;</div>
+
+    </td>
+</tr>
+<tr class="#LINK_STEREOTYPE# InterfaceRequirement">
+    <td width="30%" class="TableRow" valign="top"><a href="../../EA1/EA1/EA117.htm">«interfaceRequirement» GSP-IR-0024</a></td>
+    <td width="10%" class="TableRow" valign="top">InterfaceRequirement</td>
+    <td width="10%" class="TableRow" valign="top">Abstraction</td>
+    <td width="10%" class="TableRow" valign="top">From</td>
+    <td width="40%" class="TableRow" valign="top">
+        <div class="ObjectDetailsNotes">005OP-0000-005-003 Snowflake (Weather)|855DC-1541-DEL Delphi; a. Requirement Text=The interface shall ensure the historical weather dataset is internally consistent and free from unexplained gaps that would materially impact model training.; b. Artifact Type=Interface Requirement; c. Source=Green Systems Interface Register, Interface DGS-I_0325; d. Apportionment=Delphi; e. Rationale=Consistency and completeness of history are critical to model robustness.; f. Requirement Status=Draft; g. Criticality Level=; h. Quality Flaw=; i. Validation Method=; j. Verification Method=; Supporting information from Interface Register=005OP-0000-005-003 Snowflake (Weather)|855DC-1541-DEL Delphi&lt;br/&gt;Project - Subsystem Interface&lt;br/&gt;Technical-Data/Software&lt;br/&gt;Weather Actuals - 15-Year Historical Weather Dataset (Snowflake)&lt;br/&gt;The purpose of this interface is to provide up to 15 years of historical weather data - including rain, wind, lightning, and other key variables - via Snowflake through the Weather Actuals system. Eclipse uses this long-term dataset to train and validate forecasting models, analyse historical patterns, and support long-term operational and strategic planning.&lt;br/&gt;The criticality level is HIGH because a deep and accurate historical weather record is essential for building reliable forecasting models. Failure compromises long-term operational and strategic planning decisions.&lt;br/&gt;</div>
 
     </td>
 </tr>

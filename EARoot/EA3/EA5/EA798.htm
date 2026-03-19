@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head><link rel="icon" href="/favicon.ico"></head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Interfaces::DGS-I_0156</title>
+<title>Interfaces::DGS-I_0155</title>
 <link href="../../../css/ea.css" rel="stylesheet" type="text/css" />
 <script language="JavaScript" src="../../../js/displayToc.js" type="text/javascript"></script>
 
@@ -379,6 +379,20 @@ function getTargetInfo(areaElement) {
 
         simplifyHeaderTitle(); // <-- cleans header text
 
+        // ----------------------------------------------------------------
+        // DELPHI RVAM BUTTON: Show only on the Delphi requirements diagram
+        // ----------------------------------------------------------------
+        (function() {
+            const h1 = document.querySelector('.header_frame h1');
+            const delphiBox = document.getElementById('delphi-rvam-box');
+            if (h1 && delphiBox) {
+                const pageTitle = h1.textContent.trim();
+                if (pageTitle.includes('855DC-1541-DEL Delphi')) {
+                    delphiBox.style.display = 'block';
+                }
+            }
+        })();
+
         // Netlify Navigation Fix
         const navLinks = document.querySelectorAll(
             'a[href^="./"], a[href^="../"], a[href$=".htm"], a[href$=".html"]'
@@ -408,17 +422,18 @@ function getTargetInfo(areaElement) {
             });
         }
 		// ----------------------------------------------------------------
-// DOWNLOAD LINK FIX (Interface Register)
+// DOWNLOAD LINK FIX (all files/ links, depth-independent)
 // ----------------------------------------------------------------
 const cssLinkDownload = document.querySelector('link[href*="ea.css"]');
 if (cssLinkDownload) {
     const cssPathDownload = cssLinkDownload.getAttribute('href');
     const rootPathDownload = cssPathDownload.substring(0, cssPathDownload.lastIndexOf('css/'));
 
-    const downloadLink = document.querySelector('.download-box a');
-    if (downloadLink) {
-        downloadLink.href = rootPathDownload + "files/Fortescue_Interface-Register_Z.xlsm";
-    }
+    document.querySelectorAll('a[href*="files/"]').forEach(link => {
+        const href = link.getAttribute('href');
+        const filename = href.substring(href.indexOf('files/'));
+        link.href = rootPathDownload + filename;
+    });
 }
 // ----------------------------------------------------------------
 // LEGEND SWITCHING (SBS Special Case)
@@ -477,11 +492,11 @@ if (cssLinkDownload) {
 <div class="section group" >
 
 		<div class="col span_2_of_2 header_frame">
-			<h1> Interfaces::DGS-I_0156 </h1>
+			<h1> Interfaces::DGS-I_0155 </h1>
 			<img class="header_image" src="../../../images/Logo.png" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
-			<p><a href="../../EA19.htm">Decarb Green Systems Architecture  Version: Z</a> / <a href="../EA480.htm">System Definition Elements</a> / <a href="EA642.htm">Interfaces</a> / <a href="EA798.htm">DGS-I_0156</a></p>
+			<p><a href="../../EA19.htm">Decarb Green Systems Architecture  Version: Z</a> / <a href="../EA481.htm">System Definition Elements</a> / <a href="EA643.htm">Interfaces</a> / <a href="EA798.htm">DGS-I_0155</a></p>
 		</div>
 			
 		<table class="contentmaintable">
@@ -492,9 +507,14 @@ if (cssLinkDownload) {
 						<div class="download-box">
 						<div class="download-box">
 							<a href="files/Fortescue_Interface-Register_Z.xlsm" target="_blank">
-							Interface Register
+							Export Interface Register
 							</a>
 						</div>
+						</div>
+						<div class="download-box" id="delphi-rvam-box" style="display:none;">
+							<a href="files/Delphi_RVAM_Z.xlsx" target="_blank">
+							Export RVAM for this system
+							</a>
 						</div>
                         
                         <div class="sidebar-search-container">
@@ -505,7 +525,7 @@ if (cssLinkDownload) {
 
                         <div id="originalTree">
 						    <ul>
-<a href="EA642.htm">Interfaces</a></ul>
+<a href="EA643.htm">Interfaces</a></ul>
 
                         </div>
 					</td>
@@ -639,7 +659,7 @@ if (cssLinkDownload) {
 
 <div class="PageBody" style="position: relative !important; height: auto !important; overflow: visible !important; padding-bottom: 10px;">
     <span class="ObjectTitle">
-        DGS-I_0156 : &lt;&lt;InterfaceBlock&gt;&gt;
+        DGS-I_0155 : &lt;&lt;InterfaceBlock&gt;&gt;
     </span>
 
     <table border="0" class="ObjectDetails" style="width: 100%; margin-bottom: 10px;">
@@ -648,14 +668,14 @@ if (cssLinkDownload) {
             <col width="*" />
         </colgroup>
         <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Status:</td><td class="ObjectDetailsValue">Proposed</td></tr>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Created:</td><td class="ObjectDetailsValue">28/10/2025 18:30:59</td></tr>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Modified:</td><td class="ObjectDetailsValue">24/02/2026 23:50:14</td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Created:</td><td class="ObjectDetailsValue">26/08/2025 19:49:06</td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Modified:</td><td class="ObjectDetailsValue">11/12/2025 01:37:17</td></tr>
         <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Author:</td><td class="ObjectDetailsValue">Admin</td></tr>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">UUID:</td><td class="ObjectDetailsValue">{7EDC8932-1668-414b-8501-2F8ADC2A2839}</td></tr>
-        <tr id="adv01"><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Appears In:</td><td class="ObjectDetailsValue"><a href="../../EA3.htm">855DC-1541-LIV LiveWire</a>, <a href="../../EA5.htm">855DC-1541-DEL Delphi</a>, <a href="../../EA11.htm">855DC-1542-LMS Load Management System (LMS)</a>, <a href="../../EA9.htm">855DC-1542-CSM Charge Station Management System (CSMS)</a></td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">UUID:</td><td class="ObjectDetailsValue">{07BEC49A-A7F6-41ea-95D8-B2D1DDB096D4}</td></tr>
+        <tr id="adv01"><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Appears In:</td><td class="ObjectDetailsValue"><a href="../../EA15.htm">System Definition (SD)</a>, <a href="../../EA5.htm">855DC-1541-LIV LiveWire</a>, Archive - System Definition - Christmas Creek Mine, Archive - System Definition - Cloudbreak Mine, Archive - System Definition - Iron Bridge Mine, Archive - System Definition - Port Hedland, Archive - System Definition - Eliwana Mine, Archive - System Definition - Flying Fish Mine</td></tr>
         <tr>
             <td class="ObjectDetailsTopic" style="padding-left:0; width:70px; vertical-align:top; padding-top:5px;">Remarks:</td>
-            <td class="ObjectDetailsValue remarks-cell" style="vertical-align:top; padding-top:5px;"><div class="ObjectDetailsNotes">LMS Review 30/10/2025: Trending data from chargers, diagnostics. OPC/UA&lt;br/&gt;NH 20/02/2026: Fields updated: Interface Type, Interface Flow.&lt;br/&gt;</div>
+            <td class="ObjectDetailsValue remarks-cell" style="vertical-align:top; padding-top:5px;"><div class="ObjectDetailsNotes">LMS Review 30/10/2025: Potential MQTT Integration (July roll out?)&lt;br/&gt;&lt;br/&gt;Status of when a cable is live. Logic in PLC for curent breaker status and data.&lt;br/&gt;&lt;br/&gt;Interface Review 02/12/2025: Cable util metrics &lt;br/&gt;&lt;br/&gt;Ignition back to LiveWire for cable metrics will be done via MQTT/Kafka.&lt;br/&gt;</div>
 </td>
         </tr>
     </table>
@@ -1049,7 +1069,25 @@ if (cssLinkDownload) {
         </tr>
         			<tr>
 				<td class="TableRow" valign="top">1. Interface Name</td>
-				<td class="TableRow" valign="top">005OP-0000-017-001 Non-Process Infrastructure (NPI) SCADA|850DC-1512-0001 HME Chargers - Gen1</td>
+				<td class="TableRow" valign="top">005OP-0000-017 Ignition|855DC-1541-LIV LiveWire</td>
+			</tr>	
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="2">
+					Details:
+						&nbsp;
+				</td>
+			</tr>			<tr>
+				<td class="TableRow" valign="top">2. Interface Lead</td>
+				<td class="TableRow" valign="top">Abby Buters</td>
+			</tr>	
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="2">
+					Details:
+						&nbsp;
+				</td>
+			</tr>			<tr>
+				<td class="TableRow" valign="top">3. Interface Contributor(s)</td>
+				<td class="TableRow" valign="top">Nick Lane, Sam Hedgcock, Welly Yang</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1058,7 +1096,7 @@ if (cssLinkDownload) {
 				</td>
 			</tr>			<tr>
 				<td class="TableRow" valign="top">4. Interface Level</td>
-				<td class="TableRow" valign="top">Project - Subsystem Interface</td>
+				<td class="TableRow" valign="top">Project - Project Interface</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1076,7 +1114,7 @@ if (cssLinkDownload) {
 				</td>
 			</tr>			<tr>
 				<td class="TableRow" valign="top">6. Interface Description</td>
-				<td class="TableRow" valign="top">This interface provides NPI SCADA visibility and control signals to HME Chargers, including building services, auxiliary power, and environmental conditions.</td>
+				<td class="TableRow" valign="top">LiveWire - Cable Coupler Connection Tracking via Ignition SCADA<br />The purpose of this interface is to display real-time connection information for cable couplers across substations and switches within the LiveWire system. Since the original intent to use sensors to automatically identify a coupler&#39;s connected outlet may not be achievable, Ignition SCADA will instead provide an interface for operators to manually update the cable-to-outlet assignments. LiveWire then consumes this SCADA-sourced data to present accurate connection details to operations and planning teams.<br />Intermediate Elements: Ignition SCADA, SCADA operator interface for manual updates, and the LiveWire visualisation system.</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1094,7 +1132,7 @@ if (cssLinkDownload) {
 				</td>
 			</tr>			<tr>
 				<td class="TableRow" valign="top">8. Interface Flow</td>
-				<td class="TableRow" valign="top">Data Flow: HME Chargers / Building Services -&gt; Ignition SCADA (NPI SCADA) (auxiliary power status, environmental conditions, HVAC status, room temperature, alarms, equipment health) for monitoring and situational awareness.</td>
+				<td class="TableRow" valign="top">Data Flow:<br />Cable coupler sensors (where available) or manual entry in Ignition SCADA -&gt; SCADA data model -&gt; LiveWire visualisation layer.</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1103,7 +1141,7 @@ if (cssLinkDownload) {
 				</td>
 			</tr>			<tr>
 				<td class="TableRow" valign="top">9. Interface Criticality Justification</td>
-				<td class="TableRow" valign="top">The criticality level is MEDIUM because losing this link reduces operational visibility and may affect charger room support systems. Outages may disrupt support services, but typically do not compromise core charger unit function.</td>
+				<td class="TableRow" valign="top">The criticality level is MEDIUM because accurate coupler connection information is essential for safe switching operations and network planning. Failure may degrade safety and planning quality, but is not immediately production-critical.</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1120,15 +1158,6 @@ if (cssLinkDownload) {
 						&nbsp;
 				</td>
 			</tr>			<tr>
-				<td class="TableRow" valign="top">Facility Code</td>
-				<td class="TableRow" valign="top">&nbsp;</td>
-			</tr>	
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="2">
-					Details:
-						&nbsp;
-				</td>
-			</tr>			<tr>
 				<td class="TableRow" valign="top">isEncapsulated</td>
 				<td class="TableRow" valign="top">&nbsp;</td>
 			</tr>	
@@ -1137,33 +1166,6 @@ if (cssLinkDownload) {
 					Details:
 						<div class="ObjectDetailsNotes">Values: true,false<br /></div>
 
-				</td>
-			</tr>			<tr>
-				<td class="TableRow" valign="top">Program</td>
-				<td class="TableRow" valign="top">&nbsp;</td>
-			</tr>	
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="2">
-					Details:
-						&nbsp;
-				</td>
-			</tr>			<tr>
-				<td class="TableRow" valign="top">Project</td>
-				<td class="TableRow" valign="top">&nbsp;</td>
-			</tr>	
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="2">
-					Details:
-						&nbsp;
-				</td>
-			</tr>			<tr>
-				<td class="TableRow" valign="top">System</td>
-				<td class="TableRow" valign="top">&nbsp;</td>
-			</tr>	
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="2">
-					Details:
-						&nbsp;
 				</td>
 			</tr>
     </table>
@@ -1200,22 +1202,22 @@ if (cssLinkDownload) {
         </tr>
 
 <tr class="#LINK_STEREOTYPE# Block">
-    <td width="30%" class="TableRow" valign="top"><a href="../../EA2/EA205.htm">«block» 005OP-0000-017-001 Non-Process Infrastructure (NPI) SCADA</a></td>
+    <td width="30%" class="TableRow" valign="top"><a href="../../EA2/EA293.htm">«block» 855DC-1541-LIV LiveWire</a></td>
     <td width="10%" class="TableRow" valign="top">Block</td>
     <td width="10%" class="TableRow" valign="top">Abstraction</td>
     <td width="10%" class="TableRow" valign="top">From</td>
     <td width="40%" class="TableRow" valign="top">
-        <div class="ObjectDetailsNotes">&lt;a href=&quot;../../EA2/EA263.htm&quot;&gt;850DC-1512-0001 HME Chargers - Gen1&lt;/a&gt;&lt;br/&gt;</div>
+        <div class="ObjectDetailsNotes">&lt;a href=&quot;../../EA2/EA475.htm&quot;&gt;005OP-0000-017 Ignition&lt;/a&gt;&lt;br/&gt;</div>
 
     </td>
 </tr>
 <tr class="#LINK_STEREOTYPE# Block">
-    <td width="30%" class="TableRow" valign="top"><a href="../../EA2/EA263.htm">«block» 850DC-1512-0001 HME Chargers - Gen1</a></td>
+    <td width="30%" class="TableRow" valign="top"><a href="../../EA2/EA475.htm">«block» 005OP-0000-017 Ignition</a></td>
     <td width="10%" class="TableRow" valign="top">Block</td>
     <td width="10%" class="TableRow" valign="top">Abstraction</td>
     <td width="10%" class="TableRow" valign="top">From</td>
     <td width="40%" class="TableRow" valign="top">
-        <div class="ObjectDetailsNotes">&lt;a href=&quot;../../EA2/EA205.htm&quot;&gt;005OP-0000-017-001 Non-Process Infrastructure (NPI) SCADA&lt;/a&gt;&lt;br/&gt;</div>
+        <div class="ObjectDetailsNotes">&lt;a href=&quot;../../EA2/EA293.htm&quot;&gt;855DC-1541-LIV LiveWire&lt;/a&gt;&lt;br/&gt;</div>
 
     </td>
 </tr>

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head><link rel="icon" href="/favicon.ico"></head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>System Breakdown Structure Elements::Decarbonisation Portfolio::859DC HaulX</title>
+<title>System Breakdown Structure Elements::Decarbonisation Portfolio::857DC Green Marine</title>
 <link href="../../css/ea.css" rel="stylesheet" type="text/css" />
 <script language="JavaScript" src="../../js/displayToc.js" type="text/javascript"></script>
 
@@ -379,6 +379,20 @@ function getTargetInfo(areaElement) {
 
         simplifyHeaderTitle(); // <-- cleans header text
 
+        // ----------------------------------------------------------------
+        // DELPHI RVAM BUTTON: Show only on the Delphi requirements diagram
+        // ----------------------------------------------------------------
+        (function() {
+            const h1 = document.querySelector('.header_frame h1');
+            const delphiBox = document.getElementById('delphi-rvam-box');
+            if (h1 && delphiBox) {
+                const pageTitle = h1.textContent.trim();
+                if (pageTitle.includes('855DC-1541-DEL Delphi')) {
+                    delphiBox.style.display = 'block';
+                }
+            }
+        })();
+
         // Netlify Navigation Fix
         const navLinks = document.querySelectorAll(
             'a[href^="./"], a[href^="../"], a[href$=".htm"], a[href$=".html"]'
@@ -408,17 +422,18 @@ function getTargetInfo(areaElement) {
             });
         }
 		// ----------------------------------------------------------------
-// DOWNLOAD LINK FIX (Interface Register)
+// DOWNLOAD LINK FIX (all files/ links, depth-independent)
 // ----------------------------------------------------------------
 const cssLinkDownload = document.querySelector('link[href*="ea.css"]');
 if (cssLinkDownload) {
     const cssPathDownload = cssLinkDownload.getAttribute('href');
     const rootPathDownload = cssPathDownload.substring(0, cssPathDownload.lastIndexOf('css/'));
 
-    const downloadLink = document.querySelector('.download-box a');
-    if (downloadLink) {
-        downloadLink.href = rootPathDownload + "files/Fortescue_Interface-Register_Z.xlsm";
-    }
+    document.querySelectorAll('a[href*="files/"]').forEach(link => {
+        const href = link.getAttribute('href');
+        const filename = href.substring(href.indexOf('files/'));
+        link.href = rootPathDownload + filename;
+    });
 }
 // ----------------------------------------------------------------
 // LEGEND SWITCHING (SBS Special Case)
@@ -477,11 +492,11 @@ if (cssLinkDownload) {
 <div class="section group" >
 
 		<div class="col span_2_of_2 header_frame">
-			<h1> System Breakdown Structure Elements::Decarbonisation Portfolio::859DC HaulX </h1>
+			<h1> System Breakdown Structure Elements::Decarbonisation Portfolio::857DC Green Marine </h1>
 			<img class="header_image" src="../../images/Logo.png" align="right" alt="Header Image" />
 		</div>
 		<div class="col span_2_of_2 breadcrumb_frame">
-			<p><a href="../EA19.htm">Decarb Green Systems Architecture  Version: Z</a> / <a href="EA159.htm">System Breakdown Structure Elements</a> / <a href="EA160.htm">Decarbonisation Portfolio</a> / <a href="EA309.htm">859DC HaulX</a></p>
+			<p><a href="../EA19.htm">Decarb Green Systems Architecture  Version: Z</a> / <a href="EA160.htm">System Breakdown Structure Elements</a> / <a href="EA161.htm">Decarbonisation Portfolio</a> / <a href="EA309.htm">857DC Green Marine</a></p>
 		</div>
 			
 		<table class="contentmaintable">
@@ -492,9 +507,14 @@ if (cssLinkDownload) {
 						<div class="download-box">
 						<div class="download-box">
 							<a href="files/Fortescue_Interface-Register_Z.xlsm" target="_blank">
-							Interface Register
+							Export Interface Register
 							</a>
 						</div>
+						</div>
+						<div class="download-box" id="delphi-rvam-box" style="display:none;">
+							<a href="files/Delphi_RVAM_Z.xlsx" target="_blank">
+							Export RVAM for this system
+							</a>
 						</div>
                         
                         <div class="sidebar-search-container">
@@ -505,8 +525,10 @@ if (cssLinkDownload) {
 
                         <div id="originalTree">
 						    <ul>
-<li><img src="../../images/5.png" alt="Class"/> <a href="EA479.htm">859DC-1410-001 HaulX</a></li>
-<li><img src="../../images/118.png" alt="Part"/> <a href="EA478.htm">Project: 859DC-1410-001 HaulX</a></li>
+<li><img src="../../images/118.png" alt="Part"/> <a href="EA403.htm">System: 857DC-1569 Towage</a></li>
+<li><img src="../../images/118.png" alt="Part"/> <a href="EA402.htm">System: 857DC-1568 Shipping (VLOC)</a></li>
+<li><img src="../../images/5.png" alt="Class"/> <a href="EA401.htm">857DC-1569 Towage</a></li>
+<li><img src="../../images/5.png" alt="Class"/> <a href="EA400.htm">857DC-1568 Shipping (VLOC)</a></li>
 </ul>
 
                         </div>
@@ -641,7 +663,7 @@ if (cssLinkDownload) {
 
 <div class="PageBody" style="position: relative !important; height: auto !important; overflow: visible !important; padding-bottom: 10px;">
     <span class="ObjectTitle">
-        859DC HaulX : &lt;&lt;block&gt;&gt;
+        857DC Green Marine : &lt;&lt;block&gt;&gt;
     </span>
 
     <table border="0" class="ObjectDetails" style="width: 100%; margin-bottom: 10px;">
@@ -650,10 +672,10 @@ if (cssLinkDownload) {
             <col width="*" />
         </colgroup>
         <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Status:</td><td class="ObjectDetailsValue">Proposed</td></tr>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Created:</td><td class="ObjectDetailsValue">08/01/2026 01:42:43</td></tr>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Modified:</td><td class="ObjectDetailsValue">10/01/2026 21:23:45</td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Created:</td><td class="ObjectDetailsValue">06/10/2025 19:18:28</td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Modified:</td><td class="ObjectDetailsValue">07/01/2026 15:03:18</td></tr>
         <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Author:</td><td class="ObjectDetailsValue">Admin</td></tr>
-        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">UUID:</td><td class="ObjectDetailsValue">{B9FF26E5-0A1C-44eb-93BD-8A82A1698DE9}</td></tr>
+        <tr><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">UUID:</td><td class="ObjectDetailsValue">{2C2463DD-D857-4edc-B84E-04AEB22E89CD}</td></tr>
         <tr id="adv01"><td class="ObjectDetailsTopic" style="padding-left:0; width:70px;">Appears In:</td><td class="ObjectDetailsValue"><a href="../EA17.htm">System Breakdown Structure (SBS)</a></td></tr>
         <tr>
             <td class="ObjectDetailsTopic" style="padding-left:0; width:70px; vertical-align:top; padding-top:5px;">Remarks:</td>
@@ -1053,7 +1075,7 @@ if (cssLinkDownload) {
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="EA160.htm">«block» Decarbonisation Portfolio</a><br />
+						<a href="EA161.htm">«block» Decarbonisation Portfolio</a><br />
 						Block &nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
@@ -1067,8 +1089,8 @@ if (cssLinkDownload) {
 				</tr>
 				<tr>
 					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink1691" /></button>Details:
-							<div id="detailsDIVLink1691" class="DetailsDiv" >
+						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink1676" /></button>Details:
+							<div id="detailsDIVLink1676" class="DetailsDiv" >
 							&nbsp;
 							</div>
 						</div>
@@ -1086,11 +1108,11 @@ if (cssLinkDownload) {
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
-						<a href="EA479.htm">«block» 859DC-1410-001 HaulX</a><br />
+						<a href="EA400.htm">«block» 857DC-1568 Shipping (VLOC)</a><br />
 						Block &nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> Project<br />
+						<strong>Name:</strong> System<br />
 						&nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
@@ -1100,8 +1122,31 @@ if (cssLinkDownload) {
 				</tr>
 				<tr>
 					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink1692" /></button>Details:
-							<div id="detailsDIVLink1692" class="DetailsDiv" >
+						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink1677" /></button>Details:
+							<div id="detailsDIVLink1677" class="DetailsDiv" >
+							&nbsp;
+							</div>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td width="40%" class="TableRow" valign="top">
+						<a href="EA401.htm">«block» 857DC-1569 Towage</a><br />
+						Block &nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> System<br />
+						&nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> &nbsp;<br />
+						&nbsp;	
+					</td>
+				</tr>
+				<tr>
+					<td class="TableRowBottomDashed"  colspan="3">
+						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink1678" /></button>Details:
+							<div id="detailsDIVLink1678" class="DetailsDiv" >
 							&nbsp;
 							</div>
 						</div>
@@ -1117,96 +1162,6 @@ if (cssLinkDownload) {
             <td class="TableHeading">Value</td>
         </tr>
         			<tr>
-				<td class="TableRow" valign="top">1. Interface Name</td>
-				<td class="TableRow" valign="top">&nbsp;</td>
-			</tr>	
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="2">
-					Details:
-						&nbsp;
-				</td>
-			</tr>			<tr>
-				<td class="TableRow" valign="top">2. Interface Lead</td>
-				<td class="TableRow" valign="top">&nbsp;</td>
-			</tr>	
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="2">
-					Details:
-						&nbsp;
-				</td>
-			</tr>			<tr>
-				<td class="TableRow" valign="top">3. Interface Contributor(s)</td>
-				<td class="TableRow" valign="top">&nbsp;</td>
-			</tr>	
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="2">
-					Details:
-						&nbsp;
-				</td>
-			</tr>			<tr>
-				<td class="TableRow" valign="top">4. Interface Level</td>
-				<td class="TableRow" valign="top">&nbsp;</td>
-			</tr>	
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="2">
-					Details:
-						&nbsp;
-				</td>
-			</tr>			<tr>
-				<td class="TableRow" valign="top">5. Interface Type</td>
-				<td class="TableRow" valign="top">&nbsp;</td>
-			</tr>	
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="2">
-					Details:
-						&nbsp;
-				</td>
-			</tr>			<tr>
-				<td class="TableRow" valign="top">6. Interface Description</td>
-				<td class="TableRow" valign="top">&nbsp;</td>
-			</tr>	
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="2">
-					Details:
-						&nbsp;
-				</td>
-			</tr>			<tr>
-				<td class="TableRow" valign="top">7. Interface Criticality</td>
-				<td class="TableRow" valign="top">&nbsp;</td>
-			</tr>	
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="2">
-					Details:
-						&nbsp;
-				</td>
-			</tr>			<tr>
-				<td class="TableRow" valign="top">8. Interface Flow</td>
-				<td class="TableRow" valign="top">&nbsp;</td>
-			</tr>	
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="2">
-					Details:
-						&nbsp;
-				</td>
-			</tr>			<tr>
-				<td class="TableRow" valign="top">9. Interface Criticality Justification</td>
-				<td class="TableRow" valign="top">&nbsp;</td>
-			</tr>	
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="2">
-					Details:
-						&nbsp;
-				</td>
-			</tr>			<tr>
-				<td class="TableRow" valign="top">Allocation</td>
-				<td class="TableRow" valign="top">&nbsp;</td>
-			</tr>	
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="2">
-					Details:
-						&nbsp;
-				</td>
-			</tr>			<tr>
 				<td class="TableRow" valign="top">Element</td>
 				<td class="TableRow" valign="top">Program</td>
 			</tr>	
@@ -1243,8 +1198,8 @@ if (cssLinkDownload) {
 						&nbsp;
 				</td>
 			</tr>			<tr>
-				<td class="TableRow" valign="top">Owner</td>
-				<td class="TableRow" valign="top">&nbsp;</td>
+				<td class="TableRow" valign="top">Old SBS ID</td>
+				<td class="TableRow" valign="top">J.</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1271,7 +1226,7 @@ if (cssLinkDownload) {
 				</td>
 			</tr>			<tr>
 				<td class="TableRow" valign="top">Program</td>
-				<td class="TableRow" valign="top">859DC HaulX</td>
+				<td class="TableRow" valign="top">857DC Green Marine</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1280,16 +1235,7 @@ if (cssLinkDownload) {
 				</td>
 			</tr>			<tr>
 				<td class="TableRow" valign="top">Program Code</td>
-				<td class="TableRow" valign="top">859DC</td>
-			</tr>	
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="2">
-					Details:
-						&nbsp;
-				</td>
-			</tr>			<tr>
-				<td class="TableRow" valign="top">Project</td>
-				<td class="TableRow" valign="top">&nbsp;</td>
+				<td class="TableRow" valign="top">857DC</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1306,24 +1252,6 @@ if (cssLinkDownload) {
 						&nbsp;
 				</td>
 			</tr>			<tr>
-				<td class="TableRow" valign="top">Rationale</td>
-				<td class="TableRow" valign="top">&nbsp;</td>
-			</tr>	
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="2">
-					Details:
-						&nbsp;
-				</td>
-			</tr>			<tr>
-				<td class="TableRow" valign="top">Subsystem</td>
-				<td class="TableRow" valign="top">&nbsp;</td>
-			</tr>	
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="2">
-					Details:
-						&nbsp;
-				</td>
-			</tr>			<tr>
 				<td class="TableRow" valign="top">Subsystem Code</td>
 				<td class="TableRow" valign="top">[BLANK]</td>
 			</tr>	
@@ -1333,17 +1261,8 @@ if (cssLinkDownload) {
 						&nbsp;
 				</td>
 			</tr>			<tr>
-				<td class="TableRow" valign="top">System</td>
-				<td class="TableRow" valign="top">&nbsp;</td>
-			</tr>	
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="2">
-					Details:
-						&nbsp;
-				</td>
-			</tr>			<tr>
 				<td class="TableRow" valign="top">WBS Code</td>
-				<td class="TableRow" valign="top">859DC</td>
+				<td class="TableRow" valign="top">857DC</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">
@@ -1390,7 +1309,7 @@ if (cssLinkDownload) {
         </tr>
 
 <tr class="#LINK_STEREOTYPE# Block">
-    <td width="30%" class="TableRow" valign="top"><a href="EA479.htm">«block» 859DC-1410-001 HaulX</a></td>
+    <td width="30%" class="TableRow" valign="top"><a href="EA400.htm">«block» 857DC-1568 Shipping (VLOC)</a></td>
     <td width="10%" class="TableRow" valign="top">Block</td>
     <td width="10%" class="TableRow" valign="top">Strong</td>
     <td width="10%" class="TableRow" valign="top">From</td>
@@ -1399,7 +1318,16 @@ if (cssLinkDownload) {
     </td>
 </tr>
 <tr class="#LINK_STEREOTYPE# Block">
-    <td width="30%" class="TableRow" valign="top"><a href="EA160.htm">«block» Decarbonisation Portfolio</a></td>
+    <td width="30%" class="TableRow" valign="top"><a href="EA401.htm">«block» 857DC-1569 Towage</a></td>
+    <td width="10%" class="TableRow" valign="top">Block</td>
+    <td width="10%" class="TableRow" valign="top">Strong</td>
+    <td width="10%" class="TableRow" valign="top">From</td>
+    <td width="40%" class="TableRow" valign="top">
+        &nbsp;
+    </td>
+</tr>
+<tr class="#LINK_STEREOTYPE# Block">
+    <td width="30%" class="TableRow" valign="top"><a href="EA161.htm">«block» Decarbonisation Portfolio</a></td>
     <td width="10%" class="TableRow" valign="top">Block</td>
     <td width="10%" class="TableRow" valign="top">Strong</td>
     <td width="10%" class="TableRow" valign="top">To</td>
