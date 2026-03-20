@@ -3,44 +3,21 @@
 
 <svg
    width="52.12104mm"
-   height="90.74884mm"
-   viewBox="0 0 52.12104 90.74884"
+   height="90.748833mm"
+   viewBox="0 0 52.12104 90.748833"
    version="1.1"
    id="svg1"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
-  <sodipodi:namedview
-     id="namedview1"
-     pagecolor="#ffffff"
-     bordercolor="#000000"
-     borderopacity="0.25"
-     inkscape:showpageshadow="2"
-     inkscape:pageopacity="0.0"
-     inkscape:pagecheckerboard="0"
-     inkscape:deskcolor="#d1d1d1"
-     inkscape:document-units="mm">
-    <inkscape:page
-       x="0"
-       y="0"
-       width="52.12104"
-       height="90.74884"
-       id="page2"
-       margin="0"
-       bleed="0" />
-  </sodipodi:namedview>
   <defs
      id="defs1" />
   <g
-     inkscape:label="Layer 1"
-     inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-131.7625,-74.347914)">
+     transform="translate(-127,-72.495763)">
     <g
        style="fill:#f0f0f0;fill-opacity:1;stroke:#d7d7d7;stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel;stroke-opacity:1"
-       id="g856"
-       transform="matrix(0.26457386,0,0,0.26457386,123.95757,62.83895)">
+       id="g855"
+       transform="matrix(0.26457386,0,0,0.26457386,119.19507,60.9868)">
       <rect
          x="30"
          y="44"
@@ -48,12 +25,12 @@
          height="342"
          rx="3"
          shape-rendering="auto"
-         id="rect855" />
+         id="rect854" />
     </g>
     <g
-       style="fill:#b0e0e6;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel;stroke-opacity:1"
-       id="g857"
-       transform="matrix(0.26457386,0,0,0.26457386,123.95757,62.83895)">
+       style="fill:#fea494;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel;stroke-opacity:1"
+       id="g856"
+       transform="matrix(0.26457386,0,0,0.26457386,119.19507,60.9868)">
       <rect
          x="40"
          y="74"
@@ -61,25 +38,25 @@
          height="17"
          rx="0.00"
          shape-rendering="auto"
-         id="rect856" />
+         id="rect855" />
     </g>
     <g
        style="fill:#003060;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel;stroke-opacity:0"
-       id="g858"
-       transform="matrix(0.26457386,0,0,0.26457386,123.95757,62.83895)">
+       id="g857"
+       transform="matrix(0.26457386,0,0,0.26457386,119.19507,60.9868)">
       <text
          x="62"
          y="86"
-         textLength="123"
+         textLength="43"
          style="font-style:normal;font-size:10px;font-family:Calibri;white-space:pre;fill:#003060;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-opacity:0"
          xml:space="preserve"
-         id="text857"
-         lengthAdjust="spacing">Planning and Forecast Systems</text>
+         id="text856"
+         lengthAdjust="spacing">Fixed Plant</text>
     </g>
     <g
-       style="fill:#ffa500;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel;stroke-opacity:1"
-       id="g859"
-       transform="matrix(0.26457386,0,0,0.26457386,123.95757,62.83895)">
+       style="fill:#d8bfd8;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel;stroke-opacity:1"
+       id="g858"
+       transform="matrix(0.26457386,0,0,0.26457386,119.19507,60.9868)">
       <rect
          x="40"
          y="93"
@@ -87,25 +64,25 @@
          height="17"
          rx="0.00"
          shape-rendering="auto"
-         id="rect858" />
+         id="rect857" />
     </g>
     <g
        style="fill:#003060;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel;stroke-opacity:0"
-       id="g860"
-       transform="matrix(0.26457386,0,0,0.26457386,123.95757,62.83895)">
+       id="g859"
+       transform="matrix(0.26457386,0,0,0.26457386,119.19507,60.9868)">
       <text
          x="62"
          y="105"
-         textLength="119"
+         textLength="127"
          style="font-style:normal;font-size:10px;font-family:Calibri;white-space:pre;fill:#003060;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-opacity:0"
          xml:space="preserve"
-         id="text859"
-         lengthAdjust="spacing">Control &amp; Monitoring Systems</text>
+         id="text858"
+         lengthAdjust="spacing">Non-Process Infrastructure (NPI)</text>
     </g>
     <g
-       style="fill:#7fffd4;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel;stroke-opacity:1"
-       id="g861"
-       transform="matrix(0.26457386,0,0,0.26457386,123.95757,62.83895)">
+       style="fill:#cd853f;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel;stroke-opacity:1"
+       id="g860"
+       transform="matrix(0.26457386,0,0,0.26457386,119.19507,60.9868)">
       <rect
          x="40"
          y="112"
@@ -113,25 +90,25 @@
          height="17"
          rx="0.00"
          shape-rendering="auto"
-         id="rect860" />
+         id="rect859" />
     </g>
     <g
        style="fill:#003060;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel;stroke-opacity:0"
-       id="g862"
-       transform="matrix(0.26457386,0,0,0.26457386,123.95757,62.83895)">
+       id="g861"
+       transform="matrix(0.26457386,0,0,0.26457386,119.19507,60.9868)">
       <text
          x="62"
          y="124"
-         textLength="154"
+         textLength="134"
          style="font-style:normal;font-size:10px;font-family:Calibri;white-space:pre;fill:#003060;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-opacity:0"
          xml:space="preserve"
-         id="text861"
-         lengthAdjust="spacing">Existing Systems - Green Enhancement</text>
+         id="text860"
+         lengthAdjust="spacing">Power Generation &amp; Transmission</text>
     </g>
     <g
-       style="fill:#ffffe0;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel;stroke-opacity:1"
-       id="g863"
-       transform="matrix(0.26457386,0,0,0.26457386,123.95757,62.83895)">
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel;stroke-opacity:1"
+       id="g862"
+       transform="matrix(0.26457386,0,0,0.26457386,119.19507,60.9868)">
       <rect
          x="40"
          y="131"
@@ -139,25 +116,25 @@
          height="17"
          rx="0.00"
          shape-rendering="auto"
-         id="rect862" />
+         id="rect861" />
     </g>
     <g
        style="fill:#003060;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel;stroke-opacity:0"
-       id="g864"
-       transform="matrix(0.26457386,0,0,0.26457386,123.95757,62.83895)">
+       id="g863"
+       transform="matrix(0.26457386,0,0,0.26457386,119.19507,60.9868)">
       <text
          x="62"
          y="143"
-         textLength="60"
+         textLength="63"
          style="font-style:normal;font-size:10px;font-family:Calibri;white-space:pre;fill:#003060;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-opacity:0"
          xml:space="preserve"
-         id="text863"
-         lengthAdjust="spacing">IT/OT Systems</text>
+         id="text862"
+         lengthAdjust="spacing">Product Storage</text>
     </g>
     <g
-       style="fill:#ffff00;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel;stroke-opacity:1"
-       id="g865"
-       transform="matrix(0.26457386,0,0,0.26457386,123.95757,62.83895)">
+       style="fill:#ffffe0;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel;stroke-opacity:1"
+       id="g864"
+       transform="matrix(0.26457386,0,0,0.26457386,119.19507,60.9868)">
       <rect
          x="40"
          y="150"
@@ -165,25 +142,25 @@
          height="17"
          rx="0.00"
          shape-rendering="auto"
-         id="rect864" />
+         id="rect863" />
     </g>
     <g
        style="fill:#003060;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel;stroke-opacity:0"
-       id="g866"
-       transform="matrix(0.26457386,0,0,0.26457386,123.95757,62.83895)">
+       id="g865"
+       transform="matrix(0.26457386,0,0,0.26457386,119.19507,60.9868)">
       <text
          x="62"
          y="162"
-         textLength="40"
+         textLength="60"
          style="font-style:normal;font-size:10px;font-family:Calibri;white-space:pre;fill:#003060;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-opacity:0"
          xml:space="preserve"
-         id="text865"
-         lengthAdjust="spacing">Green Rail</text>
+         id="text864"
+         lengthAdjust="spacing">IT/OT Systems</text>
     </g>
     <g
-       style="fill:#5397d9;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel;stroke-opacity:1"
-       id="g867"
-       transform="matrix(0.26457386,0,0,0.26457386,123.95757,62.83895)">
+       style="fill:#dcdcdc;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel;stroke-opacity:1"
+       id="g866"
+       transform="matrix(0.26457386,0,0,0.26457386,119.19507,60.9868)">
       <rect
          x="40"
          y="169"
@@ -191,25 +168,25 @@
          height="17"
          rx="0.00"
          shape-rendering="auto"
-         id="rect866" />
+         id="rect865" />
     </g>
     <g
        style="fill:#003060;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel;stroke-opacity:0"
-       id="g868"
-       transform="matrix(0.26457386,0,0,0.26457386,123.95757,62.83895)">
+       id="g867"
+       transform="matrix(0.26457386,0,0,0.26457386,119.19507,60.9868)">
       <text
          x="62"
          y="181"
-         textLength="55"
+         textLength="61"
          style="font-style:normal;font-size:10px;font-family:Calibri;white-space:pre;fill:#003060;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-opacity:0"
          xml:space="preserve"
-         id="text867"
-         lengthAdjust="spacing">Green Marine</text>
+         id="text866"
+         lengthAdjust="spacing">Ancillary/Other</text>
     </g>
     <g
-       style="fill:#ff6347;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel;stroke-opacity:1"
-       id="g869"
-       transform="matrix(0.26457386,0,0,0.26457386,123.95757,62.83895)">
+       style="fill:#9acd32;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel;stroke-opacity:1"
+       id="g868"
+       transform="matrix(0.26457386,0,0,0.26457386,119.19507,60.9868)">
       <rect
          x="40"
          y="188"
@@ -217,25 +194,25 @@
          height="17"
          rx="0.00"
          shape-rendering="auto"
-         id="rect868" />
+         id="rect867" />
     </g>
     <g
        style="fill:#003060;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel;stroke-opacity:0"
-       id="g870"
-       transform="matrix(0.26457386,0,0,0.26457386,123.95757,62.83895)">
+       id="g869"
+       transform="matrix(0.26457386,0,0,0.26457386,119.19507,60.9868)">
       <text
          x="62"
          y="200"
-         textLength="56"
+         textLength="84"
          style="font-style:normal;font-size:10px;font-family:Calibri;white-space:pre;fill:#003060;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-opacity:0"
          xml:space="preserve"
-         id="text869"
-         lengthAdjust="spacing">Mobile Assets</text>
+         id="text868"
+         lengthAdjust="spacing">Decarb Infrastructure</text>
     </g>
     <g
-       style="fill:#fea494;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel;stroke-opacity:1"
-       id="g871"
-       transform="matrix(0.26457386,0,0,0.26457386,123.95757,62.83895)">
+       style="fill:#ff6347;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel;stroke-opacity:1"
+       id="g870"
+       transform="matrix(0.26457386,0,0,0.26457386,119.19507,60.9868)">
       <rect
          x="40"
          y="207"
@@ -243,25 +220,25 @@
          height="17"
          rx="0.00"
          shape-rendering="auto"
-         id="rect870" />
+         id="rect869" />
     </g>
     <g
        style="fill:#003060;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel;stroke-opacity:0"
-       id="g872"
-       transform="matrix(0.26457386,0,0,0.26457386,123.95757,62.83895)">
+       id="g871"
+       transform="matrix(0.26457386,0,0,0.26457386,119.19507,60.9868)">
       <text
          x="62"
          y="219"
-         textLength="43"
+         textLength="56"
          style="font-style:normal;font-size:10px;font-family:Calibri;white-space:pre;fill:#003060;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-opacity:0"
          xml:space="preserve"
-         id="text871"
-         lengthAdjust="spacing">Fixed Plant</text>
+         id="text870"
+         lengthAdjust="spacing">Mobile Assets</text>
     </g>
     <g
-       style="fill:#d8bfd8;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel;stroke-opacity:1"
-       id="g873"
-       transform="matrix(0.26457386,0,0,0.26457386,123.95757,62.83895)">
+       style="fill:#ee82ee;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel;stroke-opacity:1"
+       id="g872"
+       transform="matrix(0.26457386,0,0,0.26457386,119.19507,60.9868)">
       <rect
          x="40"
          y="226"
@@ -269,25 +246,25 @@
          height="17"
          rx="0.00"
          shape-rendering="auto"
-         id="rect872" />
+         id="rect871" />
     </g>
     <g
        style="fill:#003060;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel;stroke-opacity:0"
-       id="g874"
-       transform="matrix(0.26457386,0,0,0.26457386,123.95757,62.83895)">
+       id="g873"
+       transform="matrix(0.26457386,0,0,0.26457386,119.19507,60.9868)">
       <text
          x="62"
          y="238"
-         textLength="127"
+         textLength="51"
          style="font-style:normal;font-size:10px;font-family:Calibri;white-space:pre;fill:#003060;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-opacity:0"
          xml:space="preserve"
-         id="text873"
-         lengthAdjust="spacing">Non-Process Infrastructure (NPI)</text>
+         id="text872"
+         lengthAdjust="spacing">Green Power</text>
     </g>
     <g
-       style="fill:#ee82ee;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel;stroke-opacity:1"
-       id="g875"
-       transform="matrix(0.26457386,0,0,0.26457386,123.95757,62.83895)">
+       style="fill:#b0e0e6;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel;stroke-opacity:1"
+       id="g874"
+       transform="matrix(0.26457386,0,0,0.26457386,119.19507,60.9868)">
       <rect
          x="40"
          y="245"
@@ -295,25 +272,25 @@
          height="17"
          rx="0.00"
          shape-rendering="auto"
-         id="rect874" />
+         id="rect873" />
     </g>
     <g
        style="fill:#003060;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel;stroke-opacity:0"
-       id="g876"
-       transform="matrix(0.26457386,0,0,0.26457386,123.95757,62.83895)">
+       id="g875"
+       transform="matrix(0.26457386,0,0,0.26457386,119.19507,60.9868)">
       <text
          x="62"
          y="257"
-         textLength="51"
+         textLength="123"
          style="font-style:normal;font-size:10px;font-family:Calibri;white-space:pre;fill:#003060;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-opacity:0"
          xml:space="preserve"
-         id="text875"
-         lengthAdjust="spacing">Green Power</text>
+         id="text874"
+         lengthAdjust="spacing">Planning and Forecast Systems</text>
     </g>
     <g
-       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel;stroke-opacity:1"
-       id="g877"
-       transform="matrix(0.26457386,0,0,0.26457386,123.95757,62.83895)">
+       style="fill:#7fffd4;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel;stroke-opacity:1"
+       id="g876"
+       transform="matrix(0.26457386,0,0,0.26457386,119.19507,60.9868)">
       <rect
          x="40"
          y="264"
@@ -321,25 +298,25 @@
          height="17"
          rx="0.00"
          shape-rendering="auto"
-         id="rect876" />
+         id="rect875" />
     </g>
     <g
        style="fill:#003060;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel;stroke-opacity:0"
-       id="g878"
-       transform="matrix(0.26457386,0,0,0.26457386,123.95757,62.83895)">
+       id="g877"
+       transform="matrix(0.26457386,0,0,0.26457386,119.19507,60.9868)">
       <text
          x="62"
          y="276"
-         textLength="63"
+         textLength="154"
          style="font-style:normal;font-size:10px;font-family:Calibri;white-space:pre;fill:#003060;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-opacity:0"
          xml:space="preserve"
-         id="text877"
-         lengthAdjust="spacing">Product Storage</text>
+         id="text876"
+         lengthAdjust="spacing">Existing Systems - Green Enhancement</text>
     </g>
     <g
-       style="fill:#3cb371;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel;stroke-opacity:1"
-       id="g879"
-       transform="matrix(0.26457386,0,0,0.26457386,123.95757,62.83895)">
+       style="fill:#ffa500;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel;stroke-opacity:1"
+       id="g878"
+       transform="matrix(0.26457386,0,0,0.26457386,119.19507,60.9868)">
       <rect
          x="40"
          y="283"
@@ -347,25 +324,25 @@
          height="17"
          rx="0.00"
          shape-rendering="auto"
-         id="rect878" />
+         id="rect877" />
     </g>
     <g
        style="fill:#003060;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel;stroke-opacity:0"
-       id="g880"
-       transform="matrix(0.26457386,0,0,0.26457386,123.95757,62.83895)">
+       id="g879"
+       transform="matrix(0.26457386,0,0,0.26457386,119.19507,60.9868)">
       <text
          x="62"
          y="295"
-         textLength="23"
+         textLength="119"
          style="font-style:normal;font-size:10px;font-family:Calibri;white-space:pre;fill:#003060;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-opacity:0"
          xml:space="preserve"
-         id="text879"
-         lengthAdjust="spacing">HaulX</text>
+         id="text878"
+         lengthAdjust="spacing">Control &amp; Monitoring Systems</text>
     </g>
     <g
-       style="fill:#dcdcdc;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel;stroke-opacity:1"
-       id="g881"
-       transform="matrix(0.26457386,0,0,0.26457386,123.95757,62.83895)">
+       style="fill:#a9a9a9;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel;stroke-opacity:1"
+       id="g880"
+       transform="matrix(0.26457386,0,0,0.26457386,119.19507,60.9868)">
       <rect
          x="40"
          y="302"
@@ -373,25 +350,25 @@
          height="17"
          rx="0.00"
          shape-rendering="auto"
-         id="rect880" />
+         id="rect879" />
     </g>
     <g
        style="fill:#003060;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel;stroke-opacity:0"
-       id="g882"
-       transform="matrix(0.26457386,0,0,0.26457386,123.95757,62.83895)">
+       id="g881"
+       transform="matrix(0.26457386,0,0,0.26457386,119.19507,60.9868)">
       <text
          x="62"
          y="314"
-         textLength="61"
+         textLength="69"
          style="font-style:normal;font-size:10px;font-family:Calibri;white-space:pre;fill:#003060;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-opacity:0"
          xml:space="preserve"
-         id="text881"
-         lengthAdjust="spacing">Ancillary/Other</text>
+         id="text880"
+         lengthAdjust="spacing">Unassigned / TBC</text>
     </g>
     <g
-       style="fill:#9acd32;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel;stroke-opacity:1"
-       id="g883"
-       transform="matrix(0.26457386,0,0,0.26457386,123.95757,62.83895)">
+       style="fill:#ffff00;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel;stroke-opacity:1"
+       id="g882"
+       transform="matrix(0.26457386,0,0,0.26457386,119.19507,60.9868)">
       <rect
          x="40"
          y="321"
@@ -399,25 +376,25 @@
          height="17"
          rx="0.00"
          shape-rendering="auto"
-         id="rect882" />
+         id="rect881" />
     </g>
     <g
        style="fill:#003060;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel;stroke-opacity:0"
-       id="g884"
-       transform="matrix(0.26457386,0,0,0.26457386,123.95757,62.83895)">
+       id="g883"
+       transform="matrix(0.26457386,0,0,0.26457386,119.19507,60.9868)">
       <text
          x="62"
          y="333"
-         textLength="84"
+         textLength="40"
          style="font-style:normal;font-size:10px;font-family:Calibri;white-space:pre;fill:#003060;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-opacity:0"
          xml:space="preserve"
-         id="text883"
-         lengthAdjust="spacing">Decarb Infrastructure</text>
+         id="text882"
+         lengthAdjust="spacing">Green Rail</text>
     </g>
     <g
-       style="fill:#cd853f;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel;stroke-opacity:1"
-       id="g885"
-       transform="matrix(0.26457386,0,0,0.26457386,123.95757,62.83895)">
+       style="fill:#5397d9;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel;stroke-opacity:1"
+       id="g884"
+       transform="matrix(0.26457386,0,0,0.26457386,119.19507,60.9868)">
       <rect
          x="40"
          y="340"
@@ -425,25 +402,25 @@
          height="17"
          rx="0.00"
          shape-rendering="auto"
-         id="rect884" />
+         id="rect883" />
     </g>
     <g
        style="fill:#003060;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel;stroke-opacity:0"
-       id="g886"
-       transform="matrix(0.26457386,0,0,0.26457386,123.95757,62.83895)">
+       id="g885"
+       transform="matrix(0.26457386,0,0,0.26457386,119.19507,60.9868)">
       <text
          x="62"
          y="352"
-         textLength="134"
+         textLength="55"
          style="font-style:normal;font-size:10px;font-family:Calibri;white-space:pre;fill:#003060;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-opacity:0"
          xml:space="preserve"
-         id="text885"
-         lengthAdjust="spacing">Power Generation &amp; Transmission</text>
+         id="text884"
+         lengthAdjust="spacing">Green Marine</text>
     </g>
     <g
-       style="fill:#a9a9a9;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel;stroke-opacity:1"
-       id="g887"
-       transform="matrix(0.26457386,0,0,0.26457386,123.95757,62.83895)">
+       style="fill:#3cb371;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel;stroke-opacity:1"
+       id="g886"
+       transform="matrix(0.26457386,0,0,0.26457386,119.19507,60.9868)">
       <rect
          x="40"
          y="359"
@@ -451,27 +428,27 @@
          height="17"
          rx="0.00"
          shape-rendering="auto"
-         id="rect886" />
+         id="rect885" />
     </g>
     <g
        style="fill:#003060;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel;stroke-opacity:0"
-       id="g888"
-       transform="matrix(0.26457386,0,0,0.26457386,123.95757,62.83895)">
+       id="g887"
+       transform="matrix(0.26457386,0,0,0.26457386,119.19507,60.9868)">
       <text
          x="62"
          y="371"
-         textLength="69"
+         textLength="23"
          style="font-style:normal;font-size:10px;font-family:Calibri;white-space:pre;fill:#003060;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-opacity:0"
          xml:space="preserve"
-         id="text887"
-         lengthAdjust="spacing">Unassigned / TBC</text>
+         id="text886"
+         lengthAdjust="spacing">HaulX</text>
       <text
          x="115"
          y="65"
          textLength="25"
          style="font-style:normal;font-weight:700;font-size:20px;font-family:Calibri;white-space:pre;fill:#003060;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-opacity:0"
          xml:space="preserve"
-         id="text888"
+         id="text887"
          lengthAdjust="spacing">Key</text>
     </g>
   </g>
