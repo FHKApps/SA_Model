@@ -1201,6 +1201,22 @@
                 });
             }
         });
+
+        // ----------------------------------------------------------------
+        // DOWNLOAD LINK FIX (all files/ links, depth-independent)
+        // ----------------------------------------------------------------
+        const cssLinkDownload = document.querySelector('link[href*="ea.css"]');
+        if (cssLinkDownload) {
+            const cssPathDownload = cssLinkDownload.getAttribute('href');
+            const rootPathDownload = cssPathDownload.substring(0, cssPathDownload.lastIndexOf('css/'));
+
+            document.querySelectorAll('a[href*="files/"]').forEach(link => {
+                const href = link.getAttribute('href');
+                const filename = href.substring(href.indexOf('files/'));
+                link.href = rootPathDownload + filename;
+            });
+        }
+    }); // closes DOMContentLoaded
 </script>
 <script>
 document.addEventListener('DOMContentLoaded', () => {
