@@ -457,7 +457,7 @@ if (cssLinkDownload) {
     }
 })();
 
-        // ----------------------------------------------------------------
+       // ----------------------------------------------------------------
         // 8. SHORTCUTS (Keyboard & Mouse Zoom) — diagram pages only
         // ----------------------------------------------------------------
         if (document.querySelector('.diagram_image')) {
@@ -474,13 +474,42 @@ if (cssLinkDownload) {
                 }
             });
 
-            // Mouse wheel zoom
             document.addEventListener('wheel', function(e) {
                 if (e.ctrlKey) {
                     e.preventDefault(); 
                     if (e.deltaY < 0) zoomDiagram('in');
                     else zoomDiagram('out');
                 }
+            }, { passive: false });
+
+        } else {
+            // Spec pages: scale only the content cell
+            var specZoom = 1.0;
+            var contentCell = document.querySelector('.contentcell');
+
+            function applySpecZoom() {
+                if (!contentCell) return;
+                contentCell.style.zoom = specZoom;
+            }
+
+            document.addEventListener('keydown', function(e) {
+                if (!e.ctrlKey) return;
+                if (e.key === '+' || e.key === '=' || e.code === 'NumpadAdd') {
+                    e.preventDefault(); specZoom = Math.min(3.0, parseFloat((specZoom + 0.1).toFixed(1))); applySpecZoom();
+                } else if (e.key === '-' || e.code === 'NumpadSubtract') {
+                    e.preventDefault(); specZoom = Math.max(0.5, parseFloat((specZoom - 0.1).toFixed(1))); applySpecZoom();
+                } else if (e.key === '0' || e.code === 'Numpad0') {
+                    e.preventDefault(); specZoom = 1.0; applySpecZoom();
+                }
+            });
+
+            document.addEventListener('wheel', function(e) {
+                if (!e.ctrlKey) return;
+                e.preventDefault();
+                specZoom = e.deltaY < 0
+                    ? Math.min(3.0, parseFloat((specZoom + 0.1).toFixed(1)))
+                    : Math.max(0.5, parseFloat((specZoom - 0.1).toFixed(1)));
+                applySpecZoom();
             }, { passive: false });
         }
     });
