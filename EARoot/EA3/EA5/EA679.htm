@@ -458,9 +458,9 @@ if (cssLinkDownload) {
 })();
 
         // ----------------------------------------------------------------
-        // 8. SHORTCUTS (Keyboard & Mouse Zoom)
+        // 8. SHORTCUTS (Keyboard & Mouse Zoom) — diagram pages only
         // ----------------------------------------------------------------
-        (function() {
+        if (document.querySelector('.diagram_image')) {
             // Keyboard shortcuts
             document.addEventListener('keydown', function(e) {
                 if (e.ctrlKey) {
@@ -482,7 +482,7 @@ if (cssLinkDownload) {
                     else zoomDiagram('out');
                 }
             }, { passive: false });
-        })();
+        }
     });
 </script>
 
