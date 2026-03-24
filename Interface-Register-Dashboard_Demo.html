@@ -37,7 +37,7 @@
 
   padding: 0 20px 0 70px; /* space for background logo */
 
-  background-image: url("../images/fhk.png");
+  background-image: url("images/fhk.png");
   background-repeat: no-repeat;
   background-position: 12px center;
   background-size: auto 50px;
@@ -78,9 +78,10 @@
   .kpi-total .num { font-size: 42px; font-weight: 700; color: #1a5fd4; line-height: 1; }
   .kpi-total .label { font-size: 13px; color: #6070a0; margin-top: 6px; }
 
-  .pie-card { background: #ffffff; border: 1px solid #d0d8e8; border-radius: 4px; padding: 12px 16px; display: flex; align-items: center; gap: 12px; }
-  .pie-card .card-title { font-size: 11px; font-weight: 600; color: #1a2a5a; margin-bottom: 8px; }
-  .pie-legend { font-size: 10px; margin-top: 6px; }
+  .pie-card { background: #ffffff; border: 1px solid #d0d8e8; border-radius: 4px; padding: 12px 16px; display: flex; align-items: center; justify-content: center; gap: 12px; }
+  .pie-card .card-title { font-size: 11px; font-weight: 600; color: #1a2a5a; margin-bottom: 8px; text-align: center; }
+  .pie-card > div { display: flex; flex-direction: column; align-items: center; }
+  .pie-legend { font-size: 10px; margin-top: 6px; text-align: center; }
   .pie-legend .yes { color: #1a5fd4; }
   .pie-legend .no { color: #8090b0; }
 
@@ -108,7 +109,7 @@
 
 <div class="header_frame">
   <h1>Interface Register Dashboard</h1>
-  <img class="header_image" src="../images/Logo.png" alt="Header Image" />
+  <img class="header_image" src="images/Logo.png" alt="Header Image" />
 </div>
 
 <div class="filter-bar">
@@ -157,7 +158,7 @@
     <select id="filterProject"><option value="">All</option></select>
   </div>
   <div class="filter-group">
-    <a class="action-btn" href="Fortescue_Interface-Register_Demo.xlsm" target="_blank" style="display:block;width:100%;margin-top:19px;box-sizing:border-box;text-align:center;">Download Interface Register</a>
+    <a class="action-btn" href="files/Fortescue_Interface-Register_Demo.xlsm" target="_blank" style="display:block;width:100%;margin-top:19px;box-sizing:border-box;text-align:center;">Download Interface Register</a>
   </div>
 </div>
 

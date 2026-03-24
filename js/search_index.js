@@ -646,7 +646,7 @@ var globalSearchData = [
 	{ name: "HV Transmission lines PEC # [SOL - LBD]: 854DC-5660 HV Transmission lines", link: "EARoot/EA3/EA2/EA2/EA550.htm" },
 	{ name: "HV Transmission lines PEC # [W. Hub - SOL]: 854DC-5660 HV Transmission lines", link: "EARoot/EA3/EA2/EA2/EA551.htm" },
 	{ name: "Integrated Planning", link: "EARoot/EA3/EA4/EA633.htm" },
-	{ name: "Interface Register Dashboard", link: "files/Interface-Register-Dashboard_Demo.html" },
+	{ name: "Interface Register Dashboard", link: "Interface-Register-Dashboard_Demo.html" },
 	{ name: "Interfaces", link: "EARoot/EA3/EA486.htm" },
 	{ name: "Iron Bridge Mine: Substation (220kV): 854DC-1521-0004 Substation (220kV)", link: "EARoot/EA3/EA2/EA1/EA535.htm" },
 	{ name: "Iron Bridge Mine: Substation (33kV): 854DC-1521-0001 Substation (33kV)", link: "EARoot/EA3/EA2/EA1/EA536.htm" },
