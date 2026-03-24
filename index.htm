@@ -1194,11 +1194,15 @@
         ); 
         navLinks.forEach(link => {
             const targetUrl = link.getAttribute('href');
-            if (targetUrl && !targetUrl.includes('//') && targetUrl.indexOf('javascript:') === -1) {
-                link.addEventListener('click', (event) => {
-                    event.preventDefault(); 
-                    window.location.href = targetUrl;
-                });
+		link.addEventListener('click', (event) => {
+		// Allow normal behaviour for links that explicitly open in new tab
+		if (link.getAttribute('target') === '_blank') {
+			return;
+			}
+
+		event.preventDefault(); 
+		window.location.href = targetUrl;
+		});
             }
         });
 
@@ -1256,8 +1260,8 @@ document.addEventListener('DOMContentLoaded', () => {
 					<td class="indexcell">
 						<div class="projectBrowserTitle"></div>
                      <div class="download-box">
-					<a href="files/Fortescue_Interface-Register_Demo.xlsm" target="_blank">
-					Export Interface Register
+					<a href="files/Interface-Register-Dashboard_Demo.html" target="_blank">
+					Interface Register
 					</a>
 					</div>
                         <div class="sidebar-search-container">
