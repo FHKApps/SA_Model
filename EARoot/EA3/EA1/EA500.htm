@@ -421,20 +421,28 @@ function getTargetInfo(areaElement) {
                 window.top.location.href = targetIndex;
             });
         }
-		// ----------------------------------------------------------------
-// DOWNLOAD LINK FIX (all files/ links, depth-independent)
 // ----------------------------------------------------------------
-const cssLinkDownload = document.querySelector('link[href*="ea.css"]');
-if (cssLinkDownload) {
-    const cssPathDownload = cssLinkDownload.getAttribute('href');
-    const rootPathDownload = cssPathDownload.substring(0, cssPathDownload.lastIndexOf('css/'));
+// ROBUST ROOT-RELATIVE LINK HANDLING (works everywhere)
+// ----------------------------------------------------------------
+(function() {
+    const cssLink = document.querySelector('link[href*="ea.css"]');
+    if (!cssLink) return;
 
-    document.querySelectorAll('a[href*="files/"]').forEach(link => {
-        const href = link.getAttribute('href');
-        const filename = href.substring(href.indexOf('files/'));
-        link.href = rootPathDownload + filename;
+    const cssPath = cssLink.getAttribute('href');
+    const rootPath = cssPath.substring(0, cssPath.lastIndexOf('css/'));
+
+    const links = {
+        "link-interface": "Interface-Register-Dashboard_Demo.html",
+        "link-delphi": "Delphi-RVAM-Dashboard.html"
+    };
+
+    Object.keys(links).forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+            el.href = rootPath + links[id];
+        }
     });
-}
+})();
 // ----------------------------------------------------------------
 // LEGEND SWITCHING (SBS Special Case)
 // ----------------------------------------------------------------
@@ -535,14 +543,14 @@ if (cssLinkDownload) {
 						<div class="projectBrowserTitle"></div>
 						<div class="download-box">
 						<div class="download-box">
-							<a href="Interface-Register-Dashboard_Demo.html" target="_blank">
-							Interface Register
+							<a id="link-interface" href="#" target="_blank">
+							Explore Interface Register
 							</a>
 						</div>
 						</div>
 						<div class="download-box" id="delphi-rvam-box" style="display:none;">
-							<a href="files/Delphi_RVAM_Demo.xlsx" target="_blank">
-							Export RVAM for this system
+							<a id="link-delphi" href="#" target="_blank">
+							Explore RVAM for this system
 							</a>
 						</div>
                         
@@ -1101,7 +1109,7 @@ if (cssLinkDownload) {
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
 						«block» A.29 Decarb AI<br />
-						Block &nbsp;
+						Class &nbsp;
 					</td>
 					<td width="30%" class="TableRow" valign="top">
 						<strong>Name:</strong> &nbsp;<br />
@@ -1206,9 +1214,9 @@ if (cssLinkDownload) {
 
     </td>
 </tr>
-<tr class="#LINK_STEREOTYPE# Block">
+<tr class="#LINK_STEREOTYPE# Class">
     <td width="30%" class="TableRow" valign="top">A.29 Decarb AI</td>
-    <td width="10%" class="TableRow" valign="top">Block</td>
+    <td width="10%" class="TableRow" valign="top">Class</td>
     <td width="10%" class="TableRow" valign="top">Strong</td>
     <td width="10%" class="TableRow" valign="top">To</td>
     <td width="40%" class="TableRow" valign="top">

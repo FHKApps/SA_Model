@@ -1194,15 +1194,11 @@
         ); 
         navLinks.forEach(link => {
             const targetUrl = link.getAttribute('href');
-		link.addEventListener('click', (event) => {
-		// Allow normal behaviour for links that explicitly open in new tab
-		if (link.getAttribute('target') === '_blank') {
-			return;
-			}
-
-		event.preventDefault(); 
-		window.location.href = targetUrl;
-		});
+            if (targetUrl && !targetUrl.includes('//') && targetUrl.indexOf('javascript:') === -1) {
+                link.addEventListener('click', (event) => {
+                    event.preventDefault(); 
+                    window.location.href = targetUrl;
+                });
             }
         });
 
@@ -1261,7 +1257,7 @@ document.addEventListener('DOMContentLoaded', () => {
 						<div class="projectBrowserTitle"></div>
                      <div class="download-box">
 					<a href="Interface-Register-Dashboard_Demo.html" target="_blank">
-					Interface Register
+					Explore Interface Register
 					</a>
 					</div>
                         <div class="sidebar-search-container">
