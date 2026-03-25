@@ -93,6 +93,50 @@
   tbody td:first-child { color: #1a5fd4; white-space: nowrap; }
   .bottom-row { margin-top: 16px; }
   .results-info { font-size: 11px; color: #8090b0; padding: 8px 12px; }
+
+  .filter-group-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 4px;
+  }
+  .filter-group-header label {
+    display: block;
+    font-size: 11px;
+    color: #1a2a5a;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+    margin-bottom: 0;
+  }
+  .filter-group label {
+    display: block;
+    font-size: 11px;
+    color: #1a2a5a;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+  }
+  .help-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #1a5fd4;
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 700;
+    text-decoration: none;
+    flex-shrink: 0;
+    line-height: 1;
+    border: none;
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+  .help-btn:hover { background: #0d3fa0; }
 </style>
 </head>
 <body>
@@ -104,18 +148,27 @@
 
 <div class="filter-bar">
   <div class="filter-group">
-    <label>Interface Name</label>
+    <div class="filter-group-header">
+      <label>Interface Name</label>
+      <span class="help-btn" title="About Interface Name">?</span>
+    </div>
     <select id="filterName"><option value="">All</option></select>
   </div>
   <div class="filter-group">
-    <label>Interface Criticality</label>
+    <div class="filter-group-header">
+      <label>Interface Criticality</label>
+      <a class="help-btn" href="Interface_Criticality.html" target="_blank" title="About Interface Criticality">?</a>
+    </div>
     <select id="filterCriticality">
       <option value="">All</option>
       <option>HIGH</option><option>MEDIUM</option><option>LOW</option>
     </select>
   </div>
   <div class="filter-group">
-    <label>Interface Status</label>
+    <div class="filter-group-header">
+      <label>Interface Status</label>
+      <span class="help-btn" title="About Interface Status">?</span>
+    </div>
     <select id="filterStatus">
       <option value="">All</option>
       <option selected>Proposed</option><option>Simplified Interface</option><option>Deleted</option>
@@ -124,27 +177,42 @@
 </div>
 <div class="filter-bar-row2">
   <div class="filter-group">
-    <label>Interface Type</label>
+    <div class="filter-group-header">
+      <label>Interface Type</label>
+      <span class="help-btn" title="About Interface Type">?</span>
+    </div>
     <select id="filterType"><option value="">All</option></select>
   </div>
   <div class="filter-group">
-    <label>Location Specific</label>
+    <div class="filter-group-header">
+      <label>Location Specific</label>
+      <span class="help-btn" title="About Location Specific">?</span>
+    </div>
     <select id="filterLocation">
       <option value="">All</option><option value="Yes">Yes</option><option value="No" selected>No</option>
     </select>
   </div>
   <div class="filter-group">
-    <label>Filter Program Level Group</label>
+    <div class="filter-group-header">
+      <label>Filter Program Level Group</label>
+      <span class="help-btn" title="About Filter Program Level Group">?</span>
+    </div>
     <select id="filterProgram"><option value="">All</option></select>
   </div>
 </div>
 <div class="filter-bar-row3">
   <div class="filter-group">
-    <label>Filter System Level Group</label>
+    <div class="filter-group-header">
+      <label>Filter System Level Group</label>
+      <span class="help-btn" title="About Filter System Level Group">?</span>
+    </div>
     <select id="filterSystem"><option value="">All</option></select>
   </div>
   <div class="filter-group">
-    <label>Filter Project Level Group</label>
+    <div class="filter-group-header">
+      <label>Filter Project Level Group</label>
+      <span class="help-btn" title="About Filter Project Level Group">?</span>
+    </div>
     <select id="filterProject"><option value="">All</option></select>
   </div>
   <div class="filter-group">

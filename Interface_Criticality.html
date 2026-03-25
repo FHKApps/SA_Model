@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interface Criticality</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', Arial, sans-serif; background: #f0f2f5; color: #1a2a5a; min-height: 100vh; padding-top: 70px; }
+
+  .header_frame {
+    height: auto;
+    min-height: 60px;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px 0 70px;
+    background-image: url("images/fhk.png");
+    background-repeat: no-repeat;
+    background-position: 12px center;
+    background-size: auto 50px;
+    background-color: #182E4F;
+    box-shadow: 0 3px 10px 0 rgb(0 0 0 / 6%);
+    z-index: 1000;
+  }
+  .header_frame h1 { font-family: Arial, sans-serif; font-size: 26px; font-weight: normal; color: white; }
+  .header_image { height: 50px; margin-right: 10px; }
+
+  .main { padding: 24px 20px; max-width: 1100px; margin: 0 auto; }
+
+  .page-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #182E4F;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #d0d8e8;
+  }
+
+  .criticality-table-section {
+    background: #ffffff;
+    border: 1px solid #d0d8e8;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  thead tr { background: #182E4F; }
+  thead th {
+    padding: 12px 16px;
+    text-align: left;
+    font-weight: 600;
+    color: #ffffff;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-right: 1px solid #2a4070;
+    white-space: nowrap;
+  }
+  thead th:last-child { border-right: none; }
+
+  tbody tr { border-bottom: 1px solid #e8ecf4; }
+  tbody tr:hover { background: #f5f7fc; }
+  tbody td { padding: 12px 16px; vertical-align: top; border-right: 1px solid #e8ecf4; line-height: 1.5; }
+  tbody td:last-child { border-right: none; }
+
+  .crit-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 3px;
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  .crit-high   { background: #fde8e8; color: #c0392b; border: 1px solid #e9b0b0; }
+  .crit-medium { background: #fef3e2; color: #b36a00; border: 1px solid #f0cc80; }
+  .crit-low    { background: #e6f4ea; color: #1e7a3c; border: 1px solid #a0d4ae; }
+  .crit-na     { background: #f0f2f5; color: #4a5a7a; border: 1px solid #c0c8d8; }
+
+  .icd-yes   { }
+  .icd-maybe { }
+  .icd-no    { }
+
+  .sub-row td { padding-top: 8px; padding-bottom: 8px; }
+
+  .intro-box {
+    background: #eef2fb;
+    border-left: 4px solid #1a5fd4;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin-bottom: 20px;
+    font-size: 13px;
+    line-height: 1.6;
+    color: #1a2a5a;
+  }
+</style>
+</head>
+<body>
+
+<div class="header_frame">
+  <h1>Interface Register Dashboard</h1>
+  <img class="header_image" src="images/Logo.png" alt="Header Image" />
+</div>
+
+<div class="main">
+
+  <div class="page-title">Interface Criticality</div>
+
+  <div class="intro-box">
+    Interface criticality defines the operational impact of a failure or issue at a given interface. Each interface is assessed against the categories below to determine its criticality rating: <strong>HIGH</strong>, <strong>MEDIUM</strong>, <strong>LOW</strong>, or <strong>N/A</strong>.
+  </div>
+
+  <div class="criticality-table-section">
+    <table>
+      <thead>
+        <tr>
+          <th style="width:110px">Criticality</th>
+          <th style="width:170px">Category Focus</th>
+          <th>Definition</th>
+          <th style="width:230px">Production Impact</th>
+          <th style="width:100px">ICD Required?</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <!-- HIGH -->
+        <tr>
+          <td rowspan="2" style="vertical-align:middle; border-bottom:2px solid #d0d8e8;">
+            <span class="crit-badge crit-high">HIGH</span>
+          </td>
+          <td>Throughput &amp; Safety</td>
+          <td>An interface issue that shuts down a major choke point (e.g., Crusher, Train Loader, Automated Haulage System (AHS) block) for more than 4 hours, or compromises a Safety-Critical Function (e.g., collision avoidance, emergency stop system, blast control). This category includes any external interface (e.g., utility, regulatory) that prevents material movement or export.</td>
+          <td>Direct, measurable loss of annualised production volume (Mt) or poses an immediate threat to personnel or major fixed assets.</td>
+          <td rowspan="2" style="vertical-align:middle; border-bottom:2px solid #d0d8e8;">
+            <span class="icd-yes">Yes</span>
+          </td>
+        </tr>
+        <tr class="sub-row" style="border-bottom:2px solid #d0d8e8;">
+          <td>Decarbonisation</td>
+          <td>Any issue that critically delays the Real Zero 2030 initiatives, such as the deployment of renewable energy infrastructure or the integration of new electric equipment.</td>
+          <td style="border-right:1px solid #e8ecf4;">Long-term strategic risk to corporate commitment and license to operate.</td>
+        </tr>
+
+        <!-- MEDIUM -->
+        <tr>
+          <td rowspan="2" style="vertical-align:middle; border-bottom:2px solid #d0d8e8;">
+            <span class="crit-badge crit-medium">MEDIUM</span>
+          </td>
+          <td>Efficiency &amp; Asset Health</td>
+          <td>An interface issue that degrades processing or logistics efficiency (e.g., blending failure leading to off-spec ore, rail network congestion, Fleet Management System (FMS)/Automated Haulage System (AHS) partial system degradation) or requires an unplanned major maintenance intervention. This results in a sustained operational rate reduction of 10%&ndash;25% for a shift.</td>
+          <td>Requires the activation of a pre-planned production contingency (e.g., using a stockpile bypass, reducing train speed, re-routing ore). Causes a moderate, trackable deviation from the monthly plan.</td>
+          <td rowspan="2" style="vertical-align:middle; border-bottom:2px solid #d0d8e8;">
+            <span class="icd-maybe">Maybe</span>
+          </td>
+        </tr>
+        <tr class="sub-row" style="border-bottom:2px solid #d0d8e8;">
+          <td>Cost</td>
+          <td>Requires a significant, unbudgeted expenditure (e.g., 5% of the relevant project or operating budget) to resolve.</td>
+          <td style="border-right:1px solid #e8ecf4;">&nbsp;</td>
+        </tr>
+
+        <!-- LOW -->
+        <tr style="border-bottom:2px solid #d0d8e8;">
+          <td style="vertical-align:middle;">
+            <span class="crit-badge crit-low">LOW</span>
+          </td>
+          <td>Minor Process &amp; Support</td>
+          <td>An interface issue that causes a minor, localised interruption that can be resolved by frontline teams within a single shift (e.g., I.T. network lag in a non-critical area, minor civil/drainage issue, small data incompatibility between two non-critical systems). Operational rate reduction is less than 10% and quickly recovered.</td>
+          <td>Minor impact on daily targets but does not jeopardise the weekly or monthly plan.</td>
+          <td style="vertical-align:middle;">
+            <span class="icd-no">No</span>
+          </td>
+        </tr>
+
+        <!-- N/A -->
+        <tr>
+          <td style="vertical-align:middle;">
+            <span class="crit-badge crit-na">N/A</span>
+          </td>
+          <td>N/A</td>
+          <td>No measurable impact on safety, production, cost, or schedule, or the interface is fully defined, verified and validated.</td>
+          <td>None.</td>
+          <td><span class="icd-no">N/A</span></td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+</div>
+
+</body>
+</html>
